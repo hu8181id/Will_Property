@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Plus, Upload } from "lucide-react";
+import { Plus, Upload, X } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -19,6 +19,7 @@ interface Property {
   location: string;
   price: number;
   image: string;
+  images?: string[];
   beds: number;
   baths: number;
   area: number;
@@ -32,11 +33,13 @@ interface AddPropertyDialogProps {
   onAddProperty: (property: Property) => void;
 }
 
+const MAX_IMAGES = 5;
+
 export default function AddPropertyDialog({
   onAddProperty,
 }: AddPropertyDialogProps) {
   const [open, setOpen] = useState(false);
-  const [imagePreview, setImagePreview] = useState<string>("");
+  const [images, setImages] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     title: "",
     location: "",
@@ -49,14 +52,31 @@ export default function AddPropertyDialog({
   });
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+    const files = e.target.files;
+    if (files) {
+      const newImages = Array.from(files);
+      const remainingSlots = MAX_IMAGES - images.length;
+
+      if (newImages.length > remainingSlots) {
+        toast.error(
+          `Maksimal ${MAX_IMAGES} foto. Anda masih bisa menambah ${remainingSlots} foto.`
+        );
+        return;
+      }
+
+      // Convert files to base64
+      newImages.forEach((file) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setImages((prev) => [...prev, reader.result as string]);
+        };
+        reader.readAsDataURL(file);
+      });
     }
+  };
+
+  const handleRemoveImage = (index: number) => {
+    setImages((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -66,9 +86,9 @@ export default function AddPropertyDialog({
       !formData.title ||
       !formData.location ||
       !formData.price ||
-      !imagePreview
+      images.length === 0
     ) {
-      toast.error("Mohon isi semua field yang diperlukan");
+      toast.error("Mohon isi semua field dan minimal 1 foto diperlukan");
       return;
     }
 
@@ -77,7 +97,8 @@ export default function AddPropertyDialog({
       title: formData.title,
       location: formData.location,
       price: parseInt(formData.price),
-      image: imagePreview,
+      image: images[0], // Primary image
+      images: images, // All images
       beds: parseInt(formData.beds),
       baths: parseInt(formData.baths),
       area: parseInt(formData.area),
@@ -100,7 +121,7 @@ export default function AddPropertyDialog({
       area: "150",
       description: "",
     });
-    setImagePreview("");
+    setImages([]);
     setOpen(false);
 
     toast.success("Properti berhasil ditambahkan!");
@@ -123,29 +144,42 @@ export default function AddPropertyDialog({
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Upload Foto */}
+          {/* Upload Foto Multiple */}
           <div>
             <label className="block text-sm font-semibold text-slate-900 mb-2">
-              Foto Properti *
+              Foto Properti (Maksimal {MAX_IMAGES} foto) *
             </label>
-            <div className="border-2 border-dashed border-border rounded-lg p-6 text-center">
-              {imagePreview ? (
-                <div className="space-y-3">
-                  <img
-                    src={imagePreview}
-                    alt="Preview"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setImagePreview("")}
-                  >
-                    Ganti Foto
-                  </Button>
-                </div>
-              ) : (
+
+            {/* Image Preview Grid */}
+            {images.length > 0 && (
+              <div className="grid grid-cols-3 gap-3 mb-4">
+                {images.map((image, index) => (
+                  <div key={index} className="relative group">
+                    <img
+                      src={image}
+                      alt={`Preview ${index + 1}`}
+                      className="w-full h-24 object-cover rounded-lg"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveImage(index)}
+                      className="absolute top-1 right-1 bg-red-500 hover:bg-red-600 text-white p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <X size={14} />
+                    </button>
+                    {index === 0 && (
+                      <div className="absolute bottom-1 left-1 bg-primary text-white text-xs px-2 py-1 rounded">
+                        Utama
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Upload Area */}
+            {images.length < MAX_IMAGES && (
+              <div className="border-2 border-dashed border-border rounded-lg p-6 text-center">
                 <label className="cursor-pointer">
                   <div className="flex flex-col items-center gap-2">
                     <Upload size={32} className="text-muted-foreground" />
@@ -153,18 +187,28 @@ export default function AddPropertyDialog({
                       Klik untuk upload foto
                     </span>
                     <span className="text-xs text-muted-foreground">
-                      atau drag and drop
+                      atau drag and drop (tersisa: {MAX_IMAGES - images.length})
                     </span>
                   </div>
                   <input
                     type="file"
                     accept="image/*"
+                    multiple
                     onChange={handleImageChange}
                     className="hidden"
+                    disabled={images.length >= MAX_IMAGES}
                   />
                 </label>
-              )}
-            </div>
+              </div>
+            )}
+
+            {images.length >= MAX_IMAGES && (
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
+                <p className="text-sm text-blue-700">
+                  ✓ Sudah upload {MAX_IMAGES} foto maksimal
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Nama Properti */}

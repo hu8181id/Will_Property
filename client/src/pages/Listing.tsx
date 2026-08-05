@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { MapPin, Bed, Bath, Ruler, Star, ChevronRight, Trash2 } from "lucide-react";
+import { MapPin, Bed, Bath, Ruler, Star, ChevronRight, Trash2, ChevronLeft } from "lucide-react";
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,6 +14,7 @@ interface Property {
   location: string;
   price: number;
   image: string;
+  images?: string[];
   beds: number;
   baths: number;
   area: number;
@@ -34,6 +35,7 @@ export default function Listing() {
   const [sortBy, setSortBy] = useState("terbaru");
   const [customProperties, setCustomProperties] = useState<Property[]>([]);
   const [deletedDefaultIds, setDeletedDefaultIds] = useState<number[]>([]);
+  const [imageIndices, setImageIndices] = useState<{ [key: number]: number }>({});
 
   // Load properties dari local storage
   useEffect(() => {
@@ -366,12 +368,53 @@ export default function Listing() {
                         key={property.id}
                         className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group relative"
                       >
-                        <div className="relative overflow-hidden h-48 bg-gray-200">
+                        <div className="relative overflow-hidden h-48 bg-gray-200 group/carousel">
+                          {/* Image Gallery */}
                           <img
-                            src={property.image}
+                            src={property.images?.[imageIndices[property.id] || 0] || property.image}
                             alt={property.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
+
+                          {/* Gallery Navigation */}
+                          {property.images && property.images.length > 1 && (
+                            <>
+                              <button
+                                onClick={() =>
+                                  setImageIndices((prev) => ({
+                                    ...prev,
+                                    [property.id]:
+                                      (prev[property.id] || 0) === 0
+                                        ? property.images!.length - 1
+                                        : (prev[property.id] || 0) - 1,
+                                  }))
+                                }
+                                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+                              >
+                                <ChevronLeft size={20} />
+                              </button>
+                              <button
+                                onClick={() =>
+                                  setImageIndices((prev) => ({
+                                    ...prev,
+                                    [property.id]:
+                                      (prev[property.id] || 0) === property.images!.length - 1
+                                        ? 0
+                                        : (prev[property.id] || 0) + 1,
+                                  }))
+                                }
+                                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+                              >
+                                <ChevronRight size={20} />
+                              </button>
+
+                              {/* Image Counter */}
+                              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/50 text-white text-xs px-2 py-1 rounded">
+                                {(imageIndices[property.id] || 0) + 1} / {property.images.length}
+                              </div>
+                            </>
+                          )}
+
                           <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                             {formatPrice(property.price)}
                           </div>
