@@ -43,39 +43,54 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
+  /* Primedeal Brand Colors */
+  --primary: oklch(0.52 0.18 258); /* Primedeal Blue #0066CC */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --sidebar-primary: oklch(0.52 0.18 258);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --chart-1: oklch(0.52 0.18 258);
+  --chart-2: oklch(0.65 0.15 258);
+  --chart-3: oklch(0.58 0.16 258);
+  --chart-4: oklch(0.52 0.18 258);
+  --chart-5: oklch(0.45 0.2 258);
+  
+  /* Spacing & Radius */
+  --radius: 0.75rem; /* 12px for modern cards */
+  
+  /* Background & Text */
+  --background: oklch(1 0 0); /* Pure White */
+  --foreground: oklch(0.15 0.02 65); /* Dark Slate #1F2937 */
+  --card: oklch(1 0 0); /* White */
+  --card-foreground: oklch(0.15 0.02 65); /* Dark Slate */
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
+  --popover-foreground: oklch(0.15 0.02 65);
+  
+  /* Secondary & Muted */
+  --secondary: oklch(0.94 0.005 258); /* Light Blue #E3F2FD */
+  --secondary-foreground: oklch(0.15 0.02 65);
+  --muted: oklch(0.94 0.005 258);
+  --muted-foreground: oklch(0.42 0.02 65); /* Gray #6B7280 */
+  
+  /* Accent */
+  --accent: oklch(0.94 0.005 258);
+  --accent-foreground: oklch(0.52 0.18 258);
+  
+  /* Destructive */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  
+  /* Borders & Inputs */
+  --border: oklch(0.94 0.005 258); /* Light Gray */
+  --input: oklch(0.98 0.002 258);
+  --ring: oklch(0.52 0.18 258);
+  
+  /* Sidebar */
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.15 0.02 65);
+  --sidebar-accent: oklch(0.94 0.005 258);
+  --sidebar-accent-foreground: oklch(0.52 0.18 258);
+  --sidebar-border: oklch(0.94 0.005 258);
+  --sidebar-ring: oklch(0.52 0.18 258);
 }
 
 .dark {
@@ -117,8 +132,32 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -130,6 +169,16 @@
   input[type="checkbox"]:not(:disabled),
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
+  }
+  
+  /* Smooth transitions for interactive elements */
+  button, a, input, select, textarea {
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  /* Button active state */
+  button:active:not(:disabled) {
+    @apply scale-95;
   }
 }
 
