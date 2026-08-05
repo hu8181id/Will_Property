@@ -2,10 +2,26 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { MapPin, Bed, Bath, Ruler, Star, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { MapPin, Bed, Bath, Ruler, Star, ChevronRight, Trash2 } from "lucide-react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AddPropertyDialog from "@/components/AddPropertyDialog";
+
+interface Property {
+  id: number;
+  title: string;
+  location: string;
+  price: number;
+  image: string;
+  beds: number;
+  baths: number;
+  area: number;
+  rating: number;
+  type: string;
+  date: string;
+  description?: string;
+}
 
 export default function Listing() {
   const [filters, setFilters] = useState({
@@ -16,8 +32,26 @@ export default function Listing() {
   });
 
   const [sortBy, setSortBy] = useState("terbaru");
+  const [customProperties, setCustomProperties] = useState<Property[]>([]);
 
-  const allProperties = [
+  // Load properties dari local storage
+  useEffect(() => {
+    const savedProperties = localStorage.getItem("primedeal_properties");
+    if (savedProperties) {
+      try {
+        setCustomProperties(JSON.parse(savedProperties));
+      } catch (error) {
+        console.error("Error loading properties:", error);
+      }
+    }
+  }, []);
+
+  // Save properties ke local storage
+  useEffect(() => {
+    localStorage.setItem("primedeal_properties", JSON.stringify(customProperties));
+  }, [customProperties]);
+
+  const defaultProperties: Property[] = [
     {
       id: 1,
       title: "Rumah Modern di Pondok Indah",
@@ -30,6 +64,7 @@ export default function Listing() {
       rating: 4.8,
       type: "rumah",
       date: "2024-01-15",
+      description: "Rumah modern dengan desain minimalis, lokasi strategis di Pondok Indah dengan akses mudah ke berbagai fasilitas.",
     },
     {
       id: 2,
@@ -43,6 +78,7 @@ export default function Listing() {
       rating: 4.9,
       type: "apartemen",
       date: "2024-01-14",
+      description: "Apartemen mewah dengan pemandangan kota, fasilitas lengkap termasuk gym, kolam renang, dan keamanan 24 jam.",
     },
     {
       id: 3,
@@ -56,6 +92,7 @@ export default function Listing() {
       rating: 4.7,
       type: "rumah",
       date: "2024-01-13",
+      description: "Rumah nyaman di area Bintaro yang berkembang, dekat dengan sekolah dan pusat perbelanjaan.",
     },
     {
       id: 4,
@@ -69,6 +106,7 @@ export default function Listing() {
       rating: 4.6,
       type: "ruko",
       date: "2024-01-12",
+      description: "Ruko komersial dengan lokasi strategis, cocok untuk bisnis retail atau kantor.",
     },
     {
       id: 5,
@@ -82,6 +120,7 @@ export default function Listing() {
       rating: 4.5,
       type: "tanah",
       date: "2024-01-11",
+      description: "Tanah luas dengan pemandangan alam yang indah, ideal untuk investasi atau pembangunan resort.",
     },
     {
       id: 6,
@@ -95,8 +134,19 @@ export default function Listing() {
       rating: 4.8,
       type: "apartemen",
       date: "2024-01-10",
+      description: "Apartemen studio modern dengan lokasi premium di pusat kota, sempurna untuk profesional muda.",
     },
   ];
+
+  const allProperties = [...defaultProperties, ...customProperties];
+
+  const handleAddProperty = (newProperty: Property) => {
+    setCustomProperties([...customProperties, newProperty]);
+  };
+
+  const handleDeleteProperty = (id: number) => {
+    setCustomProperties(customProperties.filter((p) => p.id !== id));
+  };
 
   const filteredProperties = allProperties
     .filter((prop) => {
@@ -264,21 +314,24 @@ export default function Listing() {
 
               {/* Properties Grid */}
               <div className="lg:col-span-3">
-                {/* Sort Options */}
-                <div className="flex justify-between items-center mb-8">
+                {/* Sort Options & Add Button */}
+                <div className="flex justify-between items-center mb-8 gap-4 flex-wrap">
                   <p className="text-muted-foreground">
                     Menampilkan {filteredProperties.length} properti
                   </p>
-                  <select
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value)}
-                    className="px-4 py-2 border border-border rounded-lg text-sm"
-                  >
-                    <option value="terbaru">Terbaru</option>
-                    <option value="harga-rendah">Harga: Rendah ke Tinggi</option>
-                    <option value="harga-tinggi">Harga: Tinggi ke Rendah</option>
-                    <option value="rating">Rating Tertinggi</option>
-                  </select>
+                  <div className="flex gap-3 items-center flex-wrap">
+                    <select
+                      value={sortBy}
+                      onChange={(e) => setSortBy(e.target.value)}
+                      className="px-4 py-2 border border-border rounded-lg text-sm"
+                    >
+                      <option value="terbaru">Terbaru</option>
+                      <option value="harga-rendah">Harga: Rendah ke Tinggi</option>
+                      <option value="harga-tinggi">Harga: Tinggi ke Rendah</option>
+                      <option value="rating">Rating Tertinggi</option>
+                    </select>
+                    <AddPropertyDialog onAddProperty={handleAddProperty} />
+                  </div>
                 </div>
 
                 {/* Properties */}
@@ -287,7 +340,7 @@ export default function Listing() {
                     {filteredProperties.map((property) => (
                       <Card
                         key={property.id}
-                        className="overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer group"
+                        className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group relative"
                       >
                         <div className="relative overflow-hidden h-48 bg-gray-200">
                           <img
@@ -298,12 +351,28 @@ export default function Listing() {
                           <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                             {formatPrice(property.price)}
                           </div>
+                          {/* Delete button untuk properti yang baru ditambahkan */}
+                          {customProperties.some((p) => p.id === property.id) && (
+                            <button
+                              onClick={() => handleDeleteProperty(property.id)}
+                              className="absolute top-4 left-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg transition-colors"
+                              title="Hapus properti"
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                          )}
                         </div>
 
                         <div className="p-5">
                           <h3 className="text-base font-bold text-slate-900 mb-2">
                             {property.title}
                           </h3>
+
+                          {property.description && (
+                            <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
+                              {property.description}
+                            </p>
+                          )}
 
                           <div className="flex items-center gap-2 text-muted-foreground mb-3">
                             <MapPin size={14} />
