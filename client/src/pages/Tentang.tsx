@@ -11,7 +11,6 @@ import Footer from "@/components/Footer";
 export default function Tentang() {
   const [formData, setFormData] = useState({
     nama: "",
-    email: "",
     telepon: "",
     pesan: "",
   });
@@ -19,20 +18,20 @@ export default function Tentang() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.nama || !formData.email || !formData.pesan) {
+    if (!formData.nama || !formData.pesan) {
       toast.error("Mohon isi semua field yang diperlukan");
       return;
     }
 
-    const phone = "6281234567890";
-    const message = `Halo Primedeal,\n\nNama: ${formData.nama}\nEmail: ${formData.email}\nTelepon: ${formData.telepon}\n\nPesan: ${formData.pesan}`;
+    const phone = "62822303570009";
+    const message = `Halo Primedeal,\n\nNama: ${formData.nama}\nTelepon: ${formData.telepon}\n\nPesan: ${formData.pesan}`;
 
     window.open(
       `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
       "_blank"
     );
 
-    setFormData({ nama: "", email: "", telepon: "", pesan: "" });
+    setFormData({ nama: "", telepon: "", pesan: "" });
     toast.success("Pesan Anda akan dikirim via WhatsApp");
   };
 
@@ -161,7 +160,7 @@ export default function Tentang() {
                           Telepon
                         </h4>
                         <p className="text-muted-foreground">
-                          +62 812 3456 7890
+                          0822-3035-7009
                         </p>
                         <p className="text-sm text-muted-foreground">
                           Senin - Jumat, 09:00 - 18:00 WIB
@@ -170,22 +169,7 @@ export default function Tentang() {
                     </div>
                   </Card>
 
-                  <Card className="p-6">
-                    <div className="flex gap-4">
-                      <Mail className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold text-slate-900 mb-1">
-                          Email
-                        </h4>
-                        <p className="text-muted-foreground">
-                          info@primedeal.com
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          Balas dalam 24 jam
-                        </p>
-                      </div>
-                    </div>
-                  </Card>
+
 
                   <Card className="p-6">
                     <div className="flex gap-4">
@@ -195,8 +179,7 @@ export default function Tentang() {
                           Alamat
                         </h4>
                         <p className="text-muted-foreground">
-                          Jl. Sudirman No. 123<br />
-                          Jakarta Pusat, 12190
+                          Surabaya, Indonesia
                         </p>
                       </div>
                     </div>
@@ -220,20 +203,7 @@ export default function Tentang() {
                       />
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-900 mb-2">
-                        Email *
-                      </label>
-                      <Input
-                        type="email"
-                        placeholder="email@contoh.com"
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        required
-                      />
-                    </div>
+
 
                     <div>
                       <label className="block text-sm font-semibold text-slate-900 mb-2">
