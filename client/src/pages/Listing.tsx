@@ -33,15 +33,24 @@ export default function Listing() {
 
   const [sortBy, setSortBy] = useState("terbaru");
   const [customProperties, setCustomProperties] = useState<Property[]>([]);
+  const [deletedDefaultIds, setDeletedDefaultIds] = useState<number[]>([]);
 
   // Load properties dari local storage
   useEffect(() => {
     const savedProperties = localStorage.getItem("primedeal_properties");
+    const savedDeletedIds = localStorage.getItem("primedeal_deleted_ids");
     if (savedProperties) {
       try {
         setCustomProperties(JSON.parse(savedProperties));
       } catch (error) {
         console.error("Error loading properties:", error);
+      }
+    }
+    if (savedDeletedIds) {
+      try {
+        setDeletedDefaultIds(JSON.parse(savedDeletedIds));
+      } catch (error) {
+        console.error("Error loading deleted IDs:", error);
       }
     }
   }, []);
@@ -50,6 +59,11 @@ export default function Listing() {
   useEffect(() => {
     localStorage.setItem("primedeal_properties", JSON.stringify(customProperties));
   }, [customProperties]);
+
+  // Save deleted IDs ke local storage
+  useEffect(() => {
+    localStorage.setItem("primedeal_deleted_ids", JSON.stringify(deletedDefaultIds));
+  }, [deletedDefaultIds]);
 
   const defaultProperties: Property[] = [
     {
@@ -138,14 +152,24 @@ export default function Listing() {
     },
   ];
 
-  const allProperties = [...defaultProperties, ...customProperties];
+  const allProperties = [...defaultProperties.filter((p) => !deletedDefaultIds.includes(p.id)), ...customProperties];
 
   const handleAddProperty = (newProperty: Property) => {
     setCustomProperties([...customProperties, newProperty]);
   };
 
   const handleDeleteProperty = (id: number) => {
-    setCustomProperties(customProperties.filter((p) => p.id !== id));
+    // Check if it's a custom property or default property
+    if (customProperties.some((p) => p.id === id)) {
+      setCustomProperties(customProperties.filter((p) => p.id !== id));
+    } else {
+      // It's a default property, add to deleted list
+      setDeletedDefaultIds([...deletedDefaultIds, id]);
+    }
+  };
+
+  const handleRestoreProperty = (id: number) => {
+    setDeletedDefaultIds(deletedDefaultIds.filter((deletedId) => deletedId !== id));
   };
 
   const filteredProperties = allProperties
@@ -351,16 +375,14 @@ export default function Listing() {
                           <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                             {formatPrice(property.price)}
                           </div>
-                          {/* Delete button untuk properti yang baru ditambahkan */}
-                          {customProperties.some((p) => p.id === property.id) && (
-                            <button
-                              onClick={() => handleDeleteProperty(property.id)}
-                              className="absolute top-4 left-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg transition-colors"
-                              title="Hapus properti"
-                            >
-                              <Trash2 size={16} />
-                            </button>
-                          )}
+                          {/* Delete button untuk semua properti */}
+                          <button
+                            onClick={() => handleDeleteProperty(property.id)}
+                            className="absolute top-4 left-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg transition-colors"
+                            title="Hapus properti"
+                          >
+                            <Trash2 size={16} />
+                          </button>
                         </div>
 
                         <div className="p-5">
