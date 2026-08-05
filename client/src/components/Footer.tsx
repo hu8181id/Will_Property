@@ -57,15 +57,18 @@ export default function Footer() {
             <div className="space-y-3 text-sm text-gray-300">
               <div className="flex items-start gap-2">
                 <Phone size={16} className="mt-1 flex-shrink-0" />
-                <span>+62 812 3456 7890</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Mail size={16} className="mt-1 flex-shrink-0" />
-                <span>info@primedeal.com</span>
+                <a
+                  href="https://wa.me/62822303570009?text=Halo%20Primedeal%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20properti%20Anda."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  0822-3035-7009
+                </a>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span>Jakarta, Indonesia</span>
+                <span>Surabaya, Indonesia</span>
               </div>
             </div>
           </div>
@@ -82,7 +85,12 @@ export default function Footer() {
               <a href="#" className="hover:text-white transition-colors">
                 Syarat & Ketentuan
               </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a
+                href="https://wa.me/62822303570009?text=Halo%20Primedeal%2C%20saya%20ingin%20menghubungi%20Anda."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
                 Hubungi Kami
               </a>
             </div>

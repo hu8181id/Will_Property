@@ -2,11 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { MapPin, Bed, Bath, Ruler, Star, ChevronRight, Trash2, ChevronLeft } from "lucide-react";
+import { MapPin, Bed, Bath, Ruler, Star, ChevronRight, Trash2, ChevronLeft, Heart } from "lucide-react";
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AddPropertyDialog from "@/components/AddPropertyDialog";
+import ComparisonModal from "@/components/ComparisonModal";
 
 interface Property {
   id: number;
@@ -30,17 +31,25 @@ export default function Listing() {
     priceMax: "",
     type: [] as string[],
     beds: [] as string[],
+    yearMin: "",
+    condition: [] as string[],
+    facilities: [] as string[],
   });
 
   const [sortBy, setSortBy] = useState("terbaru");
   const [customProperties, setCustomProperties] = useState<Property[]>([]);
   const [deletedDefaultIds, setDeletedDefaultIds] = useState<number[]>([]);
   const [imageIndices, setImageIndices] = useState<{ [key: number]: number }>({});
+  const [favorites, setFavorites] = useState<number[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [comparison, setComparison] = useState<number[]>([]);
+  const [showComparison, setShowComparison] = useState(false);
 
   // Load properties dari local storage
   useEffect(() => {
     const savedProperties = localStorage.getItem("primedeal_properties");
     const savedDeletedIds = localStorage.getItem("primedeal_deleted_ids");
+    const savedFavorites = localStorage.getItem("primedeal_favorites_ids");
     if (savedProperties) {
       try {
         setCustomProperties(JSON.parse(savedProperties));
@@ -55,6 +64,13 @@ export default function Listing() {
         console.error("Error loading deleted IDs:", error);
       }
     }
+    if (savedFavorites) {
+      try {
+        setFavorites(JSON.parse(savedFavorites));
+      } catch (error) {
+        console.error("Error loading favorites:", error);
+      }
+    }
   }, []);
 
   // Save properties ke local storage
@@ -66,6 +82,11 @@ export default function Listing() {
   useEffect(() => {
     localStorage.setItem("primedeal_deleted_ids", JSON.stringify(deletedDefaultIds));
   }, [deletedDefaultIds]);
+
+  // Save favorites ke local storage
+  useEffect(() => {
+    localStorage.setItem("primedeal_favorites_ids", JSON.stringify(favorites));
+  }, [favorites]);
 
   const defaultProperties: Property[] = [
     {
@@ -174,6 +195,26 @@ export default function Listing() {
     setDeletedDefaultIds(deletedDefaultIds.filter((deletedId) => deletedId !== id));
   };
 
+  const handleToggleFavorite = (propertyId: number) => {
+    if (favorites.includes(propertyId)) {
+      setFavorites(favorites.filter((id) => id !== propertyId));
+    } else {
+      setFavorites([...favorites, propertyId]);
+    }
+  };
+
+  const handleToggleComparison = (propertyId: number) => {
+    if (comparison.includes(propertyId)) {
+      setComparison(comparison.filter((id) => id !== propertyId));
+    } else if (comparison.length < 3) {
+      setComparison([...comparison, propertyId]);
+    }
+  };
+
+  const comparisonProperties = allProperties.filter((p) =>
+    comparison.includes(p.id)
+  );
+
   const filteredProperties = allProperties
     .filter((prop) => {
       const priceMin = filters.priceMin ? parseInt(filters.priceMin) : 0;
@@ -187,6 +228,17 @@ export default function Listing() {
       if (filters.beds.length > 0) {
         const beds = filters.beds.map((b) => parseInt(b));
         if (!beds.includes(prop.beds)) return false;
+      }
+
+      // Search filter
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase();
+        if (
+          !prop.title.toLowerCase().includes(query) &&
+          !prop.location.toLowerCase().includes(query)
+        ) {
+          return false;
+        }
       }
 
       return true;
@@ -330,6 +382,9 @@ export default function Listing() {
                         priceMax: "",
                         type: [],
                         beds: [],
+                        yearMin: "",
+                        condition: [],
+                        facilities: [],
                       })
                     }
                   >
@@ -340,7 +395,17 @@ export default function Listing() {
 
               {/* Properties Grid */}
               <div className="lg:col-span-3">
-                {/* Sort Options & Add Button */}
+                {/* Search Bar */}
+              <div className="mb-8">
+                <Input
+                  placeholder="Cari properti berdasarkan nama atau lokasi..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full"
+                />
+              </div>
+
+              {/* Sort Options & Add Button */}
                 <div className="flex justify-between items-center mb-8 gap-4 flex-wrap">
                   <p className="text-muted-foreground">
                     Menampilkan {filteredProperties.length} properti
@@ -357,8 +422,23 @@ export default function Listing() {
                       <option value="rating">Rating Tertinggi</option>
                     </select>
                     <AddPropertyDialog onAddProperty={handleAddProperty} />
+                    {comparison.length > 0 && (
+                      <button
+                        onClick={() => setShowComparison(true)}
+                        className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors"
+                      >
+                        Bandingkan ({comparison.length})
+                      </button>
+                    )}
                   </div>
                 </div>
+
+                <ComparisonModal
+                  open={showComparison}
+                  onOpenChange={setShowComparison}
+                  properties={comparisonProperties}
+                  onRemove={(id) => setComparison(comparison.filter((cid) => cid !== id))}
+                />
 
                 {/* Properties */}
                 {filteredProperties.length > 0 ? (
@@ -418,10 +498,38 @@ export default function Listing() {
                           <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                             {formatPrice(property.price)}
                           </div>
+                          {/* Favorite button */}
+                          <button
+                            onClick={() => handleToggleFavorite(property.id)}
+                            className={`absolute top-4 left-4 p-2 rounded-lg transition-colors ${
+                              favorites.includes(property.id)
+                                ? "bg-red-500 hover:bg-red-600 text-white"
+                                : "bg-white/80 hover:bg-white text-red-500"
+                            }`}
+                            title="Tambah ke favorit"
+                          >
+                            <Heart
+                              size={16}
+                              className={favorites.includes(property.id) ? "fill-current" : ""}
+                            />
+                          </button>
+
+                          {/* Comparison checkbox */}
+                          <div className="absolute top-14 left-4 bg-white/90 p-2 rounded-lg">
+                            <input
+                              type="checkbox"
+                              checked={comparison.includes(property.id)}
+                              onChange={() => handleToggleComparison(property.id)}
+                              disabled={!comparison.includes(property.id) && comparison.length >= 3}
+                              className="w-4 h-4 cursor-pointer"
+                              title="Pilih untuk dibandingkan (max 3)"
+                            />
+                          </div>
+
                           {/* Delete button untuk semua properti */}
                           <button
                             onClick={() => handleDeleteProperty(property.id)}
-                            className="absolute top-4 left-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg transition-colors"
+                            className="absolute bottom-4 left-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg transition-colors"
                             title="Hapus properti"
                           >
                             <Trash2 size={16} />
@@ -496,6 +604,9 @@ export default function Listing() {
                           priceMax: "",
                           type: [],
                           beds: [],
+                          yearMin: "",
+                          condition: [],
+                          facilities: [],
                         })
                       }
                     >

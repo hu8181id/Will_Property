@@ -1,17 +1,38 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, Heart } from "lucide-react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
+  const [favoriteCount, setFavoriteCount] = useState(0);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const saved = localStorage.getItem("primedeal_favorites_ids");
+      if (saved) {
+        try {
+          setFavoriteCount(JSON.parse(saved).length);
+        } catch (error) {
+          console.error("Error loading favorite count:", error);
+        }
+      } else {
+        setFavoriteCount(0);
+      }
+    };
+
+    handleStorageChange();
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
 
   const isActive = (path: string) => location === path;
 
   const navItems = [
     { label: "Beranda", href: "/" },
     { label: "Listing", href: "/listing" },
+    { label: "Favorit", href: "/favorit" },
     { label: "Kalkulator KPR", href: "/kalkulator" },
     { label: "Tentang Kami", href: "/tentang" },
   ];
@@ -46,12 +67,24 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* CTA Button & Mobile Menu */}
+        {/* Favorite Button & CTA Button & Mobile Menu */}
         <div className="flex items-center gap-4">
+          <a
+            href="/favorit"
+            className="relative hidden sm:flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            title="Favorit"
+          >
+            <Heart size={20} className={favoriteCount > 0 ? "fill-red-500 text-red-500" : ""} />
+            {favoriteCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                {favoriteCount > 9 ? "9+" : favoriteCount}
+              </span>
+            )}
+          </a>
           <Button
             className="hidden sm:inline-flex bg-primary hover:bg-primary/90 text-white"
             onClick={() => {
-              const phone = "6281234567890";
+              const phone = "62822303570009";
               const message = "Halo Primedeal, saya tertarik dengan properti Anda.";
               window.open(
                 `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
@@ -94,7 +127,7 @@ export default function Header() {
             <Button
               className="w-full bg-primary hover:bg-primary/90 text-white"
               onClick={() => {
-                const phone = "6281234567890";
+                const phone = "62822303570009";
                 const message =
                   "Halo Primedeal, saya tertarik dengan properti Anda.";
                 window.open(

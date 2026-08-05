@@ -8,12 +8,14 @@ import Home from "./pages/Home";
 import Listing from "./pages/Listing";
 import Kalkulator from "./pages/Kalkulator";
 import Tentang from "./pages/Tentang";
+import Favorit from "./pages/Favorit";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/listing" component={Listing} />
+      <Route path="/favorit" component={Favorit} />
       <Route path="/kalkulator" component={Kalkulator} />
       <Route path="/tentang" component={Tentang} />
       <Route path="/404" component={NotFound} />
