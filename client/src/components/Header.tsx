@@ -43,11 +43,10 @@ export default function Header() {
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
           <img
-            src="/manus-storage/primedeal-logo_56b8d4a1.png"
+            src="/manus-storage/primedeal-logo-new_719501eb.webp"
             alt="Primedeal Logo"
-            className="h-8 w-8"
+            className="h-10 w-10"
           />
-          <span className="text-xl font-bold text-primary">Primedeal</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -84,7 +83,7 @@ export default function Header() {
           <Button
             className="hidden sm:inline-flex bg-primary hover:bg-primary/90 text-white"
             onClick={() => {
-              const phone = "62822303570009";
+              const phone = "082230357009";
               const message = "Halo Primedeal, saya tertarik dengan properti Anda.";
               window.open(
                 `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
@@ -127,7 +126,7 @@ export default function Header() {
             <Button
               className="w-full bg-primary hover:bg-primary/90 text-white"
               onClick={() => {
-                const phone = "62822303570009";
+                const phone = "082230357009";
                 const message =
                   "Halo Primedeal, saya tertarik dengan properti Anda.";
                 window.open(

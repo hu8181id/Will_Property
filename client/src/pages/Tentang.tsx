@@ -23,7 +23,7 @@ export default function Tentang() {
       return;
     }
 
-    const phone = "62822303570009";
+    const phone = "082230357009";
     const message = `Halo Primedeal,\n\nNama: ${formData.nama}\nTelepon: ${formData.telepon}\n\nPesan: ${formData.pesan}`;
 
     window.open(

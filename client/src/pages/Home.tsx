@@ -355,7 +355,7 @@ export default function Home() {
             <Button
               className="bg-white text-primary hover:bg-blue-50 px-8 py-3 font-semibold"
               onClick={() => {
-                const phone = "6281234567890";
+                const phone = "082230357009";
                 const message =
                   "Halo Primedeal, saya ingin berkonsultasi tentang properti.";
                 window.open(

@@ -261,7 +261,7 @@ export default function Kalkulator() {
                   <Button
                     className="w-full bg-primary hover:bg-primary/90 text-white py-3"
                     onClick={() => {
-                      const phone = "6281234567890";
+                      const phone = "082230357009";
                       const message = `Halo Primedeal, saya ingin berkonsultasi tentang KPR untuk properti seharga ${formatCurrency(hargaProperti)}.`;
                       window.open(
                         `https://wa.me/${phone}?text=${encodeURIComponent(
