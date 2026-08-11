@@ -3,26 +3,10 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { MapPin, Bed, Bath, Ruler, Star, ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "wouter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-interface Property {
-  id: number;
-  title: string;
-  location: string;
-  price: number;
-  image: string;
-  images?: string[];
-  beds: number;
-  baths: number;
-  area: number;
-  rating: number;
-  type: string;
-  date: string;
-  description?: string;
-}
 
 export default function Home() {
   const [, setLocation] = useLocation();
@@ -32,96 +16,47 @@ export default function Home() {
     priceMax: "",
     type: "",
   });
-  const [properties, setProperties] = useState<Property[]>([]);
-
-  // Default properties
-  const defaultProperties: Property[] = [
-    {
-      id: 1,
-      title: "Rumah Modern di Pondok Indah",
-      location: "Jakarta Selatan",
-      price: 2500000000,
-      image: "/manus-storage/property-card-bg_4cd1dc11.png",
-      beds: 4,
-      baths: 3,
-      area: 250,
-      rating: 4.8,
-      type: "Rumah",
-      date: "2024-01-15",
-    },
-    {
-      id: 2,
-      title: "Apartemen Mewah Senayan",
-      location: "Jakarta Pusat",
-      price: 1800000000,
-      image: "/manus-storage/modern-living-room_54b09ea3.png",
-      beds: 3,
-      baths: 2,
-      area: 180,
-      rating: 4.9,
-      type: "Apartemen",
-      date: "2024-01-14",
-    },
-    {
-      id: 3,
-      title: "Rumah Nyaman di Bintaro",
-      location: "Jakarta Selatan",
-      price: 1200000000,
-      image: "/manus-storage/property-showcase_99ecec32.png",
-      beds: 3,
-      baths: 2,
-      area: 150,
-      rating: 4.7,
-      type: "Rumah",
-      date: "2024-01-13",
-    },
-  ];
-
-  useEffect(() => {
-    // Load data dari localStorage
-    const savedCustomProperties = localStorage.getItem("primedeal_properties");
-    const savedDeletedIds = localStorage.getItem("primedeal_deleted_ids");
-    
-    let customProperties: Property[] = [];
-    let deletedIds: number[] = [];
-    
-    if (savedCustomProperties) {
-      try {
-        customProperties = JSON.parse(savedCustomProperties);
-      } catch (error) {
-        console.error("Error loading custom properties:", error);
-      }
-    }
-    
-    if (savedDeletedIds) {
-      try {
-        deletedIds = JSON.parse(savedDeletedIds);
-      } catch (error) {
-        console.error("Error loading deleted IDs:", error);
-      }
-    }
-    
-    // Gabungkan default properties (yang tidak dihapus) dengan custom properties
-    const filteredDefaults = defaultProperties.filter(
-      (p) => !deletedIds.includes(p.id)
-    );
-    setProperties([...filteredDefaults, ...customProperties]);
-  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     setLocation("/listing");
   };
 
-  // Format price helper
-  const formatPrice = (price: number) => {
-    if (price >= 1000000000) {
-      return (price / 1000000000).toFixed(1) + "M";
-    } else if (price >= 1000000) {
-      return (price / 1000000).toFixed(1) + "Jt";
-    }
-    return price.toString();
-  };
+  const properties = [
+    {
+      id: 1,
+      title: "Rumah Modern di Pondok Indah",
+      location: "Jakarta Selatan",
+      price: "2.5M",
+      image: "/manus-storage/property-card-bg_4cd1dc11.png",
+      beds: 4,
+      baths: 3,
+      area: "250",
+      rating: 4.8,
+    },
+    {
+      id: 2,
+      title: "Apartemen Mewah Senayan",
+      location: "Jakarta Pusat",
+      price: "1.8M",
+      image: "/manus-storage/modern-living-room_54b09ea3.png",
+      beds: 3,
+      baths: 2,
+      area: "180",
+      rating: 4.9,
+    },
+    {
+      id: 3,
+      title: "Rumah Nyaman di Bintaro",
+      location: "Jakarta Selatan",
+      price: "1.2M",
+      image: "/manus-storage/property-showcase_99ecec32.png",
+      beds: 3,
+      baths: 2,
+      area: "150",
+      rating: 4.7,
+    },
+  ];
 
   const testimonials = [
     {
@@ -271,7 +206,7 @@ export default function Home() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      Rp {formatPrice(property.price)}
+                      {property.price}
                     </div>
                   </div>
 
