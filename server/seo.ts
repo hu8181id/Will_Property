@@ -5,7 +5,7 @@ import { getDb } from "./db";
 const SITE_NAME = "Primedeal Properti";
 const DEFAULT_TITLE = "Primedeal - Agensi Properti Modern & Jual Beli Rumah Terbaik di Surabaya";
 const DEFAULT_DESCRIPTION = "Temukan properti impian Anda di Surabaya bersama Primedeal Properti. Jual beli rumah, apartemen, ruko, dan tanah dengan mudah, aman, serta konsultasi WhatsApp langsung.";
-const DEFAULT_ORIGIN = "https://primedeal-jl8furcm.manus.space";
+const DEFAULT_ORIGIN = "https://primedeal.manus.space";
 
 function escapeHtml(value: string) {
   return value.replace(/[&<>\"']/g, character => {

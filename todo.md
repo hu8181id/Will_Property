@@ -16,6 +16,6 @@
 - [x] Tambahkan URL share unik berbasis ID properti dan fokus otomatis ke listing yang dibagikan.
 - [x] Perbaiki fallback share dengan tautan WhatsApp konsisten serta clipboard.
 - [x] Verifikasi metadata sosial untuk URL share listing.
-- [ ] Implementasikan metadata sosial server-rendered untuk URL listing spesifik.
-- [ ] Tambahkan og:image, twitter:image, dan canonical URL berbasis listing.
-- [ ] Verifikasi HTML mentah URL listing dan jalankan test/build sebelum checkpoint.
+- [x] Implementasikan metadata sosial server-rendered untuk URL listing spesifik.
+- [x] Tambahkan og:image, twitter:image, og:image:alt, dan canonical URL berbasis listing.
+- [x] Verifikasi HTML mentah URL listing dan jalankan test/build sebelum checkpoint.
