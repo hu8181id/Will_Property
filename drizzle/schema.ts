@@ -59,3 +59,21 @@ export const propertyListings = mysqlTable(
 
 export type PropertyListing = typeof propertyListings.$inferSelect;
 export type InsertPropertyListing = typeof propertyListings.$inferInsert;
+
+export const propertyReviews = mysqlTable(
+  "property_reviews",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    propertyId: int("propertyId").notNull(),
+    authorName: varchar("authorName", { length: 128 }).notNull(),
+    rating: int("rating").notNull(),
+    comment: text("comment").notNull(),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+  },
+  (table) => ({
+    propertyIdIdx: index("property_reviews_property_id_idx").on(table.propertyId),
+  }),
+);
+
+export type PropertyReview = typeof propertyReviews.$inferSelect;
+export type InsertPropertyReview = typeof propertyReviews.$inferInsert;

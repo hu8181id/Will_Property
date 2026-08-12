@@ -1,10 +1,11 @@
 import { z } from "zod";
 import { and, desc, eq, gte, like, lte, or } from "drizzle-orm";
-import { propertyListings } from "../../drizzle/schema";
+import { propertyListings, propertyReviews } from "../../drizzle/schema";
 import { getDb } from "../db";
 import { storagePut } from "../storage";
 import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
+import { notifyOwner } from "../_core/notification";
 
 export const propertyDraftSchema = z.object({
   title: z.string().trim().min(3, "Judul listing minimal 3 karakter"),
@@ -166,6 +167,16 @@ export const propertyRouter = router({
           certificate: input.certificate || null,
           status: "active",
         });
+
+        try {
+          await notifyOwner({
+            title: `Listing Baru: ${input.title}`,
+            content: `Listing properti baru berhasil ditambahkan di ${input.location} dengan harga Rp ${input.price.toLocaleString("id-ID")}.`,
+          });
+        } catch (e) {
+          console.warn("[NotifyOwner] Gagal mengirim notifikasi pemilik:", e);
+        }
+
         return { success: true, id: result.insertId };
       } catch (error) {
         return databaseError(error, "Create");
@@ -357,6 +368,50 @@ export const propertyRouter = router({
     await db.insert(propertyListings).values(defaults);
     return { success: true, count: defaults.length };
   }),
+
+  listReviews: publicProcedure
+    .input(z.object({ propertyId: z.number().int().positive() }))
+    .query(async ({ input }) => {
+      const db = await getDb();
+      if (!db) return [];
+      try {
+        const rows = await db
+          .select()
+          .from(propertyReviews)
+          .where(eq(propertyReviews.propertyId, input.propertyId))
+          .orderBy(desc(propertyReviews.createdAt));
+        return rows;
+      } catch (error) {
+        console.error("[Property Reviews List]", error);
+        return [];
+      }
+    }),
+
+  addReview: publicProcedure
+    .input(
+      z.object({
+        propertyId: z.number().int().positive(),
+        authorName: z.string().trim().min(2, "Nama minimal 2 karakter"),
+        rating: z.number().int().min(1).max(5),
+        comment: z.string().trim().min(5, "Ulasan minimal 5 karakter"),
+      }),
+    )
+    .mutation(async ({ input }) => {
+      const db = await getDb();
+      if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Database tidak tersedia" });
+      try {
+        await db.insert(propertyReviews).values({
+          propertyId: input.propertyId,
+          authorName: input.authorName,
+          rating: input.rating,
+          comment: input.comment,
+        });
+        return { success: true };
+      } catch (error) {
+        console.error("[Property Add Review]", error);
+        throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Gagal menyimpan ulasan" });
+      }
+    }),
 });
 
 export type PropertyDraft = z.infer<typeof propertyDraftSchema>;
