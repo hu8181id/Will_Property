@@ -34,6 +34,8 @@ export interface PropertyFormData {
   condition: string;
   certificate: string;
   facilities: string;
+  videoUrl: string;
+  virtualTourUrl: string;
 }
 
 export interface SelectedPropertyImage {
@@ -43,9 +45,16 @@ export interface SelectedPropertyImage {
   contentType?: string;
 }
 
+export interface SelectedPropertyVideo {
+  file: File;
+  name: string;
+  contentType: string;
+}
+
 export interface PropertyFormSubmit {
   data: PropertyFormData;
   images: SelectedPropertyImage[];
+  videoFile?: SelectedPropertyVideo;
 }
 
 interface AddPropertyDialogProps {
@@ -73,6 +82,8 @@ const emptyForm: PropertyFormData = {
   condition: "",
   certificate: "",
   facilities: "",
+  videoUrl: "",
+  virtualTourUrl: "",
 };
 
 function dataUrlFromCanvas(canvas: HTMLCanvasElement, type = "image/jpeg") {
@@ -124,6 +135,8 @@ function propertyToForm(initial?: AddPropertyDialogProps["initialProperty"]): Pr
     condition: initial?.condition ?? "",
     certificate: initial?.certificate ?? "",
     facilities: initial?.facilities ?? "",
+    videoUrl: initial?.videoUrl ?? "",
+    virtualTourUrl: initial?.virtualTourUrl ?? "",
   };
 }
 
@@ -139,6 +152,7 @@ export default function AddPropertyDialog({
   const [images, setImages] = useState<SelectedPropertyImage[]>(() =>
     (initialProperty?.images ?? []).map((src) => ({ src })),
   );
+  const [videoFile, setVideoFile] = useState<SelectedPropertyVideo | undefined>();
   const [submitting, setSubmitting] = useState(false);
   const isEditing = Boolean(initialProperty?.id);
   const isControlled = controlledOpen !== undefined;
@@ -153,6 +167,7 @@ export default function AddPropertyDialog({
     if (open) {
       setFormData(propertyToForm(initialProperty));
       setImages((initialProperty?.images ?? []).map((src) => ({ src })));
+      setVideoFile(undefined);
     }
   }, [initialProperty, open]);
 
@@ -174,6 +189,26 @@ export default function AddPropertyDialog({
       console.error("[Property Image Preparation]", error);
       toast.error(error instanceof Error ? error.message : "Gagal memproses foto.");
     }
+  };
+
+  const handleVideoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+    if (!(["video/mp4", "video/webm", "video/quicktime"] as string[]).includes(file.type)) {
+      toast.error("Video harus berformat MP4, WebM, atau MOV.");
+      return;
+    }
+    if (file.size > 50 * 1024 * 1024) {
+      toast.error("Ukuran video maksimal 50 MB.");
+      return;
+    }
+    setVideoFile({ file, name: file.name, contentType: file.type });
+    setFormData((current) => ({ ...current, videoUrl: "" }));
+  };
+
+  const handleRemoveVideo = () => {
+    setVideoFile(undefined);
   };
 
   const handleRemoveImage = (index: number) => {
@@ -212,11 +247,12 @@ export default function AddPropertyDialog({
 
     setSubmitting(true);
     try {
-      await onSubmit({ data: formData, images });
+      await onSubmit({ data: formData, images, videoFile });
       setDialogOpen(false);
       if (!isEditing) {
         setFormData(emptyForm);
         setImages([]);
+        setVideoFile(undefined);
       }
     } catch (error) {
       console.error("[Property Form]", error);
@@ -287,6 +323,17 @@ export default function AddPropertyDialog({
             <div><label className="field-label">Kondisi</label><Input value={formData.condition} onChange={(event) => setFormData({ ...formData, condition: event.target.value })} placeholder="Baru / Sangat Baik" /></div>
             <div><label className="field-label">Sertifikat</label><Input value={formData.certificate} onChange={(event) => setFormData({ ...formData, certificate: event.target.value })} placeholder="SHM / HGB" /></div>
             <div className="md:col-span-2"><label className="field-label">Fasilitas</label><Input value={formData.facilities} onChange={(event) => setFormData({ ...formData, facilities: event.target.value })} placeholder="Pisahkan dengan koma, misalnya Kolam Renang, Garasi" /></div>
+            <div>
+              <label className="field-label">Video Pendek</label>
+              <Input type="url" value={formData.videoUrl} onChange={(event) => { setVideoFile(undefined); setFormData({ ...formData, videoUrl: event.target.value }); }} placeholder="https://... atau /manus-storage/..." />
+              <label className="mt-2 flex cursor-pointer items-center justify-between gap-2 rounded-lg border border-dashed border-border px-3 py-2 text-xs text-muted-foreground hover:border-primary">
+                <span>{videoFile ? videoFile.name : "Atau upload video maksimal 50 MB"}</span>
+                <Upload size={14} />
+                <input type="file" accept="video/mp4,video/webm,video/quicktime" className="hidden" onChange={handleVideoChange} disabled={submitting} />
+              </label>
+              {videoFile && <button type="button" onClick={handleRemoveVideo} className="mt-1 text-xs font-medium text-red-600 hover:underline">Hapus video terpilih</button>}
+            </div>
+            <div><label className="field-label">Tur 360°</label><Input type="url" value={formData.virtualTourUrl} onChange={(event) => setFormData({ ...formData, virtualTourUrl: event.target.value })} placeholder="https://my.matterport.com/..." /><p className="mt-1 text-xs text-muted-foreground">Tautan Matterport, Kuula, atau platform tur virtual lain.</p></div>
             <div className="md:col-span-2"><label className="field-label">Deskripsi *</label><Textarea rows={5} value={formData.description} onChange={(event) => setFormData({ ...formData, description: event.target.value })} placeholder="Tuliskan deskripsi profesional properti..." /></div>
           </div>
 

@@ -46,6 +46,8 @@ export const propertyListings = mysqlTable(
     certificate: varchar("certificate", { length: 128 }),
     facilities: json("facilities").$type<string[]>(),
     images: json("images").$type<string[]>().notNull(),
+    videoUrl: varchar("videoUrl", { length: 1000 }),
+    virtualTourUrl: varchar("virtualTourUrl", { length: 1000 }),
     status: varchar("status", { length: 32 }).notNull().default("active"),
     createdAt: timestamp("createdAt").defaultNow().notNull(),
     updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),

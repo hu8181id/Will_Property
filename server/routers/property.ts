@@ -7,6 +7,14 @@ import { adminProcedure, protectedProcedure, publicProcedure, router } from "../
 import { TRPCError } from "@trpc/server";
 import { notifyOwner } from "../_core/notification";
 
+const optionalMediaUrl = z.preprocess(
+  (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
+  z.string().trim().max(1000).refine(
+    (value) => value.startsWith("/manus-storage/") || /^https?:\/\//i.test(value),
+    "URL media harus menggunakan http(s) atau file S3 Primedeal.",
+  ).optional(),
+);
+
 export const propertyDraftSchema = z.object({
   title: z.string().trim().min(3, "Judul listing minimal 3 karakter"),
   description: z.string().trim().min(10, "Deskripsi listing minimal 10 karakter"),
@@ -25,6 +33,8 @@ export const propertyDraftSchema = z.object({
   certificate: z.string().trim().optional(),
   facilities: z.array(z.string().trim()).max(20).default([]),
   images: z.array(z.string().min(1)).min(1).max(5),
+  videoUrl: optionalMediaUrl,
+  virtualTourUrl: optionalMediaUrl,
 });
 
 export const propertyFilterSchema = z.object({
@@ -177,6 +187,8 @@ export const propertyRouter = router({
           view: input.view || null,
           condition: input.condition || null,
           certificate: input.certificate || null,
+          videoUrl: input.videoUrl || null,
+          virtualTourUrl: input.virtualTourUrl || null,
           status: "active",
         });
 
@@ -216,6 +228,8 @@ export const propertyRouter = router({
             view: values.view || null,
             condition: values.condition || null,
             certificate: values.certificate || null,
+            videoUrl: values.videoUrl || null,
+            virtualTourUrl: values.virtualTourUrl || null,
           })
           .where(eq(propertyListings.id, id));
         return { success: true };
@@ -264,6 +278,36 @@ export const propertyRouter = router({
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
           message: "Gagal mengupload foto. Silakan coba lagi.",
+        });
+      }
+    }),
+
+  uploadVideo: adminProcedure
+    .input(
+      z.object({
+        fileName: z.string().trim().min(1).max(255),
+        base64Data: z.string().min(1),
+        contentType: z.enum(["video/mp4", "video/webm", "video/quicktime"]),
+      }),
+    )
+    .mutation(async ({ input }) => {
+      try {
+        const buffer = toStorageBytes(input.base64Data);
+        if (buffer.byteLength > 50 * 1024 * 1024) {
+          throw new Error("Video melebihi batas 50 MB");
+        }
+        const extension = input.fileName.split(".").pop()?.toLowerCase() || "mp4";
+        const uploaded = await storagePut(
+          `properties/videos/${Date.now()}-${crypto.randomUUID()}.${extension}`,
+          buffer,
+          input.contentType,
+        );
+        return { success: true, url: uploaded.url };
+      } catch (error) {
+        console.error("[Property Video Upload]", error);
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Gagal mengupload video. Pastikan format MP4/WebM/MOV dan ukuran maksimal 50 MB.",
         });
       }
     }),

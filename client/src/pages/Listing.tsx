@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Bath, Bed, ChevronLeft, ChevronRight, Edit3, Heart, Loader2, MapPin, Ruler, Share2, Star, Trash2 } from "lucide-react";
+import { Bath, Bed, ChevronLeft, ChevronRight, Edit3, ExternalLink, Globe2, Heart, Loader2, MapPin, PlayCircle, Ruler, Share2, Star, Trash2, Video } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import Header from "@/components/Header";
@@ -35,6 +35,8 @@ interface Property {
   tower?: string | null;
   view?: string | null;
   facilities: string[];
+  videoUrl?: string | null;
+  virtualTourUrl?: string | null;
   date: string;
 }
 
@@ -70,6 +72,8 @@ function normalizeProperty(row: any): Property {
     tower: row.tower,
     view: row.view,
     facilities: stringArray(row.facilities),
+    videoUrl: typeof row.videoUrl === "string" ? row.videoUrl : null,
+    virtualTourUrl: typeof row.virtualTourUrl === "string" ? row.virtualTourUrl : null,
     date: row.createdAt instanceof Date ? row.createdAt.toISOString() : String(row.createdAt ?? ""),
   };
 }
@@ -101,6 +105,8 @@ function toPayload(data: PropertyFormData, images: string[]) {
     certificate: data.certificate.trim() || undefined,
     facilities: data.facilities.split(",").map((item) => item.trim()).filter(Boolean),
     images,
+    videoUrl: data.videoUrl.trim() || undefined,
+    virtualTourUrl: data.virtualTourUrl.trim() || undefined,
   };
 }
 
@@ -137,6 +143,7 @@ export default function Listing() {
   const seedDefault = trpc.property.seedDefault.useMutation();
   const migrateLegacy = trpc.property.migrateLegacy.useMutation();
   const uploadImage = trpc.property.uploadImage.useMutation();
+  const uploadVideo = trpc.property.uploadVideo.useMutation();
   const createProperty = trpc.property.create.useMutation();
   const updateProperty = trpc.property.update.useMutation();
   const deleteProperty = trpc.property.delete.useMutation();
@@ -271,10 +278,30 @@ export default function Listing() {
     return uploaded;
   };
 
-  const handleSaveProperty = async ({ data, images }: PropertyFormSubmit) => {
+  const readFileAsDataUrl = (file: File) => new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => typeof reader.result === "string" ? resolve(reader.result) : reject(new Error("File video tidak dapat dibaca."));
+    reader.onerror = () => reject(new Error("File video tidak dapat dibaca."));
+    reader.readAsDataURL(file);
+  });
+
+  const uploadSelectedVideo = async (videoFile: PropertyFormSubmit["videoFile"]) => {
+    if (!videoFile) return undefined;
+    const base64Data = await readFileAsDataUrl(videoFile.file);
+    const result = await uploadVideo.mutateAsync({
+      fileName: videoFile.name,
+      base64Data,
+      contentType: videoFile.contentType as "video/mp4" | "video/webm" | "video/quicktime",
+    });
+    return result.url;
+  };
+
+  const handleSaveProperty = async ({ data, images, videoFile }: PropertyFormSubmit) => {
     try {
       const imageUrls = await uploadSelectedImages(images);
+      const videoUrl = await uploadSelectedVideo(videoFile);
       const payload = toPayload(data, imageUrls);
+      if (videoUrl) payload.videoUrl = videoUrl;
       if (editingProperty) {
         await updateProperty.mutateAsync({ id: editingProperty.id, ...payload });
         toast.success("Listing berhasil diperbarui.");
@@ -353,7 +380,7 @@ export default function Listing() {
       <Footer />
       <ComparisonModal open={showComparison} onOpenChange={setShowComparison} properties={comparisonProperties} onRemove={handleToggleComparison} />
       {comparison.length > 0 && <button type="button" onClick={() => setShowComparison(true)} className="fixed bottom-5 right-5 z-30 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-xl">Bandingkan ({comparison.length})</button>}
-      {editingProperty && <AddPropertyDialog open onOpenChange={(open) => { if (!open) setEditingProperty(null); }} initialProperty={{ id: editingProperty.id, title: editingProperty.title, description: editingProperty.description, propertyType: editingProperty.type, transactionType: editingProperty.transactionType, price: String(editingProperty.price), location: editingProperty.location, address: editingProperty.address ?? "", area: String(editingProperty.area), bedrooms: String(editingProperty.beds), bathrooms: String(editingProperty.baths), floor: editingProperty.floor ?? "", tower: editingProperty.tower ?? "", view: editingProperty.view ?? "", condition: editingProperty.condition ?? "", certificate: editingProperty.certificate ?? "", facilities: editingProperty.facilities.join(", "), images: editingProperty.images }} onSubmit={handleSaveProperty} />}
+      {editingProperty && <AddPropertyDialog open onOpenChange={(open) => { if (!open) setEditingProperty(null); }} initialProperty={{ id: editingProperty.id, title: editingProperty.title, description: editingProperty.description, propertyType: editingProperty.type, transactionType: editingProperty.transactionType, price: String(editingProperty.price), location: editingProperty.location, address: editingProperty.address ?? "", area: String(editingProperty.area), bedrooms: String(editingProperty.beds), bathrooms: String(editingProperty.baths), floor: editingProperty.floor ?? "", tower: editingProperty.tower ?? "", view: editingProperty.view ?? "", condition: editingProperty.condition ?? "", certificate: editingProperty.certificate ?? "", facilities: editingProperty.facilities.join(", "), videoUrl: editingProperty.videoUrl ?? "", virtualTourUrl: editingProperty.virtualTourUrl ?? "", images: editingProperty.images }} onSubmit={handleSaveProperty} />}
       {reviewProperty && (
         <RatingReview
           propertyId={reviewProperty.id}
@@ -381,6 +408,33 @@ export default function Listing() {
                 </>
               )}
             </div>
+            {(selectedProperty.videoUrl || selectedProperty.virtualTourUrl) && (
+              <section className="mb-6 rounded-2xl border border-primary/15 bg-primary/[0.04] p-4" aria-labelledby="virtual-exploration-title">
+                <div className="mb-4 flex items-center gap-2">
+                  <Globe2 size={20} className="text-primary" />
+                  <div>
+                    <h3 id="virtual-exploration-title" className="font-semibold text-slate-900">Eksplorasi Virtual</h3>
+                    <p className="text-xs text-muted-foreground">Lihat suasana properti sebelum menjadwalkan kunjungan.</p>
+                  </div>
+                </div>
+                {selectedProperty.videoUrl && (
+                  <div className="overflow-hidden rounded-xl border bg-black">
+                    <video controls preload="metadata" className="max-h-80 w-full" aria-label={`Video pendek ${selectedProperty.title}`}>
+                      <source src={selectedProperty.videoUrl} />
+                      Browser Anda tidak mendukung pemutar video.
+                    </video>
+                    <div className="flex items-center gap-2 bg-white px-3 py-2 text-xs text-muted-foreground"><Video size={14} /> Video pendek properti</div>
+                  </div>
+                )}
+                {selectedProperty.virtualTourUrl && (
+                  <Button asChild variant="outline" className="mt-3 w-full border-primary/30 text-primary hover:bg-primary/5">
+                    <a href={selectedProperty.virtualTourUrl} target="_blank" rel="noopener noreferrer">
+                      <PlayCircle size={16} className="mr-2" /> Buka Tur 360° <ExternalLink size={14} className="ml-auto" />
+                    </a>
+                  </Button>
+                )}
+              </section>
+            )}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-secondary/60 rounded-xl p-4 mb-6">
               <div><p className="text-xs text-muted-foreground">Harga</p><p className="text-lg font-bold text-primary">{formatPrice(selectedProperty.price)}</p></div>
               <div><p className="text-xs text-muted-foreground">Kamar Tidur</p><p className="text-base font-semibold text-slate-900">{selectedProperty.beds} KT</p></div>

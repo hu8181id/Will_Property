@@ -20,6 +20,8 @@ const validDraft = {
   location: "Surabaya, Indonesia",
   facilities: ["Garasi", "Taman"],
   images: ["/manus-storage/property-1.jpg"],
+  videoUrl: "https://cdn.example.com/property.mp4",
+  virtualTourUrl: "https://my.matterport.com/show/?m=example",
 };
 
 describe("property listing contracts", () => {
@@ -29,6 +31,9 @@ describe("property listing contracts", () => {
     expect(() => propertyDraftSchema.parse({ ...validDraft, images: [] })).toThrow();
     expect(propertyDraftSchema.parse({ ...validDraft, images: ["1", "2", "3", "4", "5"] }).images).toHaveLength(5);
     expect(() => propertyDraftSchema.parse({ ...validDraft, images: ["1", "2", "3", "4", "5", "6"] })).toThrow();
+    expect(propertyDraftSchema.parse(validDraft).videoUrl).toBe("https://cdn.example.com/property.mp4");
+    expect(propertyDraftSchema.parse(validDraft).virtualTourUrl).toContain("matterport.com");
+    expect(() => propertyDraftSchema.parse({ ...validDraft, virtualTourUrl: "javascript:alert(1)" })).toThrow();
   });
 
   it("normalizes the filter contract with a stable default sort", () => {
@@ -68,6 +73,7 @@ describe("property listing contracts", () => {
     await expect(caller.property.update({ id: 1, ...validDraft })).rejects.toMatchObject({ code: "FORBIDDEN" });
     await expect(caller.property.delete({ id: 1 })).rejects.toMatchObject({ code: "FORBIDDEN" });
     await expect(caller.property.uploadImage({ fileName: "foto.jpg", base64Data: "data:image/jpeg;base64,AA==", contentType: "image/jpeg" })).rejects.toMatchObject({ code: "FORBIDDEN" });
+    await expect(caller.property.uploadVideo({ fileName: "tur.mp4", base64Data: "data:video/mp4;base64,AA==", contentType: "video/mp4" })).rejects.toMatchObject({ code: "FORBIDDEN" });
   });
 
   it("protects review moderation behind admin authorization", async () => {
