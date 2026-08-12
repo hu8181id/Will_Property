@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { appRouter } from "./routers";
-import { propertyDraftSchema, propertyFilterSchema } from "./routers/property";
+import { propertyDraftSchema, propertyFilterSchema, reviewDraftSchema, reviewModerationSchema } from "./routers/property";
 import type { TrpcContext } from "./_core/context";
 
 function createPublicContext(): TrpcContext {
@@ -39,6 +39,19 @@ describe("property listing contracts", () => {
     });
   });
 
+  it("validates review content and moderation status", () => {
+    expect(reviewDraftSchema.parse({
+      propertyId: 7,
+      authorName: "  Andi  ",
+      rating: 5,
+      comment: "  Lokasi sangat strategis.  ",
+    })).toMatchObject({ authorName: "Andi", comment: "Lokasi sangat strategis." });
+    expect(() => reviewDraftSchema.parse({ propertyId: 7, authorName: "A", rating: 5, comment: "Bagus" })).toThrow();
+    expect(() => reviewDraftSchema.parse({ propertyId: 7, authorName: "Andi", rating: 6, comment: "Bagus sekali" })).toThrow();
+    expect(reviewModerationSchema.parse({ reviewId: 1, status: "approved" }).status).toBe("approved");
+    expect(() => reviewModerationSchema.parse({ reviewId: 1, status: "pending" })).toThrow();
+  });
+
   it("returns a public listing array without exposing technical errors", async () => {
     const caller = appRouter.createCaller(createPublicContext());
     const result = await caller.property.list({ sortBy: "terbaru" });
@@ -55,5 +68,11 @@ describe("property listing contracts", () => {
     await expect(caller.property.update({ id: 1, ...validDraft })).rejects.toMatchObject({ code: "FORBIDDEN" });
     await expect(caller.property.delete({ id: 1 })).rejects.toMatchObject({ code: "FORBIDDEN" });
     await expect(caller.property.uploadImage({ fileName: "foto.jpg", base64Data: "data:image/jpeg;base64,AA==", contentType: "image/jpeg" })).rejects.toMatchObject({ code: "FORBIDDEN" });
+  });
+
+  it("protects review moderation behind admin authorization", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    await expect(caller.property.listPendingReviews()).rejects.toMatchObject({ code: "FORBIDDEN" });
+    await expect(caller.property.moderateReview({ reviewId: 1, status: "approved" })).rejects.toMatchObject({ code: "FORBIDDEN" });
   });
 });

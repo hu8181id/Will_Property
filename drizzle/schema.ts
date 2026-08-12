@@ -68,10 +68,12 @@ export const propertyReviews = mysqlTable(
     authorName: varchar("authorName", { length: 128 }).notNull(),
     rating: int("rating").notNull(),
     comment: text("comment").notNull(),
+    reviewStatus: mysqlEnum("reviewStatus", ["pending", "approved", "rejected"]).default("pending").notNull(),
     createdAt: timestamp("createdAt").defaultNow().notNull(),
   },
   (table) => ({
     propertyIdIdx: index("property_reviews_property_id_idx").on(table.propertyId),
+    statusIdx: index("property_reviews_status_idx").on(table.reviewStatus),
   }),
 );
 

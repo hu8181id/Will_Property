@@ -52,6 +52,15 @@ export default function AdminLogin() {
                 >
                   Buka Halaman Listing & Kelola Properti
                 </Button>
+                {user.role === "admin" && (
+                  <Button
+                    variant="outline"
+                    onClick={() => setLocation("/admin/reviews")}
+                    className="w-full gap-2"
+                  >
+                    Kelola Rating & Ulasan
+                  </Button>
+                )}
                 <Button
                   variant="outline"
                   onClick={() => setLocation("/")}

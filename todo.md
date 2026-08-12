@@ -21,3 +21,8 @@
 - [x] Verifikasi HTML mentah URL listing dan jalankan test/build sebelum checkpoint.
 - [x] Perbaiki pemetaan parameter `search` dan rendering deskripsi detail properti saat tombol Detail ditekan dari URL hasil pencarian.
 - [x] Optimalkan SEO individual listing agar setiap iklan properti memiliki metadata unik, sitemap dinamis, dan structured data JSON-LD untuk pencarian Google.
+- [x] Menyiapkan jadwal pemantauan harian Google Search Console untuk Primedeal
+- [x] Tambahkan fitur rating dan ulasan properti berbasis data pengguna dengan validasi, tampilan publik, dan moderasi admin
+- [x] Tambahkan pengujian backend dan frontend untuk alur rating serta ulasan
+- [x] Perbaiki error dev server yang terdeteksi sebelum checkpoint fitur baru
+- [x] Tambahkan tes frontend untuk RatingReview, submit valid/invalid, state loading/error/empty, dan moderasi admin approve/reject

@@ -106,7 +106,7 @@ export default function ComparisonModal({
                       <span className="text-muted-foreground flex items-center gap-1">
                         <Star size={14} /> Rating
                       </span>
-                      <span className="font-semibold">{property.rating}</span>
+                      <span className="font-semibold">{property.rating > 0 ? property.rating.toFixed(1) : "Belum ada rating"}</span>
                     </div>
                   </div>
 
