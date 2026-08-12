@@ -49,11 +49,11 @@ describe("property listing contracts", () => {
     }
   });
 
-  it("protects listing mutations and uploads behind authentication", async () => {
+  it("protects listing mutations and uploads behind admin authorization", async () => {
     const caller = appRouter.createCaller(createPublicContext());
-    await expect(caller.property.create(validDraft)).rejects.toMatchObject({ code: "UNAUTHORIZED" });
-    await expect(caller.property.update({ id: 1, ...validDraft })).rejects.toMatchObject({ code: "UNAUTHORIZED" });
-    await expect(caller.property.delete({ id: 1 })).rejects.toMatchObject({ code: "UNAUTHORIZED" });
-    await expect(caller.property.uploadImage({ fileName: "foto.jpg", base64Data: "data:image/jpeg;base64,AA==", contentType: "image/jpeg" })).rejects.toMatchObject({ code: "UNAUTHORIZED" });
+    await expect(caller.property.create(validDraft)).rejects.toMatchObject({ code: "FORBIDDEN" });
+    await expect(caller.property.update({ id: 1, ...validDraft })).rejects.toMatchObject({ code: "FORBIDDEN" });
+    await expect(caller.property.delete({ id: 1 })).rejects.toMatchObject({ code: "FORBIDDEN" });
+    await expect(caller.property.uploadImage({ fileName: "foto.jpg", base64Data: "data:image/jpeg;base64,AA==", contentType: "image/jpeg" })).rejects.toMatchObject({ code: "FORBIDDEN" });
   });
 });

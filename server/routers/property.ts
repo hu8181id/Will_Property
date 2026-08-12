@@ -3,7 +3,7 @@ import { and, desc, eq, gte, like, lte, or } from "drizzle-orm";
 import { propertyListings, propertyReviews } from "../../drizzle/schema";
 import { getDb } from "../db";
 import { storagePut } from "../storage";
-import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
+import { adminProcedure, protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { notifyOwner } from "../_core/notification";
 
@@ -147,7 +147,7 @@ export const propertyRouter = router({
       return rows[0] ?? null;
     }),
 
-  create: protectedProcedure
+  create: adminProcedure
     .input(propertyDraftSchema)
     .mutation(async ({ input }) => {
       const db = await getDb();
@@ -183,7 +183,7 @@ export const propertyRouter = router({
       }
     }),
 
-  update: protectedProcedure
+  update: adminProcedure
     .input(propertyDraftSchema.extend({ id: z.number().int().positive() }))
     .mutation(async ({ input }) => {
       const db = await getDb();
@@ -212,7 +212,7 @@ export const propertyRouter = router({
       }
     }),
 
-  delete: protectedProcedure
+  delete: adminProcedure
     .input(z.object({ id: z.number().int().positive() }))
     .mutation(async ({ input }) => {
       const db = await getDb();
@@ -226,7 +226,7 @@ export const propertyRouter = router({
       }
     }),
 
-  uploadImage: protectedProcedure
+  uploadImage: adminProcedure
     .input(
       z.object({
         fileName: z.string().trim().min(1),
