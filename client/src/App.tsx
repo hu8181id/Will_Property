@@ -9,6 +9,7 @@ import Listing from "./pages/Listing";
 import Kalkulator from "./pages/Kalkulator";
 import Tentang from "./pages/Tentang";
 import Favorit from "./pages/Favorit";
+import AdminLogin from "./pages/AdminLogin";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/favorit" component={Favorit} />
       <Route path="/kalkulator" component={Kalkulator} />
       <Route path="/tentang" component={Tentang} />
+      <Route path="/admin" component={AdminLogin} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

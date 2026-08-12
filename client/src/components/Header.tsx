@@ -71,14 +71,9 @@ export default function Header() {
 
         {/* Auth status & Favorite & WhatsApp CTA */}
         <div className="flex items-center gap-3">
-          {isAuthenticated && user ? (
+          {isAuthenticated && user && user.role === "admin" && (
             <div className="hidden md:flex items-center gap-2 text-xs bg-secondary px-3 py-1.5 rounded-lg">
-              <span className="font-semibold text-slate-800">{user.name || "Admin"}</span>
-              {user.role === "admin" ? (
-                <span className="bg-primary/10 text-primary px-1.5 py-0.5 rounded font-bold">Admin</span>
-              ) : (
-                <span className="bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded">User (Bukan Admin)</span>
-              )}
+              <span className="font-semibold text-slate-800">Admin Active</span>
               <button
                 onClick={() => logout()}
                 className="text-muted-foreground hover:text-red-600 ml-1"
@@ -87,16 +82,6 @@ export default function Header() {
                 <LogOut size={14} />
               </button>
             </div>
-          ) : (
-            <Button
-              variant="outline"
-              size="sm"
-              className="hidden sm:inline-flex gap-1 text-xs"
-              onClick={() => startLogin()}
-            >
-              <Lock size={13} />
-              Login Admin
-            </Button>
           )}
           <a
             href="/favorit"
@@ -154,32 +139,16 @@ export default function Header() {
               </a>
             ))}
             <div className="pt-2 border-t border-border flex flex-col gap-2">
-              {isAuthenticated && user ? (
+              {isAuthenticated && user && user.role === "admin" && (
                 <div className="flex items-center justify-between bg-secondary p-3 rounded-lg text-xs">
                   <div>
                     <span className="font-semibold text-slate-800 block">{user.name || "Admin"}</span>
-                    {user.role === "admin" ? (
-                      <span className="text-primary font-bold">Status: Admin (Dapat Kelola Listing)</span>
-                    ) : (
-                      <span className="text-amber-700">Status: User Biasa</span>
-                    )}
+                    <span className="text-primary font-bold">Status: Admin</span>
                   </div>
                   <Button variant="outline" size="sm" onClick={() => logout()} className="text-red-600 border-red-200">
                     Keluar
                   </Button>
                 </div>
-              ) : (
-                <Button
-                  variant="outline"
-                  className="w-full gap-2 text-primary border-primary/30"
-                  onClick={() => {
-                    setIsOpen(false);
-                    startLogin();
-                  }}
-                >
-                  <Lock size={15} />
-                  Login Admin (Pemilik)
-                </Button>
               )}
             </div>
             <Button
