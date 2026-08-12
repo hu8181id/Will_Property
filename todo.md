@@ -13,10 +13,11 @@
 - [x] Ganti seluruh tautan WhatsApp ke format internasional +6282230357009 dan verifikasi URL 6282230357009.
 
 - [x] Tambahkan optimasi SEO, metadata Open Graph, sitemap, robots.txt, dan fitur bagikan listing untuk jangkauan organik gratis.
-- [x] Tambahkan URL share unik berbasis ID properti dan fokus otomatis ke listing yang dibagikan.
-- [x] Perbaiki fallback share dengan tautan WhatsApp konsisten serta clipboard.
+- [x] URL share unik berbasis ID properti dan fokus otomatis ke listing yang dibagikan.
+- [x] Fallback share dengan tautan WhatsApp konsisten serta clipboard.
 - [x] Verifikasi metadata sosial untuk URL share listing.
 - [x] Implementasikan metadata sosial server-rendered untuk URL listing spesifik.
 - [x] Tambahkan og:image, twitter:image, og:image:alt, dan canonical URL berbasis listing.
 - [x] Verifikasi HTML mentah URL listing dan jalankan test/build sebelum checkpoint.
 - [x] Perbaiki pemetaan parameter `search` dan rendering deskripsi detail properti saat tombol Detail ditekan dari URL hasil pencarian.
+- [x] Optimalkan SEO individual listing agar setiap iklan properti memiliki metadata unik, sitemap dinamis, dan structured data JSON-LD untuk pencarian Google.

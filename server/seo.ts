@@ -52,6 +52,7 @@ function applyHead(html: string, meta: {
   canonical: string;
   image: string;
   imageAlt: string;
+  jsonLd?: object;
 }) {
   let output = html.replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(meta.title)}</title>`);
   output = replaceOrInsert(output, /<title>[^<]*<\/title>/i, `<title>${escapeHtml(meta.title)}</title>`);
@@ -68,8 +69,15 @@ function applyHead(html: string, meta: {
   output = replaceMeta(output, "name", "twitter:description", meta.description);
   output = replaceMeta(output, "name", "twitter:image", meta.image);
 
-  const canonicalPattern = /<link\\s+[^>]*rel=[\"']canonical[\"'][^>]*>/i;
-  return replaceOrInsert(output, canonicalPattern, `<link rel="canonical" href="${escapeHtml(meta.canonical)}" />`);
+  const canonicalPattern = /<link\s+[^>]*rel=['"]canonical['"][^>]*>/i;
+  output = replaceOrInsert(output, canonicalPattern, `<link rel="canonical" href="${escapeHtml(meta.canonical)}" />`);
+
+  if (meta.jsonLd) {
+    const jsonScript = `<script type="application/ld+json">${JSON.stringify(meta.jsonLd)}</script>`;
+    output = output.replace("</head>", `  ${jsonScript}\n</head>`);
+  }
+
+  return output;
 }
 
 export async function injectSeoMetadata(html: string, requestUrl: string, _origin?: string) {
@@ -115,7 +123,24 @@ export async function injectSeoMetadata(html: string, requestUrl: string, _origi
     const description = `${property.description.slice(0, 170)}${property.description.length > 170 ? "…" : ""} ${details}. Konsultasi melalui WhatsApp Primedeal.`;
     const canonical = `${canonicalOrigin}/listing?property=${property.id}`;
     const image = absoluteAssetUrl(property.images?.[0], canonicalOrigin);
-    return applyHead(html, { title, description, canonical, image, imageAlt: property.title });
+    
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "RealEstateListing",
+      "name": property.title,
+      "description": property.description,
+      "url": canonical,
+      "image": property.images?.map(img => absoluteAssetUrl(img, canonicalOrigin)) || [image],
+      "price": property.price,
+      "priceCurrency": "IDR",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": property.location,
+        "addressCountry": "ID"
+      }
+    };
+
+    return applyHead(html, { title, description, canonical, image, imageAlt: property.title, jsonLd });
   } catch (error) {
     console.warn("[SEO] Falling back to default metadata:", error);
     return applyHead(html, fallback);
