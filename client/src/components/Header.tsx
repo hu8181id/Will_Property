@@ -83,7 +83,7 @@ export default function Header() {
           <Button
             className="hidden sm:inline-flex bg-primary hover:bg-primary/90 text-white"
             onClick={() => {
-              const phone = "082230357009";
+              const phone = "6282230357009";
               const message = "Halo Primedeal, saya tertarik dengan properti Anda.";
               window.open(
                 `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
@@ -126,7 +126,7 @@ export default function Header() {
             <Button
               className="w-full bg-primary hover:bg-primary/90 text-white"
               onClick={() => {
-                const phone = "082230357009";
+                const phone = "6282230357009";
                 const message =
                   "Halo Primedeal, saya tertarik dengan properti Anda.";
                 window.open(

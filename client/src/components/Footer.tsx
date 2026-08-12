@@ -58,7 +58,7 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <Phone size={16} className="mt-1 flex-shrink-0" />
                 <a
-                  href="https://wa.me/082230357009?text=Halo%20Primedeal%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20properti%20Anda."
+                  href="https://wa.me/6282230357009?text=Halo%20Primedeal%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20properti%20Anda."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
@@ -86,7 +86,7 @@ export default function Footer() {
                 Syarat & Ketentuan
               </a>
               <a
-                href="https://wa.me/082230357009?text=Halo%20Primedeal%2C%20saya%20ingin%20menghubungi%20Anda."
+                href="https://wa.me/6282230357009?text=Halo%20Primedeal%2C%20saya%20ingin%20menghubungi%20Anda."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"

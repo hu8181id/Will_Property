@@ -9,3 +9,5 @@
 - [x] Jalankan pemeriksaan tipe TypeScript (`pnpm check`) dan suite pengujian otomatis Vitest (`pnpm test`) dengan seluruh pengujian lulus.
 
 - [x] Ganti seluruh tautan WhatsApp menjadi 082230357009 tanpa tanda hubung dan verifikasi semua CTA.
+
+- [x] Ganti seluruh tautan WhatsApp ke format internasional +6282230357009 dan verifikasi URL 6282230357009.
