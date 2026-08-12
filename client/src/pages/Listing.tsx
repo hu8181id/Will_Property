@@ -325,16 +325,7 @@ export default function Listing() {
           </div></aside>
 
           <div className="lg:col-span-3">
-            {!isAdmin && (
-              <div className="mb-6 bg-secondary/80 border border-border rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-                <div className="text-muted-foreground">
-                  <span className="font-semibold text-slate-900">Mode Publik:</span> Anda sedang melihat properti sebagai pengunjung. Hanya pemilik/admin yang dapat menambah atau menghapus listing.
-                </div>
-                <Button size="sm" onClick={() => startLogin()} className="bg-primary hover:bg-primary/90 text-white shrink-0">
-                  Login Admin
-                </Button>
-              </div>
-            )}
+
             <div className="mb-8"><Input placeholder="Cari berdasarkan nama, lokasi, atau deskripsi..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} /></div>
             <div className="flex justify-between items-center mb-8 gap-4 flex-wrap"><p className="text-muted-foreground">Menampilkan {properties.length} properti</p><div className="flex gap-3 items-center flex-wrap"><select value={sortBy} onChange={(e) => setSortBy(e.target.value as typeof sortBy)} className="px-4 py-2 border border-border rounded-lg text-sm"><option value="terbaru">Terbaru</option><option value="harga-rendah">Harga: Rendah ke Tinggi</option><option value="harga-tinggi">Harga: Tinggi ke Rendah</option></select>{isAdmin && <AddPropertyDialog onSubmit={handleSaveProperty} />}</div></div>
 
@@ -350,7 +341,7 @@ export default function Listing() {
                               navigator.clipboard.writeText(shareUrl).then(() => toast.success("Link listing berhasil disalin ke clipboard!")).catch(() => toast.error("Link belum dapat disalin. Silakan coba lagi."));
                             }
                           }
-                        }}><Share2 size={14} /></Button><Button variant="outline" size="sm" onClick={() => openEdit(property)}><Edit3 size={14} className="mr-1" /> Edit</Button></div></div></div></Card>; })}</div>}
+                        }}><Share2 size={14} /></Button>{isAdmin && <Button variant="outline" size="sm" onClick={() => openEdit(property)}><Edit3 size={14} className="mr-1" /> Edit</Button>}</div></div></div></Card>; })}</div>}
           </div>
         </div></div></section>
       </main>
