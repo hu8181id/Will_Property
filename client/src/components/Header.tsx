@@ -158,6 +158,41 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
+            <div className="pt-2 border-t border-border flex flex-col gap-2">
+              {(() => {
+                const { user, isAuthenticated, logout } = useAuth();
+                if (isAuthenticated && user) {
+                  return (
+                    <div className="flex items-center justify-between bg-secondary p-3 rounded-lg text-xs">
+                      <div>
+                        <span className="font-semibold text-slate-800 block">{user.name || "Admin"}</span>
+                        {user.role === "admin" ? (
+                          <span className="text-primary font-bold">Status: Admin (Dapat Kelola Listing)</span>
+                        ) : (
+                          <span className="text-amber-700">Status: User Biasa</span>
+                        )}
+                      </div>
+                      <Button variant="outline" size="sm" onClick={() => logout()} className="text-red-600 border-red-200">
+                        Keluar
+                      </Button>
+                    </div>
+                  );
+                }
+                return (
+                  <Button
+                    variant="outline"
+                    className="w-full gap-2 text-primary border-primary/30"
+                    onClick={() => {
+                      setIsOpen(false);
+                      startLogin();
+                    }}
+                  >
+                    <Lock size={15} />
+                    Login Admin (Pemilik)
+                  </Button>
+                );
+              })()}
+            </div>
             <Button
               className="w-full bg-primary hover:bg-primary/90 text-white"
               onClick={() => {
