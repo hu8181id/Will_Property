@@ -73,10 +73,11 @@ function normalizeProperty(row: any): Property {
   };
 }
 
-function toNumber(value: string) {
-  const normalized = value.trim();
-  if (!normalized) return undefined;
-  const parsed = Number(normalized);
+function toNumber(value: string | number) {
+  if (typeof value === "number") return Number.isFinite(value) && value >= 0 ? Math.round(value) : undefined;
+  const cleaned = String(value || "").replace(/[^\d.]/g, "").trim();
+  if (!cleaned) return undefined;
+  const parsed = Number(cleaned);
   return Number.isFinite(parsed) && parsed >= 0 ? Math.round(parsed) : undefined;
 }
 

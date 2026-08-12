@@ -189,8 +189,20 @@ export default function AddPropertyDialog({
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!formData.title.trim() || !formData.location.trim() || !formData.price || formData.description.trim().length < 10) {
-      toast.error("Isi judul, lokasi, harga, dan deskripsi minimal 10 karakter.");
+    if (!formData.title.trim()) {
+      toast.error("Nama properti wajib diisi.");
+      return;
+    }
+    if (!formData.location.trim()) {
+      toast.error("Lokasi wajib diisi.");
+      return;
+    }
+    if (!String(formData.price).trim()) {
+      toast.error("Harga wajib diisi.");
+      return;
+    }
+    if (formData.description.trim().length < 10) {
+      toast.error("Deskripsi properti minimal 10 karakter.");
       return;
     }
     if (images.length === 0) {
