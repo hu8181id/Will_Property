@@ -32,3 +32,5 @@
 - [x] Tambahkan unit test backend dan frontend untuk validasi dan rendering media tur virtual
 - [x] Tambahkan tes frontend untuk AddPropertyDialog yang memverifikasi input videoUrl, virtualTourUrl, upload file video valid/invalid, dan state hapus video.
 - [x] Tambahkan tes frontend untuk Listing yang memverifikasi panel video pendek dan tombol tur 360° muncul saat data tersedia.
+- [x] Jadikan seluruh tombol dan kartu pada bagian layanan dapat ditekan dengan aksi navigasi atau CTA yang relevan.
+- [x] Perbaiki runtime error optionalMediaUrl sebelum checkpoint tombol layanan.

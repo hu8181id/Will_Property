@@ -1,4 +1,5 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import React from "react";
+import { MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -43,12 +44,38 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="font-semibold mb-4">Layanan</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>Jual Properti</li>
-              <li>Beli Properti</li>
-              <li>Sewa Properti</li>
-              <li>Konsultasi Properti</li>
-            </ul>
+            <div className="space-y-2 text-sm">
+              <a
+                href="https://wa.me/6282230357009?text=Halo%20Primedeal%2C%20saya%20ingin%20menjual%20properti."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-md py-1 text-gray-300 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                Jual Properti
+              </a>
+              <a
+                href="/listing"
+                className="block rounded-md py-1 text-gray-300 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                Beli Properti
+              </a>
+              <a
+                href="https://wa.me/6282230357009?text=Halo%20Primedeal%2C%20saya%20mencari%20properti%20untuk%20disewa."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-md py-1 text-gray-300 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                Sewa Properti
+              </a>
+              <a
+                href="https://wa.me/6282230357009?text=Halo%20Primedeal%2C%20saya%20ingin%20konsultasi%20properti."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-md py-1 text-gray-300 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                Konsultasi Properti
+              </a>
+            </div>
           </div>
 
           {/* Contact */}
