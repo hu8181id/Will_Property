@@ -7,3 +7,5 @@
 - [x] Tambahkan dialog edit listing, konfirmasi penghapusan, loading states, validasi Zod, dan filter backend.
 - [x] Implementasikan kompresi foto client-side, upload multi-foto hingga 5 gambar, preview grid, penghapusan foto sebelum submit, dan penetapan foto utama.
 - [x] Jalankan pemeriksaan tipe TypeScript (`pnpm check`) dan suite pengujian otomatis Vitest (`pnpm test`) dengan seluruh pengujian lulus.
+
+- [x] Ganti seluruh tautan WhatsApp menjadi 082230357009 tanpa tanda hubung dan verifikasi semua CTA.
