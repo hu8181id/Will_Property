@@ -26,7 +26,9 @@
 - [x] Tambahkan pengujian backend dan frontend untuk alur rating serta ulasan
 - [x] Perbaiki error dev server yang terdeteksi sebelum checkpoint fitur baru
 - [x] Tambahkan tes frontend untuk RatingReview, submit valid/invalid, state loading/error/empty, dan moderasi admin approve/reject
-- [ ] Tambahkan kolom virtualTourUrl dan videoUrl pada schema property_listings dan jalankan migrasi SQL
-- [ ] Perbarui form tambah dan edit listing admin agar mendukung input video pendek dan tautan tur 360°
-- [ ] Tambahkan pemutar video pendek dan tombol tur virtual 360° pada dialog detail properti publik
-- [ ] Tambahkan unit test backend dan frontend untuk validasi dan rendering media tur virtual
+- [x] Tambahkan kolom virtualTourUrl dan videoUrl pada schema property_listings dan jalankan migrasi SQL
+- [x] Perbarui form tambah dan edit listing admin agar mendukung input video pendek dan tautan tur 360°
+- [x] Tambahkan pemutar video pendek dan tombol tur virtual 360° pada dialog detail properti publik
+- [x] Tambahkan unit test backend dan frontend untuk validasi dan rendering media tur virtual
+- [x] Tambahkan tes frontend untuk AddPropertyDialog yang memverifikasi input videoUrl, virtualTourUrl, upload file video valid/invalid, dan state hapus video.
+- [x] Tambahkan tes frontend untuk Listing yang memverifikasi panel video pendek dan tombol tur 360° muncul saat data tersedia.
