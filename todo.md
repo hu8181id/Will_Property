@@ -19,4 +19,4 @@
 - [x] Implementasikan metadata sosial server-rendered untuk URL listing spesifik.
 - [x] Tambahkan og:image, twitter:image, og:image:alt, dan canonical URL berbasis listing.
 - [x] Verifikasi HTML mentah URL listing dan jalankan test/build sebelum checkpoint.
-- [ ] Perbaiki pemetaan parameter `search` dan rendering deskripsi detail properti saat tombol Detail ditekan dari URL hasil pencarian.
+- [x] Perbaiki pemetaan parameter `search` dan rendering deskripsi detail properti saat tombol Detail ditekan dari URL hasil pencarian.
