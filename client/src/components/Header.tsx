@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X, Heart, Lock, LogOut } from "lucide-react";
+import { startLogin } from "@/const";
+import { useAuth } from "@/_core/hooks/useAuth";
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 
@@ -66,8 +68,41 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Favorite Button & CTA Button & Mobile Menu */}
-        <div className="flex items-center gap-4">
+        {/* Auth status & Favorite & WhatsApp CTA */}
+        <div className="flex items-center gap-3">
+          {(() => {
+            const { user, isAuthenticated, logout } = useAuth();
+            if (isAuthenticated && user) {
+              return (
+                <div className="hidden md:flex items-center gap-2 text-xs bg-secondary px-3 py-1.5 rounded-lg">
+                  <span className="font-semibold text-slate-800">{user.name || "Admin"}</span>
+                  {user.role === "admin" ? (
+                    <span className="bg-primary/10 text-primary px-1.5 py-0.5 rounded font-bold">Admin</span>
+                  ) : (
+                    <span className="bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded">User (Bukan Admin)</span>
+                  )}
+                  <button
+                    onClick={() => logout()}
+                    className="text-muted-foreground hover:text-red-600 ml-1"
+                    title="Keluar"
+                  >
+                    <LogOut size={14} />
+                  </button>
+                </div>
+              );
+            }
+            return (
+              <Button
+                variant="outline"
+                size="sm"
+                className="hidden sm:inline-flex gap-1 text-xs"
+                onClick={() => startLogin()}
+              >
+                <Lock size={13} />
+                Login Admin
+              </Button>
+            );
+          })()}
           <a
             href="/favorit"
             className="relative hidden sm:flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
