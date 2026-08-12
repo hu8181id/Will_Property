@@ -9,8 +9,8 @@ import Listing from "./pages/Listing";
 import Kalkulator from "./pages/Kalkulator";
 import Tentang from "./pages/Tentang";
 import Favorit from "./pages/Favorit";
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path="/" component={Home} />
