@@ -256,7 +256,7 @@ export const propertyRouter = router({
       }
     }),
 
-  migrateLegacy: protectedProcedure
+  migrateLegacy: adminProcedure
     .input(z.object({ properties: z.array(legacyPropertySchema).max(100) }))
     .mutation(async ({ input }) => {
       const db = await getDb();
