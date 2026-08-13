@@ -1,6 +1,11 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import {
+  InsertUser,
+  propertyVideoUploadSessions,
+  type PropertyVideoUploadSession,
+  users,
+} from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +94,54 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+export async function createPropertyVideoUploadSession(input: {
+  id: string;
+  fileName: string;
+  contentType: string;
+  totalBytes: number;
+  totalChunks: number;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database tidak tersedia untuk memulai unggah video.");
+
+  await db.insert(propertyVideoUploadSessions).values({
+    ...input,
+    chunkKeys: {},
+  });
+}
+
+export async function getPropertyVideoUploadSession(id: string): Promise<PropertyVideoUploadSession | undefined> {
+  const db = await getDb();
+  if (!db) throw new Error("Database tidak tersedia untuk memproses unggah video.");
+
+  const result = await db
+    .select()
+    .from(propertyVideoUploadSessions)
+    .where(eq(propertyVideoUploadSessions.id, id))
+    .limit(1);
+  return result[0];
+}
+
+export async function savePropertyVideoChunkKey(id: string, chunkIndex: number, storageKey: string) {
+  const session = await getPropertyVideoUploadSession(id);
+  if (!session) return undefined;
+
+  const db = await getDb();
+  if (!db) throw new Error("Database tidak tersedia untuk menyimpan bagian video.");
+  const chunkKeys = { ...(session.chunkKeys ?? {}), [String(chunkIndex)]: storageKey };
+  await db
+    .update(propertyVideoUploadSessions)
+    .set({ chunkKeys })
+    .where(eq(propertyVideoUploadSessions.id, id));
+  return { ...session, chunkKeys };
+}
+
+export async function setPropertyVideoUploadCompletedUrl(id: string, completedUrl: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database tidak tersedia untuk menyelesaikan unggah video.");
+
+  await db
+    .update(propertyVideoUploadSessions)
+    .set({ completedUrl })
+    .where(eq(propertyVideoUploadSessions.id, id));
+}

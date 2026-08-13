@@ -62,6 +62,26 @@ export const propertyListings = mysqlTable(
 export type PropertyListing = typeof propertyListings.$inferSelect;
 export type InsertPropertyListing = typeof propertyListings.$inferInsert;
 
+export const propertyVideoUploadSessions = mysqlTable(
+  "property_video_upload_sessions",
+  {
+    id: varchar("id", { length: 64 }).primaryKey(),
+    fileName: varchar("fileName", { length: 255 }).notNull(),
+    contentType: varchar("contentType", { length: 128 }).notNull(),
+    totalBytes: int("totalBytes").notNull(),
+    totalChunks: int("totalChunks").notNull(),
+    chunkKeys: json("chunkKeys").$type<Record<string, string>>().notNull(),
+    completedUrl: varchar("completedUrl", { length: 1000 }),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => ({
+    createdAtIdx: index("property_video_upload_sessions_created_at_idx").on(table.createdAt),
+  }),
+);
+
+export type PropertyVideoUploadSession = typeof propertyVideoUploadSessions.$inferSelect;
+
 export const propertyReviews = mysqlTable(
   "property_reviews",
   {

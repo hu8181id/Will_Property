@@ -4,28 +4,46 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => ({
   authenticateRequest: vi.fn(),
+  createSession: vi.fn(),
+  getSession: vi.fn(),
+  saveChunkKey: vi.fn(),
+  setCompletedUrl: vi.fn(),
   storagePut: vi.fn(),
-  storageCreateUploadUrl: vi.fn(),
+  storageGetSignedUrl: vi.fn(),
 }));
 
 vi.mock("./_core/sdk", () => ({ sdk: { authenticateRequest: mocks.authenticateRequest } }));
+vi.mock("./db", () => ({
+  createPropertyVideoUploadSession: mocks.createSession,
+  getPropertyVideoUploadSession: mocks.getSession,
+  savePropertyVideoChunkKey: mocks.saveChunkKey,
+  setPropertyVideoUploadCompletedUrl: mocks.setCompletedUrl,
+}));
 vi.mock("./storage", () => ({
   storagePut: mocks.storagePut,
-  storageCreateUploadUrl: mocks.storageCreateUploadUrl,
+  storageGetSignedUrl: mocks.storageGetSignedUrl,
 }));
 
 import { registerPropertyVideoUploadRoute } from "./propertyVideoUpload";
 
-describe("property video upload routes", () => {
+describe("property video chunk upload routes", () => {
   let server: Server;
   let baseUrl: string;
+  let session: any;
 
   beforeEach(async () => {
-    mocks.authenticateRequest.mockReset();
-    mocks.storagePut.mockReset();
-    mocks.storageCreateUploadUrl.mockReset();
+    Object.values(mocks).forEach((mock) => mock.mockReset());
+    session = undefined;
+    mocks.createSession.mockImplementation(async (input) => {
+      session = { ...input, chunkKeys: {}, completedUrl: null };
+    });
+    mocks.getSession.mockImplementation(async () => session);
+    mocks.saveChunkKey.mockImplementation(async (_id, index, key) => {
+      session.chunkKeys[String(index)] = key;
+      return session;
+    });
     const app = express();
-    registerPropertyVideoUploadRoute(app, { maxBytes: 4 });
+    registerPropertyVideoUploadRoute(app, { maxBytes: 4, chunkBytes: 2 });
     server = await new Promise<Server>((resolve) => {
       const started = app.listen(0, "127.0.0.1", () => resolve(started));
     });
@@ -38,88 +56,83 @@ describe("property video upload routes", () => {
     await new Promise<void>((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
   });
 
-  it("menyimpan MP4 biner admin ke storage dan mengembalikan URL video", async () => {
+  it("membuat sesi admin, menyimpan setiap chunk, lalu menggabungkannya menjadi video listing", async () => {
     mocks.authenticateRequest.mockResolvedValue({ role: "admin" });
-    mocks.storagePut.mockResolvedValue({ url: "/manus-storage/properties/videos/tur.mp4" });
-    const response = await fetch(`${baseUrl}/api/property-video-upload`, {
-      method: "POST",
-      headers: { "Content-Type": "video/mp4", "X-Primedeal-File-Name": encodeURIComponent("tur properti.mp4") },
-      body: new Uint8Array([1, 2, 3, 4]),
-    });
+    mocks.storagePut
+      .mockResolvedValueOnce({ key: "parts/0", url: "/manus-storage/parts/0" })
+      .mockResolvedValueOnce({ key: "parts/1", url: "/manus-storage/parts/1" })
+      .mockResolvedValueOnce({ key: "properties/videos/final.mp4", url: "/manus-storage/properties/videos/final.mp4" });
+    mocks.storageGetSignedUrl
+      .mockResolvedValueOnce("data:application/octet-stream;base64,AQI=")
+      .mockResolvedValueOnce("data:application/octet-stream;base64,AwQ=");
 
-    expect(response.status).toBe(201);
-    await expect(response.json()).resolves.toEqual({ success: true, url: "/manus-storage/properties/videos/tur.mp4" });
-    expect(mocks.storagePut).toHaveBeenCalledWith(expect.stringMatching(/^properties\/videos\/\d+-tur-properti\.mp4$/), expect.anything(), "video/mp4");
-  });
-
-  it("menolak pengguna tanpa sesi admin sebelum menyimpan video", async () => {
-    mocks.authenticateRequest.mockRejectedValue(new Error("Sesi tidak valid"));
-    const response = await fetch(`${baseUrl}/api/property-video-upload`, {
-      method: "POST",
-      headers: { "Content-Type": "video/mp4" },
-      body: new Uint8Array([1]),
-    });
-
-    expect(response.status).toBe(403);
-    await expect(response.json()).resolves.toEqual({ error: "Hanya admin yang dapat mengunggah video properti." });
-    expect(mocks.storagePut).not.toHaveBeenCalled();
-  });
-
-  it("menolak Content-Type yang tidak didukung pada endpoint biner", async () => {
-    mocks.authenticateRequest.mockResolvedValue({ role: "admin" });
-    const response = await fetch(`${baseUrl}/api/property-video-upload`, {
-      method: "POST",
-      headers: { "Content-Type": "application/octet-stream" },
-      body: new Uint8Array([1]),
-    });
-
-    expect(response.status).toBe(415);
-    expect(mocks.storagePut).not.toHaveBeenCalled();
-  });
-
-  it("menolak video yang melebihi batas ukuran endpoint biner", async () => {
-    mocks.authenticateRequest.mockResolvedValue({ role: "admin" });
-    const response = await fetch(`${baseUrl}/api/property-video-upload`, {
-      method: "POST",
-      headers: { "Content-Type": "video/mp4" },
-      body: new Uint8Array([1, 2, 3, 4, 5]),
-    });
-
-    expect(response.status).toBe(413);
-    expect(mocks.storagePut).not.toHaveBeenCalled();
-  });
-
-  it("menerbitkan URL unggah langsung untuk admin tanpa menerima isi video di gateway", async () => {
-    mocks.authenticateRequest.mockResolvedValue({ role: "admin" });
-    mocks.storageCreateUploadUrl.mockResolvedValue({
-      url: "/manus-storage/properties/videos/tur.mp4",
-      uploadUrl: "https://storage.example/upload",
-    });
-    const response = await fetch(`${baseUrl}/api/property-video-upload-ticket`, {
+    const create = await fetch(`${baseUrl}/api/property-video-upload-sessions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contentType: "video/mp4", fileName: "tur properti.mp4", size: 4 }),
     });
+    expect(create.status).toBe(201);
+    const { sessionId } = await create.json();
 
-    expect(response.status).toBe(201);
-    await expect(response.json()).resolves.toEqual({
-      success: true,
-      url: "/manus-storage/properties/videos/tur.mp4",
-      uploadUrl: "https://storage.example/upload",
-    });
-    expect(mocks.storageCreateUploadUrl).toHaveBeenCalledWith(expect.stringMatching(/^properties\/videos\/\d+-tur-properti\.mp4$/));
+    for (const [index, body] of [[0, [1, 2]], [1, [3, 4]]] as const) {
+      const upload = await fetch(`${baseUrl}/api/property-video-upload-sessions/${sessionId}/chunks/${index}`, {
+        method: "POST",
+        headers: { "Content-Type": "video/mp4" },
+        body: new Uint8Array(body),
+      });
+      expect(upload.status).toBe(201);
+    }
+
+    const complete = await fetch(`${baseUrl}/api/property-video-upload-sessions/${sessionId}/complete`, { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
+    expect(complete.status).toBe(201);
+    await expect(complete.json()).resolves.toEqual({ success: true, url: "/manus-storage/properties/videos/final.mp4" });
+    expect(mocks.storagePut).toHaveBeenLastCalledWith(expect.stringMatching(/^properties\/videos\/\d+-tur-properti\.mp4$/), expect.any(Buffer), "video/mp4");
+    expect(mocks.setCompletedUrl).toHaveBeenCalledWith(sessionId, "/manus-storage/properties/videos/final.mp4");
   });
 
-  it("menolak tiket unggah langsung tanpa sesi admin", async () => {
+  it("menolak pengguna tanpa sesi admin sebelum membuat sesi upload", async () => {
     mocks.authenticateRequest.mockRejectedValue(new Error("Sesi tidak valid"));
-    const response = await fetch(`${baseUrl}/api/property-video-upload-ticket`, {
+    const response = await fetch(`${baseUrl}/api/property-video-upload-sessions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contentType: "video/mp4", fileName: "tur.mp4", size: 4 }),
     });
-
     expect(response.status).toBe(403);
-    expect(mocks.storageCreateUploadUrl).not.toHaveBeenCalled();
+    expect(mocks.createSession).not.toHaveBeenCalled();
+  });
+
+  it("menolak format dan ukuran video yang tidak valid", async () => {
+    mocks.authenticateRequest.mockResolvedValue({ role: "admin" });
+    const formatResponse = await fetch(`${baseUrl}/api/property-video-upload-sessions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contentType: "application/octet-stream", fileName: "tur.bin", size: 4 }),
+    });
+    expect(formatResponse.status).toBe(415);
+
+    const sizeResponse = await fetch(`${baseUrl}/api/property-video-upload-sessions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contentType: "video/mp4", fileName: "tur.mp4", size: 5 }),
+    });
+    expect(sizeResponse.status).toBe(413);
+  });
+
+  it("menolak chunk dengan ukuran yang tidak sesuai", async () => {
+    mocks.authenticateRequest.mockResolvedValue({ role: "admin" });
+    const create = await fetch(`${baseUrl}/api/property-video-upload-sessions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contentType: "video/mp4", fileName: "tur.mp4", size: 4 }),
+    });
+    const { sessionId } = await create.json();
+    const response = await fetch(`${baseUrl}/api/property-video-upload-sessions/${sessionId}/chunks/0`, {
+      method: "POST",
+      headers: { "Content-Type": "video/mp4" },
+      body: new Uint8Array([1]),
+    });
+    expect(response.status).toBe(400);
+    expect(mocks.storagePut).not.toHaveBeenCalled();
   });
 });
 

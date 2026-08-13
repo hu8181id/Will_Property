@@ -50,3 +50,4 @@
 - [x] Tambahkan integration test endpoint upload video untuk jalur sukses storage dan penolakan autentikasi, format, serta ukuran.
 - [x] Diagnosa dan perbaiki kegagalan upload video produksi yang masih terjadi setelah endpoint biner diterapkan.
 - [x] Implementasikan unggah video langsung ke storage melalui tiket URL sementara agar file besar tidak melewati gateway aplikasi.
+- [x] Implementasikan transfer video bertahap melalui server untuk menggantikan unggah langsung yang gagal CORS pada Android.
