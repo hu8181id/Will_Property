@@ -11,6 +11,7 @@ import AddPropertyDialog, { PropertyFormData, PropertyFormSubmit } from "@/compo
 import ComparisonModal from "@/components/ComparisonModal";
 import RatingReview from "@/components/RatingReview";
 import { trpc } from "@/lib/trpc";
+import { uploadPropertyVideo } from "@/lib/propertyVideoUpload";
 import { startLogin } from "@/const";
 import { useAuth } from "@/_core/hooks/useAuth";
 
@@ -143,7 +144,6 @@ export default function Listing() {
   const seedDefault = trpc.property.seedDefault.useMutation();
   const migrateLegacy = trpc.property.migrateLegacy.useMutation();
   const uploadImage = trpc.property.uploadImage.useMutation();
-  const uploadVideo = trpc.property.uploadVideo.useMutation();
   const createProperty = trpc.property.create.useMutation();
   const updateProperty = trpc.property.update.useMutation();
   const deleteProperty = trpc.property.delete.useMutation();
@@ -278,22 +278,9 @@ export default function Listing() {
     return uploaded;
   };
 
-  const readFileAsDataUrl = (file: File) => new Promise<string>((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => typeof reader.result === "string" ? resolve(reader.result) : reject(new Error("File video tidak dapat dibaca."));
-    reader.onerror = () => reject(new Error("File video tidak dapat dibaca."));
-    reader.readAsDataURL(file);
-  });
-
   const uploadSelectedVideo = async (videoFile: PropertyFormSubmit["videoFile"]) => {
     if (!videoFile) return undefined;
-    const base64Data = await readFileAsDataUrl(videoFile.file);
-    const result = await uploadVideo.mutateAsync({
-      fileName: videoFile.name,
-      base64Data,
-      contentType: videoFile.contentType as "video/mp4" | "video/webm" | "video/quicktime",
-    });
-    return result.url;
+    return uploadPropertyVideo(videoFile.file);
   };
 
   const handleSaveProperty = async ({ data, images, videoFile }: PropertyFormSubmit) => {
@@ -313,7 +300,7 @@ export default function Listing() {
       await utils.property.list.invalidate();
     } catch (error) {
       console.error("[Property Save]", error);
-      throw new Error(error instanceof Error && error.message.includes("foto") ? error.message : "Listing gagal disimpan. Silakan coba lagi.");
+      throw new Error(error instanceof Error ? error.message : "Listing gagal disimpan. Silakan coba lagi.");
     }
   };
 

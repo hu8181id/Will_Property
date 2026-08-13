@@ -8,6 +8,7 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+import { registerPropertyVideoUploadRoute } from "../propertyVideoUpload";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -36,6 +37,7 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   registerStorageProxy(app);
   registerOAuthRoutes(app);
+  registerPropertyVideoUploadRoute(app);
 
   // Dynamic robots.txt and sitemap.xml for SEO indexing
   app.get("/robots.txt", (_req, res) => {
