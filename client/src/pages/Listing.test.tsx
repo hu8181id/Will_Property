@@ -7,11 +7,12 @@ describe("Listing Virtual Tour & Video Rendering", () => {
     // Simulasi komponen detail yang menerima properti dengan video dan tur 360
     const videoUrl = "https://cdn.example.com/video.mp4";
     const virtualTourUrl = "https://my.matterport.com/show/?m=example";
+    const thumbnailUrl = "/manus-storage/property-video-thumbnail.jpg";
 
     render(
       <div>
         <div data-testid="video-section">
-          <video src={videoUrl} controls />
+          <video src={videoUrl} poster={thumbnailUrl} controls />
         </div>
         <div data-testid="virtual-tour-section">
           <a href={virtualTourUrl} target="_blank" rel="noreferrer">
@@ -22,6 +23,9 @@ describe("Listing Virtual Tour & Video Rendering", () => {
     );
 
     expect(screen.getByTestId("video-section")).toBeTruthy();
+    const video = screen.getByTestId("video-section").querySelector("video");
+    expect(video).not.toBeNull();
+    expect(video?.getAttribute("poster")).toBe(thumbnailUrl);
     expect(screen.getByTestId("virtual-tour-section")).toBeTruthy();
     expect(screen.getByText("Buka Tur Virtual 360°")).toBeTruthy();
   });

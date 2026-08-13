@@ -9,7 +9,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Loader2, Plus, Star, Upload, X } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
+import { ImagePlus, Loader2, Plus, Star, Upload, X } from "lucide-react";
 import React, { useState, useMemo, useEffect } from "react";
 import { toast } from "sonner";
 
@@ -35,6 +36,7 @@ export interface PropertyFormData {
   certificate: string;
   facilities: string;
   videoUrl: string;
+  videoThumbnailUrl: string;
   virtualTourUrl: string;
 }
 
@@ -55,6 +57,8 @@ export interface PropertyFormSubmit {
   data: PropertyFormData;
   images: SelectedPropertyImage[];
   videoFile?: SelectedPropertyVideo;
+  videoThumbnail?: SelectedPropertyImage;
+  onVideoUploadProgress?: (percent: number) => void;
 }
 
 interface AddPropertyDialogProps {
@@ -83,6 +87,7 @@ const emptyForm: PropertyFormData = {
   certificate: "",
   facilities: "",
   videoUrl: "",
+  videoThumbnailUrl: "",
   virtualTourUrl: "",
 };
 
@@ -136,6 +141,7 @@ function propertyToForm(initial?: AddPropertyDialogProps["initialProperty"]): Pr
     certificate: initial?.certificate ?? "",
     facilities: initial?.facilities ?? "",
     videoUrl: initial?.videoUrl ?? "",
+    videoThumbnailUrl: initial?.videoThumbnailUrl ?? "",
     virtualTourUrl: initial?.virtualTourUrl ?? "",
   };
 }
@@ -153,6 +159,10 @@ export default function AddPropertyDialog({
     (initialProperty?.images ?? []).map((src) => ({ src })),
   );
   const [videoFile, setVideoFile] = useState<SelectedPropertyVideo | undefined>();
+  const [videoThumbnail, setVideoThumbnail] = useState<SelectedPropertyImage | undefined>(() =>
+    initialProperty?.videoThumbnailUrl ? { src: initialProperty.videoThumbnailUrl } : undefined,
+  );
+  const [videoUploadProgress, setVideoUploadProgress] = useState<number | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const isEditing = Boolean(initialProperty?.id);
   const isControlled = controlledOpen !== undefined;
@@ -168,6 +178,8 @@ export default function AddPropertyDialog({
       setFormData(propertyToForm(initialProperty));
       setImages((initialProperty?.images ?? []).map((src) => ({ src })));
       setVideoFile(undefined);
+      setVideoThumbnail(initialProperty?.videoThumbnailUrl ? { src: initialProperty.videoThumbnailUrl } : undefined);
+      setVideoUploadProgress(null);
     }
   }, [initialProperty, open]);
 
@@ -211,6 +223,26 @@ export default function AddPropertyDialog({
     setVideoFile(undefined);
   };
 
+  const handleVideoThumbnailChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+
+    try {
+      const compressed = await compressImage(file);
+      setVideoThumbnail(compressed);
+      setFormData((current) => ({ ...current, videoThumbnailUrl: "" }));
+    } catch (error) {
+      console.error("[Video Thumbnail Preparation]", error);
+      toast.error(error instanceof Error ? error.message : "Gagal memproses thumbnail video.");
+    }
+  };
+
+  const handleRemoveVideoThumbnail = () => {
+    setVideoThumbnail(undefined);
+    setFormData((current) => ({ ...current, videoThumbnailUrl: "" }));
+  };
+
   const handleRemoveImage = (index: number) => {
     setImages((current) => current.filter((_, imageIndex) => imageIndex !== index));
   };
@@ -246,19 +278,22 @@ export default function AddPropertyDialog({
     }
 
     setSubmitting(true);
+    setVideoUploadProgress(videoFile ? 0 : null);
     try {
-      await onSubmit({ data: formData, images, videoFile });
+      await onSubmit({ data: formData, images, videoFile, videoThumbnail, onVideoUploadProgress: setVideoUploadProgress });
       setDialogOpen(false);
       if (!isEditing) {
         setFormData(emptyForm);
         setImages([]);
         setVideoFile(undefined);
+        setVideoThumbnail(undefined);
       }
     } catch (error) {
       console.error("[Property Form]", error);
       toast.error(error instanceof Error ? error.message : "Listing gagal disimpan. Silakan coba lagi.");
     } finally {
       setSubmitting(false);
+      setVideoUploadProgress(null);
     }
   };
 
@@ -334,6 +369,28 @@ export default function AddPropertyDialog({
               {videoFile && <button type="button" onClick={handleRemoveVideo} className="mt-1 text-xs font-medium text-red-600 hover:underline">Hapus video terpilih</button>}
             </div>
             <div><label htmlFor="virtual-tour-input" className="field-label">Tur 360°</label><Input id="virtual-tour-input" type="url" value={formData.virtualTourUrl} onChange={(event) => setFormData({ ...formData, virtualTourUrl: event.target.value })} placeholder="https://my.matterport.com/..." /><p className="mt-1 text-xs text-muted-foreground">Tautan Matterport, Kuula, atau platform tur virtual lain.</p></div>
+            <div className="md:col-span-2">
+              <label className="field-label" htmlFor="video-thumbnail-input">Thumbnail Video (opsional)</label>
+              {videoThumbnail ? (
+                <div className="relative h-40 max-w-xs overflow-hidden rounded-xl border bg-slate-100">
+                  <img src={videoThumbnail.src} alt="Preview thumbnail video" className="h-full w-full object-cover" />
+                  <button type="button" onClick={handleRemoveVideoThumbnail} disabled={submitting} className="absolute right-2 top-2 rounded-full bg-red-600 p-2 text-white shadow hover:bg-red-700 disabled:opacity-60" aria-label="Hapus thumbnail video"><X size={15} /></button>
+                </div>
+              ) : (
+                <label className="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-dashed border-border p-4 text-sm text-muted-foreground transition-colors hover:border-primary" htmlFor="video-thumbnail-input">
+                  <ImagePlus size={22} className="text-primary" />
+                  <span><strong className="block text-slate-800">Pilih foto sebagai thumbnail video</strong>JPG, PNG, atau WebP; otomatis dikompres.</span>
+                  <input id="video-thumbnail-input" type="file" accept="image/*" className="hidden" onChange={handleVideoThumbnailChange} disabled={submitting} />
+                </label>
+              )}
+              <p className="mt-2 text-xs text-muted-foreground">Thumbnail akan tampil sebelum video diputar pada detail properti.</p>
+            </div>
+            {videoUploadProgress !== null && (
+              <div className="md:col-span-2 rounded-xl border border-primary/20 bg-primary/5 p-4" role="status" aria-live="polite">
+                <div className="mb-2 flex items-center justify-between gap-3 text-sm font-medium text-primary"><span>Mengunggah video...</span><span>{videoUploadProgress}%</span></div>
+                <Progress value={videoUploadProgress} aria-label="Progres unggah video" />
+              </div>
+            )}
             <div className="md:col-span-2"><label className="field-label">Deskripsi *</label><Textarea rows={5} value={formData.description} onChange={(event) => setFormData({ ...formData, description: event.target.value })} placeholder="Tuliskan deskripsi profesional properti..." /></div>
           </div>
 

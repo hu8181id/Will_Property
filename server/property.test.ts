@@ -21,6 +21,7 @@ const validDraft = {
   facilities: ["Garasi", "Taman"],
   images: ["/manus-storage/property-1.jpg"],
   videoUrl: "https://cdn.example.com/property.mp4",
+  videoThumbnailUrl: "/manus-storage/property-video-cover.jpg",
   virtualTourUrl: "https://my.matterport.com/show/?m=example",
 };
 
@@ -32,7 +33,9 @@ describe("property listing contracts", () => {
     expect(propertyDraftSchema.parse({ ...validDraft, images: ["1", "2", "3", "4", "5"] }).images).toHaveLength(5);
     expect(() => propertyDraftSchema.parse({ ...validDraft, images: ["1", "2", "3", "4", "5", "6"] })).toThrow();
     expect(propertyDraftSchema.parse(validDraft).videoUrl).toBe("https://cdn.example.com/property.mp4");
+    expect(propertyDraftSchema.parse(validDraft).videoThumbnailUrl).toBe("/manus-storage/property-video-cover.jpg");
     expect(propertyDraftSchema.parse(validDraft).virtualTourUrl).toContain("matterport.com");
+    expect(() => propertyDraftSchema.parse({ ...validDraft, videoThumbnailUrl: "javascript:alert(1)" })).toThrow();
     expect(() => propertyDraftSchema.parse({ ...validDraft, virtualTourUrl: "javascript:alert(1)" })).toThrow();
   });
 

@@ -4,11 +4,12 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import AddPropertyDialog from "./AddPropertyDialog";
 
 describe("AddPropertyDialog Virtual Tour & Video", () => {
-  it("renders video and virtual tour input fields", () => {
+  it("renders video, thumbnail, and virtual tour input fields", () => {
     const onSubmit = vi.fn().mockResolvedValue(undefined);
     render(<AddPropertyDialog open={true} onOpenChange={() => {}} onSubmit={onSubmit} />);
 
     expect(screen.getByLabelText(/video pendek/i)).toBeTruthy();
+    expect(screen.getByLabelText(/thumbnail video/i)).toBeTruthy();
     expect(screen.getByLabelText(/tur 360°/i)).toBeTruthy();
   });
 

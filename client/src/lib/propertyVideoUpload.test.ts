@@ -15,8 +15,12 @@ describe("uploadPropertyVideo", () => {
       .mockResolvedValueOnce(new Response(JSON.stringify({ url: "/manus-storage/properties/videos/tur.mp4" }), { status: 201 }));
     vi.stubGlobal("fetch", fetchMock);
     const file = new File([new Uint8Array([1, 2, 3])], "tur-properti.mp4", { type: "video/mp4" });
+    const onProgress = vi.fn();
 
-    await expect(uploadPropertyVideo(file)).resolves.toBe("/manus-storage/properties/videos/tur.mp4");
+    await expect(uploadPropertyVideo(file, onProgress)).resolves.toBe("/manus-storage/properties/videos/tur.mp4");
+    expect(onProgress).toHaveBeenNthCalledWith(1, 0);
+    expect(onProgress).toHaveBeenNthCalledWith(2, 50);
+    expect(onProgress).toHaveBeenNthCalledWith(3, 100);
     expect(fetchMock).toHaveBeenNthCalledWith(
       1,
       "/api/property-video-upload-sessions",

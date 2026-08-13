@@ -11,6 +11,8 @@ type UploadResponse = {
   error?: string;
 };
 
+export type PropertyVideoUploadProgress = (percent: number) => void;
+
 function getResponseMessage(payload: UploadResponse | null, fallback: string) {
   return payload?.error?.trim() || fallback;
 }
@@ -40,7 +42,7 @@ async function readPayload(response: Response) {
   return response.json().catch(() => null) as Promise<UploadResponse | null>;
 }
 
-export async function uploadPropertyVideo(file: File) {
+export async function uploadPropertyVideo(file: File, onProgress?: PropertyVideoUploadProgress) {
   if (!(PROPERTY_VIDEO_CONTENT_TYPES as readonly string[]).includes(file.type)) {
     throw new Error("Video harus berformat MP4, WebM, atau MOV.");
   }
@@ -58,6 +60,8 @@ export async function uploadPropertyVideo(file: File) {
     throw new Error(getResponseMessage(sessionPayload, "Gagal menyiapkan unggah video. Silakan coba lagi."));
   }
 
+  onProgress?.(0);
+
   for (let index = 0; index < sessionPayload.totalChunks; index += 1) {
     const start = index * sessionPayload.chunkBytes;
     const end = Math.min(file.size, start + sessionPayload.chunkBytes);
@@ -71,6 +75,7 @@ export async function uploadPropertyVideo(file: File) {
     if (!chunkResponse.ok) {
       throw new Error(getResponseMessage(chunkPayload, "Gagal mengunggah bagian video. Silakan coba lagi."));
     }
+    onProgress?.(Math.round(((index + 1) / sessionPayload.totalChunks) * 100));
   }
 
   const completeResponse = await fetch(`/api/property-video-upload-sessions/${sessionPayload.sessionId}/complete`, {
@@ -85,4 +90,3 @@ export async function uploadPropertyVideo(file: File) {
   }
   return completePayload.url;
 }
-

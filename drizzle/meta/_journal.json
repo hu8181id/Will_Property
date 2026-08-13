@@ -43,6 +43,13 @@
       "when": 1786628492000,
       "tag": "0005_jazzy_dakota_north",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1786630463440,
+      "tag": "0006_cultured_jubilee",
+      "breakpoints": true
     }
   ]
 }

@@ -34,6 +34,7 @@ export const propertyDraftSchema = z.object({
   facilities: z.array(z.string().trim()).max(20).default([]),
   images: z.array(z.string().min(1)).min(1).max(5),
   videoUrl: optionalMediaUrl,
+  videoThumbnailUrl: optionalMediaUrl,
   virtualTourUrl: optionalMediaUrl,
 });
 
@@ -188,6 +189,7 @@ export const propertyRouter = router({
           condition: input.condition || null,
           certificate: input.certificate || null,
           videoUrl: input.videoUrl || null,
+          videoThumbnailUrl: input.videoThumbnailUrl || null,
           virtualTourUrl: input.virtualTourUrl || null,
           status: "active",
         });
@@ -229,6 +231,7 @@ export const propertyRouter = router({
             condition: values.condition || null,
             certificate: values.certificate || null,
             videoUrl: values.videoUrl || null,
+            videoThumbnailUrl: values.videoThumbnailUrl || null,
             virtualTourUrl: values.virtualTourUrl || null,
           })
           .where(eq(propertyListings.id, id));

@@ -52,3 +52,6 @@
 - [x] Implementasikan unggah video langsung ke storage melalui tiket URL sementara agar file besar tidak melewati gateway aplikasi.
 - [x] Implementasikan transfer video bertahap melalui server untuk menggantikan unggah langsung yang gagal CORS pada Android.
 - [x] Perbaiki grid spesifikasi detail properti di ponsel agar harga panjang tidak menutupi jumlah kamar tidur.
+- [x] Tambahkan format harga singkat pada kartu Beranda dan Listing sambil mempertahankan harga penuh di detail properti.
+- [x] Tambahkan indikator progres persentase selama video listing diunggah dari perangkat admin.
+- [x] Tambahkan thumbnail video yang dapat dipilih admin dan ditampilkan sebelum video diputar pada detail listing.
