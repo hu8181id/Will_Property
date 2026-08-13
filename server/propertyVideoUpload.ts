@@ -1,6 +1,6 @@
 import express, { type Express } from "express";
 import { sdk } from "./_core/sdk";
-import { storagePut } from "./storage";
+import { storageCreateUploadUrl, storagePut } from "./storage";
 
 export const PROPERTY_VIDEO_CONTENT_TYPES = ["video/mp4", "video/webm", "video/quicktime"] as const;
 export const MAX_PROPERTY_VIDEO_BYTES = 50 * 1024 * 1024;
@@ -25,10 +25,7 @@ export function validatePropertyVideoUpload(contentType: string | undefined, byt
     return { ok: false as const, status: 413, message: "Ukuran video maksimal 50 MB." };
   }
 
-  return {
-    ok: true as const,
-    contentType: normalizedContentType as (typeof PROPERTY_VIDEO_CONTENT_TYPES)[number],
-  };
+  return { ok: true as const, contentType: normalizedContentType as (typeof PROPERTY_VIDEO_CONTENT_TYPES)[number] };
 }
 
 function safeVideoLabel(value: string | undefined) {
@@ -43,20 +40,28 @@ function safeVideoLabel(value: string | undefined) {
   }
 }
 
+async function getAdminUser(req: express.Request) {
+  try {
+    const user = await sdk.authenticateRequest(req);
+    return user?.role === "admin" ? user : null;
+  } catch {
+    return null;
+  }
+}
+
+function createVideoStorageKey(contentType: (typeof PROPERTY_VIDEO_CONTENT_TYPES)[number], fileName: string | undefined) {
+  return `properties/videos/${Date.now()}-${safeVideoLabel(fileName)}.${extensionByContentType[contentType]}`;
+}
+
 export function registerPropertyVideoUploadRoute(app: Express, options: { maxBytes?: number } = {}) {
   const maxBytes = options.maxBytes ?? MAX_PROPERTY_VIDEO_BYTES;
+
   app.post(
     "/api/property-video-upload",
     express.raw({ type: [...PROPERTY_VIDEO_CONTENT_TYPES], limit: "55mb" }),
     async (req, res) => {
       try {
-        let user = null;
-        try {
-          user = await sdk.authenticateRequest(req);
-        } catch {
-          user = null;
-        }
-        if (!user || user.role !== "admin") {
+        if (!await getAdminUser(req)) {
           res.status(403).json({ error: "Hanya admin yang dapat mengunggah video properti." });
           return;
         }
@@ -72,7 +77,7 @@ export function registerPropertyVideoUploadRoute(app: Express, options: { maxByt
         }
 
         const uploaded = await storagePut(
-          `properties/videos/${Date.now()}-${safeVideoLabel(req.header("x-primedeal-file-name"))}.${extensionByContentType[validation.contentType]}`,
+          createVideoStorageKey(validation.contentType, req.header("x-primedeal-file-name")),
           req.body,
           validation.contentType,
         );
@@ -84,4 +89,26 @@ export function registerPropertyVideoUploadRoute(app: Express, options: { maxByt
       }
     },
   );
+
+  app.post("/api/property-video-upload-ticket", express.json({ limit: "16kb" }), async (req, res) => {
+    try {
+      if (!await getAdminUser(req)) {
+        res.status(403).json({ error: "Hanya admin yang dapat mengunggah video properti." });
+        return;
+      }
+
+      const input = req.body as { contentType?: string; fileName?: string; size?: unknown } | undefined;
+      const validation = validatePropertyVideoUpload(input?.contentType, Number(input?.size), maxBytes);
+      if (!validation.ok) {
+        res.status(validation.status).json({ error: validation.message });
+        return;
+      }
+
+      const uploaded = await storageCreateUploadUrl(createVideoStorageKey(validation.contentType, input?.fileName));
+      res.status(201).json({ success: true, url: uploaded.url, uploadUrl: uploaded.uploadUrl });
+    } catch (error) {
+      console.error("[Property Video Direct Upload Ticket]", error);
+      res.status(500).json({ error: "Gagal menyiapkan unggah video. Periksa koneksi lalu coba lagi." });
+    }
+  });
 }

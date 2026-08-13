@@ -5,6 +5,7 @@ export const MAX_PROPERTY_VIDEO_BYTES = 50 * 1024 * 1024;
 
 type PropertyVideoUploadResponse = {
   url?: string;
+  uploadUrl?: string;
   error?: string;
 };
 
@@ -40,20 +41,28 @@ export async function uploadPropertyVideo(file: File) {
   }
 
   const authorization = getSessionAuthorizationHeader();
-  const response = await fetch("/api/property-video-upload", {
+  const response = await fetch("/api/property-video-upload-ticket", {
     method: "POST",
     credentials: "include",
     headers: {
-      "Content-Type": file.type,
-      "X-Primedeal-File-Name": encodeURIComponent(file.name),
+      "Content-Type": "application/json",
       ...(authorization ? { Authorization: authorization } : {}),
     },
-    body: file,
+    body: JSON.stringify({ contentType: file.type, fileName: file.name, size: file.size }),
   });
 
   const payload = await response.json().catch(() => null) as PropertyVideoUploadResponse | null;
-  if (!response.ok || !payload?.url) {
+  if (!response.ok || !payload?.url || !payload.uploadUrl) {
     throw new Error(getResponseMessage(payload, "Gagal mengunggah video. Silakan coba lagi."));
+  }
+
+  const uploadResponse = await fetch(payload.uploadUrl, {
+    method: "PUT",
+    headers: { "Content-Type": file.type },
+    body: file,
+  });
+  if (!uploadResponse.ok) {
+    throw new Error("Gagal mengunggah video ke penyimpanan. Periksa koneksi lalu coba lagi.");
   }
 
   return payload.url;

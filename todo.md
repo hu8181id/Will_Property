@@ -46,6 +46,7 @@
 - [x] Perbaiki shortcut admin APK yang tidak merespons pada area kanan atas; sediakan kontrol yang jelas dan tetap aman untuk membuka portal admin.
 - [x] Sembunyikan kembali tombol Admin APK dan implementasikan pola tiga ketukan cepat lalu tekan lama di pojok kanan atas untuk membuka portal admin.
 - [x] Perbaiki konflik area gesture admin tersembunyi dengan pilihan navigasi website agar navigasi dapat ditekan normal.
-- [ ] Verifikasi unggah video MP4 pengguna dapat berhasil sampai tersimpan sebagai videoUrl pada listing admin.
+- [ ] Uji end-to-end unggah video MP4 besar dari perangkat Android akun admin hingga videoUrl tersimpan dan video tampil pada detail listing.
 - [x] Tambahkan integration test endpoint upload video untuk jalur sukses storage dan penolakan autentikasi, format, serta ukuran.
 - [x] Diagnosa dan perbaiki kegagalan upload video produksi yang masih terjadi setelah endpoint biner diterapkan.
+- [x] Implementasikan unggah video langsung ke storage melalui tiket URL sementara agar file besar tidak melewati gateway aplikasi.
