@@ -60,3 +60,9 @@
 - [x] Verifikasi APK analitik bertanda tangan dan tuliskan cara membedakan traffic website dan APK.
 - [x] Dapatkan ID pengukuran Google Analytics 4 dari admin lalu aktifkan page-view tracking pada website Primedeal.
 - [x] Verifikasi page-view Google Analytics 4 dan perbarui panduan dashboard traffic website vs APK.
+- [x] Tambahkan pelacakan pengunjung harian anonim berbasis database tanpa menyimpan identitas pribadi.
+- [x] Tambahkan API admin-only untuk ringkasan jumlah pengunjung hari ini dan tujuh hari terakhir.
+- [x] Buat dashboard admin responsif untuk melihat ringkasan dan tren pengunjung harian.
+- [x] Lengkapi pengujian keamanan akses admin, deduplikasi kunjungan, dan tampilan dashboard.
+- [x] Tambahkan integration test yang menulis dua kunjungan dengan visitorId sama pada visitDate sama dan memverifikasi ringkasan tetap satu.
+- [x] Tambahkan integration test yang menulis visitorId sama pada dua visitDate berbeda dan memverifikasi kedua hari dihitung.

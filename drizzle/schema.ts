@@ -1,4 +1,4 @@
-import { bigint, index, int, json, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { bigint, index, int, json, mysqlEnum, mysqlTable, text, timestamp, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -102,3 +102,26 @@ export const propertyReviews = mysqlTable(
 
 export type PropertyReview = typeof propertyReviews.$inferSelect;
 export type InsertPropertyReview = typeof propertyReviews.$inferInsert;
+
+/**
+ * Anonymous, deduplicated website visits. The random visitor key is held only
+ * in a first-party browser cookie and is never associated with a user account.
+ */
+export const siteDailyVisits = mysqlTable(
+  "site_daily_visits",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    visitDate: varchar("visitDate", { length: 10 }).notNull(),
+    visitorId: varchar("visitorId", { length: 64 }).notNull(),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+  },
+  (table) => ({
+    visitDateIdx: index("site_daily_visits_visit_date_idx").on(table.visitDate),
+    visitDateVisitorUnique: uniqueIndex("site_daily_visits_date_visitor_unique").on(
+      table.visitDate,
+      table.visitorId,
+    ),
+  }),
+);
+
+export type SiteDailyVisit = typeof siteDailyVisits.$inferSelect;

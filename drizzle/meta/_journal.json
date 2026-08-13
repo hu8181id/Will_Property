@@ -50,6 +50,13 @@
       "when": 1786630463440,
       "tag": "0006_cultured_jubilee",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1786636760270,
+      "tag": "0007_gifted_bruce_banner",
+      "breakpoints": true
     }
   ]
 }

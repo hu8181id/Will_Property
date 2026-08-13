@@ -1,8 +1,9 @@
-import { eq } from "drizzle-orm";
+import { count, eq, gte } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import {
   InsertUser,
   propertyVideoUploadSessions,
+  siteDailyVisits,
   type PropertyVideoUploadSession,
   users,
 } from "../drizzle/schema";
@@ -144,4 +145,28 @@ export async function setPropertyVideoUploadCompletedUrl(id: string, completedUr
     .update(propertyVideoUploadSessions)
     .set({ completedUrl })
     .where(eq(propertyVideoUploadSessions.id, id));
+}
+
+export async function recordAnonymousDailyVisit(input: { visitDate: string; visitorId: string }) {
+  const db = await getDb();
+  if (!db) throw new Error("Database tidak tersedia untuk mencatat kunjungan.");
+
+  await db
+    .insert(siteDailyVisits)
+    .values(input)
+    .onDuplicateKeyUpdate({ set: { visitorId: input.visitorId } });
+}
+
+export async function getAnonymousDailyVisitSummary(fromDate: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database tidak tersedia untuk membaca statistik pengunjung.");
+
+  const rows = await db
+    .select({ visitDate: siteDailyVisits.visitDate, visitors: count() })
+    .from(siteDailyVisits)
+    .where(gte(siteDailyVisits.visitDate, fromDate))
+    .groupBy(siteDailyVisits.visitDate)
+    .orderBy(siteDailyVisits.visitDate);
+
+  return rows.map((row) => ({ visitDate: row.visitDate, visitors: Number(row.visitors) }));
 }

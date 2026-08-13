@@ -2,7 +2,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { startLogin } from "@/const";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Lock, ShieldCheck, ArrowLeft, LogOut, Home } from "lucide-react";
+import { Lock, ShieldCheck, ArrowLeft, LogOut, Home, BarChart3 } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function AdminLogin() {
@@ -52,6 +52,16 @@ export default function AdminLogin() {
                 >
                   Buka Halaman Listing & Kelola Properti
                 </Button>
+                {user.role === "admin" && (
+                  <Button
+                    variant="outline"
+                    onClick={() => setLocation("/admin/dashboard")}
+                    className="w-full gap-2"
+                  >
+                    <BarChart3 size={16} />
+                    Lihat Dashboard Pengunjung
+                  </Button>
+                )}
                 {user.role === "admin" && (
                   <Button
                     variant="outline"
