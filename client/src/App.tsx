@@ -1,7 +1,9 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { trackGoogleAnalyticsPageView } from "@/lib/googleAnalytics";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { useEffect } from "react";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -11,6 +13,17 @@ import Tentang from "./pages/Tentang";
 import Favorit from "./pages/Favorit";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminReviews from "@/pages/AdminReviews";
+
+function GoogleAnalyticsRouteTracker() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    trackGoogleAnalyticsPageView(location);
+  }, [location]);
+
+  return null;
+}
+
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -43,6 +56,7 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
+          <GoogleAnalyticsRouteTracker />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

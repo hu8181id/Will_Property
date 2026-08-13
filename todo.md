@@ -55,3 +55,8 @@
 - [x] Tambahkan format harga singkat pada kartu Beranda dan Listing sambil mempertahankan harga penuh di detail properti.
 - [x] Tambahkan indikator progres persentase selama video listing diunggah dari perangkat admin.
 - [x] Tambahkan thumbnail video yang dapat dipilih admin dan ditampilkan sebelum video diputar pada detail listing.
+- [x] Aktifkan Firebase Analytics pada APK untuk mencatat pembukaan aplikasi dan kelompok halaman yang dibuka.
+- [x] Konfirmasi pelacakan traffic website bawaan serta dokumentasikan dashboard gratis untuk melihat pengunjung.
+- [x] Verifikasi APK analitik bertanda tangan dan tuliskan cara membedakan traffic website dan APK.
+- [x] Dapatkan ID pengukuran Google Analytics 4 dari admin lalu aktifkan page-view tracking pada website Primedeal.
+- [x] Verifikasi page-view Google Analytics 4 dan perbarui panduan dashboard traffic website vs APK.
