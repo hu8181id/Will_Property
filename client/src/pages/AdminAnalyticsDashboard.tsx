@@ -1,10 +1,11 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/lib/trpc";
 import { ArrowLeft, BarChart3, CalendarDays, Loader2, RefreshCw, ShieldCheck, Users } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "wouter";
 
 function formatDashboardDate(visitDate: string) {
@@ -13,11 +14,36 @@ function formatDashboardDate(visitDate: string) {
   );
 }
 
+function getIndonesiaDateKey(date = new Date()) {
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Jakarta", year: "numeric", month: "2-digit", day: "2-digit" })
+      .formatToParts(date)
+      .map((part) => [part.type, part.value]),
+  );
+  return `${parts.year}-${parts.month}-${parts.day}`;
+}
+
+function getPresetRange(days: number) {
+  const endDate = getIndonesiaDateKey();
+  const start = new Date(`${endDate}T00:00:00.000Z`);
+  start.setUTCDate(start.getUTCDate() - (days - 1));
+  return { startDate: start.toISOString().slice(0, 10), endDate };
+}
+
+function getRangeDays(startDate: string, endDate: string) {
+  const start = new Date(`${startDate}T00:00:00.000Z`).getTime();
+  const end = new Date(`${endDate}T00:00:00.000Z`).getTime();
+  return Math.floor((end - start) / 86_400_000) + 1;
+}
+
 export default function AdminAnalyticsDashboard() {
   const { user, loading } = useAuth();
   const [, setLocation] = useLocation();
   const canViewDashboard = user?.role === "admin";
-  const summary = trpc.analytics.dailySummary.useQuery(undefined, {
+  const [selectedRange, setSelectedRange] = useState(() => getPresetRange(7));
+  const [appliedRange, setAppliedRange] = useState(() => getPresetRange(7));
+  const [rangeError, setRangeError] = useState("");
+  const summary = trpc.analytics.dailySummary.useQuery(appliedRange, {
     enabled: canViewDashboard,
     refetchInterval: 5 * 60 * 1000,
   });
@@ -50,6 +76,26 @@ export default function AdminAnalyticsDashboard() {
   const days = summary.data?.days ?? [];
   const maxVisitors = Math.max(...days.map((day) => day.visitors), 1);
 
+  const applyRange = () => {
+    if (selectedRange.startDate > selectedRange.endDate) {
+      setRangeError("Tanggal mulai tidak boleh setelah tanggal akhir.");
+      return;
+    }
+    if (getRangeDays(selectedRange.startDate, selectedRange.endDate) > 366) {
+      setRangeError("Rentang maksimal adalah 366 hari.");
+      return;
+    }
+    setRangeError("");
+    setAppliedRange(selectedRange);
+  };
+
+  const applyPreset = (days: number) => {
+    const range = getPresetRange(days);
+    setSelectedRange(range);
+    setAppliedRange(range);
+    setRangeError("");
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 p-4 sm:p-8">
       <section className="mx-auto max-w-5xl">
@@ -70,33 +116,59 @@ export default function AdminAnalyticsDashboard() {
           </Button>
         </header>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <Card className="border-slate-200 p-4 shadow-sm sm:p-5">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-slate-900">Filter periode</p>
+              <p className="mt-1 text-sm text-slate-500">Pilih tanggal mulai dan akhir untuk melihat kunjungan pada periode tertentu.</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Button type="button" size="sm" variant="outline" onClick={() => applyPreset(7)}>7 Hari</Button>
+              <Button type="button" size="sm" variant="outline" onClick={() => applyPreset(30)}>30 Hari</Button>
+              <Button type="button" size="sm" variant="outline" onClick={() => applyPreset(90)}>90 Hari</Button>
+            </div>
+          </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
+            <label className="grid gap-1.5 text-sm font-medium text-slate-700">Tanggal mulai
+              <Input aria-label="Tanggal mulai" type="date" max={getIndonesiaDateKey()} value={selectedRange.startDate} onChange={(event) => setSelectedRange((range) => ({ ...range, startDate: event.target.value }))} />
+            </label>
+            <label className="grid gap-1.5 text-sm font-medium text-slate-700">Tanggal akhir
+              <Input aria-label="Tanggal akhir" type="date" max={getIndonesiaDateKey()} value={selectedRange.endDate} onChange={(event) => setSelectedRange((range) => ({ ...range, endDate: event.target.value }))} />
+            </label>
+            <Button type="button" onClick={applyRange}>Terapkan</Button>
+          </div>
+          {rangeError && <p role="alert" className="mt-3 text-sm text-red-600">{rangeError}</p>}
+        </Card>
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
           <Card className="border-blue-100 bg-gradient-to-br from-blue-600 to-blue-700 p-5 text-white shadow-blue-100 shadow-lg">
             <div className="flex items-start justify-between">
-              <div><p className="text-sm font-medium text-blue-100">Pengunjung Hari Ini</p><p className="mt-3 text-4xl font-bold">{summary.data?.today ?? "—"}</p><p className="mt-2 text-xs text-blue-100">Diperbarui otomatis setiap 5 menit</p></div>
+              <div><p className="text-sm font-medium text-blue-100">Total Pengunjung Periode</p><p className="mt-3 text-4xl font-bold">{summary.data?.totalVisitors ?? "—"}</p><p className="mt-2 text-xs text-blue-100">Diperbarui otomatis setiap 5 menit</p></div>
               <Users className="h-9 w-9 text-blue-200" />
             </div>
           </Card>
           <Card className="border-slate-200 p-5 shadow-sm">
-            <div className="flex items-start justify-between"><div><p className="text-sm font-medium text-slate-600">Total 7 Hari Terakhir</p><p className="mt-3 text-4xl font-bold text-slate-900">{summary.data?.last7Days ?? "—"}</p><p className="mt-2 text-xs text-slate-500">Pengunjung unik per hari</p></div><CalendarDays className="h-9 w-9 text-primary" /></div>
+            <div className="flex items-start justify-between"><div><p className="text-sm font-medium text-slate-600">Rata-rata per Hari</p><p className="mt-3 text-4xl font-bold text-slate-900">{summary.data?.averageDailyVisitors ?? "—"}</p><p className="mt-2 text-xs text-slate-500">Pengunjung unik per hari</p></div><CalendarDays className="h-9 w-9 text-primary" /></div>
           </Card>
         </div>
 
         <Card className="mt-6 border-slate-200 p-5 shadow-sm sm:p-6">
-          <div className="flex items-start gap-3"><div className="rounded-lg bg-blue-50 p-2"><BarChart3 className="h-5 w-5 text-primary" /></div><div><h2 className="font-semibold text-slate-900">Tren kunjungan 7 hari</h2><p className="mt-1 text-sm text-slate-500">Satu orang dihitung satu kali dalam satu hari pada perangkat yang sama.</p></div></div>
+          <div className="flex items-start gap-3"><div className="rounded-lg bg-blue-50 p-2"><BarChart3 className="h-5 w-5 text-primary" /></div><div><h2 className="font-semibold text-slate-900">Tren kunjungan periode terpilih</h2><p className="mt-1 text-sm text-slate-500">{summary.data?.period ? `${formatDashboardDate(summary.data.period.startDate)} – ${formatDashboardDate(summary.data.period.endDate)}` : "Memuat periode..."}. Satu orang dihitung satu kali dalam satu hari pada perangkat yang sama.</p></div></div>
           {summary.isLoading ? (
             <div className="mt-8 grid h-48 grid-cols-7 items-end gap-2"><Skeleton className="h-20" /><Skeleton className="h-32" /><Skeleton className="h-16" /><Skeleton className="h-40" /><Skeleton className="h-24" /><Skeleton className="h-28" /><Skeleton className="h-36" /></div>
           ) : summary.isError ? (
             <p className="mt-8 rounded-lg bg-red-50 p-4 text-sm text-red-700">Statistik belum dapat dimuat. Silakan tekan Perbarui beberapa saat lagi.</p>
           ) : (
-            <div className="mt-8 grid h-52 grid-cols-7 items-end gap-2 border-b border-slate-200 pb-1 sm:gap-4">
-              {days.map((day) => (
-                <div key={day.visitDate} className="flex h-full min-w-0 flex-col justify-end text-center">
-                  <span className="mb-2 text-xs font-semibold text-slate-700">{day.visitors}</span>
-                  <div className="min-h-1 rounded-t-md bg-primary transition-[height] duration-200" style={{ height: `${Math.max((day.visitors / maxVisitors) * 100, day.visitors > 0 ? 4 : 1)}%` }} />
-                  <span className="mt-2 truncate text-[10px] text-slate-500 sm:text-xs">{formatDashboardDate(day.visitDate)}</span>
-                </div>
-              ))}
+            <div className="mt-8 overflow-x-auto border-b border-slate-200 pb-1">
+              <div className="flex h-52 min-w-max items-end gap-2 sm:gap-3">
+                {days.map((day) => (
+                  <div key={day.visitDate} className="flex h-full w-11 flex-none flex-col justify-end text-center sm:w-14">
+                    <span className="mb-2 text-xs font-semibold text-slate-700">{day.visitors}</span>
+                    <div className="min-h-1 rounded-t-md bg-primary transition-[height] duration-200" style={{ height: `${Math.max((day.visitors / maxVisitors) * 100, day.visitors > 0 ? 4 : 1)}%` }} />
+                    <span className="mt-2 truncate text-[10px] text-slate-500 sm:text-xs">{formatDashboardDate(day.visitDate)}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </Card>

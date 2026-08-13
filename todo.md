@@ -66,3 +66,6 @@
 - [x] Lengkapi pengujian keamanan akses admin, deduplikasi kunjungan, dan tampilan dashboard.
 - [x] Tambahkan integration test yang menulis dua kunjungan dengan visitorId sama pada visitDate sama dan memverifikasi ringkasan tetap satu.
 - [x] Tambahkan integration test yang menulis visitorId sama pada dua visitDate berbeda dan memverifikasi kedua hari dihitung.
+- [x] Tambahkan filter rentang tanggal pada API ringkasan pengunjung dengan validasi periode aman.
+- [x] Tambahkan kontrol tanggal mulai dan akhir beserta preset periode pada dashboard admin responsif.
+- [x] Tambahkan pengujian API dan tampilan untuk filter rentang tanggal dashboard.

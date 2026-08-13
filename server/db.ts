@@ -1,4 +1,4 @@
-import { count, eq, gte } from "drizzle-orm";
+import { and, count, eq, gte, lte } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import {
   InsertUser,
@@ -157,14 +157,14 @@ export async function recordAnonymousDailyVisit(input: { visitDate: string; visi
     .onDuplicateKeyUpdate({ set: { visitorId: input.visitorId } });
 }
 
-export async function getAnonymousDailyVisitSummary(fromDate: string) {
+export async function getAnonymousDailyVisitSummary(fromDate: string, toDate?: string) {
   const db = await getDb();
   if (!db) throw new Error("Database tidak tersedia untuk membaca statistik pengunjung.");
 
   const rows = await db
     .select({ visitDate: siteDailyVisits.visitDate, visitors: count() })
     .from(siteDailyVisits)
-    .where(gte(siteDailyVisits.visitDate, fromDate))
+    .where(toDate ? and(gte(siteDailyVisits.visitDate, fromDate), lte(siteDailyVisits.visitDate, toDate)) : gte(siteDailyVisits.visitDate, fromDate))
     .groupBy(siteDailyVisits.visitDate)
     .orderBy(siteDailyVisits.visitDate);
 

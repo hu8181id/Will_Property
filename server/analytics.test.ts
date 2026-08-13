@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { appRouter } from "./routers";
-import { analyticsDateUtils, visitorRecordSchema } from "./routers/analytics";
+import { analyticsDateUtils, dailySummaryInputSchema, visitorRecordSchema } from "./routers/analytics";
 import type { TrpcContext } from "./_core/context";
 
 function createPublicContext(): TrpcContext {
@@ -24,6 +24,25 @@ describe("analytics dashboard contracts", () => {
     expect(analyticsDateUtils.isAnonymousVisitorId("alamat-email@example.com")).toBe(false);
     expect(visitorRecordSchema.parse({})).toEqual({});
     expect(() => visitorRecordSchema.parse({ visitorId: "tidak-boleh" })).toThrow();
+  });
+
+  it("menerima rentang tanggal valid dan menolak periode terbalik atau terlalu panjang", () => {
+    expect(dailySummaryInputSchema.parse({ startDate: "2026-08-01", endDate: "2026-08-31" })).toEqual({
+      startDate: "2026-08-01",
+      endDate: "2026-08-31",
+    });
+    expect(() => dailySummaryInputSchema.parse({ startDate: "2026-08-31", endDate: "2026-08-01" })).toThrow();
+    expect(() => dailySummaryInputSchema.parse({ startDate: "2025-01-01", endDate: "2026-12-31" })).toThrow();
+  });
+
+  it("membuat setiap tanggal dalam periode yang dipilih tanpa melewati batas akhir", () => {
+    expect(analyticsDateUtils.getDateKeysInRange("2026-08-29", "2026-09-02")).toEqual([
+      "2026-08-29",
+      "2026-08-30",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+    ]);
   });
 
   it("melindungi ringkasan pengunjung agar tidak dapat diakses publik", async () => {

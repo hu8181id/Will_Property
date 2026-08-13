@@ -14,8 +14,9 @@ vi.mock("@/lib/trpc", () => ({
       dailySummary: {
         useQuery: () => ({
           data: {
-            today: 4,
-            last7Days: 15,
+            period: { startDate: "2026-08-07", endDate: "2026-08-13" },
+            totalVisitors: 15,
+            averageDailyVisitors: 2.1,
             days: [
               { visitDate: "2026-08-07", visitors: 1 },
               { visitDate: "2026-08-08", visitors: 2 },
@@ -45,9 +46,12 @@ describe("AdminAnalyticsDashboard", () => {
     render(<AdminAnalyticsDashboard />);
 
     expect(screen.getByRole("heading", { name: /ringkasan pengunjung/i })).toBeTruthy();
-    expect(screen.getByText("Pengunjung Hari Ini")).toBeTruthy();
-    expect(screen.getByText("Total 7 Hari Terakhir")).toBeTruthy();
+    expect(screen.getByText("Total Pengunjung Periode")).toBeTruthy();
+    expect(screen.getByText("Rata-rata per Hari")).toBeTruthy();
     expect(screen.getByText("15")).toBeTruthy();
-    expect(screen.getByText("Tren kunjungan 7 hari")).toBeTruthy();
+    expect(screen.getByText("Tren kunjungan periode terpilih")).toBeTruthy();
+    expect(screen.getByLabelText("Tanggal mulai")).toBeTruthy();
+    expect(screen.getByLabelText("Tanggal akhir")).toBeTruthy();
+    expect(screen.getByRole("button", { name: "30 Hari" })).toBeTruthy();
   });
 });

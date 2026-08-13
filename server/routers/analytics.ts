@@ -6,6 +6,8 @@ import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 
 export const ANONYMOUS_VISITOR_COOKIE = "primedeal_visitor";
 const ANONYMOUS_VISITOR_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;
+const DATE_KEY_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
+const MAX_DASHBOARD_RANGE_DAYS = 366;
 
 function getIndonesiaDateKey(date: Date) {
   const formatter = new Intl.DateTimeFormat("en-US", {
@@ -28,6 +30,25 @@ function getDateKeys(days: number, now = new Date()) {
   });
 }
 
+function getDateKeysInRange(startDate: string, endDate: string) {
+  const dates: string[] = [];
+  const current = new Date(`${startDate}T00:00:00.000Z`);
+  const end = new Date(`${endDate}T00:00:00.000Z`);
+
+  while (current <= end) {
+    dates.push(current.toISOString().slice(0, 10));
+    current.setUTCDate(current.getUTCDate() + 1);
+  }
+
+  return dates;
+}
+
+function isDateKey(value: string) {
+  if (!DATE_KEY_PATTERN.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00.000Z`);
+  return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
+}
+
 function readCookie(cookieHeader: string | undefined, name: string) {
   if (!cookieHeader) return undefined;
   return cookieHeader
@@ -42,6 +63,22 @@ function isAnonymousVisitorId(value: string | undefined): value is string {
 }
 
 export const visitorRecordSchema = z.object({}).strict();
+
+export const dailySummaryInputSchema = z
+  .object({
+    startDate: z.string().refine(isDateKey, "Tanggal mulai tidak valid."),
+    endDate: z.string().refine(isDateKey, "Tanggal akhir tidak valid."),
+  })
+  .superRefine(({ startDate, endDate }, ctx) => {
+    if (startDate > endDate) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Tanggal mulai tidak boleh setelah tanggal akhir.", path: ["startDate"] });
+      return;
+    }
+
+    if (getDateKeysInRange(startDate, endDate).length > MAX_DASHBOARD_RANGE_DAYS) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Rentang maksimal adalah 366 hari.", path: ["endDate"] });
+    }
+  });
 
 export const analyticsRouter = router({
   recordVisit: publicProcedure.input(visitorRecordSchema).mutation(async ({ ctx }) => {
@@ -64,18 +101,22 @@ export const analyticsRouter = router({
     }
   }),
 
-  dailySummary: adminProcedure.query(async () => {
-    const dates = getDateKeys(7);
-    const rows = await getAnonymousDailyVisitSummary(dates[0]);
+  dailySummary: adminProcedure.input(dailySummaryInputSchema.optional()).query(async ({ input }) => {
+    const dates = input ? getDateKeysInRange(input.startDate, input.endDate) : getDateKeys(7);
+    const startDate = dates[0]!;
+    const endDate = dates.at(-1)!;
+    const rows = await getAnonymousDailyVisitSummary(startDate, endDate);
     const visitsByDate = new Map(rows.map((row) => [row.visitDate, row.visitors]));
     const days = dates.map((visitDate) => ({ visitDate, visitors: visitsByDate.get(visitDate) ?? 0 }));
+    const totalVisitors = days.reduce((total, day) => total + day.visitors, 0);
 
     return {
-      today: days.at(-1)?.visitors ?? 0,
-      last7Days: days.reduce((total, day) => total + day.visitors, 0),
+      period: { startDate, endDate },
+      totalVisitors,
+      averageDailyVisitors: Number((totalVisitors / days.length).toFixed(1)),
       days,
     };
   }),
 });
 
-export const analyticsDateUtils = { getDateKeys, getIndonesiaDateKey, isAnonymousVisitorId };
+export const analyticsDateUtils = { getDateKeys, getDateKeysInRange, getIndonesiaDateKey, isAnonymousVisitorId, isDateKey };
