@@ -44,3 +44,4 @@
 - [x] Perbarui APK agar admin memiliki akses tersembunyi ke halaman `/admin` untuk menambah dan mengelola properti, lalu build ulang APK/AAB dengan Firebase asli.
 - [x] Perbaiki alur login Google APK dengan mengalihkan shortcut admin dan host OAuth ke browser sistem, karena Google OAuth/Cloudflare tidak aman atau andal di embedded WebView.
 - [x] Perbaiki shortcut admin APK yang tidak merespons pada area kanan atas; sediakan kontrol yang jelas dan tetap aman untuk membuka portal admin.
+- [x] Sembunyikan kembali tombol Admin APK dan implementasikan pola tiga ketukan cepat lalu tekan lama di pojok kanan atas untuk membuka portal admin.
