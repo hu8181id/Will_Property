@@ -35,3 +35,6 @@
 - [x] Jadikan seluruh tombol dan kartu pada bagian layanan dapat ditekan dengan aksi navigasi atau CTA yang relevan.
 - [x] Perbaiki runtime error optionalMediaUrl sebelum checkpoint tombol layanan.
 - [x] Buat pembungkus aplikasi Android APK untuk website Primedeal (WebView app dengan akses penuh ke database, S3, dan WhatsApp).
+- [ ] Unduh dan verifikasi file APK Primedeal Properti.
+- [ ] Tambahkan konfigurasi dasar Firebase Push Notification pada proyek Android.
+- [ ] Siapkan artefak Android App Bundle (AAB) dan checklist rilis Google Play Store.
