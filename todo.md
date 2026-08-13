@@ -38,3 +38,4 @@
 - [x] Unduh dan verifikasi file APK Primedeal Properti.
 - [x] Tambahkan konfigurasi dasar Firebase Push Notification pada proyek Android.
 - [x] Siapkan artefak Android App Bundle (AAB) dan checklist rilis Google Play Store.
+- [ ] Jalankan penyiapan aset branding visual, konfigurasi Firebase nyata, dan bundel rilis Play Store untuk APK Primedeal.
