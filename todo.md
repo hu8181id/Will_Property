@@ -42,3 +42,4 @@
 - [x] Pasang google-services.json asli pengguna dan aktifkan plugin Google Services pada Gradle APK.
 - [x] Bangun APK final Primedeal dengan konfigurasi google-services.json asli pengguna dan verifikasi hasil build.
 - [x] Perbarui APK agar admin memiliki akses tersembunyi ke halaman `/admin` untuk menambah dan mengelola properti, lalu build ulang APK/AAB dengan Firebase asli.
+- [x] Perbaiki alur login Google APK dengan mengalihkan shortcut admin dan host OAuth ke browser sistem, karena Google OAuth/Cloudflare tidak aman atau andal di embedded WebView.
