@@ -27,11 +27,19 @@ function GoogleAnalyticsRouteTracker() {
 }
 
 function VisitorTracker() {
+  const [location] = useLocation();
   const { mutate } = trpc.analytics.recordVisit.useMutation();
 
   useEffect(() => {
-    mutate({});
-  }, [mutate]);
+    const contentTitle = {
+      "/": "Beranda",
+      "/listing": "Listing Properti",
+      "/favorit": "Properti Favorit",
+      "/kalkulator": "Kalkulator KPR",
+      "/tentang": "Tentang Primedeal",
+    }[location];
+    mutate({ page: contentTitle ? { contentType: "page", path: location, contentTitle } : undefined });
+  }, [location, mutate]);
 
   return null;
 }

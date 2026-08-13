@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/lib/trpc";
-import { ArrowLeft, BarChart3, CalendarDays, Loader2, RefreshCw, ShieldCheck, Users } from "lucide-react";
+import { ArrowLeft, BarChart3, CalendarDays, FileText, Loader2, RefreshCw, ShieldCheck, Trophy, Users } from "lucide-react";
 import React, { useState } from "react";
 import { useLocation } from "wouter";
 
@@ -44,6 +44,10 @@ export default function AdminAnalyticsDashboard() {
   const [appliedRange, setAppliedRange] = useState(() => getPresetRange(7));
   const [rangeError, setRangeError] = useState("");
   const summary = trpc.analytics.dailySummary.useQuery(appliedRange, {
+    enabled: canViewDashboard,
+    refetchInterval: 5 * 60 * 1000,
+  });
+  const popularContent = trpc.analytics.popularContent.useQuery(appliedRange, {
     enabled: canViewDashboard,
     refetchInterval: 5 * 60 * 1000,
   });
@@ -110,8 +114,8 @@ export default function AdminAnalyticsDashboard() {
               <p className="mt-1 text-sm text-slate-600">Kunjungan unik harian dari website Primedeal.</p>
             </div>
           </div>
-          <Button variant="outline" className="gap-2 self-start" disabled={summary.isFetching} onClick={() => summary.refetch()}>
-            {summary.isFetching ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
+          <Button variant="outline" className="gap-2 self-start" disabled={summary.isFetching || popularContent.isFetching} onClick={() => { void Promise.all([summary.refetch(), popularContent.refetch()]); }}>
+            {summary.isFetching || popularContent.isFetching ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
             Perbarui
           </Button>
         </header>
@@ -172,6 +176,17 @@ export default function AdminAnalyticsDashboard() {
             </div>
           )}
         </Card>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          <Card className="border-slate-200 p-5 shadow-sm">
+            <div className="flex items-start gap-3"><div className="rounded-lg bg-blue-50 p-2"><FileText className="h-5 w-5 text-primary" /></div><div><h2 className="font-semibold text-slate-900">Halaman Terpopuler</h2><p className="mt-1 text-sm text-slate-500">Tampilan unik per hari dalam periode terpilih.</p></div></div>
+            {popularContent.isLoading ? <div className="mt-5 space-y-3"><Skeleton className="h-12 w-full" /><Skeleton className="h-12 w-full" /><Skeleton className="h-12 w-full" /></div> : popularContent.isError ? <p className="mt-5 rounded-lg bg-red-50 p-3 text-sm text-red-700">Daftar halaman belum dapat dimuat.</p> : popularContent.data?.pages.length ? <ol className="mt-5 divide-y divide-slate-100">{popularContent.data.pages.map((page, index) => <li key={page.path} className="flex items-center gap-3 py-3 first:pt-0"><span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-slate-100 text-xs font-bold text-slate-600">{index + 1}</span><div className="min-w-0 flex-1"><p className="truncate text-sm font-semibold text-slate-900">{page.contentTitle}</p><p className="truncate text-xs text-slate-500">{page.path}</p></div><span className="text-sm font-bold text-primary">{page.views}</span></li>)}</ol> : <p className="mt-5 rounded-lg bg-slate-50 p-4 text-sm text-slate-500">Belum ada tampilan halaman pada periode ini.</p>}
+          </Card>
+          <Card className="border-slate-200 p-5 shadow-sm">
+            <div className="flex items-start gap-3"><div className="rounded-lg bg-amber-50 p-2"><Trophy className="h-5 w-5 text-amber-600" /></div><div><h2 className="font-semibold text-slate-900">Listing Terpopuler</h2><p className="mt-1 text-sm text-slate-500">Detail properti yang paling banyak dibuka.</p></div></div>
+            {popularContent.isLoading ? <div className="mt-5 space-y-3"><Skeleton className="h-12 w-full" /><Skeleton className="h-12 w-full" /><Skeleton className="h-12 w-full" /></div> : popularContent.isError ? <p className="mt-5 rounded-lg bg-red-50 p-3 text-sm text-red-700">Daftar listing belum dapat dimuat.</p> : popularContent.data?.listings.length ? <ol className="mt-5 divide-y divide-slate-100">{popularContent.data.listings.map((listing, index) => <li key={listing.path} className="flex items-center gap-3 py-3 first:pt-0"><span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-50 text-xs font-bold text-amber-700">{index + 1}</span><div className="min-w-0 flex-1"><a href={`/listing?property=${listing.propertyId}`} className="block truncate text-sm font-semibold text-slate-900 hover:text-primary hover:underline">{listing.contentTitle}</a><p className="truncate text-xs text-slate-500">{listing.views} tampilan unik</p></div><span className="text-sm font-bold text-primary">{listing.views}</span></li>)}</ol> : <p className="mt-5 rounded-lg bg-slate-50 p-4 text-sm text-slate-500">Belum ada detail listing yang dibuka pada periode ini.</p>}
+          </Card>
+        </div>
 
         <p className="mt-4 text-center text-xs leading-5 text-slate-500">Data ini berbeda dari Google Analytics: dashboard mencatat pengunjung harian anonim secara langsung di Primedeal dan tidak menyimpan nama, email, nomor telepon, atau kata pencarian.</p>
       </section>

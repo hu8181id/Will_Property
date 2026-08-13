@@ -125,3 +125,32 @@ export const siteDailyVisits = mysqlTable(
 );
 
 export type SiteDailyVisit = typeof siteDailyVisits.$inferSelect;
+
+/**
+ * Anonymous page and listing views. A visitor can contribute one view per
+ * content path each day, allowing popularity rankings without personal data.
+ */
+export const siteDailyPageViews = mysqlTable(
+  "site_daily_page_views",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    visitDate: varchar("visitDate", { length: 10 }).notNull(),
+    visitorId: varchar("visitorId", { length: 64 }).notNull(),
+    contentType: mysqlEnum("contentType", ["page", "listing"]).notNull(),
+    path: varchar("path", { length: 256 }).notNull(),
+    contentTitle: varchar("contentTitle", { length: 255 }).notNull(),
+    propertyId: int("propertyId"),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+  },
+  (table) => ({
+    visitDateIdx: index("site_daily_page_views_visit_date_idx").on(table.visitDate),
+    contentDateIdx: index("site_daily_page_views_content_date_idx").on(table.contentType, table.visitDate),
+    visitDateVisitorPathUnique: uniqueIndex("site_daily_page_views_date_visitor_path_unique").on(
+      table.visitDate,
+      table.visitorId,
+      table.path,
+    ),
+  }),
+);
+
+export type SiteDailyPageView = typeof siteDailyPageViews.$inferSelect;

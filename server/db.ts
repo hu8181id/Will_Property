@@ -1,7 +1,8 @@
-import { and, count, eq, gte, lte } from "drizzle-orm";
+import { and, count, desc, eq, gte, lte } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import {
   InsertUser,
+  siteDailyPageViews,
   propertyVideoUploadSessions,
   siteDailyVisits,
   type PropertyVideoUploadSession,
@@ -169,4 +170,63 @@ export async function getAnonymousDailyVisitSummary(fromDate: string, toDate?: s
     .orderBy(siteDailyVisits.visitDate);
 
   return rows.map((row) => ({ visitDate: row.visitDate, visitors: Number(row.visitors) }));
+}
+
+export async function recordAnonymousPageView(input: {
+  visitDate: string;
+  visitorId: string;
+  contentType: "page" | "listing";
+  path: string;
+  contentTitle: string;
+  propertyId?: number;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database tidak tersedia untuk mencatat tampilan konten.");
+
+  await db
+    .insert(siteDailyPageViews)
+    .values(input)
+    .onDuplicateKeyUpdate({
+      set: {
+        contentTitle: input.contentTitle,
+        contentType: input.contentType,
+        propertyId: input.propertyId ?? null,
+      },
+    });
+}
+
+export async function getPopularContent(
+  fromDate: string,
+  toDate: string,
+  contentType: "page" | "listing",
+  limit = 10,
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database tidak tersedia untuk membaca konten terpopuler.");
+
+  const rows = await db
+    .select({
+      path: siteDailyPageViews.path,
+      contentTitle: siteDailyPageViews.contentTitle,
+      propertyId: siteDailyPageViews.propertyId,
+      views: count(),
+    })
+    .from(siteDailyPageViews)
+    .where(
+      and(
+        eq(siteDailyPageViews.contentType, contentType),
+        gte(siteDailyPageViews.visitDate, fromDate),
+        lte(siteDailyPageViews.visitDate, toDate),
+      ),
+    )
+    .groupBy(siteDailyPageViews.path, siteDailyPageViews.contentTitle, siteDailyPageViews.propertyId)
+    .orderBy(desc(count()))
+    .limit(limit);
+
+  return rows.map((row) => ({
+    path: row.path,
+    contentTitle: row.contentTitle,
+    propertyId: row.propertyId,
+    views: Number(row.views),
+  }));
 }

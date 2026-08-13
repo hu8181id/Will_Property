@@ -33,6 +33,19 @@ vi.mock("@/lib/trpc", () => ({
           refetch: vi.fn(),
         }),
       },
+      popularContent: {
+        useQuery: () => ({
+          data: {
+            period: { startDate: "2026-08-07", endDate: "2026-08-13" },
+            pages: [{ path: "/kalkulator", contentTitle: "Kalkulator KPR", propertyId: null, views: 8 }],
+            listings: [{ path: "/listing/7", contentTitle: "Rumah Contoh Surabaya", propertyId: 7, views: 5 }],
+          },
+          isLoading: false,
+          isError: false,
+          isFetching: false,
+          refetch: vi.fn(),
+        }),
+      },
     },
   },
 }));
@@ -53,5 +66,9 @@ describe("AdminAnalyticsDashboard", () => {
     expect(screen.getByLabelText("Tanggal mulai")).toBeTruthy();
     expect(screen.getByLabelText("Tanggal akhir")).toBeTruthy();
     expect(screen.getByRole("button", { name: "30 Hari" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Halaman Terpopuler" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Listing Terpopuler" })).toBeTruthy();
+    expect(screen.getByText("Kalkulator KPR")).toBeTruthy();
+    expect(screen.getByText("Rumah Contoh Surabaya")).toBeTruthy();
   });
 });

@@ -1,6 +1,11 @@
 import { randomUUID } from "crypto";
 import { z } from "zod";
-import { getAnonymousDailyVisitSummary, recordAnonymousDailyVisit } from "../db";
+import {
+  getAnonymousDailyVisitSummary,
+  getPopularContent,
+  recordAnonymousDailyVisit,
+  recordAnonymousPageView,
+} from "../db";
 import { getSessionCookieOptions } from "../_core/cookies";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 
@@ -62,7 +67,31 @@ function isAnonymousVisitorId(value: string | undefined): value is string {
   return Boolean(value && /^[a-f0-9-]{36}$/i.test(value));
 }
 
-export const visitorRecordSchema = z.object({}).strict();
+const contentViewSchema = z
+  .object({
+    contentType: z.enum(["page", "listing"]),
+    path: z
+      .string()
+      .min(1)
+      .max(256)
+      .refine(
+        (value) => value.startsWith("/") && !value.includes("//") && !value.includes(".."),
+        "Path konten tidak valid.",
+      ),
+    contentTitle: z.string().trim().min(1).max(255),
+    propertyId: z.number().int().positive().optional(),
+  })
+  .superRefine(({ contentType, propertyId }, ctx) => {
+    if (contentType === "listing" && !propertyId) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "ID listing diperlukan.", path: ["propertyId"] });
+    }
+    if (contentType === "page" && propertyId) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Halaman umum tidak memakai ID listing.", path: ["propertyId"] });
+    }
+  });
+
+export const visitorRecordSchema = z.object({ page: contentViewSchema.optional() }).strict();
+export const pageViewRecordSchema = contentViewSchema;
 
 export const dailySummaryInputSchema = z
   .object({
@@ -81,7 +110,7 @@ export const dailySummaryInputSchema = z
   });
 
 export const analyticsRouter = router({
-  recordVisit: publicProcedure.input(visitorRecordSchema).mutation(async ({ ctx }) => {
+  recordVisit: publicProcedure.input(visitorRecordSchema).mutation(async ({ ctx, input }) => {
     const existingVisitorId = readCookie(ctx.req.headers.cookie, ANONYMOUS_VISITOR_COOKIE);
     const visitorId = isAnonymousVisitorId(existingVisitorId) ? existingVisitorId : randomUUID();
 
@@ -93,10 +122,32 @@ export const analyticsRouter = router({
     }
 
     try {
-      await recordAnonymousDailyVisit({ visitDate: getIndonesiaDateKey(new Date()), visitorId });
+      const visitDate = getIndonesiaDateKey(new Date());
+      await recordAnonymousDailyVisit({ visitDate, visitorId });
+      if (input.page) await recordAnonymousPageView({ visitDate, visitorId, ...input.page });
       return { recorded: true };
     } catch (error) {
       console.warn("[Analytics] Kunjungan tidak dapat dicatat:", error);
+      return { recorded: false };
+    }
+  }),
+
+  recordPageView: publicProcedure.input(pageViewRecordSchema).mutation(async ({ ctx, input }) => {
+    const existingVisitorId = readCookie(ctx.req.headers.cookie, ANONYMOUS_VISITOR_COOKIE);
+    const visitorId = isAnonymousVisitorId(existingVisitorId) ? existingVisitorId : randomUUID();
+
+    if (visitorId !== existingVisitorId) {
+      ctx.res.cookie(ANONYMOUS_VISITOR_COOKIE, visitorId, {
+        ...getSessionCookieOptions(ctx.req),
+        maxAge: ANONYMOUS_VISITOR_MAX_AGE_MS,
+      });
+    }
+
+    try {
+      await recordAnonymousPageView({ visitDate: getIndonesiaDateKey(new Date()), visitorId, ...input });
+      return { recorded: true };
+    } catch (error) {
+      console.warn("[Analytics] Tampilan konten tidak dapat dicatat:", error);
       return { recorded: false };
     }
   }),
@@ -116,6 +167,18 @@ export const analyticsRouter = router({
       averageDailyVisitors: Number((totalVisitors / days.length).toFixed(1)),
       days,
     };
+  }),
+
+  popularContent: adminProcedure.input(dailySummaryInputSchema.optional()).query(async ({ input }) => {
+    const dates = input ? getDateKeysInRange(input.startDate, input.endDate) : getDateKeys(7);
+    const startDate = dates[0]!;
+    const endDate = dates.at(-1)!;
+    const [pages, listings] = await Promise.all([
+      getPopularContent(startDate, endDate, "page"),
+      getPopularContent(startDate, endDate, "listing"),
+    ]);
+
+    return { period: { startDate, endDate }, pages, listings };
   }),
 });
 

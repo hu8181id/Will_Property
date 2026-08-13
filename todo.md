@@ -69,3 +69,7 @@
 - [x] Tambahkan filter rentang tanggal pada API ringkasan pengunjung dengan validasi periode aman.
 - [x] Tambahkan kontrol tanggal mulai dan akhir beserta preset periode pada dashboard admin responsif.
 - [x] Tambahkan pengujian API dan tampilan untuk filter rentang tanggal dashboard.
+- [x] Tambahkan pencatatan tampilan halaman anonim per hari tanpa menyimpan identitas pribadi pengunjung.
+- [x] Tambahkan agregasi admin-only untuk halaman dan listing terpopuler sesuai rentang tanggal yang dipilih.
+- [x] Tampilkan daftar halaman dan listing terpopuler yang responsif pada dashboard admin.
+- [x] Tambahkan pengujian deduplikasi, urutan popularitas, keamanan admin, dan tampilan daftar terpopuler.

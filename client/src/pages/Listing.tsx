@@ -151,9 +151,20 @@ export default function Listing() {
   const createProperty = trpc.property.create.useMutation();
   const updateProperty = trpc.property.update.useMutation();
   const deleteProperty = trpc.property.delete.useMutation();
+  const { mutate: recordPageView } = trpc.analytics.recordPageView.useMutation();
 
   const properties = useMemo(() => (propertiesQuery.data ?? []).map(normalizeProperty), [propertiesQuery.data]);
   const comparisonProperties = properties.filter((property) => comparison.includes(property.id));
+
+  useEffect(() => {
+    if (!selectedProperty) return;
+    recordPageView({
+      contentType: "listing",
+      path: `/listing/${selectedProperty.id}`,
+      contentTitle: selectedProperty.title,
+      propertyId: selectedProperty.id,
+    });
+  }, [recordPageView, selectedProperty]);
 
   useEffect(() => {
     if (!Number.isFinite(sharedPropertyId) || sharedPropertyId <= 0 || properties.length === 0 || sharedPropertyHandled.current) return;

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { appRouter } from "./routers";
-import { analyticsDateUtils, dailySummaryInputSchema, visitorRecordSchema } from "./routers/analytics";
+import { analyticsDateUtils, dailySummaryInputSchema, pageViewRecordSchema, visitorRecordSchema } from "./routers/analytics";
 import type { TrpcContext } from "./_core/context";
 
 function createPublicContext(): TrpcContext {
@@ -26,6 +26,13 @@ describe("analytics dashboard contracts", () => {
     expect(() => visitorRecordSchema.parse({ visitorId: "tidak-boleh" })).toThrow();
   });
 
+  it("menerima metadata halaman atau listing yang aman dan menolak path atau ID listing yang tidak valid", () => {
+    expect(pageViewRecordSchema.parse({ contentType: "page", path: "/kalkulator", contentTitle: "Kalkulator KPR" })).toMatchObject({ contentType: "page" });
+    expect(pageViewRecordSchema.parse({ contentType: "listing", path: "/listing/9", contentTitle: "Rumah Surabaya", propertyId: 9 })).toMatchObject({ propertyId: 9 });
+    expect(() => pageViewRecordSchema.parse({ contentType: "listing", path: "/listing/9", contentTitle: "Rumah" })).toThrow();
+    expect(() => pageViewRecordSchema.parse({ contentType: "page", path: "https://bukan-path", contentTitle: "Tidak valid" })).toThrow();
+  });
+
   it("menerima rentang tanggal valid dan menolak periode terbalik atau terlalu panjang", () => {
     expect(dailySummaryInputSchema.parse({ startDate: "2026-08-01", endDate: "2026-08-31" })).toEqual({
       startDate: "2026-08-01",
@@ -48,5 +55,6 @@ describe("analytics dashboard contracts", () => {
   it("melindungi ringkasan pengunjung agar tidak dapat diakses publik", async () => {
     const caller = appRouter.createCaller(createPublicContext());
     await expect(caller.analytics.dailySummary()).rejects.toMatchObject({ code: "FORBIDDEN" });
+    await expect(caller.analytics.popularContent()).rejects.toMatchObject({ code: "FORBIDDEN" });
   });
 });
