@@ -51,3 +51,4 @@
 - [x] Diagnosa dan perbaiki kegagalan upload video produksi yang masih terjadi setelah endpoint biner diterapkan.
 - [x] Implementasikan unggah video langsung ke storage melalui tiket URL sementara agar file besar tidak melewati gateway aplikasi.
 - [x] Implementasikan transfer video bertahap melalui server untuk menggantikan unggah langsung yang gagal CORS pada Android.
+- [x] Perbaiki grid spesifikasi detail properti di ponsel agar harga panjang tidak menutupi jumlah kamar tidur.

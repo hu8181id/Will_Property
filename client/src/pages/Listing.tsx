@@ -422,8 +422,8 @@ export default function Listing() {
                 )}
               </section>
             )}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-secondary/60 rounded-xl p-4 mb-6">
-              <div><p className="text-xs text-muted-foreground">Harga</p><p className="text-lg font-bold text-primary">{formatPrice(selectedProperty.price)}</p></div>
+            <div className="grid grid-cols-2 gap-x-5 gap-y-4 rounded-xl bg-secondary/60 p-4 sm:grid-cols-4">
+              <div className="col-span-2 min-w-0 sm:col-span-1"><p className="text-xs text-muted-foreground">Harga</p><p className="break-words text-xl font-bold leading-tight text-primary sm:text-lg">{formatPrice(selectedProperty.price)}</p></div>
               <div><p className="text-xs text-muted-foreground">Kamar Tidur</p><p className="text-base font-semibold text-slate-900">{selectedProperty.beds} KT</p></div>
               <div><p className="text-xs text-muted-foreground">Kamar Mandi</p><p className="text-base font-semibold text-slate-900">{selectedProperty.baths} KM</p></div>
               <div><p className="text-xs text-muted-foreground">Luas Bangunan</p><p className="text-base font-semibold text-slate-900">{selectedProperty.area} m²</p></div>
