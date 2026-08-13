@@ -1,3 +1,5 @@
+import { COOKIE_NAME } from "@shared/const";
+
 export const PROPERTY_VIDEO_CONTENT_TYPES = ["video/mp4", "video/webm", "video/quicktime"] as const;
 export const MAX_PROPERTY_VIDEO_BYTES = 50 * 1024 * 1024;
 
@@ -8,6 +10,20 @@ type PropertyVideoUploadResponse = {
 
 function getResponseMessage(payload: PropertyVideoUploadResponse | null, fallback: string) {
   return payload?.error?.trim() || fallback;
+}
+
+function getSessionAuthorizationHeader() {
+  try {
+    const raw = sessionStorage.getItem("manus-cookie");
+    if (!raw) return undefined;
+
+    const prefix = `${COOKIE_NAME}=`;
+    const pair = raw.split(";").find((item) => item.trim().startsWith(prefix));
+    const token = pair?.trim().slice(prefix.length);
+    return token ? `Bearer ${token}` : undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 export async function uploadPropertyVideo(file: File) {
@@ -23,12 +39,14 @@ export async function uploadPropertyVideo(file: File) {
     throw new Error("Ukuran video maksimal 50 MB.");
   }
 
+  const authorization = getSessionAuthorizationHeader();
   const response = await fetch("/api/property-video-upload", {
     method: "POST",
     credentials: "include",
     headers: {
       "Content-Type": file.type,
       "X-Primedeal-File-Name": encodeURIComponent(file.name),
+      ...(authorization ? { Authorization: authorization } : {}),
     },
     body: file,
   });

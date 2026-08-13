@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { COOKIE_NAME } from "@shared/const";
 import { uploadPropertyVideo } from "./propertyVideoUpload";
 
 describe("uploadPropertyVideo", () => {
@@ -19,6 +20,24 @@ describe("uploadPropertyVideo", () => {
         credentials: "include",
         body: file,
         headers: expect.objectContaining({ "Content-Type": "video/mp4" }),
+      }),
+    );
+  });
+
+  it("meneruskan sesi fallback WebView sebagai Bearer token", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ url: "/manus-storage/properties/videos/tur.mp4" }), { status: 201 }));
+    vi.stubGlobal("fetch", fetchMock);
+    vi.stubGlobal("sessionStorage", {
+      getItem: vi.fn().mockReturnValue(`${COOKIE_NAME}=token-webview-admin; Path=/; SameSite=None`),
+    });
+    const file = new File(["video-biner"], "tur-properti.mp4", { type: "video/mp4" });
+
+    await uploadPropertyVideo(file);
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/api/property-video-upload",
+      expect.objectContaining({
+        headers: expect.objectContaining({ Authorization: "Bearer token-webview-admin" }),
       }),
     );
   });

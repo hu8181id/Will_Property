@@ -48,3 +48,4 @@
 - [x] Perbaiki konflik area gesture admin tersembunyi dengan pilihan navigasi website agar navigasi dapat ditekan normal.
 - [ ] Verifikasi unggah video MP4 pengguna dapat berhasil sampai tersimpan sebagai videoUrl pada listing admin.
 - [x] Tambahkan integration test endpoint upload video untuk jalur sukses storage dan penolakan autentikasi, format, serta ukuran.
+- [x] Diagnosa dan perbaiki kegagalan upload video produksi yang masih terjadi setelah endpoint biner diterapkan.
