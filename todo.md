@@ -45,3 +45,4 @@
 - [x] Perbaiki alur login Google APK dengan mengalihkan shortcut admin dan host OAuth ke browser sistem, karena Google OAuth/Cloudflare tidak aman atau andal di embedded WebView.
 - [x] Perbaiki shortcut admin APK yang tidak merespons pada area kanan atas; sediakan kontrol yang jelas dan tetap aman untuk membuka portal admin.
 - [x] Sembunyikan kembali tombol Admin APK dan implementasikan pola tiga ketukan cepat lalu tekan lama di pojok kanan atas untuk membuka portal admin.
+- [x] Perbaiki konflik area gesture admin tersembunyi dengan pilihan navigasi website agar navigasi dapat ditekan normal.
