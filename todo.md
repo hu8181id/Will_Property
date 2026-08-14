@@ -74,3 +74,5 @@
 - [x] Tampilkan daftar halaman dan listing terpopuler yang responsif pada dashboard admin.
 - [x] Tambahkan pengujian deduplikasi, urutan popularitas, keamanan admin, dan tampilan daftar terpopuler.
 - [x] Hapus klaim agen bersertifikat dan jumlah agen, serta tampilkan 400+ properti pada bagian Tentang Kami.
+- [x] Bangun, tandatangani, dan verifikasi APK Primedeal terbaru untuk pembaruan pengguna.
+- [x] Naikkan versi APK ke 1.1.1 agar dapat diinstal sebagai pembaruan dari versi 1.1.0.
