@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Users, Target, Award } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -64,7 +64,7 @@ export default function Tentang() {
                   Primedeal adalah platform properti terpercaya yang telah melayani ribuan klien dalam mencari properti impian mereka. Dengan pengalaman lebih dari 10 tahun di industri properti, kami memahami kebutuhan Anda.
                 </p>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Tim profesional kami terdiri dari agen properti bersertifikat, konsultan keuangan, dan ahli hukum properti yang siap membantu Anda di setiap langkah perjalanan properti Anda.
+                  Tim Primedeal hadir untuk membantu Anda di setiap langkah perjalanan properti, mulai dari pencarian hingga mendapatkan informasi yang dibutuhkan.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Kami berkomitmen untuk memberikan layanan terbaik dengan transparansi penuh dan integritas tinggi dalam setiap transaksi properti.
@@ -114,18 +114,14 @@ export default function Tentang() {
 
             {/* Stats */}
             <div className="bg-primary text-white rounded-lg p-12 mb-16">
-              <div className="grid md:grid-cols-4 gap-8 text-center">
+              <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
                   <p className="text-4xl font-bold mb-2">10+</p>
                   <p className="text-blue-100">Tahun Pengalaman</p>
                 </div>
                 <div>
-                  <p className="text-4xl font-bold mb-2">5000+</p>
+                  <p className="text-4xl font-bold mb-2">400+</p>
                   <p className="text-blue-100">Properti Terjual</p>
-                </div>
-                <div>
-                  <p className="text-4xl font-bold mb-2">50+</p>
-                  <p className="text-blue-100">Agen Profesional</p>
                 </div>
                 <div>
                   <p className="text-4xl font-bold mb-2">100K+</p>
