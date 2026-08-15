@@ -12,6 +12,8 @@ import Listing from "./pages/Listing";
 import Kalkulator from "./pages/Kalkulator";
 import Tentang from "./pages/Tentang";
 import Favorit from "./pages/Favorit";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminAnalyticsDashboard from "@/pages/AdminAnalyticsDashboard";
 import AdminReviews from "@/pages/AdminReviews";
@@ -53,6 +55,8 @@ function Router() {
       <Route path="/favorit" component={Favorit} />
       <Route path="/kalkulator" component={Kalkulator} />
       <Route path="/tentang" component={Tentang} />
+      <Route path="/privasi" component={Privacy} />
+      <Route path="/ketentuan" component={Terms} />
       <Route path="/admin" component={AdminLogin} />
       <Route path="/admin/dashboard" component={AdminAnalyticsDashboard} />
       <Route path="/admin/reviews" component={AdminReviews} />

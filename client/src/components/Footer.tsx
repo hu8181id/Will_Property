@@ -106,11 +106,11 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
             <p>&copy; 2024 Primedeal. Semua hak dilindungi.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white transition-colors">
+              <a href="/privasi" className="hover:text-white transition-colors">
                 Kebijakan Privasi
               </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Syarat & Ketentuan
+              <a href="/ketentuan" className="hover:text-white transition-colors">
+                Syarat &amp; Ketentuan
               </a>
               <a
                 href="https://wa.me/6282230357009?text=Halo%20Primedeal%2C%20saya%20ingin%20menghubungi%20Anda."

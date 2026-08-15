@@ -76,3 +76,10 @@
 - [x] Hapus klaim agen bersertifikat dan jumlah agen, serta tampilkan 400+ properti pada bagian Tentang Kami.
 - [x] Bangun, tandatangani, dan verifikasi APK Primedeal terbaru untuk pembaruan pengguna.
 - [x] Naikkan versi APK ke 1.1.1 agar dapat diinstal sebagai pembaruan dari versi 1.1.0.
+- [ ] Tambahkan pilihan berlangganan notifikasi listing baru bagi pengguna website dan APK yang memberi izin.
+- [ ] Siapkan pengiriman Firebase Cloud Messaging yang aman saat admin menerbitkan listing baru.
+- [ ] Tambahkan preferensi admin dan pengujian pengiriman notifikasi listing baru tanpa spam.
+- [x] Tinjau kelayakan Google AdSense untuk website Primedeal dan dokumentasikan persyaratan pendaftaran.
+- [x] Siapkan halaman kebijakan yang diperlukan untuk persiapan AdSense.
+- [x] Tentukan dan dokumentasikan lokasi iklan AdSense yang aman tanpa mengganggu pencarian properti atau CTA utama.
+- [ ] Ajukan pendaftaran Google AdSense hanya setelah pengguna login dan mengonfirmasi pengajuan akhir.
