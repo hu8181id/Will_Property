@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 import { propertyListings } from "../drizzle/schema";
 import { getDb } from "./db";
+import { buildPropertySlug } from "../shared/propertySlug";
 
 const SITE_NAME = "Primedeal Properti";
 const DEFAULT_TITLE = "Primedeal - Agensi Properti Modern & Jual Beli Rumah Terbaik di Surabaya";
@@ -24,7 +25,13 @@ function resolveCanonicalOrigin(requestOrigin?: string) {
   return DEFAULT_ORIGIN;
 }
 
-export const seoMetadataUtils = { resolveCanonicalOrigin, buildListingTitle, buildListingDescription };
+export const seoMetadataUtils = {
+  resolveCanonicalOrigin,
+  buildListingTitle,
+  buildListingDescription,
+  buildListingCanonical,
+  buildListingStructuredData,
+};
 
 function escapeHtml(value: string) {
   return value.replace(/[&<>\"']/g, character => {
@@ -113,6 +120,36 @@ function buildListingDescription(property: ListingSeoFields) {
   return truncateText(`${core}${specificationSentence} Harga ${formatPrice(property.price)}.${details} Konsultasi unit melalui WhatsApp ${SITE_NAME}.`, 320);
 }
 
+type ListingSlugSeoFields = ListingSeoFields & {
+  id: number;
+  slug?: string | null;
+  images?: string[] | null;
+};
+
+function buildListingCanonical(origin: string, property: Pick<ListingSlugSeoFields, "id" | "slug" | "title">) {
+  const canonicalSlug = property.slug || buildPropertySlug(property.title, property.id);
+  return `${resolveCanonicalOrigin(origin)}/properti/${encodeURIComponent(canonicalSlug)}`;
+}
+
+function buildListingStructuredData(property: ListingSlugSeoFields, canonical: string, origin: string) {
+  const image = absoluteAssetUrl(property.images?.[0], origin);
+  return {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": property.title,
+    "description": property.description,
+    "url": canonical,
+    "image": property.images?.map(item => absoluteAssetUrl(item, origin)) || [image],
+    "price": property.price,
+    "priceCurrency": "IDR",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": property.location,
+      "addressCountry": "ID",
+    },
+  };
+}
+
 function replaceOrInsert(html: string, pattern: RegExp, tag: string) {
   if (pattern.test(html)) return html.replace(pattern, tag);
   return html.replace("</head>", `  ${tag}\n</head>`);
@@ -176,13 +213,16 @@ export async function injectSeoMetadata(html: string, requestUrl: string, reques
     return applyHead(html, fallback);
   }
 
-  if (parsedUrl.pathname !== "/listing") {
+  const slugMatch = parsedUrl.pathname.match(/^\/properti\/([^/]+)\/?$/);
+  const requestedSlug = slugMatch ? decodeURIComponent(slugMatch[1]) : null;
+  const isLegacyListingUrl = parsedUrl.pathname === "/listing";
+  if (!isLegacyListingUrl && !requestedSlug) {
     return applyHead(html, fallback);
   }
 
-  const rawId = parsedUrl.searchParams.get("property");
+  const rawId = isLegacyListingUrl ? parsedUrl.searchParams.get("property") : null;
   const propertyId = rawId ? Number(rawId) : NaN;
-  if (!Number.isInteger(propertyId) || propertyId <= 0) {
+  if (!requestedSlug && (!Number.isInteger(propertyId) || propertyId <= 0)) {
     return applyHead(html, fallback);
   }
 
@@ -192,31 +232,17 @@ export async function injectSeoMetadata(html: string, requestUrl: string, reques
     const rows = await db
       .select()
       .from(propertyListings)
-      .where(eq(propertyListings.id, propertyId))
+      .where(requestedSlug ? eq(propertyListings.slug, requestedSlug) : eq(propertyListings.id, propertyId))
       .limit(1);
     const property = rows[0];
     if (!property) return applyHead(html, fallback);
 
     const title = buildListingTitle(property);
     const description = buildListingDescription(property);
-    const canonical = `${canonicalOrigin}/listing?property=${property.id}`;
+    const canonical = buildListingCanonical(canonicalOrigin, property);
     const image = absoluteAssetUrl(property.images?.[0], canonicalOrigin);
-    
-    const jsonLd = {
-      "@context": "https://schema.org",
-      "@type": "RealEstateListing",
-      "name": property.title,
-      "description": property.description,
-      "url": canonical,
-      "image": property.images?.map(img => absoluteAssetUrl(img, canonicalOrigin)) || [image],
-      "price": property.price,
-      "priceCurrency": "IDR",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": property.location,
-        "addressCountry": "ID"
-      }
-    };
+
+    const jsonLd = buildListingStructuredData(property, canonical, canonicalOrigin);
 
     return applyHead(html, { title, description, canonical, image, imageAlt: property.title, jsonLd });
   } catch (error) {

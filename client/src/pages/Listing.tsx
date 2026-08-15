@@ -15,9 +15,11 @@ import { uploadPropertyVideo } from "@/lib/propertyVideoUpload";
 import { formatPriceShort } from "@/lib/propertyPrice";
 import { startLogin } from "@/const";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { propertyDetailPath } from "@shared/propertySlug";
 
 interface Property {
   id: number;
+  slug?: string | null;
   title: string;
   description: string;
   location: string;
@@ -56,6 +58,7 @@ function normalizeProperty(row: any): Property {
   const fallback = "/manus-storage/property-card-bg_4cd1dc11.png";
   return {
     id: row.id,
+    slug: typeof row.slug === "string" ? row.slug : null,
     title: row.title,
     description: row.description,
     location: row.location,
@@ -133,6 +136,7 @@ export default function Listing() {
   const hasBootstrapped = useRef(false);
   const sharedPropertyHandled = useRef(false);
   const sharedPropertyId = typeof window !== "undefined" ? Number(new URLSearchParams(window.location.search).get("property")) : NaN;
+  const sharedPropertySlug = typeof window !== "undefined" ? window.location.pathname.match(/^\/properti\/([^/]+)\/?$/)?.[1] : undefined;
   const shouldOpenNewListing = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("newListing") === "1";
 
   const queryInput = useMemo(() => ({
@@ -157,12 +161,17 @@ export default function Listing() {
 
   const properties = useMemo(() => (propertiesQuery.data ?? []).map(normalizeProperty), [propertiesQuery.data]);
   const comparisonProperties = properties.filter((property) => comparison.includes(property.id));
+  const sharedProperty = useMemo(() => {
+    if (sharedPropertySlug) return properties.find((property) => property.slug === sharedPropertySlug);
+    if (Number.isFinite(sharedPropertyId) && sharedPropertyId > 0) return properties.find((property) => property.id === sharedPropertyId);
+    return undefined;
+  }, [properties, sharedPropertyId, sharedPropertySlug]);
 
   useEffect(() => {
     if (!selectedProperty) return;
     recordPageView({
       contentType: "listing",
-      path: `/listing/${selectedProperty.id}`,
+      path: propertyDetailPath(selectedProperty),
       contentTitle: selectedProperty.title,
       propertyId: selectedProperty.id,
     });
@@ -173,21 +182,18 @@ export default function Listing() {
   }, [isAdmin, shouldOpenNewListing]);
 
   useEffect(() => {
-    if (!Number.isFinite(sharedPropertyId) || sharedPropertyId <= 0 || properties.length === 0 || sharedPropertyHandled.current) return;
-    const sharedProperty = properties.find((property) => property.id === sharedPropertyId);
-    if (!sharedProperty) return;
+    if (!sharedProperty || sharedPropertyHandled.current) return;
     sharedPropertyHandled.current = true;
     setSelectedProperty(sharedProperty);
     window.setTimeout(() => {
       document.getElementById(`property-${sharedProperty.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
       toast.success(`Listing "${sharedProperty.title}" siap dilihat.`);
     }, 150);
-  }, [properties, sharedPropertyId]);
+  }, [sharedProperty]);
 
   useEffect(() => {
-    const sharedProperty = properties.find((property) => property.id === sharedPropertyId);
     if (!sharedProperty || typeof document === "undefined") return;
-    const shareUrl = `${window.location.origin}/listing?property=${sharedProperty.id}`;
+    const shareUrl = `${window.location.origin}${propertyDetailPath(sharedProperty)}`;
     const shareDescription = `${sharedProperty.title} di ${sharedProperty.location}. Harga ${formatPrice(sharedProperty.price)}. Lihat detail listing Primedeal Properti.`;
     const originalTitle = document.title;
     const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute("content") ?? "";
@@ -208,7 +214,7 @@ export default function Listing() {
       document.title = originalTitle;
       document.querySelector('meta[name="description"]')?.setAttribute("content", originalDescription);
     };
-  }, [properties, sharedPropertyId]);
+  }, [sharedProperty]);
 
   useEffect(() => {
     try {
@@ -371,8 +377,8 @@ export default function Listing() {
             <div className="mb-8"><Input placeholder="Cari berdasarkan nama, lokasi, atau deskripsi..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} /></div>
             <div className="flex justify-between items-center mb-8 gap-4 flex-wrap"><p className="text-muted-foreground">Menampilkan {properties.length} properti</p><div className="flex gap-3 items-center flex-wrap"><select value={sortBy} onChange={(e) => setSortBy(e.target.value as typeof sortBy)} className="px-4 py-2 border border-border rounded-lg text-sm"><option value="terbaru">Terbaru</option><option value="harga-rendah">Harga: Rendah ke Tinggi</option><option value="harga-tinggi">Harga: Tinggi ke Rendah</option></select>{isAdmin && <AddPropertyDialog open={addDialogOpen} onOpenChange={setAddDialogOpen} onSubmit={handleSaveProperty} />}</div></div>
 
-            {propertiesQuery.isLoading ? <div className="grid md:grid-cols-2 gap-6"><div className="h-80 rounded-xl bg-secondary animate-pulse" /><div className="h-80 rounded-xl bg-secondary animate-pulse" /></div> : propertiesQuery.isError ? <div className="rounded-xl border border-red-200 bg-red-50 p-8 text-center"><p className="font-semibold text-red-800">Listing belum dapat dimuat.</p><p className="text-sm text-red-700 mt-2">Silakan refresh halaman dan coba lagi.</p><Button className="mt-4" onClick={() => propertiesQuery.refetch()}>Coba Lagi</Button></div> : properties.length === 0 ? <div className="text-center py-20"><p className="text-lg font-semibold text-slate-900">Belum ada listing yang sesuai.</p><Button variant="outline" className="mt-4" onClick={resetFilters}>Reset Filter</Button></div> : <div className="grid md:grid-cols-2 gap-6">{properties.map((property) => { const imageIndex = imageIndices[property.id] ?? 0; return <Card id={`property-${property.id}`} key={property.id} className="overflow-hidden group hover:shadow-xl transition-shadow"><div className="relative h-64 bg-gray-200"><img src={property.images[imageIndex] || property.image} alt={property.title} className="w-full h-full object-cover" /><button type="button" onClick={() => handleToggleFavorite(property.id)} className="absolute top-3 right-3 bg-white/90 rounded-full p-2 shadow" aria-label="Simpan favorit"><Heart size={18} className={favorites.includes(property.id) ? "fill-red-500 text-red-500" : "text-slate-600"} /></button>{isAdmin && <button type="button" onClick={() => handleDeleteProperty(property.id)} disabled={deletingId === property.id} className="absolute top-3 left-3 bg-red-600/90 rounded-full p-2 text-white shadow disabled:cursor-wait disabled:opacity-70" aria-label="Hapus listing">{deletingId === property.id ? <Loader2 size={16} className="animate-spin" /> : <Trash2 size={16} />}</button>}{property.images.length > 1 && <><button type="button" onClick={() => setImageIndices((current) => ({ ...current, [property.id]: (imageIndex - 1 + property.images.length) % property.images.length }))} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/85 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity"><ChevronLeft size={18} /></button><button type="button" onClick={() => setImageIndices((current) => ({ ...current, [property.id]: (imageIndex + 1) % property.images.length }))} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/85 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity"><ChevronRight size={18} /></button><span className="absolute bottom-3 right-3 rounded-full bg-black/60 px-2 py-1 text-xs text-white">{imageIndex + 1}/{property.images.length}</span></>}</div><div className="p-5"><div className="flex items-start justify-between gap-3"><div><h3 className="font-bold text-slate-900 line-clamp-2">{property.title}</h3><div className="flex items-center gap-1 text-sm text-muted-foreground mt-2"><MapPin size={14} />{property.location}</div></div><span className="rounded-full bg-primary/10 px-2 py-1 text-xs font-semibold capitalize text-primary">{property.transactionType}</span></div><p className="text-lg font-bold text-primary mt-4">{formatPriceShort(property.price)}</p><p className="text-sm text-muted-foreground mt-2 line-clamp-2">{property.description}</p><div className="mt-3"><Button variant="outline" size="sm" className="w-full text-primary border-primary/30 hover:bg-primary/5" onClick={() => setSelectedProperty(property)}>Lihat Detail Lengkap</Button></div><div className="flex items-center gap-3 text-xs text-muted-foreground mt-4"><span className="flex items-center gap-1"><Bed size={14} />{property.beds}</span><span className="flex items-center gap-1"><Bath size={14} />{property.baths}</span><span className="flex items-center gap-1"><Ruler size={14} />{property.area} m²</span><span className="flex items-center gap-1 ml-auto">{property.rating > 0 ? <><Star size={14} className="fill-yellow-400 text-yellow-400" />{property.rating.toFixed(1)}</> : "Belum ada rating"}</span></div>                        <div className="flex items-center justify-between mt-5 pt-4 border-t"><label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer"><Checkbox checked={comparison.includes(property.id)} onCheckedChange={() => handleToggleComparison(property.id)} /> Bandingkan</label><div className="flex gap-2"><Button variant="outline" size="sm" title="Bagikan ke WhatsApp / Salin Link" onClick={() => {
-                          const shareUrl = `${window.location.origin}/listing?property=${property.id}`;
+            {propertiesQuery.isLoading ? <div className="grid md:grid-cols-2 gap-6"><div className="h-80 rounded-xl bg-secondary animate-pulse" /><div className="h-80 rounded-xl bg-secondary animate-pulse" /></div> : propertiesQuery.isError ? <div className="rounded-xl border border-red-200 bg-red-50 p-8 text-center"><p className="font-semibold text-red-800">Listing belum dapat dimuat.</p><p className="text-sm text-red-700 mt-2">Silakan refresh halaman dan coba lagi.</p><Button className="mt-4" onClick={() => propertiesQuery.refetch()}>Coba Lagi</Button></div> : properties.length === 0 ? <div className="text-center py-20"><p className="text-lg font-semibold text-slate-900">Belum ada listing yang sesuai.</p><Button variant="outline" className="mt-4" onClick={resetFilters}>Reset Filter</Button></div> : <div className="grid md:grid-cols-2 gap-6">{properties.map((property) => { const imageIndex = imageIndices[property.id] ?? 0; return <Card id={`property-${property.id}`} key={property.id} className="overflow-hidden group hover:shadow-xl transition-shadow"><div className="relative h-64 bg-gray-200"><img src={property.images[imageIndex] || property.image} alt={property.title} className="w-full h-full object-cover" /><button type="button" onClick={() => handleToggleFavorite(property.id)} className="absolute top-3 right-3 bg-white/90 rounded-full p-2 shadow" aria-label="Simpan favorit"><Heart size={18} className={favorites.includes(property.id) ? "fill-red-500 text-red-500" : "text-slate-600"} /></button>{isAdmin && <button type="button" onClick={() => handleDeleteProperty(property.id)} disabled={deletingId === property.id} className="absolute top-3 left-3 bg-red-600/90 rounded-full p-2 text-white shadow disabled:cursor-wait disabled:opacity-70" aria-label="Hapus listing">{deletingId === property.id ? <Loader2 size={16} className="animate-spin" /> : <Trash2 size={16} />}</button>}{property.images.length > 1 && <><button type="button" onClick={() => setImageIndices((current) => ({ ...current, [property.id]: (imageIndex - 1 + property.images.length) % property.images.length }))} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/85 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity"><ChevronLeft size={18} /></button><button type="button" onClick={() => setImageIndices((current) => ({ ...current, [property.id]: (imageIndex + 1) % property.images.length }))} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/85 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity"><ChevronRight size={18} /></button><span className="absolute bottom-3 right-3 rounded-full bg-black/60 px-2 py-1 text-xs text-white">{imageIndex + 1}/{property.images.length}</span></>}</div><div className="p-5"><div className="flex items-start justify-between gap-3"><div><h3 className="font-bold text-slate-900 line-clamp-2">{property.title}</h3><div className="flex items-center gap-1 text-sm text-muted-foreground mt-2"><MapPin size={14} />{property.location}</div></div><span className="rounded-full bg-primary/10 px-2 py-1 text-xs font-semibold capitalize text-primary">{property.transactionType}</span></div><p className="text-lg font-bold text-primary mt-4">{formatPriceShort(property.price)}</p><p className="text-sm text-muted-foreground mt-2 line-clamp-2">{property.description}</p><div className="mt-3"><Button variant="outline" size="sm" className="w-full text-primary border-primary/30 hover:bg-primary/5" onClick={() => window.location.assign(propertyDetailPath(property))}>Lihat Detail Lengkap</Button></div><div className="flex items-center gap-3 text-xs text-muted-foreground mt-4"><span className="flex items-center gap-1"><Bed size={14} />{property.beds}</span><span className="flex items-center gap-1"><Bath size={14} />{property.baths}</span><span className="flex items-center gap-1"><Ruler size={14} />{property.area} m²</span><span className="flex items-center gap-1 ml-auto">{property.rating > 0 ? <><Star size={14} className="fill-yellow-400 text-yellow-400" />{property.rating.toFixed(1)}</> : "Belum ada rating"}</span></div>                        <div className="flex items-center justify-between mt-5 pt-4 border-t"><label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer"><Checkbox checked={comparison.includes(property.id)} onCheckedChange={() => handleToggleComparison(property.id)} /> Bandingkan</label><div className="flex gap-2"><Button variant="outline" size="sm" title="Bagikan ke WhatsApp / Salin Link" onClick={() => {
+                          const shareUrl = `${window.location.origin}${propertyDetailPath(property)}`;
                           const shareText = `*${property.title}*\nLokasi: ${property.location}\nHarga: ${formatPrice(property.price)}\nTipe: ${property.transactionType.toUpperCase()} - ${property.type}\nKamar: ${property.beds} KT | ${property.baths} KM | Luas: ${property.area} m²\n\nLihat listing ini di Primedeal Properti: ${shareUrl}`;
                           const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
                           if (navigator.share) {

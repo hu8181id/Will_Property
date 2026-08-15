@@ -6,6 +6,7 @@ import { storagePut } from "../storage";
 import { adminProcedure, protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { notifyOwner } from "../_core/notification";
+import { buildPropertySlug } from "../../shared/propertySlug";
 
 const optionalMediaUrl = z.preprocess(
   (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
@@ -170,6 +171,15 @@ export const propertyRouter = router({
       return rows[0] ?? null;
     }),
 
+  getBySlug: publicProcedure
+    .input(z.object({ slug: z.string().trim().min(3).max(320) }))
+    .query(async ({ input }) => {
+      const db = await getDb();
+      if (!db) return null;
+      const rows = await db.select().from(propertyListings).where(eq(propertyListings.slug, input.slug)).limit(1);
+      return rows[0] ?? null;
+    }),
+
   create: adminProcedure
     .input(propertyDraftSchema)
     .mutation(async ({ input }) => {
@@ -193,6 +203,9 @@ export const propertyRouter = router({
           virtualTourUrl: input.virtualTourUrl || null,
           status: "active",
         });
+        const id = Number(result.insertId);
+        const slug = buildPropertySlug(input.title, id);
+        await db.update(propertyListings).set({ slug }).where(eq(propertyListings.id, id));
 
         try {
           await notifyOwner({
@@ -203,7 +216,7 @@ export const propertyRouter = router({
           console.warn("[NotifyOwner] Gagal mengirim notifikasi pemilik:", e);
         }
 
-        return { success: true, id: result.insertId };
+        return { success: true, id, slug };
       } catch (error) {
         return databaseError(error, "Create");
       }
@@ -338,7 +351,7 @@ export const propertyRouter = router({
           }
           if (images.length === 0) continue;
 
-          await db.insert(propertyListings).values({
+          const [result] = await db.insert(propertyListings).values({
             title: item.title,
             description: item.description || "Informasi properti tersedia melalui tim Primedeal.",
             propertyType: item.type || "lainnya",
@@ -353,6 +366,8 @@ export const propertyRouter = router({
             images,
             status: "active",
           });
+          const id = Number(result.insertId);
+          await db.update(propertyListings).set({ slug: buildPropertySlug(item.title, id) }).where(eq(propertyListings.id, id));
           migrated += 1;
         }
         return { success: true, migrated };

@@ -29,6 +29,7 @@ export const propertyListings = mysqlTable(
   "property_listings",
   {
     id: int("id").autoincrement().primaryKey(),
+    slug: varchar("slug", { length: 320 }),
     title: varchar("title", { length: 255 }).notNull(),
     description: text("description").notNull(),
     propertyType: varchar("propertyType", { length: 64 }).notNull(),
@@ -57,6 +58,7 @@ export const propertyListings = mysqlTable(
     statusIdx: index("property_listings_status_idx").on(table.status),
     createdAtIdx: index("property_listings_created_at_idx").on(table.createdAt),
     locationIdx: index("property_listings_location_idx").on(table.location),
+    slugUnique: uniqueIndex("property_listings_slug_unique").on(table.slug),
   }),
 );
 

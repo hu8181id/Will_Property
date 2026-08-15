@@ -122,3 +122,9 @@
 - [x] Periksa hasil pencarian non-merek untuk Gunawangsa Manyar dan dokumentasikan perbedaan antara indeks serta peringkat.
 - [x] Tinjau metadata dan konten listing untuk peluang kata kunci umum yang akurat tanpa menambah klaim palsu.
 - [x] Terapkan perbaikan SEO non-merek yang relevan, uji regresi, dan jelaskan batasan peringkat Google.
+- [x] Tinjau routing, data listing, tautan internal, dan sitemap untuk merancang URL slug permanen yang kompatibel.
+- [x] Terapkan generator slug deterministik serta rute publik `/properti/[slug]` dengan fallback URL lama yang aman.
+- [x] Perbarui tautan internal, sitemap, metadata canonical, dan structured data agar memakai URL slug.
+- [x] Tambahkan pengujian regresi dan verifikasi URL slug pada desktop serta ponsel sebelum rilis.
+- [x] Verifikasi URL slug baru dan URL listing lama pada viewport desktop lalu catat hasilnya di proyek.
+- [x] Tambahkan regresi metadata untuk canonical dan structured data pada halaman `/properti/[slug]`.

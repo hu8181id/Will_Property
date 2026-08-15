@@ -78,6 +78,13 @@
       "when": 1786789461352,
       "tag": "0010_last_rawhide_kid",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1786805059498,
+      "tag": "0011_normal_mister_sinister",
+      "breakpoints": true
     }
   ]
 }

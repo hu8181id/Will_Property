@@ -14,6 +14,6 @@ export default defineConfig({
   },
   test: {
     environment: "jsdom",
-    include: ["server/**/*.test.{ts,tsx}", "server/**/*.spec.{ts,tsx}", "client/**/*.test.{ts,tsx}", "client/**/*.spec.{ts,tsx}"],
+    include: ["server/**/*.test.{ts,tsx}", "server/**/*.spec.{ts,tsx}", "client/**/*.test.{ts,tsx}", "client/**/*.spec.{ts,tsx}", "shared/**/*.test.{ts,tsx}", "shared/**/*.spec.{ts,tsx}"],
   },
 });

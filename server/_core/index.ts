@@ -9,6 +9,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerPropertyVideoUploadRoute } from "../propertyVideoUpload";
+import { buildPropertySlug } from "../../shared/propertySlug";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -48,6 +49,7 @@ async function startServer() {
     res.type("text/plain").send(`User-agent: *
 Allow: /
 Allow: /listing
+Allow: /properti
 Allow: /kalkulator
 Allow: /tentang
 Sitemap: ${origin}/sitemap.xml
@@ -71,7 +73,8 @@ Sitemap: ${origin}/sitemap.xml
       }
 
       for (const l of listings) {
-        xml += `  <url>\n    <loc>${origin}/listing?property=${l.id}</loc>\n    <lastmod>${new Date(l.updatedAt || l.createdAt || Date.now()).toISOString().split('T')[0]}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
+        const slug = l.slug || buildPropertySlug(l.title, l.id);
+        xml += `  <url>\n    <loc>${origin}/properti/${encodeURIComponent(slug)}</loc>\n    <lastmod>${new Date(l.updatedAt || l.createdAt || Date.now()).toISOString().split('T')[0]}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
       }
 
       xml += `</urlset>`;

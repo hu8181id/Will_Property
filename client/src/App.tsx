@@ -53,6 +53,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/listing" component={Listing} />
+      <Route path="/properti/:slug" component={Listing} />
       <Route path="/favorit" component={Favorit} />
       <Route path="/kalkulator" component={Kalkulator} />
       <Route path="/tentang" component={Tentang} />

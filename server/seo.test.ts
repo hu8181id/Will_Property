@@ -64,4 +64,20 @@ describe("metadata listing untuk pencarian non-merek", () => {
     expect(description).toContain("2 kamar tidur, 1 kamar mandi, luas 36 m², kondisi Furnished.");
     expect(description).toMatch(/Harga Rp\s?300\.000\.000\./);
   });
+
+  it("menggunakan slug permanen yang sama pada canonical dan structured data", () => {
+    const listing = {
+      ...gunawangsaListing,
+      id: 360001,
+      slug: "gunawangsa-manyar-2br-furnished-dekat-unair-its-merr-360001",
+      images: ["/manus-storage/gunawangsa.jpg"],
+    };
+    const origin = "https://primedeal-jl8furcm.manus.space";
+    const canonical = seoMetadataUtils.buildListingCanonical(origin, listing);
+    const structuredData = seoMetadataUtils.buildListingStructuredData(listing, canonical, origin);
+
+    expect(canonical).toBe(`${origin}/properti/gunawangsa-manyar-2br-furnished-dekat-unair-its-merr-360001`);
+    expect(structuredData.url).toBe(canonical);
+    expect(structuredData.image).toEqual([`${origin}/manus-storage/gunawangsa.jpg`]);
+  });
 });
