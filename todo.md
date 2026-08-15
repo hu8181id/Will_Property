@@ -83,3 +83,10 @@
 - [x] Siapkan halaman kebijakan yang diperlukan untuk persiapan AdSense.
 - [x] Tentukan dan dokumentasikan lokasi iklan AdSense yang aman tanpa mengganggu pencarian properti atau CTA utama.
 - [ ] Ajukan pendaftaran Google AdSense hanya setelah pengguna login dan mengonfirmasi pengajuan akhir.
+- [ ] Hubungkan domain kustom tingkat atas yang dikendalikan pengguna sebelum melanjutkan pendaftaran AdSense.
+- [x] Tentukan format iklan AdMob khusus APK yang sesuai dengan pengalaman pengguna Primedeal.
+- [x] Siapkan aplikasi dan unit iklan AdMob serta kredensial produksi yang diperlukan.
+- [x] Integrasikan Google Mobile Ads dan persetujuan iklan pada APK tanpa menampilkan iklan di website.
+- [x] Uji dengan iklan pengujian, bangun APK monetisasi, dan dokumentasikan cara melihat pendapatan AdMob.
+- [x] Konfigurasikan pesan persetujuan AdMob di Privacy & messaging untuk Primedeal Properti lalu verifikasi alur UMP dan tombol Pilihan privasi iklan pada APK.
+- [ ] Lengkapi profil pembayaran AdMob melalui akun pemilik agar penayangan iklan tidak dijeda.
