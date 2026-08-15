@@ -36,3 +36,32 @@ describe("canonical origin metadata SEO", () => {
     ).toBe("https://primedeal-jl8furcm.manus.space");
   });
 });
+
+describe("metadata listing untuk pencarian non-merek", () => {
+  const gunawangsaListing = {
+    title: "Gunawangsa Manyar 2BR Furnished dekat Unair, ITS, Merr",
+    description: "Tower A lantai 9 dengan view city dan fasilitas unit lengkap.",
+    propertyType: "apartemen",
+    transactionType: "dijual",
+    price: 300000000,
+    location: "Manyar, Surabaya",
+    area: 36,
+    bedrooms: 2,
+    bathrooms: 1,
+    condition: "Furnished",
+  };
+
+  it("menempatkan tipe, transaksi, proyek, lokasi, dan merek dalam title yang natural", () => {
+    expect(seoMetadataUtils.buildListingTitle(gunawangsaListing)).toBe(
+      "Dijual Apartemen Gunawangsa Manyar 2BR Furnished dekat Unair, ITS, Merr di Manyar, Surabaya | Primedeal Properti",
+    );
+  });
+
+  it("menempatkan fakta yang dicari pembeli pada awal meta description", () => {
+    const description = seoMetadataUtils.buildListingDescription(gunawangsaListing);
+
+    expect(description).toContain("Dijual apartemen Gunawangsa Manyar 2BR Furnished dekat Unair, ITS, Merr di Manyar, Surabaya.");
+    expect(description).toContain("2 kamar tidur, 1 kamar mandi, luas 36 m², kondisi Furnished.");
+    expect(description).toMatch(/Harga Rp\s?300\.000\.000\./);
+  });
+});

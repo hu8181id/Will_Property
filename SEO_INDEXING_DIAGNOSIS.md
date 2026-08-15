@@ -36,6 +36,14 @@ Kondisi saat ini paling masuk akal dijelaskan oleh kombinasi laporan indeks yang
 
 Karena listing baru sering berubah dan situs masih mengumpulkan sinyal penelusuran, hasil dapat berbeda antar kata kunci, lokasi pengguna, bahasa, dan waktu. Tidak ada bukti dari pemeriksaan ini bahwa domain `manus.space` secara otomatis tidak dapat mendapat peringkat. Ketika nanti berpindah ke domain kustom, canonical perlu diubah secara konsisten sekali saja melalui `CANONICAL_ORIGIN`, sitemap, dan redirect domain lama bila tersedia.
 
+## Observasi pencarian non-merek — Gunawangsa Manyar
+
+Pada 15 Agustus 2026, pencarian tanpa nama merek untuk **“Gunawangsa Manyar 2BR Furnished dekat Unair ITS Merr”** memperlihatkan hasil dari portal properti dan marketplace mapan, termasuk OLX, Pinhome, Brighton, Properti1, serta Rumah123. Listing Primedeal tidak terlihat pada kumpulan hasil awal yang diperiksa.
+
+Temuan ini menjelaskan mengapa menambahkan kata **“Primedeal”** membuat pencarian lebih mudah menemukan situs: kata tersebut adalah penanda merek yang jauh lebih khusus dan kompetisinya rendah. Sebaliknya, pencarian tanpa merek adalah kata kunci transaksi yang kompetitif dan saat ini diperebutkan oleh beberapa portal dengan koleksi halaman, riwayat, serta sinyal rujukan yang lebih banyak. Status **“URL ada di Google”** memastikan kelayakan muncul, tetapi tidak menjanjikan posisi untuk kata kunci tertentu. [3]
+
+Perbaikan yang aman bukan menumpuk kata kunci atau membuat klaim yang tidak dapat dibuktikan. Setiap listing sebaiknya menyebut tipe transaksi, nama proyek, jumlah kamar, kondisi unit, luas, lokasi, landmark yang memang relevan, dan harga aktual secara natural pada judul serta paragraf pertama. Konten berbeda yang membantu pembeli memahami unit memberi Google lebih banyak konteks dibandingkan template deskripsi yang sama pada banyak halaman. [1]
+
 ## Langkah yang dapat dilakukan sekarang
 
 | Urutan | Tindakan | Hasil yang diharapkan |

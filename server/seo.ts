@@ -24,7 +24,7 @@ function resolveCanonicalOrigin(requestOrigin?: string) {
   return DEFAULT_ORIGIN;
 }
 
-export const seoMetadataUtils = { resolveCanonicalOrigin };
+export const seoMetadataUtils = { resolveCanonicalOrigin, buildListingTitle, buildListingDescription };
 
 function escapeHtml(value: string) {
   return value.replace(/[&<>\"']/g, character => {
@@ -51,6 +51,66 @@ function formatPrice(price: number) {
     currency: "IDR",
     maximumFractionDigits: 0,
   }).format(price);
+}
+
+type ListingSeoFields = {
+  title: string;
+  description: string;
+  propertyType: string;
+  transactionType: string;
+  price: number;
+  location: string;
+  area: number | null;
+  bedrooms: number | null;
+  bathrooms: number | null;
+  condition: string | null;
+};
+
+function normaliseText(value: string) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function propertyTypeLabel(value: string) {
+  const labels: Record<string, string> = {
+    rumah: "Rumah",
+    apartemen: "Apartemen",
+    ruko: "Ruko",
+    tanah: "Tanah",
+  };
+  return labels[value.trim().toLowerCase()] ?? normaliseText(value);
+}
+
+function transactionLabel(value: string) {
+  return value.trim().toLowerCase() === "disewa" ? "Disewa" : "Dijual";
+}
+
+function truncateText(value: string, limit: number) {
+  if (value.length <= limit) return value;
+  const clipped = value.slice(0, limit - 1).replace(/\s+\S*$/, "").trim();
+  return `${clipped}…`;
+}
+
+function buildListingTitle(property: ListingSeoFields) {
+  const propertyType = propertyTypeLabel(property.propertyType);
+  const rawTitle = normaliseText(property.title);
+  const titleHasType = rawTitle.toLocaleLowerCase("id-ID").includes(propertyType.toLocaleLowerCase("id-ID"));
+  const listingName = titleHasType ? rawTitle : `${propertyType} ${rawTitle}`;
+  return `${transactionLabel(property.transactionType)} ${listingName} di ${normaliseText(property.location)} | ${SITE_NAME}`;
+}
+
+function buildListingDescription(property: ListingSeoFields) {
+  const propertyType = propertyTypeLabel(property.propertyType).toLocaleLowerCase("id-ID");
+  const core = `${transactionLabel(property.transactionType)} ${propertyType} ${normaliseText(property.title)} di ${normaliseText(property.location)}.`;
+  const specifications = [
+    property.bedrooms ? `${property.bedrooms} kamar tidur` : "",
+    property.bathrooms ? `${property.bathrooms} kamar mandi` : "",
+    property.area ? `luas ${property.area} m²` : "",
+    property.condition ? `kondisi ${normaliseText(property.condition)}` : "",
+  ].filter(Boolean);
+  const specificationSentence = specifications.length ? ` ${specifications.join(", ")}.` : "";
+  const originalDescription = normaliseText(property.description);
+  const details = originalDescription ? ` ${originalDescription}` : "";
+  return truncateText(`${core}${specificationSentence} Harga ${formatPrice(property.price)}.${details} Konsultasi unit melalui WhatsApp ${SITE_NAME}.`, 320);
 }
 
 function replaceOrInsert(html: string, pattern: RegExp, tag: string) {
@@ -137,9 +197,8 @@ export async function injectSeoMetadata(html: string, requestUrl: string, reques
     const property = rows[0];
     if (!property) return applyHead(html, fallback);
 
-    const title = `${property.title} | Primedeal Properti`;
-    const details = `${property.location} • ${formatPrice(property.price)} • ${property.propertyType}`;
-    const description = `${property.description.slice(0, 170)}${property.description.length > 170 ? "…" : ""} ${details}. Konsultasi melalui WhatsApp Primedeal.`;
+    const title = buildListingTitle(property);
+    const description = buildListingDescription(property);
     const canonical = `${canonicalOrigin}/listing?property=${property.id}`;
     const image = absoluteAssetUrl(property.images?.[0], canonicalOrigin);
     

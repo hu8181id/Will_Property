@@ -119,3 +119,6 @@
 - [x] Verifikasi form AddPropertyDialog terbuka pada viewport ponsel dan dokumentasikan tampilan kontrol template SEO.
 - [x] Tambahkan shortcut admin-only `newListing=1` untuk membuka form tambah listing langsung saat verifikasi di ponsel.
 - [x] Dokumentasikan verifikasi viewport ponsel untuk AddPropertyDialog dan kontrol template SEO dalam berkas proyek.
+- [x] Periksa hasil pencarian non-merek untuk Gunawangsa Manyar dan dokumentasikan perbedaan antara indeks serta peringkat.
+- [x] Tinjau metadata dan konten listing untuk peluang kata kunci umum yang akurat tanpa menambah klaim palsu.
+- [x] Terapkan perbaikan SEO non-merek yang relevan, uji regresi, dan jelaskan batasan peringkat Google.
