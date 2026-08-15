@@ -107,3 +107,8 @@
 - [x] Uji perangkat/jaringan sama, sumber berbeda, hari berbeda, dan akses admin pada perhitungan kunjungan.
 - [x] Dokumentasikan batasan jaringan bersama serta perubahan dasar penghitungan kunjungan di dashboard admin.
 - [x] Jalankan dan catat hasil sukses pemeriksaan tipe serta suite test setelah deduplikasi kunjungan harian.
+- [x] Periksa keterjangkauan Googlebot, robots.txt, sitemap, dan metadata listing yang belum muncul di Google Search.
+- [x] Tinjau status properti serta cakupan URL pada Google Search Console bila akses tersedia.
+- [x] Perbaiki canonical URL, Open Graph URL, dan URL structured data agar mengikuti domain publik Primedeal yang aktif.
+- [x] Tambahkan pengujian regresi untuk pemilihan canonical origin publik pada metadata SEO.
+- [x] Dokumentasikan penyebab dan langkah aman untuk meminta pengindeksan tanpa menjanjikan peringkat atau waktu tampil.

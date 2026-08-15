@@ -5,7 +5,26 @@ import { getDb } from "./db";
 const SITE_NAME = "Primedeal Properti";
 const DEFAULT_TITLE = "Primedeal - Agensi Properti Modern & Jual Beli Rumah Terbaik di Surabaya";
 const DEFAULT_DESCRIPTION = "Temukan properti impian Anda di Surabaya bersama Primedeal Properti. Jual beli rumah, apartemen, ruko, dan tanah dengan mudah, aman, serta konsultasi WhatsApp langsung.";
-const DEFAULT_ORIGIN = "https://primedeal.manus.space";
+const DEFAULT_ORIGIN = "https://primedeal-jl8furcm.manus.space";
+
+function resolveCanonicalOrigin(requestOrigin?: string) {
+  const candidates = [process.env.CANONICAL_ORIGIN, requestOrigin, DEFAULT_ORIGIN];
+
+  for (const candidate of candidates) {
+    if (!candidate?.trim()) continue;
+
+    try {
+      const parsed = new URL(candidate.trim());
+      if (parsed.protocol === "https:" || parsed.protocol === "http:") return parsed.origin;
+    } catch {
+      // Skip malformed configured or request origins and use the next safe candidate.
+    }
+  }
+
+  return DEFAULT_ORIGIN;
+}
+
+export const seoMetadataUtils = { resolveCanonicalOrigin };
 
 function escapeHtml(value: string) {
   return value.replace(/[&<>\"']/g, character => {
@@ -80,8 +99,8 @@ function applyHead(html: string, meta: {
   return output;
 }
 
-export async function injectSeoMetadata(html: string, requestUrl: string, _origin?: string) {
-  const canonicalOrigin = (process.env.CANONICAL_ORIGIN || DEFAULT_ORIGIN).replace(/\/$/, "");
+export async function injectSeoMetadata(html: string, requestUrl: string, requestOrigin?: string) {
+  const canonicalOrigin = resolveCanonicalOrigin(requestOrigin);
   const fallback = {
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
