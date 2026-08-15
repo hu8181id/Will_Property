@@ -89,4 +89,4 @@
 - [x] Integrasikan Google Mobile Ads dan persetujuan iklan pada APK tanpa menampilkan iklan di website.
 - [x] Uji dengan iklan pengujian, bangun APK monetisasi, dan dokumentasikan cara melihat pendapatan AdMob.
 - [x] Konfigurasikan pesan persetujuan AdMob di Privacy & messaging untuk Primedeal Properti lalu verifikasi alur UMP dan tombol Pilihan privasi iklan pada APK.
-- [ ] Lengkapi profil pembayaran AdMob melalui akun pemilik agar penayangan iklan tidak dijeda.
+- [x] Lengkapi profil pembayaran AdMob melalui akun pemilik agar penayangan iklan tidak dijeda.

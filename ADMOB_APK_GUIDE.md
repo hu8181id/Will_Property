@@ -29,7 +29,7 @@ Pesan persetujuan **“Persetujuan Privasi Primedeal”** telah dipublikasikan m
 4. Untuk periode dan rincian yang lebih lengkap, buka **Reports**, pilih rentang tanggal, lalu gunakan metrik seperti *Estimated earnings*, *Impressions*, *Match rate*, dan *eCPM*.
 5. Gunakan menu **Payments** untuk meninjau profil pembayaran, ambang pembayaran, serta status pembayaran setelah ada pendapatan yang memenuhi syarat.
 
-Data pendapatan dan metrik tidak selalu muncul seketika. Setelah APK digunakan oleh pengguna nyata, AdMob membutuhkan waktu untuk memproses tayangan. Selesaikan juga **profil pembayaran** pada menu **Payments** AdMob; akun pengguna saat ini menampilkan pemberitahuan bahwa penayangan iklan dapat dijeda sampai informasi pembayaran dilengkapi.
+Data pendapatan dan metrik tidak selalu muncul seketika. Setelah APK digunakan oleh pengguna nyata, AdMob membutuhkan waktu untuk memproses tayangan. Profil pembayaran pemilik telah dikonfirmasi selesai; tetap gunakan menu **Payments** untuk meninjau ambang dan status pembayaran setelah pendapatan memenuhi syarat.
 
 ## Checklist rilis
 
@@ -41,7 +41,7 @@ Data pendapatan dan metrik tidak selalu muncul seketika. Setelah APK digunakan o
 - [x] APK rilis ditandatangani dengan keystore Primedeal dan diverifikasi dengan Signature Scheme v2 serta v3.
 - [ ] Status peninjauan AdMob disetujui oleh Google.
 - [x] Pesan persetujuan yang diperlukan telah dipublikasikan di **Privacy & messaging** AdMob.
-- [ ] Profil pembayaran AdMob dilengkapi oleh pemilik akun.
+- [x] Profil pembayaran AdMob dilengkapi oleh pemilik akun.
 
 [^banner]: [Google Mobile Ads SDK — Banner ads](https://developers.google.com/admob/android/banner)
 [^ump]: [Google User Messaging Platform — Android](https://developers.google.com/admob/android/privacy)
