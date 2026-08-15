@@ -5,6 +5,7 @@ import { trpc } from "@/lib/trpc";
 import NotFound from "@/pages/NotFound";
 import { useEffect } from "react";
 import { Route, Switch, useLocation } from "wouter";
+import ApkUpdateNotice from "./components/ApkUpdateNotice";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -83,6 +84,7 @@ function App() {
           <Toaster />
           <GoogleAnalyticsRouteTracker />
           <VisitorTracker />
+          <ApkUpdateNotice />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

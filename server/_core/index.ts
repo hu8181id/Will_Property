@@ -78,6 +78,24 @@ Sitemap: ${origin}/sitemap.xml
       res.status(500).send("Error generating sitemap");
     }
   });
+
+  // Manifest publik untuk pemeriksaan pembaruan APK Primedeal. Berkas APK selalu
+  // ditandatangani dengan keystore rilis yang sama; aplikasi tetap menyerahkan
+  // keputusan pemasangan kepada Android dan pengguna.
+  app.get("/apk/latest.json", (_req, res) => {
+    const downloadPath = "/manus-storage/primedeal-properti-v1.3.0_2c9e3fb1.apk";
+    const siteOrigin = "https://primedeal-jl8furcm.manus.space";
+    res
+      .set("Cache-Control", "no-store, max-age=0")
+      .json({
+        versionCode: 5,
+        versionName: "1.3.0",
+        downloadUrl: `${siteOrigin}${downloadPath}`,
+        sha256: "f6126cc5dd5cd026cdc7d7978db48c08e714b61d402b11319638104b5c763e25",
+        releaseNotes: "Pemeriksaan pembaruan gratis dan notifikasi versi baru yang lebih aman.",
+        publishedAt: "2026-08-15T00:00:00.000Z",
+      });
+  });
   // tRPC API
   app.use(
     "/api/trpc",
