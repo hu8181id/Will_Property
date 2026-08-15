@@ -113,15 +113,15 @@ export const siteDailyVisits = mysqlTable(
     id: int("id").autoincrement().primaryKey(),
     visitDate: varchar("visitDate", { length: 10 }).notNull(),
     visitorId: varchar("visitorId", { length: 64 }).notNull(),
+    dailyFingerprint: varchar("dailyFingerprint", { length: 64 }),
     trafficSource: mysqlEnum("trafficSource", ["website", "apk", "unknown"]).notNull().default("unknown"),
     createdAt: timestamp("createdAt").defaultNow().notNull(),
   },
   (table) => ({
     visitDateIdx: index("site_daily_visits_visit_date_idx").on(table.visitDate),
-    visitDateVisitorUnique: uniqueIndex("site_daily_visits_date_visitor_unique").on(
+    visitDateFingerprintUnique: uniqueIndex("site_daily_visits_date_fingerprint_unique").on(
       table.visitDate,
-      table.visitorId,
-      table.trafficSource,
+      table.dailyFingerprint,
     ),
   }),
 );

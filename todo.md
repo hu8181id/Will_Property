@@ -102,3 +102,8 @@
 - [x] Tampilkan ringkasan trafik per sumber dan tautan laporan iklan AdMob yang jelas pada dashboard admin.
 - [x] Uji keamanan admin, perhitungan sumber trafik, dan dokumentasikan batasan metrik iklan AdMob.
 - [x] Terapkan dashboard Pilihan A tanpa kredensial: pisahkan trafik APK dan website serta tampilkan tautan laporan AdMob resmi.
+- [x] Rancang identitas kunjungan harian anonim yang menggabungkan token perangkat dan sinyal jaringan tanpa menyimpan IP mentah.
+- [x] Terapkan deduplikasi satu kunjungan per hari lintas website dan APK dengan tetap mempertahankan kategori sumber trafik pertama.
+- [x] Uji perangkat/jaringan sama, sumber berbeda, hari berbeda, dan akses admin pada perhitungan kunjungan.
+- [x] Dokumentasikan batasan jaringan bersama serta perubahan dasar penghitungan kunjungan di dashboard admin.
+- [x] Jalankan dan catat hasil sukses pemeriksaan tipe serta suite test setelah deduplikasi kunjungan harian.

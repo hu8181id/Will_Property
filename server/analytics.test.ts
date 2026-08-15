@@ -32,6 +32,26 @@ describe("analytics dashboard contracts", () => {
     expect(analyticsDateUtils.getTrafficSourceFromUserAgent(undefined)).toBe("unknown");
   });
 
+  it("membuat kunci harian yang sama untuk jaringan sama lintas sumber tanpa menyimpan IP mentah", () => {
+    const sharedNetwork = { visitDate: "2026-08-15", networkAddress: "203.0.113.17", secret: "test-secret" };
+    const webFingerprint = analyticsDateUtils.createDailyVisitFingerprint({ ...sharedNetwork, visitorId: "20b60b15-d2a0-4246-901f-eb004eb03046" });
+    const apkFingerprint = analyticsDateUtils.createDailyVisitFingerprint({ ...sharedNetwork, visitorId: "bfc364af-6eb1-4b31-96e3-5a492a76af49" });
+    expect(webFingerprint).toBe(apkFingerprint);
+    expect(webFingerprint).toMatch(/^[a-f0-9]{64}$/);
+    expect(webFingerprint).not.toContain("203.0.113.17");
+  });
+
+  it("membedakan jaringan atau hari yang berbeda dan memakai cookie anonim bila alamat jaringan tidak tersedia", () => {
+    const base = { visitorId: "20b60b15-d2a0-4246-901f-eb004eb03046", secret: "test-secret" };
+    const first = analyticsDateUtils.createDailyVisitFingerprint({ ...base, visitDate: "2026-08-15", networkAddress: "203.0.113.17" });
+    const anotherNetwork = analyticsDateUtils.createDailyVisitFingerprint({ ...base, visitDate: "2026-08-15", networkAddress: "203.0.113.18" });
+    const nextDay = analyticsDateUtils.createDailyVisitFingerprint({ ...base, visitDate: "2026-08-16", networkAddress: "203.0.113.17" });
+    const fallback = analyticsDateUtils.createDailyVisitFingerprint({ ...base, visitDate: "2026-08-15" });
+    expect(first).not.toBe(anotherNetwork);
+    expect(first).not.toBe(nextDay);
+    expect(fallback).toMatch(/^[a-f0-9]{64}$/);
+  });
+
   it("menjumlahkan trafik harian per sumber tanpa mengatribusikan riwayat yang tidak diketahui", () => {
     expect(
       analyticsDateUtils.aggregateTrafficBySource(

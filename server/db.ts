@@ -150,13 +150,18 @@ export async function setPropertyVideoUploadCompletedUrl(id: string, completedUr
 
 export type TrafficSource = "website" | "apk" | "unknown";
 
-export async function recordAnonymousDailyVisit(input: { visitDate: string; visitorId: string; trafficSource: TrafficSource }) {
+export async function recordAnonymousDailyVisit(input: {
+  visitDate: string;
+  visitorId: string;
+  trafficSource: TrafficSource;
+  dailyFingerprint?: string;
+}) {
   const db = await getDb();
   if (!db) throw new Error("Database tidak tersedia untuk mencatat kunjungan.");
 
   await db
     .insert(siteDailyVisits)
-    .values(input)
+    .values({ ...input, dailyFingerprint: input.dailyFingerprint ?? input.visitorId })
     .onDuplicateKeyUpdate({ set: { visitorId: input.visitorId } });
 }
 

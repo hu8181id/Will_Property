@@ -13,7 +13,7 @@ Primedeal menggunakan beberapa sumber statistik gratis agar pengunjung website, 
 
 Masuk sebagai admin lalu buka **`/admin/dashboard`**. Kartu **Website** menghitung kunjungan dari browser biasa. Kartu **APK Primedeal** menghitung kunjungan yang datang dari WebView APK dengan penanda versi resmi. Kartu **Belum Teridentifikasi** menyimpan data historis sebelum penanda APK tersedia, sehingga angka tersebut tidak boleh diasumsikan sebagai website atau APK.
 
-Penghitungan ini menggunakan pengenal anonim harian dan tidak sama persis dengan Google Analytics maupun Firebase. Satu perangkat dapat dihitung sekali per hari untuk setiap sumber trafik. Gunakan filter tanggal untuk melihat tren setelah APK 1.3.0 mulai digunakan.
+Penghitungan ini menggunakan hash anonim harian dan tidak sama persis dengan Google Analytics maupun Firebase. Untuk mengurangi hitungan ganda, akses dari jaringan yang sama—termasuk ketika browser dan APK digunakan pada jaringan yang sama—dihitung satu kali per hari dengan kategori sumber yang pertama tercatat. Sistem tidak menyimpan alamat IP mentah. Karena jaringan Wi-Fi atau seluler dapat dipakai beberapa perangkat, angka ringkasan dapat lebih rendah daripada jumlah orang sebenarnya. Gunakan filter tanggal untuk melihat tren setelah penerapan perubahan ini.
 
 Bagian **Laporan iklan APK** pada dashboard admin membuka laporan resmi AdMob. Pendapatan dan metrik iklan sengaja tidak disalin ke database Primedeal karena opsi dashboard yang dipilih tidak meminta atau menyimpan kredensial AdMob.
 
@@ -46,7 +46,7 @@ Traffic dari aplikasi WebView juga dapat ikut terlihat sebagai traffic website. 
 
 ## Batasan privasi
 
-Implementasi website hanya mengirim jalur halaman, bukan parameter pencarian. Implementasi APK hanya mengirim kelompok halaman seperti `listing` atau `kpr`. Sistem tidak mengirim nama listing, isi pencarian, nomor WhatsApp, file media, maupun identitas pengguna ke event analitik kustom.
+Implementasi website hanya mengirim jalur halaman, bukan parameter pencarian. Implementasi APK hanya mengirim kelompok halaman seperti `listing` atau `kpr`. Sistem tidak mengirim nama listing, isi pencarian, nomor WhatsApp, file media, maupun identitas pengguna ke event analitik kustom. Untuk deduplikasi ringkasan harian, alamat jaringan yang diterima server segera diubah menjadi hash HMAC bertanggal; alamat IP mentah tidak disimpan atau ditampilkan.
 
 ## Referensi
 

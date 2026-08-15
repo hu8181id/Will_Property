@@ -1,5 +1,5 @@
 import { afterAll, describe, expect, it } from "vitest";
-import { and, eq, inArray } from "drizzle-orm";
+import { and, eq, inArray, or } from "drizzle-orm";
 import { siteDailyPageViews, siteDailyVisits } from "../drizzle/schema";
 import { getAnonymousDailyVisitSummary, getDb, getPopularContent, recordAnonymousDailyVisit, recordAnonymousPageView } from "./db";
 
@@ -7,14 +7,21 @@ const visitorId = `analytics-test-${Date.now()}-${Math.random().toString(16).sli
 const firstDate = "2099-12-30";
 const secondDate = "2099-12-31";
 const popularDate = "2099-12-29";
+const sharedDate = "2099-12-28";
 const pageVisitors = [`${visitorId}-page-a`, `${visitorId}-page-b`, `${visitorId}-page-c`];
+const sharedDailyFingerprint = `network-${visitorId}`;
 
 afterAll(async () => {
   const db = await getDb();
   if (!db) return;
   await db
     .delete(siteDailyVisits)
-    .where(and(inArray(siteDailyVisits.visitDate, [firstDate, secondDate]), eq(siteDailyVisits.visitorId, visitorId)));
+    .where(
+      or(
+        and(inArray(siteDailyVisits.visitDate, [firstDate, secondDate]), eq(siteDailyVisits.visitorId, visitorId)),
+        and(eq(siteDailyVisits.visitDate, sharedDate), eq(siteDailyVisits.dailyFingerprint, sharedDailyFingerprint)),
+      ),
+    );
   await db
     .delete(siteDailyPageViews)
     .where(and(eq(siteDailyPageViews.visitDate, popularDate), inArray(siteDailyPageViews.visitorId, pageVisitors)));
@@ -35,6 +42,20 @@ describe("daily visit persistence", () => {
     const summary = await getAnonymousDailyVisitSummary(firstDate);
     expect(summary.find((day) => day.visitDate === firstDate)?.visitors).toBe(1);
     expect(summary.find((day) => day.visitDate === secondDate)?.visitors).toBe(1);
+  });
+
+  it("mencatat jaringan yang sama dari website dan APK satu kali serta mempertahankan sumber pertama", async () => {
+    const websiteVisitor = `${visitorId}-website`;
+    const apkVisitor = `${visitorId}-apk`;
+    const before = await getAnonymousDailyVisitSummary(sharedDate);
+    const beforeWebsite = before.find((day) => day.visitDate === sharedDate && day.trafficSource === "website")?.visitors ?? 0;
+    const beforeApk = before.find((day) => day.visitDate === sharedDate && day.trafficSource === "apk")?.visitors ?? 0;
+    await recordAnonymousDailyVisit({ visitDate: sharedDate, visitorId: websiteVisitor, trafficSource: "website", dailyFingerprint: sharedDailyFingerprint });
+    await recordAnonymousDailyVisit({ visitDate: sharedDate, visitorId: apkVisitor, trafficSource: "apk", dailyFingerprint: sharedDailyFingerprint });
+
+    const summary = await getAnonymousDailyVisitSummary(sharedDate);
+    expect(summary.find((day) => day.visitDate === sharedDate && day.trafficSource === "website")?.visitors).toBe(beforeWebsite + 1);
+    expect(summary.find((day) => day.visitDate === sharedDate && day.trafficSource === "apk")?.visitors ?? 0).toBe(beforeApk);
   });
 });
 

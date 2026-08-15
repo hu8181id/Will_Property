@@ -51,10 +51,14 @@ export default function Privacy() {
               <h2 className="text-xl font-bold text-slate-900">Analitik, cookie, dan iklan</h2>
               <p className="mt-3">
                 Website ini menggunakan Google Analytics untuk memahami penggunaan secara
-                terukur. Teknologi seperti cookie dapat digunakan oleh layanan analitik
-                atau, apabila iklan Google diaktifkan di masa mendatang, oleh mitra iklan
-                untuk menyajikan dan mengukur iklan. Anda dapat mengelola cookie melalui
-                pengaturan browser. Kebijakan Google tersedia di{" "}
+                terukur. Untuk ringkasan kunjungan harian, Primedeal membuat kode hash
+                satu arah dari informasi jaringan yang diterima layanan atau cookie anonim
+                pihak pertama; alamat IP mentah tidak disimpan maupun ditampilkan. Akses
+                berulang dari jaringan yang sama dapat dihitung satu kali dalam satu hari,
+                sehingga jaringan bersama dapat menyebabkan angka ringkasan lebih rendah.
+                APK Primedeal dapat menggunakan Google AdMob untuk menayangkan dan mengukur
+                iklan sesuai pilihan privasi yang berlaku. Anda dapat mengelola cookie
+                melalui pengaturan browser. Kebijakan Google tersedia di{" "}
                 <a
                   href="https://policies.google.com/privacy"
                   target="_blank"

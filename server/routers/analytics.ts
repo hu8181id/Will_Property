@@ -1,4 +1,4 @@
-import { randomUUID } from "crypto";
+import { createHmac, randomUUID } from "crypto";
 import { z } from "zod";
 import {
   getAnonymousDailyVisitSummary,
@@ -7,6 +7,7 @@ import {
   recordAnonymousPageView,
 } from "../db";
 import { getSessionCookieOptions } from "../_core/cookies";
+import { ENV } from "../_core/env";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 import type { TrafficSource } from "../db";
 
@@ -71,6 +72,28 @@ function isAnonymousVisitorId(value: string | undefined): value is string {
 export function getTrafficSourceFromUserAgent(userAgent: string | undefined): TrafficSource {
   if (!userAgent) return "unknown";
   return /PrimedealApp\/\d+/i.test(userAgent) ? "apk" : "website";
+}
+
+function getClientNetworkAddress(req: { ip?: string; headers: Record<string, string | string[] | undefined> }) {
+  const forwarded = req.headers["x-forwarded-for"];
+  const forwardedValue = Array.isArray(forwarded) ? forwarded[0] : forwarded;
+  return (forwardedValue?.split(",")[0]?.trim() || req.ip || "").slice(0, 128);
+}
+
+/**
+ * Returns a daily, irreversible HMAC. Raw IP addresses, user agents, and device
+ * identifiers are never stored. A network value lets Chrome and the APK on the
+ * same connection share one daily visit; the first source seen remains assigned.
+ */
+export function createDailyVisitFingerprint(input: {
+  visitDate: string;
+  visitorId: string;
+  networkAddress?: string;
+  secret?: string;
+}) {
+  const identity = input.networkAddress?.trim() ? `network:${input.networkAddress.trim()}` : `cookie:${input.visitorId}`;
+  const secret = input.secret || ENV.cookieSecret || "primedeal-local-analytics";
+  return createHmac("sha256", secret).update(`${input.visitDate}|${identity}`).digest("hex");
 }
 
 export function aggregateTrafficBySource(
@@ -153,7 +176,12 @@ export const analyticsRouter = router({
     try {
       const visitDate = getIndonesiaDateKey(new Date());
       const trafficSource = getTrafficSourceFromUserAgent(ctx.req.headers["user-agent"]);
-      await recordAnonymousDailyVisit({ visitDate, visitorId, trafficSource });
+      const dailyFingerprint = createDailyVisitFingerprint({
+        visitDate,
+        visitorId,
+        networkAddress: getClientNetworkAddress(ctx.req),
+      });
+      await recordAnonymousDailyVisit({ visitDate, visitorId, trafficSource, dailyFingerprint });
       if (input.page) await recordAnonymousPageView({ visitDate, visitorId, trafficSource, ...input.page });
       return { recorded: true };
     } catch (error) {
@@ -229,5 +257,6 @@ export const analyticsDateUtils = {
   isAnonymousVisitorId,
   isDateKey,
   getTrafficSourceFromUserAgent,
+  createDailyVisitFingerprint,
   aggregateTrafficBySource,
 };

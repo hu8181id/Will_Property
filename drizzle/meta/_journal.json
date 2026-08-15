@@ -71,6 +71,13 @@
       "when": 1786787958055,
       "tag": "0009_lowly_the_hunter",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1786789461352,
+      "tag": "0010_last_rawhide_kid",
+      "breakpoints": true
     }
   ]
 }
