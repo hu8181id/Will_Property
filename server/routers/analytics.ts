@@ -8,6 +8,7 @@ import {
 } from "../db";
 import { getSessionCookieOptions } from "../_core/cookies";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
+import type { TrafficSource } from "../db";
 
 export const ANONYMOUS_VISITOR_COOKIE = "primedeal_visitor";
 const ANONYMOUS_VISITOR_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;
@@ -67,6 +68,34 @@ function isAnonymousVisitorId(value: string | undefined): value is string {
   return Boolean(value && /^[a-f0-9-]{36}$/i.test(value));
 }
 
+export function getTrafficSourceFromUserAgent(userAgent: string | undefined): TrafficSource {
+  if (!userAgent) return "unknown";
+  return /PrimedealApp\/\d+/i.test(userAgent) ? "apk" : "website";
+}
+
+export function aggregateTrafficBySource(
+  dates: string[],
+  rows: Array<{ visitDate: string; trafficSource: TrafficSource; visitors: number }>,
+) {
+  const values = new Map<string, Record<TrafficSource, number>>();
+  for (const row of rows) {
+    const current = values.get(row.visitDate) ?? { website: 0, apk: 0, unknown: 0 };
+    current[row.trafficSource] += row.visitors;
+    values.set(row.visitDate, current);
+  }
+
+  return dates.map((visitDate) => {
+    const sources = values.get(visitDate) ?? { website: 0, apk: 0, unknown: 0 };
+    return {
+      visitDate,
+      websiteVisitors: sources.website,
+      apkVisitors: sources.apk,
+      unknownVisitors: sources.unknown,
+      visitors: sources.website + sources.apk + sources.unknown,
+    };
+  });
+}
+
 const contentViewSchema = z
   .object({
     contentType: z.enum(["page", "listing"]),
@@ -123,8 +152,9 @@ export const analyticsRouter = router({
 
     try {
       const visitDate = getIndonesiaDateKey(new Date());
-      await recordAnonymousDailyVisit({ visitDate, visitorId });
-      if (input.page) await recordAnonymousPageView({ visitDate, visitorId, ...input.page });
+      const trafficSource = getTrafficSourceFromUserAgent(ctx.req.headers["user-agent"]);
+      await recordAnonymousDailyVisit({ visitDate, visitorId, trafficSource });
+      if (input.page) await recordAnonymousPageView({ visitDate, visitorId, trafficSource, ...input.page });
       return { recorded: true };
     } catch (error) {
       console.warn("[Analytics] Kunjungan tidak dapat dicatat:", error);
@@ -144,7 +174,12 @@ export const analyticsRouter = router({
     }
 
     try {
-      await recordAnonymousPageView({ visitDate: getIndonesiaDateKey(new Date()), visitorId, ...input });
+      await recordAnonymousPageView({
+        visitDate: getIndonesiaDateKey(new Date()),
+        visitorId,
+        trafficSource: getTrafficSourceFromUserAgent(ctx.req.headers["user-agent"]),
+        ...input,
+      });
       return { recorded: true };
     } catch (error) {
       console.warn("[Analytics] Tampilan konten tidak dapat dicatat:", error);
@@ -157,13 +192,18 @@ export const analyticsRouter = router({
     const startDate = dates[0]!;
     const endDate = dates.at(-1)!;
     const rows = await getAnonymousDailyVisitSummary(startDate, endDate);
-    const visitsByDate = new Map(rows.map((row) => [row.visitDate, row.visitors]));
-    const days = dates.map((visitDate) => ({ visitDate, visitors: visitsByDate.get(visitDate) ?? 0 }));
+    const days = aggregateTrafficBySource(dates, rows);
     const totalVisitors = days.reduce((total, day) => total + day.visitors, 0);
+    const websiteVisitors = days.reduce((total, day) => total + day.websiteVisitors, 0);
+    const apkVisitors = days.reduce((total, day) => total + day.apkVisitors, 0);
+    const unknownVisitors = days.reduce((total, day) => total + day.unknownVisitors, 0);
 
     return {
       period: { startDate, endDate },
       totalVisitors,
+      websiteVisitors,
+      apkVisitors,
+      unknownVisitors,
       averageDailyVisitors: Number((totalVisitors / days.length).toFixed(1)),
       days,
     };
@@ -182,4 +222,12 @@ export const analyticsRouter = router({
   }),
 });
 
-export const analyticsDateUtils = { getDateKeys, getDateKeysInRange, getIndonesiaDateKey, isAnonymousVisitorId, isDateKey };
+export const analyticsDateUtils = {
+  getDateKeys,
+  getDateKeysInRange,
+  getIndonesiaDateKey,
+  isAnonymousVisitorId,
+  isDateKey,
+  getTrafficSourceFromUserAgent,
+  aggregateTrafficBySource,
+};

@@ -113,6 +113,7 @@ export const siteDailyVisits = mysqlTable(
     id: int("id").autoincrement().primaryKey(),
     visitDate: varchar("visitDate", { length: 10 }).notNull(),
     visitorId: varchar("visitorId", { length: 64 }).notNull(),
+    trafficSource: mysqlEnum("trafficSource", ["website", "apk", "unknown"]).notNull().default("unknown"),
     createdAt: timestamp("createdAt").defaultNow().notNull(),
   },
   (table) => ({
@@ -120,6 +121,7 @@ export const siteDailyVisits = mysqlTable(
     visitDateVisitorUnique: uniqueIndex("site_daily_visits_date_visitor_unique").on(
       table.visitDate,
       table.visitorId,
+      table.trafficSource,
     ),
   }),
 );
@@ -140,6 +142,7 @@ export const siteDailyPageViews = mysqlTable(
     path: varchar("path", { length: 256 }).notNull(),
     contentTitle: varchar("contentTitle", { length: 255 }).notNull(),
     propertyId: int("propertyId"),
+    trafficSource: mysqlEnum("trafficSource", ["website", "apk", "unknown"]).notNull().default("unknown"),
     createdAt: timestamp("createdAt").defaultNow().notNull(),
   },
   (table) => ({
@@ -149,6 +152,7 @@ export const siteDailyPageViews = mysqlTable(
       table.visitDate,
       table.visitorId,
       table.path,
+      table.trafficSource,
     ),
   }),
 );

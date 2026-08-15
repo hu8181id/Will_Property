@@ -64,6 +64,13 @@
       "when": 1786638217205,
       "tag": "0008_breezy_catseye",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1786787958055,
+      "tag": "0009_lowly_the_hunter",
+      "breakpoints": true
     }
   ]
 }

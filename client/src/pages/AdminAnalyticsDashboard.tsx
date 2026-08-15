@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/lib/trpc";
-import { ArrowLeft, BarChart3, CalendarDays, FileText, Loader2, RefreshCw, ShieldCheck, Trophy, Users } from "lucide-react";
+import { ArrowLeft, BarChart3, CalendarDays, CircleHelp, ExternalLink, FileText, Globe2, Loader2, RefreshCw, ShieldCheck, Smartphone, Trophy, Users } from "lucide-react";
 import React, { useState } from "react";
 import { useLocation } from "wouter";
 
@@ -111,7 +111,7 @@ export default function AdminAnalyticsDashboard() {
             <div>
               <p className="text-sm font-medium text-primary">PRIMEDEAL ADMIN</p>
               <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Ringkasan Pengunjung</h1>
-              <p className="mt-1 text-sm text-slate-600">Kunjungan unik harian dari website Primedeal.</p>
+              <p className="mt-1 text-sm text-slate-600">Kunjungan unik harian yang dipisahkan antara website dan APK Primedeal.</p>
             </div>
           </div>
           <Button variant="outline" className="gap-2 self-start" disabled={summary.isFetching || popularContent.isFetching} onClick={() => { void Promise.all([summary.refetch(), popularContent.refetch()]); }}>
@@ -144,7 +144,7 @@ export default function AdminAnalyticsDashboard() {
           {rangeError && <p role="alert" className="mt-3 text-sm text-red-600">{rangeError}</p>}
         </Card>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           <Card className="border-blue-100 bg-gradient-to-br from-blue-600 to-blue-700 p-5 text-white shadow-blue-100 shadow-lg">
             <div className="flex items-start justify-between">
               <div><p className="text-sm font-medium text-blue-100">Total Pengunjung Periode</p><p className="mt-3 text-4xl font-bold">{summary.data?.totalVisitors ?? "—"}</p><p className="mt-2 text-xs text-blue-100">Diperbarui otomatis setiap 5 menit</p></div>
@@ -154,7 +154,28 @@ export default function AdminAnalyticsDashboard() {
           <Card className="border-slate-200 p-5 shadow-sm">
             <div className="flex items-start justify-between"><div><p className="text-sm font-medium text-slate-600">Rata-rata per Hari</p><p className="mt-3 text-4xl font-bold text-slate-900">{summary.data?.averageDailyVisitors ?? "—"}</p><p className="mt-2 text-xs text-slate-500">Pengunjung unik per hari</p></div><CalendarDays className="h-9 w-9 text-primary" /></div>
           </Card>
+          <Card className="border-emerald-100 p-5 shadow-sm">
+            <div className="flex items-start justify-between"><div><p className="text-sm font-medium text-slate-600">Website</p><p className="mt-3 text-4xl font-bold text-slate-900">{summary.data?.websiteVisitors ?? "—"}</p><p className="mt-2 text-xs text-slate-500">Browser dan pengunjung web</p></div><Globe2 className="h-9 w-9 text-emerald-600" /></div>
+          </Card>
+          <Card className="border-violet-100 p-5 shadow-sm">
+            <div className="flex items-start justify-between"><div><p className="text-sm font-medium text-slate-600">APK Primedeal</p><p className="mt-3 text-4xl font-bold text-slate-900">{summary.data?.apkVisitors ?? "—"}</p><p className="mt-2 text-xs text-slate-500">Terdeteksi dari aplikasi versi baru</p></div><Smartphone className="h-9 w-9 text-violet-600" /></div>
+          </Card>
+          <Card className="border-slate-200 p-5 shadow-sm">
+            <div className="flex items-start justify-between"><div><p className="text-sm font-medium text-slate-600">Belum Teridentifikasi</p><p className="mt-3 text-4xl font-bold text-slate-900">{summary.data?.unknownVisitors ?? "—"}</p><p className="mt-2 text-xs text-slate-500">Riwayat sebelum penanda sumber</p></div><CircleHelp className="h-9 w-9 text-slate-500" /></div>
+          </Card>
         </div>
+
+        <Card className="mt-6 border-amber-100 bg-amber-50/50 p-5 shadow-sm">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="font-semibold text-slate-900">Laporan iklan APK</h2>
+              <p className="mt-1 text-sm leading-6 text-slate-600">Pendapatan, tayangan, dan klik banner hanya tersedia di laporan resmi AdMob. Dashboard ini tidak menyimpan kredensial atau data pendapatan AdMob.</p>
+            </div>
+            <Button asChild variant="outline" className="gap-2 border-amber-300 bg-white hover:bg-amber-100">
+              <a href="https://admob.google.com/home/#/apps" target="_blank" rel="noreferrer">Buka Laporan AdMob <ExternalLink className="h-4 w-4" /></a>
+            </Button>
+          </div>
+        </Card>
 
         <Card className="mt-6 border-slate-200 p-5 shadow-sm sm:p-6">
           <div className="flex items-start gap-3"><div className="rounded-lg bg-blue-50 p-2"><BarChart3 className="h-5 w-5 text-primary" /></div><div><h2 className="font-semibold text-slate-900">Tren kunjungan periode terpilih</h2><p className="mt-1 text-sm text-slate-500">{summary.data?.period ? `${formatDashboardDate(summary.data.period.startDate)} – ${formatDashboardDate(summary.data.period.endDate)}` : "Memuat periode..."}. Satu orang dihitung satu kali dalam satu hari pada perangkat yang sama.</p></div></div>
@@ -188,7 +209,7 @@ export default function AdminAnalyticsDashboard() {
           </Card>
         </div>
 
-        <p className="mt-4 text-center text-xs leading-5 text-slate-500">Data ini berbeda dari Google Analytics: dashboard mencatat pengunjung harian anonim secara langsung di Primedeal dan tidak menyimpan nama, email, nomor telepon, atau kata pencarian.</p>
+        <p className="mt-4 text-center text-xs leading-5 text-slate-500">Data ini berbeda dari Google Analytics: dashboard mencatat pengunjung harian anonim secara langsung di Primedeal dan tidak menyimpan nama, email, nomor telepon, atau kata pencarian. Riwayat sebelum penandaan APK aktif tetap ditampilkan sebagai sumber tidak teridentifikasi.</p>
       </section>
     </main>
   );

@@ -16,6 +16,9 @@ vi.mock("@/lib/trpc", () => ({
           data: {
             period: { startDate: "2026-08-07", endDate: "2026-08-13" },
             totalVisitors: 15,
+            websiteVisitors: 9,
+            apkVisitors: 4,
+            unknownVisitors: 2,
             averageDailyVisitors: 2.1,
             days: [
               { visitDate: "2026-08-07", visitors: 1 },
@@ -61,6 +64,11 @@ describe("AdminAnalyticsDashboard", () => {
     expect(screen.getByRole("heading", { name: /ringkasan pengunjung/i })).toBeTruthy();
     expect(screen.getByText("Total Pengunjung Periode")).toBeTruthy();
     expect(screen.getByText("Rata-rata per Hari")).toBeTruthy();
+    expect(screen.getByText("Website")).toBeTruthy();
+    expect(screen.getByText("APK Primedeal")).toBeTruthy();
+    expect(screen.getByText("Belum Teridentifikasi")).toBeTruthy();
+    expect(screen.getByText("9")).toBeTruthy();
+    expect(screen.getAllByText("4").length).toBeGreaterThan(0);
     expect(screen.getByText("15")).toBeTruthy();
     expect(screen.getByText("Tren kunjungan periode terpilih")).toBeTruthy();
     expect(screen.getByLabelText("Tanggal mulai")).toBeTruthy();
@@ -70,5 +78,6 @@ describe("AdminAnalyticsDashboard", () => {
     expect(screen.getByRole("heading", { name: "Listing Terpopuler" })).toBeTruthy();
     expect(screen.getByText("Kalkulator KPR")).toBeTruthy();
     expect(screen.getByText("Rumah Contoh Surabaya")).toBeTruthy();
+    expect(screen.getByRole("link", { name: /buka laporan admob/i })).toHaveProperty("href", "https://admob.google.com/home/#/apps");
   });
 });

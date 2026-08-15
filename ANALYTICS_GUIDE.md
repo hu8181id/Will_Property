@@ -1,11 +1,21 @@
 # Panduan Traffic Primedeal
 
-Primedeal menggunakan dua sumber statistik gratis agar pengunjung website dan penggunaan APK dapat dibaca secara terpisah. Website mencatat kunjungan melalui **Google Analytics 4** dengan Measurement ID `G-0QSM3M3WND`. APK versi **1.1.0** menambahkan Firebase Analytics untuk mencatat pembukaan aplikasi dan navigasi halaman WebView tanpa mengirim judul properti, nomor telepon, kata pencarian, atau data pribadi.
+Primedeal menggunakan beberapa sumber statistik gratis agar pengunjung website, penggunaan APK, dan performa iklan dapat dibaca secara tepat. Website mencatat kunjungan melalui **Google Analytics 4** dengan Measurement ID `G-0QSM3M3WND`. APK versi **1.3.0** menambahkan penanda sumber untuk membedakan kunjungan WebView APK pada ringkasan admin, selain Firebase Analytics yang mencatat pembukaan aplikasi serta navigasi halaman tanpa mengirim judul properti, nomor telepon, kata pencarian, atau data pribadi.
 
 | Yang ingin dilihat | Lokasi dashboard | Data utama |
 |---|---|---|
 | Traffic website | Google Analytics → **Reports** | Pengguna aktif, pengguna baru, sesi, dan halaman yang dibuka |
 | Pengguna APK | Firebase Console → proyek **primedeal-propety** → **Analytics** | Pengguna aktif, pembukaan pertama, sesi, durasi keterlibatan, dan event aplikasi |
+| Ringkasan sumber Primedeal | **/admin/dashboard** | Pengunjung unik website, APK, serta riwayat yang belum dapat diatribusikan |
+| Iklan banner APK | AdMob → **Aplikasi → Primedeal Properti** atau **Laporan** | Tayangan, klik, *match rate*, dan estimasi pendapatan |
+
+## Ringkasan website dan APK di dashboard admin
+
+Masuk sebagai admin lalu buka **`/admin/dashboard`**. Kartu **Website** menghitung kunjungan dari browser biasa. Kartu **APK Primedeal** menghitung kunjungan yang datang dari WebView APK dengan penanda versi resmi. Kartu **Belum Teridentifikasi** menyimpan data historis sebelum penanda APK tersedia, sehingga angka tersebut tidak boleh diasumsikan sebagai website atau APK.
+
+Penghitungan ini menggunakan pengenal anonim harian dan tidak sama persis dengan Google Analytics maupun Firebase. Satu perangkat dapat dihitung sekali per hari untuk setiap sumber trafik. Gunakan filter tanggal untuk melihat tren setelah APK 1.3.0 mulai digunakan.
+
+Bagian **Laporan iklan APK** pada dashboard admin membuka laporan resmi AdMob. Pendapatan dan metrik iklan sengaja tidak disalin ke database Primedeal karena opsi dashboard yang dipilih tidak meminta atau menyimpan kredensial AdMob.
 
 ## Membaca traffic website
 
@@ -17,7 +27,7 @@ Traffic dari aplikasi WebView juga dapat ikut terlihat sebagai traffic website. 
 
 ## Membaca pengguna APK
 
-1. Instal APK **Primedeal Properti v1.1.0** yang disediakan bersama pembaruan ini.
+1. Instal APK **Primedeal Properti v1.3.0** atau versi lebih baru yang disediakan bersama pembaruan ini.
 2. Buka [Firebase Console](https://console.firebase.google.com/) dan pilih proyek **primedeal-propety**.
 3. Jika menu Analytics meminta pengaktifan, buka **Project settings → Integrations → Google Analytics**, lalu hubungkan atau buat properti Google Analytics. Proses ini gratis.
 4. Buka **Analytics → Dashboard** untuk melihat pengguna aktif, pembukaan pertama, dan sesi. Untuk melihat aktivitas cepat saat pengujian, gunakan **Analytics → DebugView**.

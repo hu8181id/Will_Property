@@ -26,6 +26,28 @@ describe("analytics dashboard contracts", () => {
     expect(() => visitorRecordSchema.parse({ visitorId: "tidak-boleh" })).toThrow();
   });
 
+  it("mendeteksi sumber APK hanya dari penanda user-agent Primedeal yang resmi", () => {
+    expect(analyticsDateUtils.getTrafficSourceFromUserAgent("Mozilla/5.0 PrimedealApp/5")).toBe("apk");
+    expect(analyticsDateUtils.getTrafficSourceFromUserAgent("Mozilla/5.0 (Android 15; Chrome)")).toBe("website");
+    expect(analyticsDateUtils.getTrafficSourceFromUserAgent(undefined)).toBe("unknown");
+  });
+
+  it("menjumlahkan trafik harian per sumber tanpa mengatribusikan riwayat yang tidak diketahui", () => {
+    expect(
+      analyticsDateUtils.aggregateTrafficBySource(
+        ["2026-08-10", "2026-08-11"],
+        [
+          { visitDate: "2026-08-10", trafficSource: "website", visitors: 3 },
+          { visitDate: "2026-08-10", trafficSource: "apk", visitors: 2 },
+          { visitDate: "2026-08-10", trafficSource: "unknown", visitors: 1 },
+        ],
+      ),
+    ).toEqual([
+      { visitDate: "2026-08-10", websiteVisitors: 3, apkVisitors: 2, unknownVisitors: 1, visitors: 6 },
+      { visitDate: "2026-08-11", websiteVisitors: 0, apkVisitors: 0, unknownVisitors: 0, visitors: 0 },
+    ]);
+  });
+
   it("menerima metadata halaman atau listing yang aman dan menolak path atau ID listing yang tidak valid", () => {
     expect(pageViewRecordSchema.parse({ contentType: "page", path: "/kalkulator", contentTitle: "Kalkulator KPR" })).toMatchObject({ contentType: "page" });
     expect(pageViewRecordSchema.parse({ contentType: "listing", path: "/listing/9", contentTitle: "Rumah Surabaya", propertyId: 9 })).toMatchObject({ propertyId: 9 });

@@ -148,7 +148,9 @@ export async function setPropertyVideoUploadCompletedUrl(id: string, completedUr
     .where(eq(propertyVideoUploadSessions.id, id));
 }
 
-export async function recordAnonymousDailyVisit(input: { visitDate: string; visitorId: string }) {
+export type TrafficSource = "website" | "apk" | "unknown";
+
+export async function recordAnonymousDailyVisit(input: { visitDate: string; visitorId: string; trafficSource: TrafficSource }) {
   const db = await getDb();
   if (!db) throw new Error("Database tidak tersedia untuk mencatat kunjungan.");
 
@@ -163,13 +165,17 @@ export async function getAnonymousDailyVisitSummary(fromDate: string, toDate?: s
   if (!db) throw new Error("Database tidak tersedia untuk membaca statistik pengunjung.");
 
   const rows = await db
-    .select({ visitDate: siteDailyVisits.visitDate, visitors: count() })
+    .select({ visitDate: siteDailyVisits.visitDate, trafficSource: siteDailyVisits.trafficSource, visitors: count() })
     .from(siteDailyVisits)
     .where(toDate ? and(gte(siteDailyVisits.visitDate, fromDate), lte(siteDailyVisits.visitDate, toDate)) : gte(siteDailyVisits.visitDate, fromDate))
-    .groupBy(siteDailyVisits.visitDate)
+    .groupBy(siteDailyVisits.visitDate, siteDailyVisits.trafficSource)
     .orderBy(siteDailyVisits.visitDate);
 
-  return rows.map((row) => ({ visitDate: row.visitDate, visitors: Number(row.visitors) }));
+  return rows.map((row) => ({
+    visitDate: row.visitDate,
+    trafficSource: row.trafficSource as TrafficSource,
+    visitors: Number(row.visitors),
+  }));
 }
 
 export async function recordAnonymousPageView(input: {
@@ -179,6 +185,7 @@ export async function recordAnonymousPageView(input: {
   path: string;
   contentTitle: string;
   propertyId?: number;
+  trafficSource: TrafficSource;
 }) {
   const db = await getDb();
   if (!db) throw new Error("Database tidak tersedia untuk mencatat tampilan konten.");
@@ -191,6 +198,7 @@ export async function recordAnonymousPageView(input: {
         contentTitle: input.contentTitle,
         contentType: input.contentType,
         propertyId: input.propertyId ?? null,
+        trafficSource: input.trafficSource,
       },
     });
 }

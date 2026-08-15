@@ -97,3 +97,8 @@
 - [x] Uji alur pembaruan end-to-end pada APK lama, build APK baru, dan dokumentasikan pemasangan bagi pengguna lama.
 - [x] Verifikasi penerapan pembaruan gratis pilihan pengguna sampai upgrade nyata dari APK lama berhasil dilakukan setelah konfirmasi Android.
 - [x] Verifikasi pada perangkat Android pengguna bahwa pembaruan dari APK lama ke 1.3.0 dapat dipasang setelah konfirmasi sistem.
+- [x] Tentukan tingkat integrasi laporan AdMob dan sumber data untuk membedakan trafik website serta APK.
+- [x] Pisahkan pencatatan kunjungan website dan APK pada dashboard admin tanpa mengubah data historis yang tidak dapat diatribusikan.
+- [x] Tampilkan ringkasan trafik per sumber dan tautan laporan iklan AdMob yang jelas pada dashboard admin.
+- [x] Uji keamanan admin, perhitungan sumber trafik, dan dokumentasikan batasan metrik iklan AdMob.
+- [x] Terapkan dashboard Pilihan A tanpa kredensial: pisahkan trafik APK dan website serta tampilkan tautan laporan AdMob resmi.
