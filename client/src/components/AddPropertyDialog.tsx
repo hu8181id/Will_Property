@@ -10,9 +10,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
-import { ImagePlus, Loader2, Plus, Star, Upload, X } from "lucide-react";
-import React, { useState, useMemo, useEffect } from "react";
+import { ImagePlus, Loader2, Plus, Sparkles, Star, Upload, X } from "lucide-react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { toast } from "sonner";
+import { generatePropertySeoDraft } from "@/lib/propertySeoTemplate";
 
 export const MAX_IMAGES = 5;
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
@@ -167,6 +168,7 @@ export default function AddPropertyDialog({
   const isEditing = Boolean(initialProperty?.id);
   const isControlled = controlledOpen !== undefined;
   const open = controlledOpen ?? internalOpen;
+  const wasOpenRef = useRef(open);
 
   const setDialogOpen = (nextOpen: boolean) => {
     if (!isControlled) setInternalOpen(nextOpen);
@@ -174,13 +176,14 @@ export default function AddPropertyDialog({
   };
 
   useEffect(() => {
-    if (open) {
+    if (open && !wasOpenRef.current) {
       setFormData(propertyToForm(initialProperty));
       setImages((initialProperty?.images ?? []).map((src) => ({ src })));
       setVideoFile(undefined);
       setVideoThumbnail(initialProperty?.videoThumbnailUrl ? { src: initialProperty.videoThumbnailUrl } : undefined);
       setVideoUploadProgress(null);
     }
+    wasOpenRef.current = open;
   }, [initialProperty, open]);
 
   const remainingSlots = useMemo(() => MAX_IMAGES - images.length, [images.length]);
@@ -252,6 +255,14 @@ export default function AddPropertyDialog({
       const selected = current[index];
       return selected ? [selected, ...current.filter((_, imageIndex) => imageIndex !== index)] : current;
     });
+  };
+
+  const handleGenerateSeoDraft = () => {
+    setFormData((current) => {
+      const draft = generatePropertySeoDraft(current);
+      return { ...current, title: draft.title, description: draft.description };
+    });
+    toast.success("Saran judul dan deskripsi SEO telah diterapkan. Anda masih dapat mengeditnya.");
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -345,12 +356,23 @@ export default function AddPropertyDialog({
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="md:col-span-2"><label className="field-label">Nama Properti *</label><Input value={formData.title} onChange={(event) => setFormData({ ...formData, title: event.target.value })} placeholder="Contoh: Rumah Modern di Surabaya" /></div>
-            <div><label className="field-label">Lokasi *</label><Input value={formData.location} onChange={(event) => setFormData({ ...formData, location: event.target.value })} placeholder="Surabaya, Indonesia" /></div>
+            <div className="md:col-span-2"><label className="field-label" htmlFor="property-title-input">Nama Properti *</label><Input id="property-title-input" value={formData.title} onChange={(event) => setFormData({ ...formData, title: event.target.value })} placeholder="Contoh: Rumah Modern di Surabaya" /></div>
+            <div><label className="field-label" htmlFor="property-location-input">Lokasi *</label><Input id="property-location-input" value={formData.location} onChange={(event) => setFormData({ ...formData, location: event.target.value })} placeholder="Surabaya, Indonesia" /></div>
             <div><label className="field-label">Alamat</label><Input value={formData.address} onChange={(event) => setFormData({ ...formData, address: event.target.value })} placeholder="Alamat lengkap properti" /></div>
             <div><label className="field-label">Harga (Rp) *</label><Input type="number" min="0" value={formData.price} onChange={(event) => setFormData({ ...formData, price: event.target.value })} placeholder="2500000000" /></div>
             <div><label className="field-label">Tipe Properti</label><select value={formData.propertyType} onChange={(event) => setFormData({ ...formData, propertyType: event.target.value })} className="w-full rounded-lg border border-border px-3 py-2 text-sm"><option value="rumah">Rumah</option><option value="apartemen">Apartemen</option><option value="ruko">Ruko</option><option value="tanah">Tanah</option><option value="lainnya">Lainnya</option></select></div>
             <div><label className="field-label">Transaksi</label><select value={formData.transactionType} onChange={(event) => setFormData({ ...formData, transactionType: event.target.value })} className="w-full rounded-lg border border-border px-3 py-2 text-sm"><option value="dijual">Dijual</option><option value="disewa">Disewa</option></select></div>
+            <div id="seo-template" className="md:col-span-2 rounded-xl border border-primary/20 bg-primary/5 p-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="flex items-center gap-2 text-sm font-semibold text-slate-900"><Sparkles size={16} className="text-primary" /> Template SEO Gratis</p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">Buat saran judul dan deskripsi dari data properti. Tinjau dan edit hasilnya sebelum menyimpan.</p>
+                </div>
+                <Button type="button" variant="outline" onClick={handleGenerateSeoDraft} disabled={submitting || (!formData.title.trim() && !formData.location.trim())} className="shrink-0 border-primary/30 bg-white text-primary hover:bg-primary hover:text-white">
+                  <Sparkles size={15} className="mr-2" /> Buat Saran SEO Gratis
+                </Button>
+              </div>
+            </div>
             <div><label className="field-label">Luas (m²)</label><Input type="number" min="0" value={formData.area} onChange={(event) => setFormData({ ...formData, area: event.target.value })} /></div>
             <div><label className="field-label">Kamar Tidur</label><Input type="number" min="0" value={formData.bedrooms} onChange={(event) => setFormData({ ...formData, bedrooms: event.target.value })} /></div>
             <div><label className="field-label">Kamar Mandi</label><Input type="number" min="0" value={formData.bathrooms} onChange={(event) => setFormData({ ...formData, bathrooms: event.target.value })} /></div>
@@ -391,7 +413,7 @@ export default function AddPropertyDialog({
                 <Progress value={videoUploadProgress} aria-label="Progres unggah video" />
               </div>
             )}
-            <div className="md:col-span-2"><label className="field-label">Deskripsi *</label><Textarea rows={5} value={formData.description} onChange={(event) => setFormData({ ...formData, description: event.target.value })} placeholder="Tuliskan deskripsi profesional properti..." /></div>
+            <div className="md:col-span-2"><label className="field-label" htmlFor="property-description-input">Deskripsi *</label><Textarea id="property-description-input" rows={5} value={formData.description} onChange={(event) => setFormData({ ...formData, description: event.target.value })} placeholder="Tuliskan deskripsi profesional properti..." /></div>
           </div>
 
           <div className="flex justify-end gap-3 pt-2">

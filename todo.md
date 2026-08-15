@@ -112,3 +112,10 @@
 - [x] Perbaiki canonical URL, Open Graph URL, dan URL structured data agar mengikuti domain publik Primedeal yang aktif.
 - [x] Tambahkan pengujian regresi untuk pemilihan canonical origin publik pada metadata SEO.
 - [x] Dokumentasikan penyebab dan langkah aman untuk meminta pengindeksan tanpa menjanjikan peringkat atau waktu tampil.
+- [x] Tinjau form admin listing dan rancang template judul serta deskripsi SEO gratis berbasis data properti.
+- [x] Tambahkan kontrol untuk menghasilkan saran judul dan deskripsi SEO yang tetap dapat diedit admin sebelum disimpan.
+- [x] Tambahkan pengujian generator template SEO serta verifikasi form admin di layar ponsel.
+- [x] Tambahkan test UI yang memverifikasi tombol template SEO mengisi judul dan deskripsi, lalu keduanya tetap dapat diedit sebelum submit.
+- [x] Verifikasi form AddPropertyDialog terbuka pada viewport ponsel dan dokumentasikan tampilan kontrol template SEO.
+- [x] Tambahkan shortcut admin-only `newListing=1` untuk membuka form tambah listing langsung saat verifikasi di ponsel.
+- [x] Dokumentasikan verifikasi viewport ponsel untuk AddPropertyDialog dan kontrol template SEO dalam berkas proyek.
