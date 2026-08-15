@@ -29,6 +29,10 @@ SHA-256: f6126cc5dd5cd026cdc7d7978db48c08e714b61d402b11319638104b5c763e25
 
 Pemeriksa native menolak manifest yang tidak memiliki versi lebih tinggi, URL APK HTTPS, atau checksum SHA-256 yang valid. Aplikasi **tidak** mengunduh atau memasang sesuatu sendiri.
 
+## Hasil validasi rilis 1.3.0
+
+Pada 15 Agustus 2026, pemilik aplikasi mengonfirmasi bahwa APK Primedeal versi lama berhasil diperbarui ke **1.3.0** melalui alur unduh dan persetujuan pemasangan Android. Validasi ini melengkapi pemeriksaan otomatis web dan Android yang dijalankan sebelum rilis.
+
 ## Rilis versi berikutnya
 
 Untuk setiap versi baru, lakukan urutan berikut.

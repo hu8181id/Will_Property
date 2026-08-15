@@ -94,6 +94,6 @@
 - [x] Sediakan manifest versi dan berkas APK bertanda tangan pada lokasi unduhan yang stabil.
 - [x] Tampilkan pemberitahuan pembaruan yang dapat dipakai pengguna APK lama tanpa mengganggu pengunjung website biasa.
 - [x] Tambahkan pemeriksaan pembaruan native untuk rilis APK berikutnya dengan konfirmasi pemasangan Android.
-- [ ] Uji alur pembaruan end-to-end pada APK lama, build APK baru, dan dokumentasikan pemasangan bagi pengguna lama.
-- [ ] Verifikasi penerapan pembaruan gratis pilihan pengguna sampai upgrade nyata dari APK lama berhasil dilakukan setelah konfirmasi Android.
-- [ ] Verifikasi pada perangkat Android pengguna bahwa pembaruan dari APK lama ke 1.3.0 dapat dipasang setelah konfirmasi sistem.
+- [x] Uji alur pembaruan end-to-end pada APK lama, build APK baru, dan dokumentasikan pemasangan bagi pengguna lama.
+- [x] Verifikasi penerapan pembaruan gratis pilihan pengguna sampai upgrade nyata dari APK lama berhasil dilakukan setelah konfirmasi Android.
+- [x] Verifikasi pada perangkat Android pengguna bahwa pembaruan dari APK lama ke 1.3.0 dapat dipasang setelah konfirmasi sistem.
