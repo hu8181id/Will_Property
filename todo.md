@@ -132,3 +132,6 @@
 - [x] Buat panduan migrasi mandiri MIGRATION_GUIDE.md untuk memindahkan aplikasi, database TiDB, dan storage S3 ke server eksternal.
 - [x] Lakukan verifikasi fungsionalitas tombol berbagi dan akses halaman detail listing via URL slug permanen.
 - [x] Susun evaluasi platform hosting gratis eksternal beserta analisis kebutuhan database dan storage mandiri.
+- [x] Perjelas format berbagi URL slug permanen untuk WhatsApp dan Instagram
+- [x] Tambahkan filter harga dan jumlah kamar pada halaman pencarian listing
+- [x] Siapkan skema migrasi hosting, database TiDB, dan storage S3 eksternal tanpa menghentikan situs aktif
