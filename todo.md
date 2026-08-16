@@ -152,8 +152,8 @@
 - [x] Pastikan situs Manus tetap berjalan normal dan memberikan panduan eksekusi yang aman.
 - [x] Buat dokumen ringkasan audit (`MIGRATION_AUDIT_SUMMARY.md`) untuk memastikan transparansi langkah migrasi.
 
-- [ ] Verifikasi status akun Backblaze B2, TiDB Cloud, dan Render untuk poin 1-3.
-- [ ] Hubungkan staging Render menggunakan repositori GitHub `https://github.com/hu8181id/Will_Property`.
+- [x] Verifikasi status akun Backblaze B2, TiDB Cloud, dan Render serta struktur repositori GitHub `Will_Property` sebagai Static Site.
+- [ ] Pandu pengguna memilih Static Site di Render untuk deployment repositori statis Will_Property.
 - [ ] Jalankan migrasi skema Drizzle ke TiDB Cloud dan uji coba staging tanpa memutus situs aktif Manus.
 
 - [x] Pandu pengguna keluar dari GitHub dan mengarah ke dashboard.render.com untuk menghubungkan repositori Will_Property.
