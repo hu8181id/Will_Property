@@ -129,4 +129,6 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 
 - [x] Verifikasi dan uji test regresi proxy media publik Vercel
 
-- [ ] Tambahkan unit test regresi pada `api/media.test.ts` untuk memastikan fallback URL publik aktif dan lulus `pnpm test`
+- [x] Tambahkan unit test regresi pada `api/media.test.ts` untuk memastikan fallback URL publik aktif dan lulus `pnpm test`
+
+- [x] Pastikan seluruh test Vitest (termasuk server/media.test.ts) dijalankan penuh dengan `pnpm test` dan seluruh suite lulus
