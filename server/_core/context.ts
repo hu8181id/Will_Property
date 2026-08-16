@@ -8,6 +8,7 @@ const serializeCookie = (cookieModule as unknown as {
   serialize: (name: string, value: string, options?: CookieOptions) => string;
 }).serialize;
 import { sdk } from "./sdk";
+import { adminUserFromSession, readAdminSessionFromRequest } from "../adminAuth";
 
 export type TrpcContext = {
   req: CreateExpressContextOptions["req"];
@@ -25,6 +26,11 @@ export async function createContext(
   } catch (error) {
     // Authentication is optional for public procedures.
     user = null;
+  }
+
+  if (!user) {
+    const adminSession = readAdminSessionFromRequest(opts.req);
+    if (adminSession) user = adminUserFromSession(adminSession);
   }
 
   return {
@@ -91,6 +97,11 @@ export async function createFetchContext(
   } catch (error) {
     // Authentication is optional for public procedures.
     user = null;
+  }
+
+  if (!user) {
+    const adminSession = readAdminSessionFromRequest(req);
+    if (adminSession) user = adminUserFromSession(adminSession);
   }
 
   return { req, res, user };
