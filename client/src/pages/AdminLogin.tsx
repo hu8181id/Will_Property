@@ -1,13 +1,37 @@
+import React, { useState } from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { startLogin } from "@/const";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Lock, ShieldCheck, ArrowLeft, LogOut, Home, BarChart3 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { trpc } from "@/lib/trpc";
+import { Lock, ShieldCheck, ArrowLeft, LogOut, Home, BarChart3, Loader2 } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function AdminLogin() {
   const { user, isAuthenticated, logout } = useAuth();
   const [, setLocation] = useLocation();
+  const utils = trpc.useUtils();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState<string | null>(null);
+
+  const adminLogin = trpc.auth.adminLogin.useMutation({
+    onSuccess: async () => {
+      await utils.auth.me.invalidate();
+      setPassword("");
+      setLocation("/admin");
+    },
+    onError: error => {
+      setLoginError(error.message || "Username atau password admin salah.");
+    },
+  });
+
+  const handleAdminLogin = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setLoginError(null);
+    await adminLogin.mutateAsync({ username, password }).catch(() => undefined);
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -90,24 +114,58 @@ export default function AdminLogin() {
               </div>
             </div>
           ) : (
-            <div className="space-y-6">
+            <form className="space-y-6" onSubmit={handleAdminLogin}>
               <div className="rounded-md bg-blue-50 p-4 border border-blue-200">
                 <div className="flex items-start gap-3">
                   <Lock className="h-5 w-5 text-blue-600 mt-0.5" />
                   <div className="text-xs text-blue-800">
                     <span className="font-semibold block mb-1">Akses Terbatas Pemilik</span>
-                    Halaman ini khusus untuk pemilik agensi Primedeal. Tombol login publik telah disembunyikan dari pengunjung website.
+                    Masuk dengan akun admin Primedeal untuk menambah, mengedit, menghapus, dan mengunggah media listing.
                   </div>
                 </div>
               </div>
 
+              <div className="space-y-2">
+                <Label htmlFor="admin-username">Username Admin</Label>
+                <Input
+                  id="admin-username"
+                  value={username}
+                  onChange={event => setUsername(event.target.value)}
+                  autoComplete="username"
+                  autoCapitalize="none"
+                  spellCheck={false}
+                  required
+                  disabled={adminLogin.isPending}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="admin-password">Password Admin</Label>
+                <Input
+                  id="admin-password"
+                  type="password"
+                  value={password}
+                  onChange={event => setPassword(event.target.value)}
+                  autoComplete="current-password"
+                  required
+                  disabled={adminLogin.isPending}
+                />
+              </div>
+
               <Button
-                onClick={() => startLogin()}
-                className="w-full bg-primary hover:bg-primary/90 text-white gap-2 py-6 text-base"
+                type="submit"
+                disabled={adminLogin.isPending}
+                className="w-full bg-primary hover:bg-primary/90 text-white gap-2 py-6 text-base touch-manipulation"
+                aria-label="Login ke Akun Admin"
               >
-                <Lock size={18} />
-                Login ke Akun Admin
+                {adminLogin.isPending ? <Loader2 size={18} className="animate-spin" /> : <Lock size={18} />}
+                {adminLogin.isPending ? "Memeriksa..." : "Login ke Akun Admin"}
               </Button>
+              {loginError && (
+                <p role="alert" className="text-center text-sm text-red-600" aria-live="polite">
+                  {loginError}
+                </p>
+              )}
 
               <div className="text-center">
                 <a
@@ -117,7 +175,7 @@ export default function AdminLogin() {
                   <ArrowLeft size={14} /> Kembali ke Website Utama
                 </a>
               </div>
-            </div>
+            </form>
           )}
         </Card>
       </div>
