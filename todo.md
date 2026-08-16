@@ -157,3 +157,5 @@
 - [ ] Jalankan migrasi skema Drizzle ke TiDB Cloud dan uji coba staging tanpa memutus situs aktif Manus.
 
 - [x] Pandu pengguna keluar dari GitHub dan mengarah ke dashboard.render.com untuk menghubungkan repositori Will_Property.
+- [x] Menganalisis tangkapan layar Render Web Service dan mengarahkan pengguna kembali ke Static Site untuk repositori statis Will_Property.
+- [x] Menyelesaikan panduan staging Render untuk repository statis Will_Property dan mendokumentasikan pemisahan jalur full-stack TiDB/Backblaze B2.
