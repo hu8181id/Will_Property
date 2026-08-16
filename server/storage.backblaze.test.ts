@@ -4,7 +4,7 @@ import { HeadBucketCommand, S3Client } from "@aws-sdk/client-s3";
 const requiredEnv = ["S3_ENDPOINT", "S3_BUCKET", "S3_KEY", "S3_SECRET"] as const;
 
 describe("Backblaze B2 storage configuration", () => {
-  it(
+  it.skipIf(process.env.RUN_EXTERNAL_STORAGE_TESTS !== "1")(
     "authenticates and can inspect the configured private bucket",
     async () => {
       const missing = requiredEnv.filter(key => !process.env[key]);
@@ -31,3 +31,4 @@ describe("Backblaze B2 storage configuration", () => {
 
 // This test intentionally performs no upload, delete, or public-access change.
 // It only verifies that the supplied staging credentials can reach the bucket.
+// Set RUN_EXTERNAL_STORAGE_TESTS=1 to opt into the external-network check.
