@@ -188,8 +188,8 @@
 - [x] Pulihkan kredensial GitHub dengan scope write yang valid; push ke `Will_Property` berhasil setelah menggunakan token fine-grained dengan autentikasi Basic Git HTTPS.
 
 - [x] Perbaiki runner produksi yang gagal karena mencari `dist/index.js` dengan mengubah output esbuild ke `dist/index.js`.
-- [ ] Verifikasi environment Vercel, endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi environment Vercel, endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Hapus pola `functions.server.ts` yang tidak cocok dengan fungsi Vercel dan gunakan deteksi otomatis server entrypoint.
 - [x] Pastikan server.ts memanggil `listen` sesuai kontrak Node.js server Vercel dan deployment publik berhasil.
 - [x] Hapus `outputDirectory: dist/public` dari vercel.json agar fungsi `api/[...path].ts` tidak diperlakukan sebagai static-only oleh Vercel.
