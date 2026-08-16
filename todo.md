@@ -95,3 +95,6 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Uji fungsionalitas live URL Vercel untuk media proxy dan upload video setelah deploy sukses
 
 - [x] Lakukan verifikasi deployment Vercel Ready dan uji live endpoint video/gambar
+
+- [ ] Investigasi mengapa gambar tidak muncul dan upload video gagal pada domain primedeal-property.vercel.app
+- [ ] Perbaiki handler API Vercel untuk media proxy dan video upload agar merespons sukses di production

@@ -138,8 +138,7 @@ export default async function handler(request: MediaRequest): Promise<Response> 
       const signedUrl = await redirectToBackblaze(key);
       return redirectTo(signedUrl, 3600);
     } catch (error) {
-      console.error("[MediaProxy] Backblaze signed URL failed:", error);
-      return textResponse(502, "Media storage backend error");
+      console.error("[MediaProxy] Backblaze signed URL failed, falling back to public storage:", error);
     }
   }
 

@@ -62,8 +62,13 @@ function getSessionAuthorizationHeader() {
 function getEmergencyAdminKey() {
   if (typeof window === "undefined") return undefined;
   try {
-    const key = new URLSearchParams(window.location.search).get("admin_key");
-    return key?.trim() || undefined;
+    const paramsKey = new URLSearchParams(window.location.search).get("admin_key");
+    if (paramsKey?.trim()) {
+      localStorage.setItem("manus-admin-key", paramsKey.trim());
+      return paramsKey.trim();
+    }
+    const stored = localStorage.getItem("manus-admin-key");
+    return stored?.trim() || undefined;
   } catch {
     return undefined;
   }
