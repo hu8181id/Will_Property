@@ -17,7 +17,7 @@ export async function uploadToVercelBlob(file: File, onProgress?: (percentage: n
 
     return blob.url;
   } catch (err: any) {
-    console.warn("[Vercel Blob Client] Direct blob upload failed, falling back to base64 or standard upload:", err);
-    throw err;
+    console.error("[Vercel Blob Client] Direct blob upload failed:", err);
+    throw new Error(err?.message || "Gagal mengunggah ke Vercel Blob. Pastikan BLOB_READ_WRITE_TOKEN sudah dikonfigurasi di Vercel Dashboard -> Settings -> Environment Variables.");
   }
 }

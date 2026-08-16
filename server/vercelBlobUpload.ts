@@ -3,6 +3,10 @@ import type { Request, Response } from 'express';
 
 export async function handleVercelBlobUploadAuth(req: Request, res: Response) {
   try {
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      console.error("[Vercel Blob] BLOB_READ_WRITE_TOKEN environment variable is missing in Vercel settings!");
+      return res.status(500).json({ error: "Konfigurasi Vercel Blob belum lengkap: BLOB_READ_WRITE_TOKEN belum diset di Vercel dashboard." });
+    }
     const body = req.body as HandleUploadBody;
     const jsonResponse = await handleUpload({
       body,
