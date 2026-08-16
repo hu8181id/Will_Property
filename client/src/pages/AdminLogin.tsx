@@ -1,24 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { startLogin } from "@/const";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Lock, ShieldCheck, ArrowLeft, LogOut, Home, BarChart3 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { trpc } from "@/lib/trpc";
+import { Lock, ShieldCheck, ArrowLeft, LogOut, Home, BarChart3, Loader2 } from "lucide-react";
 import { useLocation } from "wouter";
-import { useState } from "react";
 
 export default function AdminLogin() {
   const { user, isAuthenticated, logout } = useAuth();
   const [, setLocation] = useLocation();
+  const utils = trpc.useUtils();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleAdminLogin = () => {
+  const handleAdminLogin = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setLoginError(null);
+    setIsSubmitting(true);
+
     try {
-      startLogin();
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ username, password }),
+      });
+      const result = (await response.json().catch(() => null)) as { error?: string } | null;
+      if (!response.ok) {
+        throw new Error(result?.error || "Username atau password admin salah.");
+      }
+      await utils.auth.me.invalidate();
+      setPassword("");
+      setLocation("/admin");
     } catch (error) {
-      console.error("Admin login could not start", error);
-      setLoginError("Login belum dapat dimulai. Silakan muat ulang halaman dan coba lagi.");
+      setLoginError(error instanceof Error ? error.message : "Login admin gagal. Silakan coba lagi.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -103,25 +124,52 @@ export default function AdminLogin() {
               </div>
             </div>
           ) : (
-            <div className="space-y-6">
+            <form className="space-y-6" onSubmit={handleAdminLogin}>
               <div className="rounded-md bg-blue-50 p-4 border border-blue-200">
                 <div className="flex items-start gap-3">
                   <Lock className="h-5 w-5 text-blue-600 mt-0.5" />
                   <div className="text-xs text-blue-800">
                     <span className="font-semibold block mb-1">Akses Terbatas Pemilik</span>
-                    Halaman ini khusus untuk pemilik agensi Primedeal. Tombol login publik telah disembunyikan dari pengunjung website.
+                    Masuk dengan akun admin Primedeal untuk menambah, mengedit, menghapus, dan mengunggah media listing.
                   </div>
                 </div>
               </div>
 
+              <div className="space-y-2">
+                <Label htmlFor="admin-username">Username Admin</Label>
+                <Input
+                  id="admin-username"
+                  value={username}
+                  onChange={event => setUsername(event.target.value)}
+                  autoComplete="username"
+                  autoCapitalize="none"
+                  spellCheck={false}
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="admin-password">Password Admin</Label>
+                <Input
+                  id="admin-password"
+                  type="password"
+                  value={password}
+                  onChange={event => setPassword(event.target.value)}
+                  autoComplete="current-password"
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+
               <Button
-                type="button"
-                onClick={handleAdminLogin}
+                type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-primary hover:bg-primary/90 text-white gap-2 py-6 text-base touch-manipulation"
                 aria-label="Login ke Akun Admin"
               >
-                <Lock size={18} />
-                Login ke Akun Admin
+                {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : <Lock size={18} />}
+                {isSubmitting ? "Memeriksa..." : "Login ke Akun Admin"}
               </Button>
               {loginError && (
                 <p role="alert" className="text-center text-sm text-red-600" aria-live="polite">
@@ -137,7 +185,7 @@ export default function AdminLogin() {
                   <ArrowLeft size={14} /> Kembali ke Website Utama
                 </a>
               </div>
-            </div>
+            </form>
           )}
         </Card>
       </div>

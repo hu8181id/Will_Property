@@ -1,8 +1,12 @@
 import React from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import AdminLogin from "./AdminLogin";
-import { startLogin } from "@/const";
+
+const mocks = vi.hoisted(() => ({
+  invalidate: vi.fn().mockResolvedValue(undefined),
+  setLocation: vi.fn(),
+}));
 
 vi.mock("@/_core/hooks/useAuth", () => ({
   useAuth: () => ({
@@ -12,38 +16,55 @@ vi.mock("@/_core/hooks/useAuth", () => ({
   }),
 }));
 
-vi.mock("@/const", () => ({
-  startLogin: vi.fn(),
+vi.mock("@/lib/trpc", () => ({
+  trpc: {
+    useUtils: () => ({ auth: { me: { invalidate: mocks.invalidate } } }),
+  },
 }));
 
 vi.mock("wouter", () => ({
-  useLocation: () => ["/admin", vi.fn()],
+  useLocation: () => ["/admin", mocks.setLocation],
 }));
 
 afterEach(() => {
   cleanup();
   vi.clearAllMocks();
+  vi.unstubAllGlobals();
 });
 
 describe("AdminLogin", () => {
-  it("starts admin login when the mobile-friendly button is clicked", () => {
+  it("submits admin credentials to the direct Vercel endpoint", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ ok: true }),
+    });
+    vi.stubGlobal("fetch", fetchMock);
     render(<AdminLogin />);
-    const loginButton = screen.getByRole("button", { name: /login ke akun admin/i });
 
-    expect(loginButton.getAttribute("type")).toBe("button");
-    fireEvent.click(loginButton);
+    fireEvent.change(screen.getByLabelText(/username admin/i), { target: { value: "owner" } });
+    fireEvent.change(screen.getByLabelText(/password admin/i), { target: { value: "strong-password" } });
+    fireEvent.submit(screen.getByRole("button", { name: /login ke akun admin/i }).closest("form")!);
 
-    expect(startLogin).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledWith("/api/admin/login", expect.objectContaining({
+      method: "POST",
+      credentials: "include",
+      body: JSON.stringify({ username: "owner", password: "strong-password" }),
+    })));
+    expect(mocks.invalidate).toHaveBeenCalledTimes(1);
+    expect(mocks.setLocation).toHaveBeenCalledWith("/admin");
   });
 
-  it("shows a useful message when OAuth cannot start", () => {
-    vi.mocked(startLogin).mockImplementationOnce(() => {
-      throw new Error("OAuth configuration missing");
-    });
-
+  it("shows a useful error when standalone credentials are rejected", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({
+      ok: false,
+      json: async () => ({ error: "Username atau password admin salah." }),
+    }));
     render(<AdminLogin />);
-    fireEvent.click(screen.getByRole("button", { name: /login ke akun admin/i }));
 
-    expect(screen.getByRole("alert").textContent).toMatch(/login belum dapat dimulai/i);
+    fireEvent.change(screen.getByLabelText(/username admin/i), { target: { value: "owner" } });
+    fireEvent.change(screen.getByLabelText(/password admin/i), { target: { value: "wrong" } });
+    fireEvent.submit(screen.getByRole("button", { name: /login ke akun admin/i }).closest("form")!);
+
+    await waitFor(() => expect(screen.getByRole("alert").textContent).toMatch(/username atau password admin salah/i));
   });
 });

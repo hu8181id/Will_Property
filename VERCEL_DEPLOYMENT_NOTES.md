@@ -141,3 +141,24 @@ Pada 16 Agustus 2026, URL `https://primedeal-property.vercel.app/admin` berhasil
 ## Akar masalah login Vercel
 
 Audit bundle live `index-pt6c9BJp.js` menemukan handler OAuth lama membentuk URL `undefined/app-auth` dan mengirim `appId=undefined`. Build lokal terbaru sudah memuat `JL8fURcMYJD322Xe42KmzM`, fallback portal `https://manus.im`, `window.location.assign`, dan error handling tombol. Perbaikan perlu disinkronkan ke repository GitHub yang menjadi sumber deployment Vercel.
+
+Audit sinkronisasi terbaru: repository `hu8181id/Will_Property` berada pada branch `main`; commit autentikasi admin mandiri sudah ada. Endpoint `api/admin/login.ts` sedang disiapkan melalui editor GitHub untuk melengkapi deployment Vercel.
+
+Pemeriksaan editor GitHub: `AdminLogin.tsx` menggunakan CodeMirror (`div.cm-content[contenteditable=true]`) dan memuat isi login direct Vercel. Tombol `Commit changes...` masih disabled karena perubahan belum terdeteksi oleh state editor, meskipun halaman menampilkan unsaved changes.
+
+Editor CodeMirror GitHub mengekspos instance internal melalui `cmTile.view`; struktur tersebut terdeteksi saat diagnosis tombol commit disabled. Perubahan akan dipicu dengan transaksi editor, lalu status commit diverifikasi sebelum dikirim.
+
+Transaksi CodeMirror berhasil dipanggil pada editor GitHub: satu newline aman ditambahkan di akhir `AdminLogin.tsx`, panjang dokumen berubah dari 7.210 menjadi 7.211 karakter. Selanjutnya status tombol Commit changes akan diverifikasi.
+
+Tombol `Commit changes...` kini aktif setelah transaksi editor dan dialog commit berhasil dibuka. Pengguna sebelumnya telah mengonfirmasi pengiriman perubahan ke branch `main`; langkah berikutnya adalah mengisi pesan commit dan menyimpan.
+
+AdminLogin.tsx versi direct Vercel berhasil dikirim melalui GitHub Contents API ke branch `main` dengan commit `ae1c7dff584fcc5c08eee90b8a3df5cddedd52d4`. File `api/admin/login.ts` sudah tersedia sebelumnya; Vercel kini ditunggu untuk membangun bundle frontend terbaru.
+
+Perbaikan endpoint login direct berhasil dikirim ke branch `main`: `api/admin/login.ts` memakai kontrak Node.js Vercel (`req.body`, `res.statusCode`, `res.setHeader`, `res.end`) dan `api/admin/login.test.ts` menambahkan tiga regresi. Commit terbaru branch main: `2d8f736341621046962b02726eecd79b89bba68c`.
+
+
+## 2026-08-16 — Perbaikan Login Admin Vercel (HTTP 500 Fix)
+
+- **Masalah**: Endpoint `/api/admin/login` sebelumnya dibuat dengan signature Node.js `IncomingMessage` & `ServerResponse`, yang menyebabkan `FUNCTION_INVOCATION_FAILED` (HTTP 500) di serverless runtime Vercel Node.js.
+- **Solusi**: Memigrasikan handler `/api/admin/login.ts` ke kontrak standar Vercel Serverless Function berbasis Web API (`Request` dan `Response`), membaca body via `request.text()`, dan menyusun cookie `set-cookie` secara aman.
+- **Verifikasi**: Seluruh 80 unit test Vitest lulus, pemeriksaan tipe TypeScript (`tsc --noEmit`) berhasil tanpa error, dan build produksi Vite + esbuild sukses.
