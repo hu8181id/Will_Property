@@ -133,3 +133,11 @@ Pada `https://primedeal-property.vercel.app`, request `auth.me` tanpa cookie men
 ## Verifikasi tombol login admin di mobile
 
 Pada preview terbaru, halaman `/admin` berhasil dirender pada viewport desktop 1280x720 dan mobile 390x844. Tombol login menggunakan tipe `button`, area sentuh penuh, dan handler eksplisit; saat sesi admin aktif, kontrol dashboard dan logout tampil tanpa overflow pada mobile.
+
+## Audit live tombol login Vercel
+
+Pada 16 Agustus 2026, URL `https://primedeal-property.vercel.app/admin` berhasil memuat halaman Portal Kelola Admin dan tombol `Login ke Akun Admin` terlihat pada viewport publik. Masalah pengguna terjadi saat tombol tersebut ditekan; audit berikutnya perlu memeriksa bundle live dan tujuan navigasi OAuth.
+
+## Akar masalah login Vercel
+
+Audit bundle live `index-pt6c9BJp.js` menemukan handler OAuth lama membentuk URL `undefined/app-auth` dan mengirim `appId=undefined`. Build lokal terbaru sudah memuat `JL8fURcMYJD322Xe42KmzM`, fallback portal `https://manus.im`, `window.location.assign`, dan error handling tombol. Perbaikan perlu disinkronkan ke repository GitHub yang menjadi sumber deployment Vercel.

@@ -7137,3 +7137,9 @@
 - [x] Audit halaman `/admin` dan handler tombol Login ke Akun Admin.
 - [x] Perbaiki handler login agar tombol memulai autentikasi secara konsisten di mobile dan desktop.
 - [x] Tambahkan atau perbarui pengujian tombol login, lalu validasi build dan tampilan mobile.
+
+## Debug login admin pada Vercel produksi
+
+- [ ] Audit halaman live `/admin` dan bundle Vercel yang sedang dilayani.
+- [ ] Identifikasi perbedaan konfigurasi atau routing OAuth antara preview dan Vercel.
+- [ ] Perbaiki alur login produksi, uji endpoint dan tombol, lalu simpan checkpoint.

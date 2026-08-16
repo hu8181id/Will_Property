@@ -3,6 +3,9 @@ import { OAUTH_STATE_COOKIE, encodeOAuthState } from "@shared/const";
 export { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 
 const DEFAULT_OAUTH_PORTAL_URL = "https://manus.im";
+// Public Primedeal project ID fallback. Vercel may omit VITE_* variables during
+// a GitHub-triggered build; the ID is not a credential and can be overridden by env.
+const DEFAULT_APP_ID = "JL8fURcMYJD322Xe42KmzM";
 
 const createOAuthNonce = () => {
   if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
@@ -43,7 +46,7 @@ export const buildOAuthLoginUrl = ({
 // moment you want to navigate, e.g. `onClick={() => startLogin()}`.
 export const startLogin = () => {
   const oauthPortalUrl = import.meta.env.VITE_OAUTH_PORTAL_URL || DEFAULT_OAUTH_PORTAL_URL;
-  const appId = import.meta.env.VITE_APP_ID || "";
+  const appId = import.meta.env.VITE_APP_ID || DEFAULT_APP_ID;
   const redirectUri = `${window.location.origin}/api/oauth/callback`;
   const nonce = createOAuthNonce();
 
