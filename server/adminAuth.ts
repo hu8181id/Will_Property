@@ -43,7 +43,9 @@ export function verifyAdminCredentials(username: string, password: string) {
   const configuredUsername = process.env.ADMIN_USERNAME?.trim();
   const configuredPassword = process.env.ADMIN_PASSWORD;
   if (!configuredUsername || !configuredPassword) return false;
-  return safeEqual(username.trim(), configuredUsername) && safeEqual(password, configuredPassword);
+  const inputUser = username.trim().toLowerCase();
+  const targetUser = configuredUsername.toLowerCase();
+  return safeEqual(inputUser, targetUser) && safeEqual(password, configuredPassword);
 }
 
 export function createAdminSession(username: string) {

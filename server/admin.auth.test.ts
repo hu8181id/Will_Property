@@ -95,3 +95,16 @@ describe("Admin Login Audit and Security Summary", () => {
     expect(summary.requiresWarning).toBe(true);
   });
 });
+
+import { verifyAdminCredentials } from "./adminAuth";
+
+describe("Admin Credentials Case Insensitivity", () => {
+  it("verifies credentials correctly with different casing and whitespace", () => {
+    process.env.ADMIN_USERNAME = "AdminUser";
+    process.env.ADMIN_PASSWORD = "SecurePassword123";
+
+    expect(verifyAdminCredentials("  adminuser  ", "SecurePassword123")).toBe(true);
+    expect(verifyAdminCredentials("ADMINUSER", "SecurePassword123")).toBe(true);
+    expect(verifyAdminCredentials("adminuser", "WrongPassword")).toBe(false);
+  });
+});
