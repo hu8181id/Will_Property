@@ -9,35 +9,11 @@
       "destination": "/api/trpc/:path*"
     },
     {
-      "source": "/listing",
-      "destination": "/index.html"
+      "source": "/manus-storage/:path*",
+      "destination": "/api/manus-storage/:path*"
     },
     {
-      "source": "/properti/:slug*",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/favorit",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/kalkulator",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/tentang",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/privasi",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/ketentuan",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/admin/:path*",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]
