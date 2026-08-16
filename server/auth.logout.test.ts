@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { appRouter } from "./routers";
 import { COOKIE_NAME } from "../shared/const";
+import { ADMIN_SESSION_COOKIE } from "./adminAuth";
 import type { TrpcContext } from "./_core/context";
 
 type CookieCall = {
@@ -49,12 +50,18 @@ describe("auth.logout", () => {
     const result = await caller.auth.logout();
 
     expect(result).toEqual({ success: true });
-    expect(clearedCookies).toHaveLength(1);
-    expect(clearedCookies[0]?.name).toBe(COOKIE_NAME);
-    expect(clearedCookies[0]?.options).toMatchObject({
+    expect(clearedCookies).toHaveLength(2);
+    expect(clearedCookies.find(cookie => cookie.name === COOKIE_NAME)?.options).toMatchObject({
       maxAge: -1,
       secure: true,
       sameSite: "none",
+      httpOnly: true,
+      path: "/",
+    });
+    expect(clearedCookies.find(cookie => cookie.name === ADMIN_SESSION_COOKIE)?.options).toMatchObject({
+      maxAge: 0,
+      secure: true,
+      sameSite: "lax",
       httpOnly: true,
       path: "/",
     });
