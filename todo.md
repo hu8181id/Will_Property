@@ -168,3 +168,4 @@
 - [x] Menyelesaikan panduan sinkronisasi repository full-stack ke Vercel agar fitur tambah/hapus listing dan video bersuara aktif di `primedealproperty.vercel.app`.
 - [x] Menjelaskan secara transparan perbedaan domain Manus (`*.manus.space`) dan domain publik Vercel (`primedealproperty.vercel.app`) kepada pengguna.
 - [x] Menyusun panduan pembuatan repository GitHub baru untuk versi full-stack Primedeal agar terhubung ke Vercel tanpa mengganggu repo statis lama.
+- [x] Menambahkan berkas konfigurasi `vercel.json` untuk mengatasi masalah halaman Vercel yang menampilkan teks/kode mentah, sehingga kini merender website dengan benar.
