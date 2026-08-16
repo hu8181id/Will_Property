@@ -1,16 +1,35 @@
-type MediaRequest = Request;
+type MediaRequest = {
+  url?: string;
+  headers?: Headers | Record<string, string | string[] | undefined>;
+};
+
+function getHeader(request: MediaRequest, name: string) {
+  const headers = request.headers;
+  if (!headers) return undefined;
+
+  if (typeof (headers as Headers).get === "function") {
+    return (headers as Headers).get(name) ?? undefined;
+  }
+
+  const record = headers as Record<string, string | string[] | undefined>;
+  const value = record[name] ?? record[name.toLowerCase()] ?? record[name.toUpperCase()];
+  if (Array.isArray(value)) return value[0];
+  return typeof value === "string" ? value : undefined;
+}
 
 function getRequestUrl(request: MediaRequest) {
+  const rawUrl = typeof request.url === "string" ? request.url : "/";
+  const protocol = getHeader(request, "x-forwarded-proto")?.split(",")[0]?.trim() || "https";
+  const host =
+    getHeader(request, "x-forwarded-host")?.split(",")[0]?.trim() ||
+    getHeader(request, "host") ||
+    "primedeal-property.vercel.app";
+  const baseUrl = `${protocol}://${host}`;
+
   try {
-    return new URL(request.url);
+    return new URL(rawUrl, baseUrl);
   } catch {
-    const protocol =
-      request.headers.get("x-forwarded-proto")?.split(",")[0]?.trim() || "https";
-    const host =
-      request.headers.get("x-forwarded-host")?.split(",")[0]?.trim() ||
-      request.headers.get("host") ||
-      "primedeal-property.vercel.app";
-    return new URL(request.url, `${protocol}://${host}`);
+    return new URL("/", baseUrl);
   }
 }
 
@@ -68,7 +87,7 @@ async function redirectToForge(key: string, forgeApiUrl: string, forgeApiKey: st
   return payload.url;
 }
 
-export default async function handler(request: Request): Promise<Response> {
+export default async function handler(request: MediaRequest): Promise<Response> {
   const key = getStorageKey(request);
   if (!key) return textResponse(400, "Missing media path");
 
@@ -83,9 +102,6 @@ export default async function handler(request: Request): Promise<Response> {
 
   if (hasBackblazeConfig) {
     try {
-      // Keep the heavier S3 module out of the top-level import path. This makes
-      // the Vercel function load reliably and turns storage errors into a useful
-      // HTTP response instead of FUNCTION_INVOCATION_FAILED.
       const { storageGetSignedUrl } = await import("../server/storage");
       const signedUrl = await storageGetSignedUrl(key);
       return redirectTo(signedUrl, 3600);
@@ -105,8 +121,6 @@ export default async function handler(request: Request): Promise<Response> {
     }
   }
 
-  // Existing legacy listings may still be available from the former Manus
-  // storage service when neither current storage configuration is present.
   const legacyPath = key
     .split("/")
     .map(segment => encodeURIComponent(segment))
