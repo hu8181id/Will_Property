@@ -128,3 +128,7 @@
 - [x] Tambahkan pengujian regresi dan verifikasi URL slug pada desktop serta ponsel sebelum rilis.
 - [x] Verifikasi URL slug baru dan URL listing lama pada viewport desktop lalu catat hasilnya di proyek.
 - [x] Tambahkan regresi metadata untuk canonical dan structured data pada halaman `/properti/[slug]`.
+- [x] Tambahkan tombol Berbagi WhatsApp dan Salin Tautan Instagram pada modal detail listing properti.
+- [x] Buat panduan migrasi mandiri MIGRATION_GUIDE.md untuk memindahkan aplikasi, database TiDB, dan storage S3 ke server eksternal.
+- [x] Lakukan verifikasi fungsionalitas tombol berbagi dan akses halaman detail listing via URL slug permanen.
+- [x] Susun evaluasi platform hosting gratis eksternal beserta analisis kebutuhan database dan storage mandiri.
