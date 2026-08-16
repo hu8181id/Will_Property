@@ -24,8 +24,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
   if (!forgeApiUrl || !forgeApiKey) {
-    console.error("[MediaProxy] Forge storage environment is not configured");
-    res.status(503).end("Media storage is not configured");
+    // Existing listings may still reference the former Manus storage path.
+    // The legacy public endpoint redirects to its CDN-signed object URL.
+    const legacyPath = key
+      .split("/")
+      .map(segment => encodeURIComponent(segment))
+      .join("/");
+    const legacyUrl = `https://primedeal-jl8furcm.manus.space/manus-storage/${legacyPath}`;
+    res.status(307);
+    res.setHeader("Location", legacyUrl);
+    res.setHeader("Cache-Control", "public, max-age=300");
+    res.end();
     return;
   }
 
