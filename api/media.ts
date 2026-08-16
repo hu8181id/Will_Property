@@ -1,3 +1,5 @@
+import { storageGetSignedUrl } from "../server/storage";
+
 type VercelRequest = {
   query?: Record<string, string | string[] | undefined>;
 };
@@ -18,11 +20,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const key = getPath(req);
   const forgeApiUrl = process.env.BUILT_IN_FORGE_API_URL ?? "";
   const forgeApiKey = process.env.BUILT_IN_FORGE_API_KEY ?? "";
+  const hasBackblazeConfig = Boolean(
+    process.env.S3_ENDPOINT && process.env.S3_BUCKET && process.env.S3_KEY && process.env.S3_SECRET,
+  );
 
   if (!key) {
     res.status(400).end("Missing media path");
     return;
   }
+  if (hasBackblazeConfig) {
+    try {
+      const signedUrl = await storageGetSignedUrl(key);
+      res.status(307);
+      res.setHeader("Location", signedUrl);
+      res.setHeader("Cache-Control", "public, max-age=3600");
+      res.end();
+    } catch (error) {
+      console.error("[MediaProxy] Backblaze signed URL failed:", error);
+      res.status(502).end("Media storage backend error");
+    }
+    return;
+  }
+
   if (!forgeApiUrl || !forgeApiKey) {
     // Existing listings may still reference the former Manus storage path.
     // The legacy public endpoint redirects to its CDN-signed object URL.

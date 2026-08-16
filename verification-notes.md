@@ -57,3 +57,11 @@ Sumber GitHub: https://github.com/hu8181id/Will_Property
 - Perbaikan normalisasi `S3_ENDPOINT` sudah aktif dan siap diuji dengan upload foto.
 
 59. Uji production pada deployment `908c35c` berhasil: satu foto terunggah ke URL Backblaze HTTPS, mutation `property.create` dengan `admin_key` sukses, notifikasi `Listing baru berhasil ditambahkan` tampil, dan listing uji ID 390001 muncul di daftar. Error permission 10002 dan `Gagal mengupload foto` tidak terulang.
+
+
+## 2026-08-16 — Diagnosis gambar dan video production
+
+- Pada halaman `/manage-listings` production, listing baru ID 420001 menyimpan URL gambar langsung ke `https://s3.us-east-005.backblazeb2.com/primedeal-media/...` dan browser melaporkan `naturalWidth: 0`; request langsung ke URL tersebut mengembalikan HTTP 401 karena bucket Backblaze bersifat private.
+- Listing lama yang memakai `/manus-storage/properties/...` berhasil dimuat melalui redirect media legacy dan browser melaporkan dimensi gambar valid.
+- Akar masalah gambar: `storagePut()` mengembalikan URL object B2 langsung, bukan URL proxy `/manus-storage/...` yang dapat menghasilkan signed redirect.
+- Akar masalah upload video yang perlu diperbaiki: validasi frontend/server hanya menerima tiga MIME type persis (`video/mp4`, `video/webm`, `video/quicktime`), sehingga beberapa video dari galeri/kamera Android dapat ditolak sebelum chunk upload dimulai.

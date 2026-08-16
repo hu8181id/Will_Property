@@ -69,10 +69,35 @@ function getS3Client() {
   return _s3Client;
 }
 
-function getPublicB2Url(key: string) {
-  const config = getBackblazeConfig();
+export function storageMediaUrl(relKey: string) {
+  const key = normalizeKey(relKey);
   const encodedKey = key.split("/").map(encodeURIComponent).join("/");
-  return `${config.endpoint}/${encodeURIComponent(config.bucket)}/${encodedKey}`;
+  return `/manus-storage/${encodedKey}`;
+}
+
+export function normalizeStoredMediaUrl(value?: string | null) {
+  if (!value) return value;
+  const trimmed = value.trim();
+  if (!trimmed || trimmed.startsWith("/manus-storage/")) return trimmed;
+
+  const endpoint = normalizeStorageEndpoint(process.env.S3_ENDPOINT);
+  const bucket = process.env.S3_BUCKET?.trim();
+  if (!endpoint || !bucket || !/^https?:\/\//i.test(trimmed)) return trimmed;
+
+  try {
+    const mediaUrl = new URL(trimmed);
+    const endpointUrl = new URL(endpoint);
+    const bucketPrefix = `/${encodeURIComponent(bucket)}/`;
+    if (mediaUrl.origin !== endpointUrl.origin || !mediaUrl.pathname.startsWith(bucketPrefix)) return trimmed;
+    const encodedKey = mediaUrl.pathname.slice(bucketPrefix.length);
+    const key = encodedKey
+      .split("/")
+      .map((segment) => decodeURIComponent(segment))
+      .join("/");
+    return key ? storageMediaUrl(key) : trimmed;
+  } catch {
+    return trimmed;
+  }
 }
 
 export async function storagePut(
@@ -92,7 +117,7 @@ export async function storagePut(
         ContentType: contentType,
       }),
     );
-    return { key, url: getPublicB2Url(key) };
+    return { key, url: storageMediaUrl(key) };
   }
 
   const { url, uploadUrl } = await storageCreateUploadUrl(relKey, key);
@@ -142,12 +167,12 @@ export async function storageCreateUploadUrl(
   const { url: uploadUrl } = (await presignResp.json()) as { url: string };
   if (!uploadUrl) throw new Error("Forge returned empty presign URL");
 
-  return { key, url: `/manus-storage/${key}`, uploadUrl };
+  return { key, url: storageMediaUrl(key), uploadUrl };
 }
 
 export async function storageGet(relKey: string): Promise<{ key: string; url: string }> {
   const key = normalizeKey(relKey);
-  return { key, url: hasBackblazeConfig() ? getPublicB2Url(key) : `/manus-storage/${key}` };
+  return { key, url: storageMediaUrl(key) };
 }
 
 export async function storageGetSignedUrl(relKey: string): Promise<string> {

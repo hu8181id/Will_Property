@@ -1,6 +1,25 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { COOKIE_NAME } from "@shared/const";
-import { uploadPropertyVideo } from "./propertyVideoUpload";
+import { normalizePropertyVideoContentType, uploadPropertyVideo } from "./propertyVideoUpload";
+
+describe("normalizePropertyVideoContentType", () => {
+  it("menerima MIME Android dan menghapus parameter codec", () => {
+    expect(normalizePropertyVideoContentType("video/mp4; codecs=avc1", "listing.mp4")).toBe("video/mp4");
+    expect(normalizePropertyVideoContentType("video/3gpp", "listing.3gp")).toBe("video/3gpp");
+    expect(normalizePropertyVideoContentType("video/x-m4v", "listing.m4v")).toBe("video/x-m4v");
+  });
+
+  it("menggunakan ekstensi saat browser Android mengirim MIME kosong atau generik", () => {
+    expect(normalizePropertyVideoContentType("", "listing.mp4")).toBe("video/mp4");
+    expect(normalizePropertyVideoContentType("application/octet-stream", "listing.3gp")).toBe("video/3gpp");
+    expect(normalizePropertyVideoContentType(undefined, "listing.mov")).toBe("video/quicktime");
+  });
+
+  it("menolak format yang tidak didukung", () => {
+    expect(normalizePropertyVideoContentType("video/x-matroska", "listing.mkv")).toBeUndefined();
+    expect(normalizePropertyVideoContentType(undefined, "listing.txt")).toBeUndefined();
+  });
+});
 
 describe("uploadPropertyVideo", () => {
   afterEach(() => {
@@ -79,6 +98,24 @@ describe("uploadPropertyVideo", () => {
     for (const call of fetchMock.mock.calls) {
       expect(call[1]?.headers).toEqual(expect.objectContaining({ Authorization: "Bearer token-webview-admin" }));
     }
+  });
+
+  it("mengirim MIME canonical untuk video 3GP dari Android", async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ sessionId: "session-3gp", chunkBytes: 8, totalChunks: 1 }), { status: 201 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ success: true }), { status: 201 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ url: "/manus-storage/properties/videos/tur.3gp" }), { status: 201 }));
+    vi.stubGlobal("fetch", fetchMock);
+    const file = new File(["video"], "tur-properti.3gp", { type: "application/octet-stream" });
+
+    await uploadPropertyVideo(file);
+
+    expect(fetchMock.mock.calls[0]?.[1]?.body).toBe(
+      JSON.stringify({ contentType: "video/3gpp", fileName: "tur-properti.3gp", size: 5 }),
+    );
+    expect(fetchMock.mock.calls[1]?.[1]?.headers).toEqual(
+      expect.objectContaining({ "Content-Type": "video/3gpp" }),
+    );
   });
 
   it("menampilkan pesan server saat sesi unggah ditolak", async () => {

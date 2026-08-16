@@ -15,15 +15,27 @@ describe("validatePropertyVideoUpload", () => {
     }
   });
 
-  it("menerima MP4 biner yang berada di bawah batas 50 MB", () => {
+  it("menerima format video desktop dan mobile yang berada di bawah batas 50 MB", () => {
     expect(validatePropertyVideoUpload("video/mp4", 34_055_487)).toEqual({
       ok: true,
       contentType: "video/mp4",
+    });
+    expect(validatePropertyVideoUpload("video/3gpp", 34_055_487)).toEqual({
+      ok: true,
+      contentType: "video/3gpp",
+    });
+    expect(validatePropertyVideoUpload("video/x-m4v; codecs=avc1", 34_055_487)).toEqual({
+      ok: true,
+      contentType: "video/x-m4v",
     });
   });
 
   it("menolak format atau ukuran video yang tidak aman", () => {
     expect(validatePropertyVideoUpload("application/octet-stream", 100)).toMatchObject({
+      ok: false,
+      status: 415,
+    });
+    expect(validatePropertyVideoUpload("video/x-matroska", 100)).toMatchObject({
       ok: false,
       status: 415,
     });

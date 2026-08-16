@@ -41,3 +41,8 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Tambahkan test tRPC/server untuk `property.create` tanpa sesi OAuth tetapi dengan `admin_key`/`x-admin-key`, serta penolakan tanpa bypass
 - [x] Tambahkan test regresi serupa untuk `property.update` dan `property.delete` agar bypass admin_key konsisten
 - [ ] Hapus listing uji ID 390001 setelah pengguna menyetujui penghapusan, atau biarkan pengguna menghapusnya dari tombol Hapus
+
+- [ ] Deploy perubahan proxy media/storage ke Vercel lalu verifikasi gambar listing yang sebelumnya memakai URL Backblaze private tampil melalui `/manus-storage/...`
+- [ ] Uji end-to-end upload video mobile dengan format 3GP/M4V atau MIME `application/octet-stream` pada production
+- [x] Tambahkan regresi test untuk URL media dan alur upload video
+- [ ] Verifikasi ulang listing media melalui browser dan build production

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { HeadBucketCommand, S3Client } from "@aws-sdk/client-s3";
-import { normalizeStorageEndpoint } from "./storage";
+import { normalizeStoredMediaUrl, normalizeStorageEndpoint, storageMediaUrl } from "./storage";
 
 const requiredEnv = ["S3_ENDPOINT", "S3_BUCKET", "S3_KEY", "S3_SECRET"] as const;
 
@@ -15,6 +15,32 @@ describe("Backblaze B2 storage configuration", () => {
     expect(normalizeStorageEndpoint("https://s3.us-east-005.backblazeb2.com///")).toBe(
       "https://s3.us-east-005.backblazeb2.com",
     );
+  });
+
+  it("creates proxy media URLs instead of exposing a private object URL", () => {
+    expect(storageMediaUrl("/properties/room photo.jpg")).toBe(
+      "/manus-storage/properties/room%20photo.jpg",
+    );
+  });
+
+  it("normalizes previously saved Backblaze object URLs to the media proxy", () => {
+    const previousEndpoint = process.env.S3_ENDPOINT;
+    const previousBucket = process.env.S3_BUCKET;
+    process.env.S3_ENDPOINT = "https://s3.us-east-005.backblazeb2.com";
+    process.env.S3_BUCKET = "primedeal-media";
+    try {
+      expect(normalizeStoredMediaUrl(
+        "https://s3.us-east-005.backblazeb2.com/primedeal-media/properties/old-photo.jpg",
+      )).toBe("/manus-storage/properties/old-photo.jpg");
+      expect(normalizeStoredMediaUrl("https://cdn.example.com/photo.jpg")).toBe(
+        "https://cdn.example.com/photo.jpg",
+      );
+    } finally {
+      if (previousEndpoint === undefined) delete process.env.S3_ENDPOINT;
+      else process.env.S3_ENDPOINT = previousEndpoint;
+      if (previousBucket === undefined) delete process.env.S3_BUCKET;
+      else process.env.S3_BUCKET = previousBucket;
+    }
   });
 
   it.skipIf(process.env.RUN_EXTERNAL_STORAGE_TESTS !== "1")(
