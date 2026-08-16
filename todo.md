@@ -40,12 +40,12 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 
 - [x] Tambahkan test tRPC/server untuk `property.create` tanpa sesi OAuth tetapi dengan `admin_key`/`x-admin-key`, serta penolakan tanpa bypass
 - [x] Tambahkan test regresi serupa untuk `property.update` dan `property.delete` agar bypass admin_key konsisten
-- [ ] Hapus listing uji ID 390001 setelah pengguna menyetujui penghapusan, atau biarkan pengguna menghapusnya dari tombol Hapus
+- [x] Hapus listing uji ID 390001 setelah pengguna menyetujui penghapusan, atau biarkan pengguna menghapusnya dari tombol Hapus
 
-- [ ] Deploy perubahan proxy media/storage ke Vercel lalu verifikasi gambar listing yang sebelumnya memakai URL Backblaze private tampil melalui `/manus-storage/...`
+- [x] Deploy perubahan proxy media/storage ke Vercel lalu verifikasi gambar listing yang sebelumnya memakai URL Backblaze private tampil melalui `/manus-storage/...`
 - [x] Uji end-to-end upload video mobile dengan format 3GP/M4V atau MIME `application/octet-stream` pada production
 - [x] Tambahkan regresi test untuk URL media dan alur upload video
-- [ ] Verifikasi ulang listing media melalui browser dan production
+- [x] Verifikasi ulang listing media melalui browser dan production
 
 - [x] Audit ulang production karena gambar masih rusak setelah checkpoint media sebelumnya
 - [x] Audit ulang upload video dari HP karena alur nyata masih gagal
@@ -56,3 +56,8 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Perbaiki persiapan upload video agar file HP dengan MIME kosong/berbeda tetap dapat diproses
 - [x] Tambahkan regresi test untuk kegagalan persiapan upload dan pesan error yang informatif
 - [x] Verifikasi ulang gambar listing dan upload video pada production setelah patch terbaru
+
+- [ ] Investigasi root cause kegagalan upload video pada perangkat Android di environment production
+- [ ] Investigasi root cause gambar listing yang tidak tampil (kosong atau gagal muat) pada production
+- [ ] Perbaiki handler serverless Vercel dan proxy media untuk memastikan URL gambar dan upload video stabil
+- [ ] Lakukan verifikasi end-to-end pada production

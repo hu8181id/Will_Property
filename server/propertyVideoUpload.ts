@@ -91,7 +91,7 @@ export function registerPropertyVideoUploadRoute(app: Express, options: { maxByt
   const maxBytes = options.maxBytes ?? MAX_PROPERTY_VIDEO_BYTES;
   const chunkBytes = options.chunkBytes ?? PROPERTY_VIDEO_CHUNK_BYTES;
 
-  app.post("/api/property-video-upload-sessions", express.json({ limit: "16kb" }), async (req, res) => {
+  app.post(["/api/property-video-upload-sessions", "/property-video-upload-sessions"], express.json({ limit: "16kb" }), async (req, res) => {
     try {
       if (!await requireAdmin(req, res)) return;
       const input = req.body as { contentType?: string; fileName?: string; size?: unknown } | undefined;
@@ -119,7 +119,7 @@ export function registerPropertyVideoUploadRoute(app: Express, options: { maxByt
   });
 
   app.post(
-    "/api/property-video-upload-sessions/:sessionId/chunks/:chunkIndex",
+    ["/api/property-video-upload-sessions/:sessionId/chunks/:chunkIndex", "/property-video-upload-sessions/:sessionId/chunks/:chunkIndex"],
     express.raw({ type: [...PROPERTY_VIDEO_CONTENT_TYPES], limit: `${Math.ceil(chunkBytes / 1024 / 1024) + 1}mb` }),
     async (req, res) => {
       try {
@@ -168,7 +168,7 @@ export function registerPropertyVideoUploadRoute(app: Express, options: { maxByt
     },
   );
 
-  app.post("/api/property-video-upload-sessions/:sessionId/complete", express.json({ limit: "4kb" }), async (req, res) => {
+  app.post(["/api/property-video-upload-sessions/:sessionId/complete", "/property-video-upload-sessions/:sessionId/complete"], express.json({ limit: "4kb" }), async (req, res) => {
     try {
       if (!await requireAdmin(req, res)) return;
       const { sessionId } = req.params;
