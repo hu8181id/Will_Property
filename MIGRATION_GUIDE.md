@@ -4,15 +4,15 @@ Dokumen ini menguraikan arsitektur dan langkah-langkah praktis untuk memindahkan
 
 ---
 
-## 1. Ringkasan Arsitektur Target Mandiri
+## 1. Rekomendasi Kombinasi Hosting Gratis & Arsitektur Mandiri
 
-Untuk melepaskan ketergantungan dari lingkungan bawaan Manus WebDev, Anda memerlukan tiga komponen utama yang dapat dihosting di penyedia cloud pilihan Anda (seperti VPS DigitalOcean/Linode, Railway, Render, atau AWS):
+Untuk memindahkan **Primedeal Properti** agar tetap hidup dan independen secara gratis atau berbiaya sangat rendah, berikut adalah kombinasi layanan gratis terbaik yang direkomendasikan berdasarkan hasil evaluasi teknis:
 
-| Komponen | Peran | Rekomendasi Layanan Mandiri |
-|---|---|---|
-| **Hosting Aplikasi (Frontend + Backend SSR)** | Menjalankan server Node.js Express & frontend Vite build | Railway, Render, VPS (Ubuntu + PM2 + Nginx) |
-| **Database (MySQL / TiDB)** | Menyimpan data properti, ulasan, kunjungan, dan akun admin | TiDB Cloud (Free/Serverless tier), PlanetScale, Managed MySQL |
-| **Storage (Media S3)** | Menyimpan foto properti, video pendek, dan thumbnail | AWS S3, Cloudflare R2, MinIO |
+| Komponen Sistem | Layanan Rekomendasi Gratis (Free Tier) | Keunggulan | Catatan Teknis |
+|---|---|---|---|
+| **Aplikasi (Node.js + Express + Frontend)** | **Render (Web Service)** atau **Oracle Cloud (Always Free VPS)** | Render mudah di-deploy dari Git; Oracle VPS memberikan RAM hingga 24GB dan uptime penuh. | Render mengalami *spin-down* setelah 15 menit tidak aktif (kunjungan pertama agak lambat). VPS membutuhkan pengaturan Nginx & SSL manual. |
+| **Database (MySQL / TiDB)** | **TiDB Cloud (Serverless Tier)** | Menyediakan 5 GiB storage gratis dan 50 juta row reads/writes per bulan, kompatibel penuh dengan MySQL/Drizzle. | Mendukung SSL dan koneksi Drizzle ORM secara langsung melalui `DATABASE_URL`. |
+| **Storage Media (Foto & Video S3)** | **Cloudflare R2** | Gratis biaya *egress* (bandwidth keluar) dan kapasitas penyimpanan awal 10 GB yang sangat besar untuk foto/video properti. | Kompatibel dengan AWS S3 SDK yang sudah digunakan pada backend Primedeal (`storagePut`/`storageGet`). |
 
 ---
 
