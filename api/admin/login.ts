@@ -1,151 +1,90 @@
-import { createAdminSession, getAdminCookieOptions, verifyAdminCredentials, ADMIN_SESSION_COOKIE } from "../../server/adminAuth";
+import type { IncomingMessage, ServerResponse } from "node:http";
+import {
+  ADMIN_SESSION_COOKIE,
+  createAdminSession,
+  getAdminCookieOptions,
+  verifyAdminCredentials,
+} from "../../server/adminAuth";
 
+type VercelRequest = IncomingMessage & {
+  body?: unknown;
+};
 
+type JsonRecord = Record<string, unknown>;
 
-function jsonResponse(body: unknown, status = 200, headers: HeadersInit = {}) {
-  
-  return new Response(JSON.stringify(body), {
-    
-    status,
-    
-    headers: {
-      
-      "content-type": "application/json; charset=utf-8",
-      
-      ...headers,
-      
-    },
-    
-  });
-  
+function sendJson(
+  response: ServerResponse,
+  body: unknown,
+  status: number,
+  headers: Record<string, string> = {},
+) {
+  response.statusCode = status;
+  response.setHeader("content-type", "application/json; charset=utf-8");
+  response.setHeader("cache-control", "no-store");
+  for (const [name, value] of Object.entries(headers)) {
+    response.setHeader(name, value);
+  }
+  response.end(JSON.stringify(body));
 }
 
+async function readRequestBody(request: VercelRequest): Promise<JsonRecord> {
+  if (request.body && typeof request.body === "object") {
+    return request.body as JsonRecord;
+  }
 
+  const chunks: Buffer[] = [];
+  for await (const chunk of request) {
+    chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(String(chunk)));
+  }
 
-export default async function handler(request: Request): Promise<Response> {
-  
+  const raw = Buffer.concat(chunks).toString("utf8").trim();
+  if (!raw) return {};
+
+  const parsed: unknown = JSON.parse(raw);
+  return parsed && typeof parsed === "object" ? (parsed as JsonRecord) : {};
+}
+
+export default async function handler(request: VercelRequest, response: ServerResponse) {
   if (request.method !== "POST") {
-    
-    return jsonResponse({ error: "Method Not Allowed" }, 405, { Allow: "POST" });
-    
+    sendJson(response, { error: "Method Not Allowed" }, 405, { Allow: "POST" });
+    return;
   }
-  
 
-  
-  let input: { username?: unknown; password?: unknown };
-  
+  let input: JsonRecord;
   try {
-    
-    input = (await request.json()) as { username?: unknown; password?: unknown };
-    
+    input = await readRequestBody(request);
   } catch {
-    
-    return jsonResponse({ error: "Format permintaan tidak valid." }, 400);
-    
+    sendJson(response, { error: "Format permintaan tidak valid." }, 400);
+    return;
   }
-  
 
-  
   const username = typeof input.username === "string" ? input.username : "";
-  
   const password = typeof input.password === "string" ? input.password : "";
-  
 
-  
   if (!verifyAdminCredentials(username, password)) {
-    
-    return jsonResponse({ error: "Username atau password admin salah." }, 401);
-    
+    sendJson(response, { error: "Username atau password admin salah." }, 401);
+    return;
   }
-  
 
-  
   const session = createAdminSession(username.trim());
-  
-  const requestUrl = new URL(request.url);
-  
+  const forwardedProto = request.headers["x-forwarded-proto"];
+  const protocol = Array.isArray(forwardedProto)
+    ? forwardedProto[0]
+    : forwardedProto || "http";
   const cookieOptions = getAdminCookieOptions({
-    
-    protocol: requestUrl.protocol.replace(":", ""),
-    
-    headers: {
-      
-      "x-forwarded-proto": request.headers.get("x-forwarded-proto") ?? requestUrl.protocol.replace(":", ""),
-      
-    },
-    
+    protocol: String(protocol),
+    headers: request.headers,
   });
-  
   const cookie = [
-    
     `${ADMIN_SESSION_COOKIE}=${encodeURIComponent(session)}`,
-    
     `Max-Age=${Math.floor(cookieOptions.maxAge / 1000)}`,
-    
     "Path=/",
-    
     "HttpOnly",
-    
     "SameSite=Lax",
-    
     cookieOptions.secure ? "Secure" : "",
-    
   ]
-  
     .filter(Boolean)
-  
     .join("; ");
-  
 
-  
-  return jsonResponse({ ok: true }, 200, { "set-cookie": cookie });
-  
+  sendJson(response, { ok: true }, 200, { "set-cookie": cookie });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
