@@ -5,6 +5,7 @@ import {
   ADMIN_SESSION_COOKIE,
   createAdminSession,
   getAdminCookieOptions,
+  getAdminLoginSecuritySummary,
   verifyAdminCredentials,
 } from "./adminAuth";
 import { systemRouter } from "./_core/systemRouter";
@@ -41,6 +42,9 @@ export const appRouter = router({
       return {
         success: true,
       } as const;
+    }),
+    adminSecuritySummary: publicProcedure.query(() => {
+      return getAdminLoginSecuritySummary();
     }),
   }),
 

@@ -111,3 +111,28 @@ export function getAdminCookieOptions(req: { protocol?: string; headers?: Record
     maxAge: SESSION_TTL_MS,
   };
 }
+
+// In-memory security event audit ring buffer for tracking login attempts and failed login alerts
+const loginAuditLog: { timestamp: number; success: boolean; username: string; ip?: string }[] = [];
+const MAX_AUDIT_LOGS = 100;
+
+export function recordLoginAttempt(success: boolean, username: string, ip = "unknown") {
+  loginAuditLog.unshift({ timestamp: Date.now(), success, username, ip });
+  if (loginAuditLog.length > MAX_AUDIT_LOGS) {
+    loginAuditLog.pop();
+  }
+}
+
+export function getAdminLoginSecuritySummary() {
+  const now = Date.now();
+  const recentWindowMs = 1000 * 60 * 15; // 15 minutes
+  const recentFailedAttempts = loginAuditLog.filter(
+    item => !item.success && now - item.timestamp <= recentWindowMs,
+  );
+  return {
+    totalAttempts: loginAuditLog.length,
+    recentFailedCount: recentFailedAttempts.length,
+    requiresWarning: recentFailedAttempts.length >= 3,
+    lastAttempts: loginAuditLog.slice(0, 10),
+  };
+}

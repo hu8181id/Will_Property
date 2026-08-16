@@ -78,3 +78,20 @@ describe("Admin Authentication & Cookie TTL", () => {
     expect(options.maxAge).toBe(1000 * 60 * 60 * 24 * 7); // 7 days TTL
   });
 });
+
+import { recordLoginAttempt, getAdminLoginSecuritySummary } from "./adminAuth";
+
+describe("Admin Login Audit and Security Summary", () => {
+  it("records failed attempts and triggers requiresWarning after 3 failures", () => {
+    const initialSummary = getAdminLoginSecuritySummary();
+    const startFailed = initialSummary.recentFailedCount;
+
+    recordLoginAttempt(false, "baduser", "127.0.0.1");
+    recordLoginAttempt(false, "baduser", "127.0.0.1");
+    recordLoginAttempt(false, "baduser", "127.0.0.1");
+
+    const summary = getAdminLoginSecuritySummary();
+    expect(summary.recentFailedCount).toBeGreaterThanOrEqual(startFailed + 3);
+    expect(summary.requiresWarning).toBe(true);
+  });
+});

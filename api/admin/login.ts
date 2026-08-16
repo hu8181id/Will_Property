@@ -65,13 +65,17 @@ export default async function handler(request: VercelRequest, response: ServerRe
   const username = typeof input.username === "string" ? input.username : "";
   const password = typeof input.password === "string" ? input.password : "";
 
+  const headers = request.headers ?? {};
+  const clientIp = String(headers["x-forwarded-for"] || "unknown");
+
   if (!verifyAdminCredentials(username, password)) {
+    recordLoginAttempt(false, username, clientIp);
     sendJson(response, { error: "Username atau password admin salah." }, 401);
     return;
   }
+  recordLoginAttempt(true, username, clientIp);
 
   const session = createAdminSession(username.trim());
-  const headers = request.headers ?? {};
   const forwardedProto = headers["x-forwarded-proto"];
   const protocol = Array.isArray(forwardedProto)
     ? forwardedProto[0]
