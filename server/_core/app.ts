@@ -36,6 +36,11 @@ export function createApp(options: AppOptions = {}): Express {
     return handleVercelBlobUploadAuth(req, res);
   });
 
+  app.post("/api/blob-delete", async (req, res) => {
+    const { handleVercelBlobDelete } = await import("../vercelBlobUpload");
+    return handleVercelBlobDelete(req, res);
+  });
+
   app.get("/robots.txt", (req, res) => {
     const origin = publicOrigin(req);
     res.type("text/plain").send(`User-agent: *

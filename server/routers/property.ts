@@ -273,6 +273,30 @@ export const propertyRouter = router({
       if (!db) return databaseError(new Error("Database unavailable"), "Delete");
 
       try {
+        const existing = await db.select().from(propertyListings).where(eq(propertyListings.id, input.id)).limit(1);
+        if (existing[0]) {
+          const prop = existing[0];
+          const urlsToDelete: string[] = [];
+          if (Array.isArray(prop.images)) {
+            for (const img of prop.images) {
+              if (typeof img === 'string' && img.startsWith('http')) urlsToDelete.push(img);
+            }
+          }
+          if (prop.videoUrl && typeof prop.videoUrl === 'string' && prop.videoUrl.startsWith('http')) {
+            urlsToDelete.push(prop.videoUrl);
+          }
+          if (prop.videoThumbnailUrl && typeof prop.videoThumbnailUrl === 'string' && prop.videoThumbnailUrl.startsWith('http')) {
+            urlsToDelete.push(prop.videoThumbnailUrl);
+          }
+          if (urlsToDelete.length > 0) {
+            try {
+              const { del } = await import('@vercel/blob');
+              await del(urlsToDelete, { token: process.env.BLOB_READ_WRITE_TOKEN || "mock-token-for-tests" });
+            } catch (blobDelErr) {
+              console.warn("[Property Delete] Failed to delete associated Vercel Blobs:", blobDelErr);
+            }
+          }
+        }
         await db.delete(propertyListings).where(eq(propertyListings.id, input.id));
         return { success: true };
       } catch (error) {

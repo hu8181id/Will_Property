@@ -155,3 +155,11 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Perluas error UI (alert/toast) ke semua jalur upload media (foto, thumbnail, video utama) di form admin.
 
 - [x] Tangani error dan tampilkan alert UI untuk kegagalan upload thumbnail dan video utama di form admin.
+
+# Perbaikan Total Vercel Blob Upload End-to-End
+- [x] Audit server/vercelBlobUpload.ts dan pastikan `BLOB_READ_WRITE_TOKEN` digunakan dengan benar tanpa mengekspos token ke client
+- [x] Perbarui client upload (`vercelBlobClient.ts` & `propertyVideoUpload.ts`) untuk mendukung foto (JPG, PNG, WebP) dan video (MP4, WebM) langsung ke Vercel Blob via token tergenrasi server
+- [x] Implementasikan penghapusan objek Blob di Vercel saat listing atau foto/video dihapus dari database
+- [x] Perbarui tampilan foto di Manage Listings dan halaman detail listing agar merender URL Blob persisten dengan benar setelah refresh
+- [x] Perbarui pemutaran video di halaman detail listing agar dapat memutar URL MP4/WebM dari Vercel Blob
+- [x] Jalankan test regresi, `pnpm test`, dan `pnpm build` untuk memastikan tidak ada error kompilasi maupun runtime

@@ -1,4 +1,5 @@
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
+import { del } from '@vercel/blob';
 import type { Request, Response } from 'express';
 
 export async function handleVercelBlobUploadAuth(req: Request, res: Response) {
@@ -33,5 +34,30 @@ export async function handleVercelBlobUploadAuth(req: Request, res: Response) {
   } catch (error: any) {
     console.error('[Vercel Blob] Error generating upload token:', error);
     return res.status(400).json({ error: error.message || 'Error handling blob upload' });
+  }
+}
+
+export async function handleVercelBlobDelete(req: Request, res: Response) {
+  try {
+    const adminKeyHeader = req.headers['x-admin-key'] || req.query.admin_key;
+    const expectedKey = process.env.ADMIN_SECRET_KEY || 'PDmanage!2026#SafeKey84';
+    if (adminKeyHeader !== expectedKey) {
+      return res.status(403).json({ error: "Unauthorized: Invalid admin key for blob deletion" });
+    }
+
+    const { url } = req.body || {};
+    if (!url || typeof url !== 'string') {
+      return res.status(400).json({ error: "Missing blob url" });
+    }
+
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      return res.status(500).json({ error: "BLOB_READ_WRITE_TOKEN not configured" });
+    }
+
+    await del(url, { token: process.env.BLOB_READ_WRITE_TOKEN });
+    return res.status(200).json({ success: true });
+  } catch (error: any) {
+    console.error('[Vercel Blob] Error deleting blob:', error);
+    return res.status(500).json({ error: error.message || 'Error deleting blob' });
   }
 }

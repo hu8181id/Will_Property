@@ -99,25 +99,26 @@ function dataUrlFromCanvas(canvas: HTMLCanvasElement, type = "image/jpeg") {
 
 async function compressImage(file: File): Promise<SelectedPropertyImage> {
   if (file.size > MAX_FILE_SIZE) {
-    throw new Error("Ukuran foto maksimal 10 MB sebelum kompresi.");
+    throw new Error("Ukuran foto maksimal 10 MB.");
   }
 
-  // Coba unggah langsung ke Vercel Blob terlebih dahulu jika tersedia
+  // 1. Coba upload langsung ke Vercel Blob agar permanen
   try {
     const { uploadToVercelBlob } = await import("@/lib/vercelBlobClient");
     const blobUrl = await uploadToVercelBlob(file);
     if (blobUrl) {
       return {
         src: blobUrl,
-        file,
+        file: undefined, // Sudah terunggah permanen
         name: file.name,
         contentType: file.type || "image/jpeg",
       };
     }
   } catch (blobErr) {
-    console.warn("[Vercel Blob Image] Direct blob upload failed, falling back to local compression preview:", blobErr);
+    console.warn("[Vercel Blob Image] Direct blob upload error during selection:", blobErr);
   }
 
+  // 2. Kompresi gambar client-side sebagai fallback canvas
   const bitmap = await createImageBitmap(file);
   const maxDimension = 1600;
   const scale = Math.min(1, maxDimension / Math.max(bitmap.width, bitmap.height));

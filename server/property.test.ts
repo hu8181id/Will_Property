@@ -1,4 +1,9 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
+
+vi.mock("@vercel/blob", () => ({
+  del: vi.fn().mockResolvedValue(undefined),
+  put: vi.fn().mockResolvedValue({ url: "https://blob.vercel-storage.com/mock.jpg" }),
+}));
 import * as dbModule from "./db";
 import * as notificationModule from "./_core/notification";
 import { appRouter } from "./routers";
@@ -97,10 +102,14 @@ describe("property listing contracts", () => {
     const updateWhere = vi.fn().mockResolvedValue([]);
     const updateSet = vi.fn(() => ({ where: updateWhere }));
     const deleteWhere = vi.fn().mockResolvedValue([]);
+    const selectLimit = vi.fn().mockResolvedValue([{ id: 420001, images: ["https://example.com/img1.jpg"], videoUrl: null, videoThumbnailUrl: null }]);
+    const selectWhere = vi.fn(() => ({ limit: selectLimit }));
+    const selectFrom = vi.fn(() => ({ where: selectWhere }));
     const fakeDb = {
       insert: vi.fn(() => ({ values: insertValues })),
       update: vi.fn(() => ({ set: updateSet })),
       delete: vi.fn(() => ({ where: deleteWhere })),
+      select: vi.fn(() => ({ from: selectFrom })),
     };
     const getDbSpy = vi.spyOn(dbModule, "getDb").mockResolvedValue(fakeDb as any);
     const notifyOwnerSpy = vi.spyOn(notificationModule, "notifyOwner").mockResolvedValue(undefined);
