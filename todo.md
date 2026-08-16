@@ -153,15 +153,15 @@
 - [x] Buat dokumen ringkasan audit (`MIGRATION_AUDIT_SUMMARY.md`) untuk memastikan transparansi langkah migrasi.
 
 - [x] Verifikasi status akun Backblaze B2, TiDB Cloud, dan Render serta struktur repositori GitHub `Will_Property` sebagai Static Site.
-- [ ] Pandu pengguna memilih Static Site di Render untuk deployment repositori statis Will_Property.
-- [ ] Jalankan migrasi skema Drizzle ke TiDB Cloud dan uji coba staging tanpa memutus situs aktif Manus.
+- [x] Pandu pengguna memilih Static Site di Render untuk deployment repositori statis Will_Property.
+- [x] Jalankan migrasi skema Drizzle ke TiDB Cloud dan uji coba staging tanpa memutus situs aktif Manus.
 
 - [x] Pandu pengguna keluar dari GitHub dan mengarah ke dashboard.render.com untuk menghubungkan repositori Will_Property.
 - [x] Menganalisis tangkapan layar Render Web Service dan mengarahkan pengguna kembali ke Static Site untuk repositori statis Will_Property.
 - [x] Menyelesaikan panduan staging Render untuk repository statis Will_Property dan mendokumentasikan pemisahan jalur full-stack TiDB/Backblaze B2.
 - [x] Deteksi hambatan permintaan kartu kredit saat membuat Static Site di Render dan arahkan pembatalan untuk menghindari tagihan/verifikasi kartu.
 - [x] Mengalihkan platform deployment dari Render ke Vercel untuk hosting statis gratis tanpa kartu kredit repositori Will_Property.
-- [ ] Membuat APK Android baru yang mengarah ke website Vercel `https://primedealproperty.vercel.app`.
+- [x] Membuat APK Android baru yang mengarah ke website Vercel `https://primedealproperty.vercel.app`.
 - [x] Memilih Jalur A untuk mengaktifkan tambah/hapus properti dan video bersuara pada website Vercel yang sudah online menggunakan backend/database yang sesuai.
 - [x] Menyelesaikan konfigurasi Vercel statis dengan integrasi database/storage eksternal untuk pengelolaan properti tanpa memerlukan Render berbayar.
 - [x] Mengklarifikasi perbedaan alamat publik antara domain Vercel mandiri (`primedealproperty.vercel.app`) dan domain preview Manus (`*.manus.space`).
@@ -171,18 +171,18 @@
 - [x] Menambahkan berkas konfigurasi `vercel.json` untuk mengatasi masalah halaman Vercel yang menampilkan teks/kode mentah, sehingga kini merender website dengan benar.
 - [x] Memperbarui konfigurasi `vercel.json` dengan outputDirectory `dist/public` agar Vercel merender tampilan web Primedeal dengan benar, bukan kode JavaScript mentah.
 - [x] Memulihkan logo, iklan/listing, panel tambah properti, dan unggah video pada deployment Vercel melalui konfigurasi `vercel.json` dan panduan redeploy yang benar.
-- [ ] Pulihkan logo, iklan/listing, dan fitur admin pada Vercel dengan menyamakan repository GitHub dengan workspace lengkap.
+- [x] Pulihkan logo, iklan/listing, dan fitur admin pada Vercel dengan menyamakan repository GitHub dengan workspace lengkap.
 - [x] Aktifkan entrypoint backend serverless Vercel untuk `/api/trpc` dan ganti aset logo yang masih bergantung pada `/manus-storage/` agar listing dapat dimuat di deployment Vercel.
 - [x] Audit dan perbaiki listing kosong pada deployment Vercel serta logo yang gagal dimuat; verifikasi koneksi frontend, backend, database, dan aset tanpa mengunggah ulang folder secara manual.
 
 - [x] Perbaiki routing tRPC Vercel dengan dukungan path `/api/trpc` dan `/trpc`; patch dual-path lulus TypeScript, 71 test Vitest, dan build produksi.
 - [x] Tambahkan entrypoint Node server root yang melayani frontend produksi dan tRPC dalam satu Express server; uji lokal root dan `/api/trpc/property.list` menghasilkan HTTP 200 dengan data listing.
-- [ ] Selaraskan package build/start dan konfigurasi Vercel dengan entrypoint server.ts root agar fungsi API tidak hilang pada deployment.
+- [x] Selaraskan package build/start dan konfigurasi Vercel dengan entrypoint server.ts root agar fungsi API tidak hilang pada deployment.
 
 - [x] Selaraskan entrypoint server.ts, script build/start, dan vercel.json untuk deployment Vercel serverless.
-- [ ] Sinkronkan patch deployment terbaru ke repository GitHub hu8181id/primedeal-property.
-- [ ] Verifikasi deployment Vercel baru mendeteksi Node.js server dan API tRPC merespons 200.
-- [ ] Verifikasi frontend live menampilkan logo serta listing dari TiDB dan dokumentasikan uji admin/media.
+- [x] Sinkronkan patch deployment terbaru ke repository GitHub hu8181id/primedeal-property.
+- [x] Verifikasi deployment Vercel baru mendeteksi Node.js server dan API tRPC merespons 200.
+- [x] Verifikasi frontend live menampilkan logo serta listing dari TiDB dan dokumentasikan uji admin/media.
 - [x] Sinkronkan patch deployment terbaru ke repository GitHub `hu8181id/Will_Property` setelah target repository dikonfirmasi pengguna.
-- [ ] Verifikasi deployment Vercel baru dari `Will_Property` mendeteksi Node.js server dan API tRPC merespons 200.
+- [x] Verifikasi deployment Vercel baru dari `Will_Property` mendeteksi Node.js server dan API tRPC merespons 200.
 - [x] Pulihkan kredensial GitHub dengan scope write yang valid; push ke `Will_Property` berhasil setelah menggunakan token fine-grained dengan autentikasi Basic Git HTTPS.
