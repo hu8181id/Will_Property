@@ -139,3 +139,6 @@
 - [x] Buat dokumen panduan langkah demi langkah pendaftaran dan pengaturan TiDB Cloud Serverless serta Cloudflare R2 (`EXTERNAL_SERVICES_SETUP.md`).
 - [x] Buat file konfigurasi build dan start untuk platform PaaS seperti Render (`render.yaml`) tanpa mengganggu server produksi Manus.
 - [x] Susun rencana verifikasi SEO pascamigrasi dan prosedur cutover domain yang aman tanpa downtime.
+
+- [ ] Ganti referensi Cloudflare R2 dengan alternatif storage S3-compatible tanpa kartu (seperti Supabase Storage / Backblaze B2 Free / ImgBB atau penyimpanan server mandiri) di EXTERNAL_SERVICES_SETUP.md.
+- [ ] Perbarui dokumentasi migrasi dan pastikan pengujian lokal tetap lulus.
