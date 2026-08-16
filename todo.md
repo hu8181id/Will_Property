@@ -135,3 +135,7 @@
 - [x] Perjelas format berbagi URL slug permanen untuk WhatsApp dan Instagram
 - [x] Tambahkan filter harga dan jumlah kamar pada halaman pencarian listing
 - [x] Siapkan skema migrasi hosting, database TiDB, dan storage S3 eksternal tanpa menghentikan situs aktif
+
+- [ ] Buat dokumen panduan langkah demi langkah pendaftaran dan pengaturan TiDB Cloud Serverless serta Cloudflare R2 (`EXTERNAL_SERVICES_SETUP.md`).
+- [ ] Buat file konfigurasi build dan start untuk platform PaaS seperti Render (`render.yaml`) tanpa mengganggu server produksi Manus.
+- [ ] Susun rencana verifikasi SEO pascamigrasi dan prosedur cutover domain yang aman tanpa downtime.

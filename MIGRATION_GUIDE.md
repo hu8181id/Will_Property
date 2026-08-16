@@ -63,3 +63,14 @@ BUILT_IN_FORGE_API_KEY="token_api_anda"
 - **Sitemap & SEO:** Perbarui URL sitemap agar mencerminkan domain mandiri baru, lalu lakukan inspeksi ulang pada Google Search Console.
 
 *Disusun oleh Manus AI.*
+
+---
+
+## 4. Prosedur Verifikasi SEO & Cutover Domain Tanpa Downtime
+
+Agar perpindahan server tidak mengganggu peringkat pencarian Google yang telah dibangun:
+1. **Biarkan Situs Lama Tetap Aktif:** Pertahankan server Manus aktif selama proses uji coba deploy di Render atau VPS selesai.
+2. **Pindahkan Database & Storage Terlebih Dahulu:** Lakukan migrasi data properti ke TiDB Cloud dan pastikan seluruh gambar/video dapat diakses dari storage S3 baru.
+3. **Uji Aplikasi di Domain Sementara:** Jalankan aplikasi di URL sementara (misalnya `*.onrender.com`) dan pastikan seluruh fungsi login admin, tambah listing, filter, dan berbagi slug berjalan normal.
+4. **Alihkan DNS (Cutover):** Ubah catatan CNAME/A pada registrar domain Anda ke alamat server baru. Karena URL slug permanen (`/properti/[slug]`) dipertahankan secara identik, Googlebot tidak akan mendeteksi tautan rusak.
+5. **Kirim Ulang Sitemap di Google Search Console:** Setelah domain baru aktif dan SSL terpasang, periksa file `sitemap.xml` di server baru dan kirimkan ulang (re-submit) di GSC untuk mempercepat perayapan ulang (re-indexing).
