@@ -139,4 +139,7 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Hubungkan upload foto listing ke `uploadToVercelBlob` dan amankan endpoint token dengan `ADMIN_SECRET_KEY`
 - [x] Jalankan pengujian penuh `pnpm test` untuk memastikan 108 test Vitest lulus setelah integrasi Vercel Blob
 
-- [ ] Atasi masalah gambar tidak muncul di Vercel akibat belum dikonfigurasikannya token Vercel Blob
+- [x] Atasi masalah gambar tidak muncul di Vercel akibat belum dikonfigurasikannya token Vercel Blob
+
+- [x] Konfigurasikan `BLOB_READ_WRITE_TOKEN` pada environment Vercel dan pastikan endpoint `/api/blob-upload-auth` siap melayani token upload.
+- [x] Pastikan alur upload foto dan video pada form admin Vercel secara ketat menghasilkan URL persisten yang valid tanpa mengandalkan data URL/preview lokal.
