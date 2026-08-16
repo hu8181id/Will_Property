@@ -1,6 +1,13 @@
 import { COOKIE_NAME } from "@shared/const";
 
-export const PROPERTY_VIDEO_CONTENT_TYPES = ["video/mp4", "video/webm", "video/quicktime"] as const;
+export const PROPERTY_VIDEO_CONTENT_TYPES = [
+  "video/mp4",
+  "video/webm",
+  "video/quicktime",
+  "video/x-m4v",
+  "video/3gpp",
+  "video/3gpp2",
+] as const;
 export const MAX_PROPERTY_VIDEO_BYTES = 50 * 1024 * 1024;
 
 type UploadResponse = {
@@ -12,6 +19,28 @@ type UploadResponse = {
 };
 
 export type PropertyVideoUploadProgress = (percent: number) => void;
+
+const extensionToContentType: Record<string, (typeof PROPERTY_VIDEO_CONTENT_TYPES)[number]> = {
+  mp4: "video/mp4",
+  m4v: "video/x-m4v",
+  webm: "video/webm",
+  mov: "video/quicktime",
+  qt: "video/quicktime",
+  "3gp": "video/3gpp",
+  "3g2": "video/3gpp2",
+};
+
+export function normalizePropertyVideoContentType(contentType?: string, fileName?: string) {
+  const normalized = contentType?.split(";", 1)[0]?.trim().toLowerCase();
+  if (normalized && (PROPERTY_VIDEO_CONTENT_TYPES as readonly string[]).includes(normalized)) {
+    return normalized as (typeof PROPERTY_VIDEO_CONTENT_TYPES)[number];
+  }
+  if (!normalized || normalized === "application/octet-stream") {
+    const extension = fileName?.split(".").pop()?.trim().toLowerCase();
+    return extension ? extensionToContentType[extension] : undefined;
+  }
+  return undefined;
+}
 
 function getResponseMessage(payload: UploadResponse | null, fallback: string) {
   return payload?.error?.trim() || fallback;
@@ -55,8 +84,9 @@ async function readPayload(response: Response) {
 }
 
 export async function uploadPropertyVideo(file: File, onProgress?: PropertyVideoUploadProgress) {
-  if (!(PROPERTY_VIDEO_CONTENT_TYPES as readonly string[]).includes(file.type)) {
-    throw new Error("Video harus berformat MP4, WebM, atau MOV.");
+  const contentType = normalizePropertyVideoContentType(file.type, file.name);
+  if (!contentType) {
+    throw new Error("Video harus berformat MP4, WebM, MOV, M4V, atau 3GP.");
   }
   if (file.size <= 0) throw new Error("File video kosong atau tidak dapat dibaca.");
   if (file.size > MAX_PROPERTY_VIDEO_BYTES) throw new Error("Ukuran video maksimal 50 MB.");
@@ -65,7 +95,7 @@ export async function uploadPropertyVideo(file: File, onProgress?: PropertyVideo
     method: "POST",
     credentials: "include",
     headers: requestHeaders("application/json"),
-    body: JSON.stringify({ contentType: file.type, fileName: file.name, size: file.size }),
+    body: JSON.stringify({ contentType, fileName: file.name, size: file.size }),
   });
   const sessionPayload = await readPayload(sessionResponse);
   if (!sessionResponse.ok || !sessionPayload?.sessionId || !sessionPayload.chunkBytes || !sessionPayload.totalChunks) {
@@ -80,8 +110,8 @@ export async function uploadPropertyVideo(file: File, onProgress?: PropertyVideo
     const chunkResponse = await fetch(`/api/property-video-upload-sessions/${sessionPayload.sessionId}/chunks/${index}`, {
       method: "POST",
       credentials: "include",
-      headers: requestHeaders(file.type),
-      body: file.slice(start, end, file.type),
+      headers: requestHeaders(contentType),
+      body: file.slice(start, end, contentType),
     });
     const chunkPayload = await readPayload(chunkResponse);
     if (!chunkResponse.ok) {
