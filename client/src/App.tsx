@@ -18,21 +18,19 @@ import Terms from "./pages/Terms";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminAnalyticsDashboard from "@/pages/AdminAnalyticsDashboard";
 import AdminReviews from "@/pages/AdminReviews";
+import EmergencyListingManager from "@/pages/EmergencyListingManager";
 
 function GoogleAnalyticsRouteTracker() {
   const [location] = useLocation();
-
   useEffect(() => {
     trackGoogleAnalyticsPageView(location);
   }, [location]);
-
   return null;
 }
 
 function VisitorTracker() {
   const [location] = useLocation();
   const { mutate } = trpc.analytics.recordVisit.useMutation();
-
   useEffect(() => {
     const contentTitle = {
       "/": "Beranda",
@@ -43,12 +41,10 @@ function VisitorTracker() {
     }[location];
     mutate({ page: contentTitle ? { contentType: "page", path: location, contentTitle } : undefined });
   }, [location, mutate]);
-
   return null;
 }
 
 function Router() {
-  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -61,26 +57,18 @@ function Router() {
       <Route path="/ketentuan" component={Terms} />
       <Route path="/admin" component={AdminLogin} />
       <Route path="/admin/dashboard" component={AdminAnalyticsDashboard} />
-      <Route path="/admin/reviews" component={AdminReviews} />
+      <Route path="/admin-reviews" component={AdminReviews} />
+      <Route path="/manage-listings" component={EmergencyListingManager} />
       <Route path="/404" component={NotFound} />
-      {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <GoogleAnalyticsRouteTracker />
