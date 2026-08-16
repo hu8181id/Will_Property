@@ -18,6 +18,7 @@ import Terms from "./pages/Terms";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminAnalyticsDashboard from "@/pages/AdminAnalyticsDashboard";
 import AdminReviews from "@/pages/AdminReviews";
+import EmergencyListingManager from "@/pages/EmergencyListingManager";
 
 function GoogleAnalyticsRouteTracker() {
   const [location] = useLocation();
@@ -61,7 +62,8 @@ function Router() {
       <Route path="/ketentuan" component={Terms} />
       <Route path="/admin" component={AdminLogin} />
       <Route path="/admin/dashboard" component={AdminAnalyticsDashboard} />
-      <Route path="/admin/reviews" component={AdminReviews} />
+      <Route path="/admin-reviews" component={AdminReviews} />
+      <Route path="/manage-listings" component={EmergencyListingManager} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
