@@ -1,90 +1,104 @@
-import { storageGetSignedUrl } from "../server/storage";
+type MediaRequest = Request;
 
-type VercelRequest = {
-  query?: Record<string, string | string[] | undefined>;
-};
+function getStorageKey(request: MediaRequest) {
+  const url = new URL(request.url);
+  const queryValues = url.searchParams.getAll("path");
+  const queryPath = queryValues.filter(Boolean).join("/");
+  if (queryPath) return queryPath.replace(/^\/+/, "");
 
-type VercelResponse = {
-  status: (code: number) => VercelResponse;
-  setHeader: (name: string, value: string) => void;
-  end: (body?: string) => void;
-};
+  const marker = "/manus-storage/";
+  const markerIndex = url.pathname.indexOf(marker);
+  if (markerIndex < 0) return "";
 
-function getPath(req: VercelRequest) {
-  const value = req.query?.path;
-  if (Array.isArray(value)) return value.join("/").replace(/^\/+/, "");
-  return typeof value === "string" ? value.replace(/^\/+/, "") : "";
+  const rawPath = url.pathname.slice(markerIndex + marker.length);
+  try {
+    return decodeURIComponent(rawPath).replace(/^\/+/, "");
+  } catch {
+    return rawPath.replace(/^\/+/, "");
+  }
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const key = getPath(req);
+function redirectTo(url: string, maxAge: number) {
+  return new Response(null, {
+    status: 307,
+    headers: {
+      Location: url,
+      "Cache-Control": `public, max-age=${maxAge}`,
+    },
+  });
+}
+
+function textResponse(status: number, message: string) {
+  return new Response(message, {
+    status,
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}
+
+async function redirectToForge(key: string, forgeApiUrl: string, forgeApiKey: string) {
+  const presignUrl = new URL(
+    "v1/storage/presign/get",
+    forgeApiUrl.replace(/\/+$/, "") + "/",
+  );
+  presignUrl.searchParams.set("path", key);
+  const response = await fetch(presignUrl, {
+    headers: { Authorization: `Bearer ${forgeApiKey}` },
+  });
+  if (!response.ok) {
+    const body = await response.text().catch(() => "");
+    throw new Error(`presign failed: ${response.status} ${body.slice(0, 300)}`);
+  }
+
+  const payload = (await response.json()) as { url?: string };
+  if (!payload.url) throw new Error("storage returned no signed URL");
+  return payload.url;
+}
+
+export default async function handler(request: Request): Promise<Response> {
+  const key = getStorageKey(request);
+  if (!key) return textResponse(400, "Missing media path");
+
   const forgeApiUrl = process.env.BUILT_IN_FORGE_API_URL ?? "";
   const forgeApiKey = process.env.BUILT_IN_FORGE_API_KEY ?? "";
   const hasBackblazeConfig = Boolean(
-    process.env.S3_ENDPOINT && process.env.S3_BUCKET && process.env.S3_KEY && process.env.S3_SECRET,
+    process.env.S3_ENDPOINT &&
+      process.env.S3_BUCKET &&
+      process.env.S3_KEY &&
+      process.env.S3_SECRET,
   );
 
-  if (!key) {
-    res.status(400).end("Missing media path");
-    return;
-  }
   if (hasBackblazeConfig) {
     try {
+      // Keep the heavier S3 module out of the top-level import path. This makes
+      // the Vercel function load reliably and turns storage errors into a useful
+      // HTTP response instead of FUNCTION_INVOCATION_FAILED.
+      const { storageGetSignedUrl } = await import("../server/storage");
       const signedUrl = await storageGetSignedUrl(key);
-      res.status(307);
-      res.setHeader("Location", signedUrl);
-      res.setHeader("Cache-Control", "public, max-age=3600");
-      res.end();
+      return redirectTo(signedUrl, 3600);
     } catch (error) {
       console.error("[MediaProxy] Backblaze signed URL failed:", error);
-      res.status(502).end("Media storage backend error");
+      return textResponse(502, "Media storage backend error");
     }
-    return;
   }
 
-  if (!forgeApiUrl || !forgeApiKey) {
-    // Existing listings may still reference the former Manus storage path.
-    // The legacy public endpoint redirects to its CDN-signed object URL.
-    const legacyPath = key
-      .split("/")
-      .map(segment => encodeURIComponent(segment))
-      .join("/");
-    const legacyUrl = `https://primedeal-jl8furcm.manus.space/manus-storage/${legacyPath}`;
-    res.status(307);
-    res.setHeader("Location", legacyUrl);
-    res.setHeader("Cache-Control", "public, max-age=300");
-    res.end();
-    return;
+  if (forgeApiUrl && forgeApiKey) {
+    try {
+      const signedUrl = await redirectToForge(key, forgeApiUrl, forgeApiKey);
+      return redirectTo(signedUrl, 3600);
+    } catch (error) {
+      console.error("[MediaProxy] Forge signed URL failed:", error);
+      return textResponse(502, "Media storage backend error");
+    }
   }
 
-  try {
-    const presignUrl = new URL(
-      "v1/storage/presign/get",
-      forgeApiUrl.replace(/\/+$/, "") + "/",
-    );
-    presignUrl.searchParams.set("path", key);
-    const response = await fetch(presignUrl, {
-      headers: { Authorization: `Bearer ${forgeApiKey}` },
-    });
-    if (!response.ok) {
-      const body = await response.text().catch(() => "");
-      console.error(`[MediaProxy] presign failed: ${response.status} ${body.slice(0, 300)}`);
-      res.status(502).end("Media storage backend error");
-      return;
-    }
-
-    const payload = (await response.json()) as { url?: string };
-    if (!payload.url) {
-      res.status(502).end("Media storage returned no URL");
-      return;
-    }
-
-    res.status(307);
-    res.setHeader("Location", payload.url);
-    res.setHeader("Cache-Control", "public, max-age=3600");
-    res.end();
-  } catch (error) {
-    console.error("[MediaProxy] failed:", error);
-    res.status(502).end("Media proxy error");
-  }
+  // Existing legacy listings may still be available from the former Manus
+  // storage service when neither current storage configuration is present.
+  const legacyPath = key
+    .split("/")
+    .map(segment => encodeURIComponent(segment))
+    .join("/");
+  return redirectTo(
+    `https://primedeal-jl8furcm.manus.space/manus-storage/${legacyPath}`,
+    300,
+  );
 }
