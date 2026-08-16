@@ -1,11 +1,9 @@
-# Project TODO - Primedeal Property (Sync Audit Complete)
+# Project TODO - Primedeal Property (All Verified)
 
 - [x] Migrasi deployment Vercel, database TiDB Cloud, dan penyimpanan Backblaze B2
 - [x] Konfigurasi routing SPA dan tRPC serverless di Vercel
 - [x] Implementasi gesture admin tersembunyi (3 ketukan cepat pada logo)
 - [x] Migrasi endpoint login admin ke tRPC router (`adminAuth.login`) dan prosedur `adminAuth.checkConfig`
 - [x] Memastikan prinsip keamanan fail-closed pada verifikasi kredensial admin saat environment variables belum terbaca
-- [x] Investigasi sinkronisasi commit Vercel dan memastikan route tRPC adminAuth.login terakses benar di produksi
-- [x] Menjalankan test Vitest lengkap (89 test lulus) dan build produksi sukses
-
-- [ ] Investigasi duplikasi environment variables di Vercel dan pastikan kontrak login menerima kredensial dengan benar tanpa spasi tersembunyi
+- [x] Investigasi duplikasi environment variables di Vercel dan pastikan kontrak login menerima kredensial dengan benar tanpa spasi tersembunyi (termasuk trimming password)
+- [x] Menjalankan test Vitest lengkap (90 test lulus) dan build produksi sukses

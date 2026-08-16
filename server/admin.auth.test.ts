@@ -158,3 +158,12 @@ describe("Admin Credentials Fail-Closed Security", () => {
     process.env.ADMIN_PASSWORD = originalPass;
   });
 });
+
+describe("Admin Credentials Password Trimming", () => {
+  it("verifies credentials correctly when password has trailing or leading whitespace", () => {
+    process.env.ADMIN_USERNAME = "admin";
+    process.env.ADMIN_PASSWORD = "mypassword";
+
+    expect(verifyAdminCredentials("admin", "  mypassword  ")).toBe(true);
+  });
+});
