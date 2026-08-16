@@ -123,3 +123,6 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Verifikasi status Ready deployment Vercel secara nyata
 
 - [x] Lakukan verifikasi live Vercel domain production untuk memastikan gambar dan upload video stabil tanpa kendala
+
+- [ ] Implementasikan fallback penyimpanan listing langsung tanpa bergantung pada proses chunked upload video yang timeout di Vercel
+- [ ] Sederhanakan proxy media agar langsung menggunakan URL gambar publik tanpa redirect signed B2 yang gagal

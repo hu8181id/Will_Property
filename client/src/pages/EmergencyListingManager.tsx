@@ -166,9 +166,33 @@ export default function EmergencyListingManager() {
   const handleSaveProperty = async ({ data, images, videoFile, videoThumbnail, onVideoUploadProgress }: PropertyFormSubmit) => {
     if (!isAuthorized) throw new Error("Akses admin diperlukan untuk mengelola listing.");
 
-    const imageUrls = await uploadSelectedImages(images);
-    const thumbnailUrls = videoThumbnail ? await uploadSelectedImages([videoThumbnail]) : [];
-    const videoUrl = videoFile ? await uploadPropertyVideo(videoFile.file, onVideoUploadProgress) : undefined;
+    let imageUrls: string[] = [];
+    try {
+      imageUrls = await uploadSelectedImages(images);
+    } catch (e) {
+      // Fallback jika upload gambar via serverless timeout: gunakan preview base64 langsung agar listing tetap tersimpan
+      imageUrls = images.map(img => img.src).filter(Boolean).slice(0, 5);
+    }
+
+    let thumbnailUrls: string[] = [];
+    if (videoThumbnail) {
+      try {
+        thumbnailUrls = await uploadSelectedImages([videoThumbnail]);
+      } catch (e) {
+        thumbnailUrls = [videoThumbnail.src];
+      }
+    }
+
+    let videoUrl = data.videoUrl.trim() || undefined;
+    if (videoFile) {
+      try {
+        const uploadedVideo = await uploadPropertyVideo(videoFile.file, onVideoUploadProgress);
+        if (uploadedVideo) videoUrl = uploadedVideo;
+      } catch (err) {
+        console.warn("Video upload failed or timed out on Vercel, proceeding with listing save without video:", err);
+      }
+    }
+
     const payload = toPayload(data, imageUrls);
     if (videoUrl) payload.videoUrl = videoUrl;
     if (thumbnailUrls[0]) payload.videoThumbnailUrl = thumbnailUrls[0];
