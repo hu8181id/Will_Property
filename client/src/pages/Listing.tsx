@@ -491,12 +491,26 @@ export default function Listing() {
                 </Button>
               </div>
             </div>
-            <div className="flex gap-3 pt-4 border-t">
-              <Button className="flex-1 bg-primary text-white" onClick={() => {
-                const message = `Halo Primedeal, saya tertarik dengan listing "${selectedProperty.title}" (${formatPrice(selectedProperty.price)}) di ${selectedProperty.location}. Mohon informasi lebih lanjut.`;
-                window.open(`https://wa.me/6282230357009?text=${encodeURIComponent(message)}`, "_blank");
-              }}>Hubungi WhatsApp Agen</Button>
-              <Button variant="outline" onClick={() => setSelectedProperty(null)}>Tutup</Button>
+            <div className="space-y-3 pt-4 border-t">
+              <div className="grid grid-cols-2 gap-2">
+                <Button variant="outline" className="border-emerald-500/40 text-emerald-700 hover:bg-emerald-50" onClick={() => {
+                  const shareUrl = `${window.location.origin}${propertyDetailPath(selectedProperty)}`;
+                  const shareText = `*${selectedProperty.title}*\nLokasi: ${selectedProperty.location}\nHarga: ${formatPrice(selectedProperty.price)}\nTipe: ${selectedProperty.transactionType.toUpperCase()} - ${selectedProperty.type}\nKamar: ${selectedProperty.beds} KT | ${selectedProperty.baths} KM | Luas: ${selectedProperty.area} m²\n\nLihat detail: ${shareUrl}`;
+                  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`, "_blank");
+                }}>Bagikan WhatsApp</Button>
+                <Button variant="outline" className="border-pink-500/40 text-pink-700 hover:bg-pink-50" onClick={() => {
+                  const shareUrl = `${window.location.origin}${propertyDetailPath(selectedProperty)}`;
+                  const shareText = `${selectedProperty.title}\nLokasi: ${selectedProperty.location}\nHarga: ${formatPrice(selectedProperty.price)}\n\nCek detail: ${shareUrl}`;
+                  navigator.clipboard.writeText(shareText).then(() => toast.success("Teks & link tersalin! Siap ditempel di Caption / Story Instagram.")).catch(() => toast.error("Gagal menyalin teks. Silakan coba lagi."));
+                }}>Salin untuk Instagram</Button>
+              </div>
+              <div className="flex gap-3">
+                <Button className="flex-1 bg-primary text-white" onClick={() => {
+                  const message = `Halo Primedeal, saya tertarik dengan listing "${selectedProperty.title}" (${formatPrice(selectedProperty.price)}) di ${selectedProperty.location}. Mohon informasi lebih lanjut.`;
+                  window.open(`https://wa.me/6282230357009?text=${encodeURIComponent(message)}`, "_blank");
+                }}>Hubungi WhatsApp Agen</Button>
+                <Button variant="outline" onClick={() => setSelectedProperty(null)}>Tutup</Button>
+              </div>
             </div>
           </div>
         </div>
