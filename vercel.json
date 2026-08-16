@@ -3,46 +3,10 @@
   "version": 2,
   "buildCommand": "pnpm build",
   "outputDirectory": "dist/public",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/trpc/(.*)",
-      "dest": "server.ts"
-    },
-    {
-      "src": "/trpc/(.*)",
-      "dest": "server.ts"
-    },
-    {
-      "src": "/manus-storage/(.*)",
-      "dest": "server.ts"
-    },
-    {
-      "src": "/api/upload-property-video",
-      "dest": "server.ts"
-    },
-    {
-      "src": "/api/oauth/(.*)",
-      "dest": "server.ts"
-    },
-    {
-      "src": "/robots.txt",
-      "dest": "server.ts"
-    },
-    {
-      "src": "/sitemap.xml",
-      "dest": "server.ts"
-    },
-    {
-      "src": "/apk/(.*)",
-      "dest": "server.ts"
-    },
-    {
-      "src": "/assets/(.*)",
-      "destination": "/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "server.ts"
+      "source": "/trpc/:path*",
+      "destination": "/api/trpc/:path*"
     }
   ]
 }
