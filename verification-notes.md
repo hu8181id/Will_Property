@@ -21,3 +21,17 @@ Deployment Vercel baru `EatqyozXdRHduJnbz2AfaUGKddXd` dari commit `3b64159` terd
 Deployment `EatqyozXdRHduJnbz2AfaUGKddXd` dari `3b64159` kini berstatus `Ready` selama 43 detik, dengan domain production `primedeal-property.vercel.app` dan alias preview `primedeal-property-eg813igym-willproperty.vercel.app`.
 
 Hasil uji production: URL https://primedeal-property.vercel.app/manage-listings?admin_key=PDmanage%212026%23SafeKey84 membuka halaman `Panel Manajemen Darurat Listing` tanpa 404. Halaman menampilkan `Akses Kontrol Aktif`, tombol `Tambah Listing Baru`, `Edit`, dan `Hapus`, serta daftar properti yang termuat dari backend. Ini mengonfirmasi route dan bypass darurat sudah bekerja pada domain Vercel.
+
+[2026-08-16] Uji production setelah checkpoint e8c60460: URL `https://primedeal-property.vercel.app/manage-listings?admin_key=PDmanage%212026%23SafeKey84` berhasil memuat halaman, menampilkan `Akses Kontrol Aktif`, tombol `Tambah Listing Baru`, dan daftar listing. Namun deployment Vercel masih menampilkan teks manager versi sebelumnya, sehingga perubahan form upload terbaru dan dukungan 5 foto belum terbukti sudah tersinkron ke Vercel. Item uji production tetap pending sampai deployment Vercel memakai commit upload terbaru.
+
+[2026-08-16] Vercel mendeteksi commit `99c6441` dengan pesan `Fix admin key video upload`; deployment production preview `https://primedeal-property-munn15yq9-willproperty.vercel.app` masih berstatus `Building` saat diperiksa pada 15:13. Deployment sebelumnya `3b64159` tetap Ready. Akan diuji ulang setelah `99c6441` berubah menjadi Ready.
+
+29. [2026-08-16] Deployment Vercel commit `bfaf5b0` mulai terdeteksi dengan pesan `Add 5-photo property dialog`. URL production menampilkan `Akses Aktif`, form `Tambah Properti Baru`, teks `maksimal 5 foto`, pemilih foto, dan bagian upload video. Pemeriksaan atribut DOM input file masih dilakukan.
+
+30. [2026-08-16] Pemeriksaan DOM production menemukan 3 input file: foto `accept=image/*` dengan `multiple=true`, video `accept=video/mp4,video/webm,video/quicktime` dengan `multiple=false`, dan thumbnail `accept=image/*`. Ini mengonfirmasi file picker foto maksimal 5 slot dan file picker video sudah aktif pada deployment terbaru.
+
+31. [2026-08-16] Uji upload otomatis enam file pertama gagal menargetkan input karena elemen file tersembunyi. DOM tetap menemukan input foto dengan `multiple=true`; input dibuat sementara terlihat melalui browser untuk menguji perilaku batas lima file tanpa mengubah source production.
+
+32. [2026-08-16] Uji production memilih 6 file PNG pada input foto berhasil ditangkap oleh browser. UI menampilkan toast `Maksimal 5 foto per listing.` dan tetap menunjukkan `tersisa 5 slot`; tidak ada foto ke-6 yang ditambahkan. Ini mengonfirmasi handler menolak pilihan yang melampaui batas, tanpa membuat data listing.
+
+33. [2026-08-16] Setelah percobaan upload enam file, percobaan lima file pada input yang sama dilaporkan berhasil oleh browser tetapi event production tidak memperbarui state React: DOM masih membaca `input.files.length=6`, slot tetap `tersisa 5 slot`, dan preview tetap 0. Hal ini menunjukkan harness browser mempertahankan FileList sebelumnya; uji batas lebih dari lima sudah terbukti melalui toast penolakan, sementara penerimaan tepat lima perlu diuji setelah input di-reset.
