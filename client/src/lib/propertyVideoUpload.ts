@@ -30,11 +30,23 @@ function getSessionAuthorizationHeader() {
   }
 }
 
+function getEmergencyAdminKey() {
+  if (typeof window === "undefined") return undefined;
+  try {
+    const key = new URLSearchParams(window.location.search).get("admin_key");
+    return key?.trim() || undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 function requestHeaders(contentType?: string) {
   const authorization = getSessionAuthorizationHeader();
+  const emergencyAdminKey = getEmergencyAdminKey();
   return {
     ...(contentType ? { "Content-Type": contentType } : {}),
     ...(authorization ? { Authorization: authorization } : {}),
+    ...(emergencyAdminKey ? { "x-admin-key": emergencyAdminKey } : {}),
   };
 }
 

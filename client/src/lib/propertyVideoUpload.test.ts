@@ -47,6 +47,22 @@ describe("uploadPropertyVideo", () => {
     );
   });
 
+  it("meneruskan admin_key sebagai header bypass pada semua tahap", async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ sessionId: "session-1", chunkBytes: 8, totalChunks: 1 }), { status: 201 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ success: true }), { status: 201 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ url: "/manus-storage/properties/videos/tur.mp4" }), { status: 201 }));
+    vi.stubGlobal("fetch", fetchMock);
+    window.history.replaceState({}, "", "/manage-listings?admin_key=emergency-key-123");
+    const file = new File(["video"], "tur-properti.mp4", { type: "video/mp4" });
+
+    await uploadPropertyVideo(file);
+
+    for (const call of fetchMock.mock.calls) {
+      expect(call[1]?.headers).toEqual(expect.objectContaining({ "x-admin-key": "emergency-key-123" }));
+    }
+  });
+
   it("meneruskan sesi fallback WebView sebagai Bearer token pada semua tahap", async () => {
     const fetchMock = vi.fn()
       .mockResolvedValueOnce(new Response(JSON.stringify({ sessionId: "session-1", chunkBytes: 8, totalChunks: 1 }), { status: 201 }))
