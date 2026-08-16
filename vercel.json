@@ -10,7 +10,7 @@
     },
     {
       "source": "/manus-storage/:path*",
-      "destination": "/api/manus-storage/:path*"
+      "destination": "/api/media?path=:path*"
     },
     {
       "source": "/((?!api/).*)",

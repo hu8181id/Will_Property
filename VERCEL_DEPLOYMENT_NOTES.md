@@ -86,3 +86,38 @@ Deployment `https://primedeal-property-99oz442cq-willproperty.vercel.app/listing
 ## Verifikasi alias produksi — route Listing pulih
 
 Alias produksi `https://primedeal-property.vercel.app/listing` sekarang menampilkan 11 listing dari database TiDB. Tombol detail listing pertama berhasil membuka `https://primedeal-property.vercel.app/properti/gunawangsa-manyar-2br-furnished-dekat-unair-its-merr-360001` tanpa 404; modal detail menampilkan judul, lokasi, harga, spesifikasi, deskripsi, dan media video/virtual tour. Root domain dan route Listing publik sudah terverifikasi.
+
+## 2026-08-16 — Proxy media legacy Vercel
+
+- Field media listing masih memakai URL `/manus-storage/properties/...`.
+- URL tersebut mengembalikan HTTP 404 pada alias produksi dan preview karena route media belum terdeteksi sebagai fungsi Vercel.
+- Patch awal `api/manus-storage/[...path].ts` dan rewrite khusus media sudah dikirim ke GitHub, tetapi endpoint langsung tetap 404 pada deployment preview.
+- Patch lanjutan menambahkan fungsi top-level `api/media.ts` dan mengubah rewrite menjadi `/api/media?path=:path*` agar kompatibel dengan deteksi fungsi Vercel.
+- `pnpm check`, `pnpm build`, dan `pnpm test` lulus: 71 passed, 1 skipped.
+- Deployment baru perlu dikirim ke GitHub dan diuji ulang sebelum media dapat dinyatakan pulih.
+
+## 2026-08-16 — Deployment proxy media terbaru
+
+- Vercel membuat beberapa deployment Production terpisah karena GitHub Contents API mengirim empat file sebagai empat commit.
+- Commit `8c343b8` (`api/media.ts`), `acd5296` (`vercel.json`), `3a0cfd4` (test), dan `d93ec7c` (todo) masih Queued/Building pada pemeriksaan terakhir.
+- Deployment proxy catch-all `19e642a` sudah Ready tetapi endpoint `/api/manus-storage/*` masih 404, sehingga pengujian harus menunggu deployment top-level `api/media.ts` dan rewrite `acd5296` selesai.
+
+## 2026-08-16 — Hasil uji top-level media
+
+Deployment terbaru `df91590` sudah Ready dan route media legacy sudah mencapai fungsi serverless, tetapi URL `/manus-storage/properties/...jpg` kini mengembalikan HTTP 500 `FUNCTION_INVOCATION_FAILED`. Ini berarti deteksi fungsi/rewrite sudah berhasil; penyebab tersisa berada di implementasi proxy, kemungkinan format respons Forge storage atau pemanggilan API storage di runtime Vercel.
+
+## 2026-08-16 — Media proxy setelah patch bundling
+
+Deployment `c0764c1` sudah menjalankan fungsi `api/media.ts` tanpa `ERR_MODULE_NOT_FOUND`. Respons sekarang HTTP 503 `Media storage is not configured`, yang mengonfirmasi environment `BUILT_IN_FORGE_API_URL` dan/atau `BUILT_IN_FORGE_API_KEY` tidak tersedia di Vercel. URL media legacy masih belum dapat ditampilkan sampai storage source dikonfigurasi di Vercel atau file dipindahkan ke Backblaze B2.
+
+## 2026-08-16 — Fallback media legacy berhasil
+
+Deployment `7603f6b` berstatus Ready. URL `/manus-storage/properties/...jpg` kini mengikuti redirect ke CloudFront signed URL dan browser berhasil menampilkan gambar berukuran 1200×1600. Perbaikan ini mengatasi gambar legacy yang sebelumnya kosong.
+
+## 2026-08-16 — Uji alias produksi setelah media redirect
+
+Pada alias `https://primedeal-property.vercel.app`, navigasi ke URL detail Gunawangsa kembali ke halaman Listing dan tampilan browser menunjukkan `Menampilkan 0 properti` dengan kartu placeholder. Ini perlu diverifikasi terhadap endpoint `property.list`; kemungkinan data masih loading atau alias produksi belum memakai environment/deployment terbaru. Media proxy pada preview `7603f6b` sudah terbukti mengikuti redirect ke CloudFront dan gambar tampil.
+
+## 2026-08-16 — Verifikasi gambar dan video produksi
+
+Smoke test API produksi mengembalikan 11 listing. URL gambar pertama `/manus-storage/properties/...jpg` mengikuti redirect ke CloudFront dan browser menampilkan gambar 1200×1600. URL video pertama `/manus-storage/properties/videos/...mp4` juga mengikuti redirect ke CloudFront dan browser mengenali serta memutar video berdurasi sekitar 19 detik.

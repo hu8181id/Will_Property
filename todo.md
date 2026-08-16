@@ -4856,2258 +4856,2258 @@
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar and video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
-- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
-- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [x] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [x] Konfirmasi hasil perbaikan media kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
-
-## Perbaikan media gambar dan video listing Vercel
-
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar and video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
-- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
-- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Perbaikan media gambar dan video listing Vercel
 
-- [ ] Audit URL
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [x] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [x] Audit URL
