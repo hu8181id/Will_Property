@@ -129,3 +129,7 @@ Preview desktop dan mobile menampilkan logo Primedeal tanpa tombol Admin publik.
 ## 2026-08-16 — Uji keamanan akses admin di domain produksi
 
 Pada `https://primedeal-property.vercel.app`, request `auth.me` tanpa cookie mengembalikan `null`, sedangkan `property.list` publik mengembalikan HTTP 200 dengan 11 listing. Request tanpa sesi ke `property.create`, `property.update`, `property.delete`, `property.uploadImage`, dan `property.uploadVideo` seluruhnya mengembalikan HTTP 403 dengan kode `FORBIDDEN` dan pesan `You do not have required permission (10002)`. Tidak ada data uji yang ditulis ke database.
+
+## Verifikasi tombol login admin di mobile
+
+Pada preview terbaru, halaman `/admin` berhasil dirender pada viewport desktop 1280x720 dan mobile 390x844. Tombol login menggunakan tipe `button`, area sentuh penuh, dan handler eksplisit; saat sesi admin aktif, kontrol dashboard dan logout tampil tanpa overflow pada mobile.

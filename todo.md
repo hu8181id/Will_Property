@@ -7131,3 +7131,9 @@
 - [x] Ubah akses admin tersembunyi agar terbuka setelah tiga ketukan cepat tanpa tekan lama.
 - [x] Perbarui unit test gesture dan dokumentasi penggunaan admin.
 - [x] Validasi build serta tampilan desktop/mobile, lalu simpan checkpoint.
+
+## Perbaikan tombol login admin di ponsel
+
+- [x] Audit halaman `/admin` dan handler tombol Login ke Akun Admin.
+- [x] Perbaiki handler login agar tombol memulai autentikasi secara konsisten di mobile dan desktop.
+- [x] Tambahkan atau perbarui pengujian tombol login, lalu validasi build dan tampilan mobile.

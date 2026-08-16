@@ -1,13 +1,26 @@
+import React from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { startLogin } from "@/const";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Lock, ShieldCheck, ArrowLeft, LogOut, Home, BarChart3 } from "lucide-react";
 import { useLocation } from "wouter";
+import { useState } from "react";
 
 export default function AdminLogin() {
   const { user, isAuthenticated, logout } = useAuth();
   const [, setLocation] = useLocation();
+  const [loginError, setLoginError] = useState<string | null>(null);
+
+  const handleAdminLogin = () => {
+    setLoginError(null);
+    try {
+      startLogin();
+    } catch (error) {
+      console.error("Admin login could not start", error);
+      setLoginError("Login belum dapat dimulai. Silakan muat ulang halaman dan coba lagi.");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -102,12 +115,19 @@ export default function AdminLogin() {
               </div>
 
               <Button
-                onClick={() => startLogin()}
-                className="w-full bg-primary hover:bg-primary/90 text-white gap-2 py-6 text-base"
+                type="button"
+                onClick={handleAdminLogin}
+                className="w-full bg-primary hover:bg-primary/90 text-white gap-2 py-6 text-base touch-manipulation"
+                aria-label="Login ke Akun Admin"
               >
                 <Lock size={18} />
                 Login ke Akun Admin
               </Button>
+              {loginError && (
+                <p role="alert" className="text-center text-sm text-red-600" aria-live="polite">
+                  {loginError}
+                </p>
+              )}
 
               <div className="text-center">
                 <a
