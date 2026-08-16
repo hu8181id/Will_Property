@@ -168,13 +168,26 @@ export const propertyRouter = router({
           sqlState?: string;
           sqlMessage?: string;
           message?: string;
+          cause?: unknown;
         };
+        const cause = dbError.cause as {
+          code?: string | number;
+          errno?: number;
+          sqlState?: string;
+          sqlMessage?: string;
+          message?: string;
+        } | undefined;
         console.error("[Property List] TiDB query failed", {
           code: dbError.code,
           errno: dbError.errno,
           sqlState: dbError.sqlState,
           sqlMessage: dbError.sqlMessage,
           message: dbError.message,
+          causeCode: cause?.code,
+          causeErrno: cause?.errno,
+          causeSqlState: cause?.sqlState,
+          causeSqlMessage: cause?.sqlMessage,
+          causeMessage: cause?.message,
         });
         throw error;
       }
