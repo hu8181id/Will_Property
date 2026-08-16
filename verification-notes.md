@@ -35,3 +35,25 @@ Hasil uji production: URL https://primedeal-property.vercel.app/manage-listings?
 32. [2026-08-16] Uji production memilih 6 file PNG pada input foto berhasil ditangkap oleh browser. UI menampilkan toast `Maksimal 5 foto per listing.` dan tetap menunjukkan `tersisa 5 slot`; tidak ada foto ke-6 yang ditambahkan. Ini mengonfirmasi handler menolak pilihan yang melampaui batas, tanpa membuat data listing.
 
 33. [2026-08-16] Setelah percobaan upload enam file, percobaan lima file pada input yang sama dilaporkan berhasil oleh browser tetapi event production tidak memperbarui state React: DOM masih membaca `input.files.length=6`, slot tetap `tersisa 5 slot`, dan preview tetap 0. Hal ini menunjukkan harness browser mempertahankan FileList sebelumnya; uji batas lebih dari lima sudah terbukti melalui toast penolakan, sementara penerimaan tepat lima perlu diuji setelah input di-reset.
+
+## 2026-08-16 — Perbaikan permission simpan listing
+
+Sumber GitHub: https://github.com/hu8181id/Will_Property
+
+- Commit `5d6101e` memperbarui `client/src/main.tsx` agar `admin_key` dari URL diteruskan sebagai header `x-admin-key` pada semua request tRPC.
+- Commit `6ed0fa8` memperbarui `server/_core/context.ts` agar query `admin_key` dan header `x-admin-key` menghasilkan `ctx.user` dengan role `admin` pada konteks Express dan Fetch/Vercel.
+- Sebelum dua commit tersebut, branch main GitHub masih memiliki main.tsx tanpa header admin_key dan context.ts tanpa emergency bypass; kondisi ini menjelaskan error production `You do not have required permission (10002)` saat mutation `property.create`.
+- Commit `6ed0fa8` terlihat sebagai commit terbaru pada branch `main` GitHub. Deployment Vercel dan uji simpan listing masih perlu dipantau setelah build selesai.
+
+- Deployment Vercel dari commit `6ed0fa8` terdeteksi pada project production sebagai `Building` sekitar 32 detik setelah commit. Deployment sebelumnya `5d6101e` masih Ready. Pengujian tombol simpan harus menunggu deployment terbaru Ready agar tidak menguji bundle lama.
+
+- Uji simpan listing production setelah commit auth tidak lagi berhenti pada permission 10002; proses lanjut sampai upload foto lalu menampilkan `Gagal mengupload foto`. Branch GitHub `server/storage.ts` memakai Backblaze B2 langsung apabila `S3_ENDPOINT`, `S3_BUCKET`, `S3_KEY`, dan `S3_SECRET` tersedia, atau Forge presign apabila tidak tersedia. Fokus diagnosis berikutnya adalah konfigurasi/izin storage pada environment Vercel, bukan lagi otorisasi listing.
+
+## 2026-08-16 — Verifikasi perbaikan storage production
+
+- Deployment Vercel commit `908c35c` berstatus Ready pada URL preview production `https://primedeal-property-2gkag9mqk-willproperty.vercel.app`.
+- Panel `/manage-listings` menampilkan `Akses Aktif`, daftar listing, gambar existing, dan listing dengan `5/5 foto`.
+- Dialog tambah listing memuat input foto `accept=image/*`, `multiple=true`, serta input video `accept=video/mp4,video/webm,video/quicktime`.
+- Perbaikan normalisasi `S3_ENDPOINT` sudah aktif dan siap diuji dengan upload foto.
+
+59. Uji production pada deployment `908c35c` berhasil: satu foto terunggah ke URL Backblaze HTTPS, mutation `property.create` dengan `admin_key` sukses, notifikasi `Listing baru berhasil ditambahkan` tampil, dan listing uji ID 390001 muncul di daftar. Error permission 10002 dan `Gagal mengupload foto` tidak terulang.

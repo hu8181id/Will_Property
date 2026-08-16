@@ -1,7 +1,10 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+import * as dbModule from "./db";
+import * as notificationModule from "./_core/notification";
 import { appRouter } from "./routers";
 import { propertyDraftSchema, propertyFilterSchema, reviewDraftSchema, reviewModerationSchema } from "./routers/property";
-import type { TrpcContext } from "./_core/context";
+import { createContext, type TrpcContext } from "./_core/context";
+import { sdk } from "./_core/sdk";
 
 function createPublicContext(): TrpcContext {
   return {
@@ -83,5 +86,62 @@ describe("property listing contracts", () => {
     const caller = appRouter.createCaller(createPublicContext());
     await expect(caller.property.listPendingReviews()).rejects.toMatchObject({ code: "FORBIDDEN" });
     await expect(caller.property.moderateReview({ reviewId: 1, status: "approved" })).rejects.toMatchObject({ code: "FORBIDDEN" });
+  });
+
+  it("allows property create, update, and delete through admin_key/x-admin-key without an OAuth session", async () => {
+    const previousSecret = process.env.ADMIN_SECRET_KEY;
+    const emergencyKey = "emergency-regression-key";
+    process.env.ADMIN_SECRET_KEY = emergencyKey;
+
+    const insertValues = vi.fn().mockResolvedValue([{ insertId: 420001 }]);
+    const updateWhere = vi.fn().mockResolvedValue([]);
+    const updateSet = vi.fn(() => ({ where: updateWhere }));
+    const deleteWhere = vi.fn().mockResolvedValue([]);
+    const fakeDb = {
+      insert: vi.fn(() => ({ values: insertValues })),
+      update: vi.fn(() => ({ set: updateSet })),
+      delete: vi.fn(() => ({ where: deleteWhere })),
+    };
+    const getDbSpy = vi.spyOn(dbModule, "getDb").mockResolvedValue(fakeDb as any);
+    const notifyOwnerSpy = vi.spyOn(notificationModule, "notifyOwner").mockResolvedValue(undefined);
+    const authenticateRequestSpy = vi.spyOn(sdk, "authenticateRequest").mockRejectedValue(new Error("Tidak ada sesi OAuth"));
+
+    const createRequest = {
+      protocol: "https",
+      query: { admin_key: emergencyKey },
+      headers: {},
+    } as TrpcContext["req"];
+    const updateRequest = {
+      protocol: "https",
+      query: {},
+      headers: { "x-admin-key": emergencyKey },
+    } as TrpcContext["req"];
+
+    try {
+      const createContextResult = await createContext({ req: createRequest, res: {} as TrpcContext["res"] });
+      const updateContextResult = await createContext({ req: updateRequest, res: {} as TrpcContext["res"] });
+      expect(createContextResult.user).toMatchObject({ loginMethod: "emergency", role: "admin" });
+      expect(updateContextResult.user).toMatchObject({ loginMethod: "emergency", role: "admin" });
+      expect(authenticateRequestSpy).toHaveBeenCalledTimes(2);
+
+      const createResult = await appRouter.createCaller(createContextResult).property.create(validDraft);
+      expect(createResult).toMatchObject({ success: true, id: 420001 });
+
+      const updateResult = await appRouter.createCaller(updateContextResult).property.update({ id: 420001, ...validDraft });
+      expect(updateResult).toEqual({ success: true });
+
+      const deleteResult = await appRouter.createCaller(updateContextResult).property.delete({ id: 420001 });
+      expect(deleteResult).toEqual({ success: true });
+      expect(fakeDb.insert).toHaveBeenCalledTimes(1);
+      expect(fakeDb.update).toHaveBeenCalledTimes(2);
+      expect(fakeDb.delete).toHaveBeenCalledTimes(1);
+      expect(notifyOwnerSpy).toHaveBeenCalledTimes(1);
+    } finally {
+      getDbSpy.mockRestore();
+      notifyOwnerSpy.mockRestore();
+      authenticateRequestSpy.mockRestore();
+      if (previousSecret === undefined) delete process.env.ADMIN_SECRET_KEY;
+      else process.env.ADMIN_SECRET_KEY = previousSecret;
+    }
   });
 });

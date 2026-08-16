@@ -28,3 +28,16 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 
 - [x] Sinkronkan `EmergencyListingManager.tsx` dan `AddPropertyDialog.tsx` versi multi-foto terbaru ke repository GitHub Vercel
 - [x] Verifikasi ulang atribut `multiple` dan batas 5 foto pada URL production setelah deployment baru
+
+- [x] Perbaiki error `You do not have required permission (10002)` saat menyimpan listing dari URL admin_key
+- [x] Pastikan mutasi property create/update/delete meneruskan dan memvalidasi bypass `admin_key` secara konsisten
+- [x] Tambahkan regresi test untuk penyimpanan listing tanpa sesi OAuth tetapi dengan admin_key
+- [x] Uji ulang simpan listing pada deployment Vercel setelah perbaikan
+
+- [x] Normalisasi `S3_ENDPOINT` agar otomatis memakai `https://` ketika environment Vercel berisi hostname Backblaze tanpa skema
+- [x] Tambahkan regresi test untuk endpoint Backblaze `s3.us-east-005.backblazeb2.com` tanpa skema
+- [x] Uji ulang upload foto dan simpan listing setelah deployment perbaikan storage
+
+- [x] Tambahkan test tRPC/server untuk `property.create` tanpa sesi OAuth tetapi dengan `admin_key`/`x-admin-key`, serta penolakan tanpa bypass
+- [x] Tambahkan test regresi serupa untuk `property.update` dan `property.delete` agar bypass admin_key konsisten
+- [ ] Hapus listing uji ID 390001 setelah pengguna menyetujui penghapusan, atau biarkan pengguna menghapusnya dari tombol Hapus

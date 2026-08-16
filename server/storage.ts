@@ -35,8 +35,14 @@ function hasBackblazeConfig() {
   );
 }
 
+export function normalizeStorageEndpoint(value?: string) {
+  const rawEndpoint = value?.trim();
+  if (!rawEndpoint) return undefined;
+  return `${/^https?:\/\//i.test(rawEndpoint) ? "" : "https://"}${rawEndpoint}`.replace(/\/+$/, "");
+}
+
 function getBackblazeConfig() {
-  const endpoint = process.env.S3_ENDPOINT?.replace(/\/+$/, "");
+  const endpoint = normalizeStorageEndpoint(process.env.S3_ENDPOINT);
   const bucket = process.env.S3_BUCKET;
   const accessKeyId = process.env.S3_KEY;
   const secretAccessKey = process.env.S3_SECRET;
