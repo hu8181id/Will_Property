@@ -192,3 +192,4 @@
 - [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [ ] Hapus pola `functions.server.ts` yang tidak cocok dengan fungsi Vercel dan gunakan deteksi otomatis server entrypoint.
 - [ ] Pastikan server.ts memanggil `listen` sesuai kontrak Node.js server Vercel dan deployment publik berhasil.
+- [ ] Hapus `outputDirectory: dist/public` dari vercel.json agar fungsi `api/[...path].ts` tidak diperlakukan sebagai static-only oleh Vercel.
