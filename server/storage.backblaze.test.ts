@@ -1,0 +1,33 @@
+import { describe, expect, it } from "vitest";
+import { HeadBucketCommand, S3Client } from "@aws-sdk/client-s3";
+
+const requiredEnv = ["S3_ENDPOINT", "S3_BUCKET", "S3_KEY", "S3_SECRET"] as const;
+
+describe("Backblaze B2 storage configuration", () => {
+  it(
+    "authenticates and can inspect the configured private bucket",
+    async () => {
+      const missing = requiredEnv.filter(key => !process.env[key]);
+      expect(missing, `Missing storage environment variables: ${missing.join(", ")}`).toEqual([]);
+
+      const endpoint = process.env.S3_ENDPOINT!;
+      const bucket = process.env.S3_BUCKET!;
+      const accessKeyId = process.env.S3_KEY!;
+      const secretAccessKey = process.env.S3_SECRET!;
+
+      const client = new S3Client({
+        region: "us-east-005",
+        endpoint,
+        forcePathStyle: true,
+        credentials: { accessKeyId, secretAccessKey },
+      });
+
+      const response = await client.send(new HeadBucketCommand({ Bucket: bucket }));
+      expect(response.$metadata.httpStatusCode).toBe(200);
+    },
+    30_000,
+  );
+});
+
+// This test intentionally performs no upload, delete, or public-access change.
+// It only verifies that the supplied staging credentials can reach the bucket.
