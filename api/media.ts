@@ -1,5 +1,3 @@
-import { ENV } from "../server/_core/env";
-
 type VercelRequest = {
   query?: Record<string, string | string[] | undefined>;
 };
@@ -18,21 +16,27 @@ function getPath(req: VercelRequest) {
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const key = getPath(req);
+  const forgeApiUrl = process.env.BUILT_IN_FORGE_API_URL ?? "";
+  const forgeApiKey = process.env.BUILT_IN_FORGE_API_KEY ?? "";
+
   if (!key) {
     res.status(400).end("Missing media path");
     return;
   }
-  if (!ENV.forgeApiUrl || !ENV.forgeApiKey) {
+  if (!forgeApiUrl || !forgeApiKey) {
     console.error("[MediaProxy] Forge storage environment is not configured");
     res.status(503).end("Media storage is not configured");
     return;
   }
 
   try {
-    const presignUrl = new URL("v1/storage/presign/get", ENV.forgeApiUrl.replace(/\/+$/, "") + "/");
+    const presignUrl = new URL(
+      "v1/storage/presign/get",
+      forgeApiUrl.replace(/\/+$/, "") + "/",
+    );
     presignUrl.searchParams.set("path", key);
     const response = await fetch(presignUrl, {
-      headers: { Authorization: `Bearer ${ENV.forgeApiKey}` },
+      headers: { Authorization: `Bearer ${forgeApiKey}` },
     });
     if (!response.ok) {
       const body = await response.text().catch(() => "");
