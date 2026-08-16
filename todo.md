@@ -186,3 +186,7 @@
 - [x] Sinkronkan patch deployment terbaru ke repository GitHub `hu8181id/Will_Property` setelah target repository dikonfirmasi pengguna.
 - [x] Verifikasi deployment Vercel baru dari `Will_Property` mendeteksi Node.js server dan API tRPC merespons 200.
 - [x] Pulihkan kredensial GitHub dengan scope write yang valid; push ke `Will_Property` berhasil setelah menggunakan token fine-grained dengan autentikasi Basic Git HTTPS.
+
+- [x] Perbaiki runner produksi yang gagal karena mencari `dist/index.js` dengan mengubah output esbuild ke `dist/index.js`.
+- [ ] Verifikasi environment Vercel, endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
