@@ -169,3 +169,4 @@
 - [x] Menjelaskan secara transparan perbedaan domain Manus (`*.manus.space`) dan domain publik Vercel (`primedealproperty.vercel.app`) kepada pengguna.
 - [x] Menyusun panduan pembuatan repository GitHub baru untuk versi full-stack Primedeal agar terhubung ke Vercel tanpa mengganggu repo statis lama.
 - [x] Menambahkan berkas konfigurasi `vercel.json` untuk mengatasi masalah halaman Vercel yang menampilkan teks/kode mentah, sehingga kini merender website dengan benar.
+- [x] Memperbarui konfigurasi `vercel.json` dengan outputDirectory `dist/public` agar Vercel merender tampilan web Primedeal dengan benar, bukan kode JavaScript mentah.
