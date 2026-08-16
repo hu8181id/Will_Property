@@ -73,5 +73,8 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 
 - [x] Lakukan audit akhir live site Vercel untuk memastikan endpoint video dan gambar proxy aktif tanpa kendala
 
-- [ ] Periksa ulang konfigurasi Vercel (vercel.json dan api/media.ts) untuk memastikan domain Vercel menampilkan gambar dan video dengan stabil
-- [ ] Sinkronkan pembaruan ke repository GitHub Vercel agar otomatis ter-deploy
+- [x] Periksa ulang konfigurasi Vercel (vercel.json dan api/media.ts) untuk memastikan domain Vercel menampilkan gambar dan video dengan stabil
+- [x] Sinkronkan pembaruan ke repository GitHub Vercel agar otomatis ter-deploy
+
+- [ ] Lakukan push perubahan ke GitHub agar Vercel melakukan redeploy otomatis
+- [ ] Uji fungsionalitas upload video dan gambar pada domain Vercel live setelah redeploy
