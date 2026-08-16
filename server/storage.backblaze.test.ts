@@ -1,9 +1,22 @@
 import { describe, expect, it } from "vitest";
 import { HeadBucketCommand, S3Client } from "@aws-sdk/client-s3";
+import { normalizeStorageEndpoint } from "./storage";
 
 const requiredEnv = ["S3_ENDPOINT", "S3_BUCKET", "S3_KEY", "S3_SECRET"] as const;
 
 describe("Backblaze B2 storage configuration", () => {
+  it("normalizes a Backblaze hostname without a URL scheme", () => {
+    expect(normalizeStorageEndpoint("s3.us-east-005.backblazeb2.com")).toBe(
+      "https://s3.us-east-005.backblazeb2.com",
+    );
+  });
+
+  it("preserves an HTTPS endpoint and removes trailing slashes", () => {
+    expect(normalizeStorageEndpoint("https://s3.us-east-005.backblazeb2.com///")).toBe(
+      "https://s3.us-east-005.backblazeb2.com",
+    );
+  });
+
   it.skipIf(process.env.RUN_EXTERNAL_STORAGE_TESTS !== "1")(
     "authenticates and can inspect the configured private bucket",
     async () => {
