@@ -386,7 +386,7 @@ export default function AddPropertyDialog({
               <label className="mt-2 flex cursor-pointer items-center justify-between gap-2 rounded-lg border border-dashed border-border px-3 py-2 text-xs text-muted-foreground hover:border-primary">
                 <span>{videoFile ? videoFile.name : "Atau upload video maksimal 50 MB"}</span>
                 <Upload size={14} />
-                <input type="file" accept="video/mp4,video/webm,video/quicktime" className="hidden" onChange={handleVideoChange} disabled={submitting} />
+                <input type="file" accept="video/*" className="hidden" onChange={handleVideoChange} disabled={submitting} />
               </label>
               {videoFile && <button type="button" onClick={handleRemoveVideo} className="mt-1 text-xs font-medium text-red-600 hover:underline">Hapus video terpilih</button>}
             </div>
