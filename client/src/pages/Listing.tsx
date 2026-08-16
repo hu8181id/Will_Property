@@ -182,6 +182,12 @@ export default function Listing() {
   }, [isAdmin, shouldOpenNewListing]);
 
   useEffect(() => {
+    if (isAdmin) return;
+    setAddDialogOpen(false);
+    setEditingProperty(null);
+  }, [isAdmin]);
+
+  useEffect(() => {
     if (!sharedProperty || sharedPropertyHandled.current) return;
     sharedPropertyHandled.current = true;
     setSelectedProperty(sharedProperty);
@@ -311,6 +317,9 @@ export default function Listing() {
   };
 
   const handleSaveProperty = async ({ data, images, videoFile, videoThumbnail, onVideoUploadProgress }: PropertyFormSubmit) => {
+    if (!isAdmin) {
+      throw new Error("Akses admin diperlukan untuk mengelola listing.");
+    }
     try {
       const imageUrls = await uploadSelectedImages(images);
       const thumbnailUrls = videoThumbnail ? await uploadSelectedImages([videoThumbnail]) : [];
@@ -334,6 +343,10 @@ export default function Listing() {
   };
 
   const handleDeleteProperty = async (id: number) => {
+    if (!isAdmin) {
+      toast.error("Akses admin diperlukan untuk menghapus listing.");
+      return;
+    }
     if (!window.confirm("Yakin ingin menghapus listing ini?")) return;
     setDeletingId(id);
     try {

@@ -7111,3 +7111,11 @@
 ## Perbaikan media gambar dan video listing Vercel
 
 - [x] Audit URL
+
+## Akses admin tersembunyi dan pembatasan listing
+
+- [x] Tambahkan atau perbaiki gesture akses admin tersembunyi tanpa tombol admin publik.
+- [x] Pastikan pengunjung tanpa role admin tidak dapat membuka form tambah, edit, atau hapus listing.
+- [x] Pastikan prosedur backend create, update, delete, dan upload listing menolak pengguna non-admin.
+- [x] Tambahkan atau perbarui pengujian untuk gesture admin, guard UI, dan penolakan backend.
+- [x] Verifikasi alur admin pada desktop dan ponsel, lalu simpan checkpoint.

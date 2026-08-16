@@ -2,13 +2,24 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Heart, Lock, LogOut } from "lucide-react";
 import { startLogin } from "@/const";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { MouseEvent as ReactMouseEvent } from "react";
 import { useLocation } from "wouter";
+import {
+  HIDDEN_ADMIN_HOLD_MS,
+  HIDDEN_ADMIN_TAP_COUNT,
+  canStartHiddenAdminHold,
+  initialHiddenAdminGestureState,
+  registerHiddenAdminTap,
+} from "@/lib/hiddenAdminGesture";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
   const [favoriteCount, setFavoriteCount] = useState(0);
+  const [hiddenAdminGesture, setHiddenAdminGesture] = useState(initialHiddenAdminGestureState);
+  const hiddenAdminGestureRef = useRef(initialHiddenAdminGestureState);
+  const hiddenAdminHoldTimerRef = useRef<number | null>(null);
   const [logoFailed, setLogoFailed] = useState(false);
   const { user, isAuthenticated, logout } = useAuth();
 
@@ -33,6 +44,37 @@ export default function Header() {
 
   const isActive = (path: string) => location === path;
 
+  const clearHiddenAdminHold = () => {
+    if (hiddenAdminHoldTimerRef.current !== null) {
+      window.clearTimeout(hiddenAdminHoldTimerRef.current);
+      hiddenAdminHoldTimerRef.current = null;
+    }
+  };
+
+  const handleLogoTap = (event: ReactMouseEvent<HTMLAnchorElement>) => {
+    const next = registerHiddenAdminTap(hiddenAdminGestureRef.current, Date.now());
+    hiddenAdminGestureRef.current = next;
+    setHiddenAdminGesture(next);
+    if (next.taps >= HIDDEN_ADMIN_TAP_COUNT) event.preventDefault();
+  };
+
+  const handleLogoPointerDown = () => {
+    if (!canStartHiddenAdminHold(hiddenAdminGestureRef.current, Date.now())) return;
+    clearHiddenAdminHold();
+    hiddenAdminHoldTimerRef.current = window.setTimeout(() => {
+      if (!canStartHiddenAdminHold(hiddenAdminGestureRef.current, Date.now())) return;
+      hiddenAdminGestureRef.current = initialHiddenAdminGestureState;
+      setHiddenAdminGesture(initialHiddenAdminGestureState);
+      setLocation("/admin");
+    }, HIDDEN_ADMIN_HOLD_MS);
+  };
+
+  const handleLogoPointerUp = () => {
+    clearHiddenAdminHold();
+  };
+
+  useEffect(() => () => clearHiddenAdminHold(), []);
+
   const navItems = [
     { label: "Beranda", href: "/" },
     { label: "Listing", href: "/listing" },
@@ -45,7 +87,17 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-white border-b border-border shadow-sm">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo: use the legacy storage asset when available, with a Vercel-safe fallback. */}
-        <a href="/" className="flex items-center gap-2" aria-label="Primedeal Beranda">
+          <a
+            href="/"
+            className="flex items-center gap-2"
+            aria-label="Primedeal Beranda"
+            onClick={handleLogoTap}
+            onPointerDown={handleLogoPointerDown}
+            onPointerUp={handleLogoPointerUp}
+            onPointerCancel={handleLogoPointerUp}
+            onPointerLeave={handleLogoPointerUp}
+            data-hidden-admin-taps={hiddenAdminGesture.taps}
+          >
           {logoFailed ? (
             <span
               aria-hidden="true"
