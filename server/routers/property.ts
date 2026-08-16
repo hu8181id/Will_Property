@@ -155,11 +155,29 @@ export const propertyRouter = router({
           ? desc(propertyListings.price)
           : desc(propertyListings.createdAt);
 
-      return db
-        .select()
-        .from(propertyListings)
-        .where(and(...conditions))
-        .orderBy(orderBy);
+      try {
+        return await db
+          .select()
+          .from(propertyListings)
+          .where(and(...conditions))
+          .orderBy(orderBy);
+      } catch (error) {
+        const dbError = error as {
+          code?: string | number;
+          errno?: number;
+          sqlState?: string;
+          sqlMessage?: string;
+          message?: string;
+        };
+        console.error("[Property List] TiDB query failed", {
+          code: dbError.code,
+          errno: dbError.errno,
+          sqlState: dbError.sqlState,
+          sqlMessage: dbError.sqlMessage,
+          message: dbError.message,
+        });
+        throw error;
+      }
     }),
 
   getById: publicProcedure
