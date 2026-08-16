@@ -121,3 +121,11 @@ Pada alias `https://primedeal-property.vercel.app`, navigasi ke URL detail Gunaw
 ## 2026-08-16 — Verifikasi gambar dan video produksi
 
 Smoke test API produksi mengembalikan 11 listing. URL gambar pertama `/manus-storage/properties/...jpg` mengikuti redirect ke CloudFront dan browser menampilkan gambar 1200×1600. URL video pertama `/manus-storage/properties/videos/...mp4` juga mengikuti redirect ke CloudFront dan browser mengenali serta memutar video berdurasi sekitar 19 detik.
+
+## 2026-08-16 — Verifikasi gesture admin desktop dan mobile
+
+Preview desktop dan mobile menampilkan logo Primedeal tanpa tombol Admin publik. Pada viewport mobile, logo tetap terlihat di kiri atas dan navigasi publik hanya memakai tombol menu. Pada preview dengan sesi admin aktif, kontrol hapus dan status Admin Active muncul sesuai role; ini bukan tampilan pengunjung anonim.
+
+## 2026-08-16 — Uji keamanan akses admin di domain produksi
+
+Pada `https://primedeal-property.vercel.app`, request `auth.me` tanpa cookie mengembalikan `null`, sedangkan `property.list` publik mengembalikan HTTP 200 dengan 11 listing. Request tanpa sesi ke `property.create`, `property.update`, `property.delete`, `property.uploadImage`, dan `property.uploadVideo` seluruhnya mengembalikan HTTP 403 dengan kode `FORBIDDEN` dan pesan `You do not have required permission (10002)`. Tidak ada data uji yang ditulis ke database.

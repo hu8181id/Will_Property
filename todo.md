@@ -7119,3 +7119,9 @@
 - [x] Pastikan prosedur backend create, update, delete, dan upload listing menolak pengguna non-admin.
 - [x] Tambahkan atau perbarui pengujian untuk gesture admin, guard UI, dan penolakan backend.
 - [x] Verifikasi alur admin pada desktop dan ponsel, lalu simpan checkpoint.
+
+## Verifikasi gesture admin dan deployment produksi
+
+- [x] Uji gesture tiga ketukan cepat lalu tekan lama pada logo di desktop dan ponsel.
+- [x] Verifikasi pengunjung non-admin tidak melihat atau dapat menjalankan tambah, edit, hapus, dan upload listing.
+- [x] Verifikasi endpoint produksi dan simpan checkpoint hasil pengujian terbaru.
