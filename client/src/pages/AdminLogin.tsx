@@ -17,30 +17,23 @@ export default function AdminLogin() {
   const [loginError, setLoginError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const adminLoginMutation = trpc.adminAuth.login.useMutation({
+    onSuccess: async () => {
+      await utils.auth.me.invalidate();
+      setPassword("");
+      setLocation("/admin");
+    },
+    onError: (error: { message?: string }) => {
+      setLoginError(error.message || "Username atau password admin salah.");
+      setIsSubmitting(false);
+    },
+  });
+
   const handleAdminLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoginError(null);
     setIsSubmitting(true);
-
-    try {
-      const response = await fetch("/api/admin/login", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ username, password }),
-      });
-      const result = (await response.json().catch(() => null)) as { error?: string } | null;
-      if (!response.ok) {
-        throw new Error(result?.error || "Username atau password admin salah.");
-      }
-      await utils.auth.me.invalidate();
-      setPassword("");
-      setLocation("/admin");
-    } catch (error) {
-      setLoginError(error instanceof Error ? error.message : "Login admin gagal. Silakan coba lagi.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    adminLoginMutation.mutate({ username, password });
   };
 
   return (

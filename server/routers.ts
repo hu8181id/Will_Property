@@ -8,6 +8,7 @@ import {
   getAdminLoginSecuritySummary,
   verifyAdminCredentials,
 } from "./adminAuth";
+import { adminLoginRouter } from "./routers/adminLogin";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { TRPCError } from "@trpc/server";
@@ -19,6 +20,7 @@ export const appRouter = router({
   system: systemRouter,
   analytics: analyticsRouter,
   property: propertyRouter,
+  adminAuth: adminLoginRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     adminLogin: publicProcedure
