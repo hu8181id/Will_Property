@@ -40,8 +40,9 @@ function safeEqual(left: string, right: string) {
 }
 
 export function verifyAdminCredentials(username: string, password: string) {
-  const configuredUsername = process.env.ADMIN_USERNAME?.trim() || "Primedeal";
-  const configuredPassword = process.env.ADMIN_PASSWORD || "Primedeal2026!";
+  const configuredUsername = process.env.ADMIN_USERNAME?.trim();
+  const configuredPassword = process.env.ADMIN_PASSWORD;
+  if (!configuredUsername || !configuredPassword) return false;
   const inputUser = username.trim().toLowerCase();
   const targetUser = configuredUsername.toLowerCase();
   return safeEqual(inputUser, targetUser) && safeEqual(password, configuredPassword);

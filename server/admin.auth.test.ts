@@ -144,3 +144,17 @@ describe("checkAdminConfigStatus", () => {
     process.env.ADMIN_PASSWORD = originalPass;
   });
 });
+
+describe("Admin Credentials Fail-Closed Security", () => {
+  it("rejects login when environment variables are missing", () => {
+    const originalUser = process.env.ADMIN_USERNAME;
+    const originalPass = process.env.ADMIN_PASSWORD;
+    delete process.env.ADMIN_USERNAME;
+    delete process.env.ADMIN_PASSWORD;
+
+    expect(verifyAdminCredentials("Primedeal", "anypassword")).toBe(false);
+
+    process.env.ADMIN_USERNAME = originalUser;
+    process.env.ADMIN_PASSWORD = originalPass;
+  });
+});
