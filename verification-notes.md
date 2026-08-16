@@ -65,3 +65,65 @@ Sumber GitHub: https://github.com/hu8181id/Will_Property
 - Listing lama yang memakai `/manus-storage/properties/...` berhasil dimuat melalui redirect media legacy dan browser melaporkan dimensi gambar valid.
 - Akar masalah gambar: `storagePut()` mengembalikan URL object B2 langsung, bukan URL proxy `/manus-storage/...` yang dapat menghasilkan signed redirect.
 - Akar masalah upload video yang perlu diperbaiki: validasi frontend/server hanya menerima tiga MIME type persis (`video/mp4`, `video/webm`, `video/quicktime`), sehingga beberapa video dari galeri/kamera Android dapat ditolak sebelum chunk upload dimulai.
+
+## 2026-08-16 — Audit ulang production setelah laporan gagal ulang
+
+Browser membuka portal `https://primedeal-property.vercel.app/manage-listings` dengan status `Akses Aktif`. Listing ID 450001 dan 420001 masih mengembalikan URL gambar direct B2 pada HTML production, yaitu host `s3.us-east-005.backblazeb2.com` dengan path bucket `primedeal-media/properties/...`; gambar tersebut terlihat rusak. Listing lama seperti ID 360001, 330001, dan 300001 memakai `/manus-storage/properties/...` dan tampil normal. Ini menunjukkan branch GitHub yang menjadi sumber Vercel belum memuat normalisasi media terbaru.
+
+Halaman production menampilkan label `Video` pada beberapa listing lama, tetapi belum ada bukti upload video baru dari HP yang berhasil. Perbaikan MIME mobile perlu disinkronkan ke branch GitHub/Vercel dan diuji kembali.
+
+GitHub upload production fix: setelah konfirmasi pengguna, enam file perbaikan media/upload (`api/media.ts`, `client/src/lib/propertyVideoUpload.ts`, `client/src/components/AddPropertyDialog.tsx`, `server/propertyVideoUpload.ts`, `server/routers/property.ts`, `server/storage.ts`) berhasil dipilih pada halaman upload branch `main` dan GitHub menampilkan status `Uploading 4 of 6 files`. Commit belum ditekan.
+
+Setelah pesan commit diisi dan tombol `Commit changes` ditekan sesuai konfirmasi pengguna, GitHub berpindah ke halaman `Processing your files…`. Hasil commit dan deployment Vercel masih menunggu selesai.
+
+GitHub commit hasil upload berhasil dibuat dengan SHA `5d313e4` dan pesan `Fix production image proxy and mobile video upload`. Pemeriksaan halaman repository menunjukkan enam file baru masuk di root repository (contoh `AddPropertyDialog.tsx` terlihat pada root), bukan pada path source target seperti `client/src/components/` dan `server/`. Karena itu commit tersebut belum memperbaiki file yang dibangun Vercel. Langkah koreksi: unggah ulang setiap file melalui halaman folder target, kemudian bersihkan enam file duplikat di root.
+
+Koreksi path: halaman GitHub `upload/main/api` berhasil menerima `api/media.ts`; file terlihat sebagai `media.ts` di folder target dan siap di-commit.
+
+Commit koreksi path untuk `api/media.ts` sudah dikirim melalui folder `api` dan GitHub menampilkan `Processing your files…`.
+
+Koreksi path: `client/src/lib/propertyVideoUpload.ts` berhasil diunggah pada folder source frontend yang benar; commit GitHub sedang diproses.
+
+Koreksi path: `client/src/components/AddPropertyDialog.tsx` berhasil diunggah pada folder source frontend yang benar; commit GitHub sedang diproses.
+
+Koreksi path: `server/storage.ts` dan `server/propertyVideoUpload.ts` berhasil diunggah bersama ke folder backend `server` pada branch main; form menampilkan keduanya dan siap di-commit.
+
+Audit GitHub setelah commit: `api`, `client`, dan `server` menampilkan commit perbaikan pada direktori source yang tepat. Namun repository masih menampilkan duplikat file perbaikan di root (setidaknya `AddPropertyDialog.tsx`, dan perlu disisir untuk `media.ts`, `storage.ts`, serta helper upload video) akibat upload awal yang salah path.
+
+Temuan GitHub pada https://github.com/hu8181id/Will_Property/blob/main/AddPropertyDialog.tsx: salinan root `AddPropertyDialog.tsx` masih ada setelah commit source yang benar. Halaman file menyediakan menu `More file actions`; pembersihan root harus dilakukan setelah memastikan file source `client/src/components/AddPropertyDialog.tsx` sudah benar.
+
+Audit lanjutan GitHub: `client/src/components/AddPropertyDialog.tsx` benar-benar ada dan memakai commit `8ab4e8b`. Salinan root `media.ts` masih ada; isinya mengimpor `../server/storage` dari root, sehingga merupakan duplikat/path salah dan tidak boleh menjadi sumber Vercel. Root duplicate perlu dibersihkan.
+
+Penghapusan salinan root `media.ts` sudah dibuka di halaman konfirmasi GitHub. Target commit: branch `main`, pesan `Remove misplaced root media.ts duplicate`. File source yang benar tetap `api/media.ts`.
+
+Hasil sinkronisasi GitHub: commit `9778ddb` berhasil menghapus salinan root `media.ts`. Branch `main` kini menampilkan file perbaikan pada direktori `api`, `client`, dan `server`; Vercel dapat membangun dari path source yang benar.
+
+Bukti production terbaru, URL `https://primedeal-property.vercel.app/manage-listings?admin_key=PDmanage!2026%23SafeKey84`: listing ID 450001 masih memakai `https://s3.us-east-005.backblazeb2.com/primedeal-media/properties/...jpg`; ID 420001 juga masih memakai URL direct B2. Listing ID 360001 dan yang lebih lama sudah memakai `/manus-storage/properties/...`. Screenshot production menunjukkan dua kartu terbaru tetap blank. Artinya deployment atau router production belum memakai normalisasi baru, atau data response masih berasal dari kode lama.
+
+Source audit: `server/routers/property.ts` memang memiliki `normalizePropertyMedia()` yang memanggil `normalizeStoredMediaUrl()` untuk `list`, `getById`, dan `getBySlug`, tetapi file tersebut sebelumnya belum disinkronkan ke GitHub. Pada 2026-08-16, file diunggah ke `https://github.com/hu8181id/Will_Property/upload/main/server/routers` dengan commit message `Normalize property media URLs in production router`; GitHub sedang memproses commit.
+
+105. Audit GitHub lanjutan: root `property.ts` sudah berada di halaman delete/commit dan akan dihapus. Root `propertyVideoUpload.ts` masih akan dibersihkan; source yang benar tetap `client/src/lib/propertyVideoUpload.ts` dan `server/propertyVideoUpload.ts`. Root `storage.ts` adalah duplikat yang tidak dipakai source deployment dan perlu dibersihkan setelah konfirmasi file `server/storage.ts`.
+
+## 2026-08-16 — Perbaikan kontrak handler media Vercel
+- Browser production mengonfirmasi URL `/manus-storage/...` menerima HTTP 500 `FUNCTION_INVOCATION_FAILED`; rewrite sudah berjalan tetapi fungsi gagal saat invocation.
+- `api/media.ts` diubah dari handler Node-style `req/res` menjadi handler Web API `Request -> Promise<Response>`, mengikuti `api/trpc/[...path].ts` yang sudah bekerja pada Vercel.
+- Import storage S3 dipindahkan ke dynamic import di dalam `try` agar kegagalan modul/storage menjadi respons HTTP 502 yang dapat didiagnosis, bukan crash invocation.
+- Test lokal: 104 passed, 1 skipped; `pnpm build` sukses.
+
+## 2026-08-16 — Commit handler media Web API
+- Setelah konfirmasi pengguna, `api/media.ts` versi Web API `Request -> Promise<Response>` diunggah ke folder `api` GitHub, bukan root.
+- GitHub menampilkan commit `b716121` dengan pesan `Fix Vercel media proxy handler runtime` pada branch `main`.
+- Deployment Vercel dari commit ini masih perlu menunggu status Ready sebelum uji ulang URL `/manus-storage/...`.
+
+## 2026-08-16 — Perbaikan URL relatif handler media
+- Log deployment `b716121` menunjukkan akar error `Invalid URL` karena runtime Vercel memberikan `request.url` relatif pada handler proxy media.
+- `api/media.ts` lokal diperbaiki untuk membangun URL absolut menggunakan `x-forwarded-proto`, `x-forwarded-host`, atau `host`; test URL relatif ditambahkan dan test/build lokal lulus.
+- Commit GitHub `59c02bf` — `Fix relative URL handling in Vercel media proxy` — sudah dibuat pada folder `api`; deployment production `primedeal-property-ad6ycsmy3-willproperty.vercel.app` terdeteksi dan masih berstatus Building saat audit terakhir.
+
+[2026-08-16] Commit `c858503` dengan pesan `Fix Vercel media proxy headers compatibility` berhasil dibuat pada branch `main` melalui GitHub. Deployment production Vercel terkait terdeteksi dan sedang Building; setelah Ready, endpoint proxy media harus diuji ulang.
+
+[2026-08-16] Deployment Vercel `c858503` kini berstatus Ready pada production preview `https://primedeal-property-p3cxa6eu4-willproperty.vercel.app` dan terkait commit `Fix Vercel media proxy headers compatibility`. Tahap berikutnya adalah uji endpoint `/manus-storage/...` pada domain production.
+
+[2026-08-16] Pada production setelah deployment `c858503` Ready, halaman `/manage-listings` sudah mengembalikan URL gambar `/manus-storage/properties/...` untuk listing 450001 dan 420001, tetapi screenshot masih menunjukkan area gambar kosong. Percobaan mengukur fetch beberapa gambar melalui browser timeout setelah 30 detik; endpoint perlu diuji satu per satu dengan request yang lebih sederhana.
+
+[2026-08-16] Log runtime deployment `c858503` menunjukkan akar error baru: `[MediaProxy] Backblaze signed URL failed: ERR_MODULE_NOT_FOUND`, karena `/var/task/api/media.js` melakukan dynamic import `/var/task/server/storage` yang tidak tersedia sebagai modul runtime Vercel. Endpoint proxy menerima request, tetapi gagal saat mencoba import helper storage. Solusi berikutnya: hindari dynamic import `server/storage` dari API function dan gunakan helper S3 langsung/inline dalam `api/media.ts`.

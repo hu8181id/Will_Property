@@ -14,6 +14,7 @@ import { ImagePlus, Loader2, Plus, Sparkles, Star, Upload, X } from "lucide-reac
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { generatePropertySeoDraft } from "@/lib/propertySeoTemplate";
+import { normalizePropertyVideoContentType } from "@/lib/propertyVideoUpload";
 
 export const MAX_IMAGES = 5;
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
@@ -210,15 +211,16 @@ export default function AddPropertyDialog({
     const file = event.target.files?.[0];
     event.target.value = "";
     if (!file) return;
-    if (!(["video/mp4", "video/webm", "video/quicktime"] as string[]).includes(file.type)) {
-      toast.error("Video harus berformat MP4, WebM, atau MOV.");
+    const contentType = normalizePropertyVideoContentType(file.type, file.name);
+    if (!contentType) {
+      toast.error("Video harus berformat MP4, WebM, MOV, M4V, atau 3GP.");
       return;
     }
     if (file.size > 50 * 1024 * 1024) {
       toast.error("Ukuran video maksimal 50 MB.");
       return;
     }
-    setVideoFile({ file, name: file.name, contentType: file.type });
+    setVideoFile({ file, name: file.name, contentType });
     setFormData((current) => ({ ...current, videoUrl: "" }));
   };
 

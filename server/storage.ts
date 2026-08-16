@@ -82,19 +82,36 @@ export function normalizeStoredMediaUrl(value?: string | null) {
 
   const endpoint = normalizeStorageEndpoint(process.env.S3_ENDPOINT);
   const bucket = process.env.S3_BUCKET?.trim();
-  if (!endpoint || !bucket || !/^https?:\/\//i.test(trimmed)) return trimmed;
+  if (!/^https?:\/\//i.test(trimmed)) return trimmed;
 
   try {
     const mediaUrl = new URL(trimmed);
-    const endpointUrl = new URL(endpoint);
-    const bucketPrefix = `/${encodeURIComponent(bucket)}/`;
-    if (mediaUrl.origin !== endpointUrl.origin || !mediaUrl.pathname.startsWith(bucketPrefix)) return trimmed;
-    const encodedKey = mediaUrl.pathname.slice(bucketPrefix.length);
-    const key = encodedKey
-      .split("/")
-      .map((segment) => decodeURIComponent(segment))
-      .join("/");
-    return key ? storageMediaUrl(key) : trimmed;
+    const endpointUrl = endpoint ? new URL(endpoint) : undefined;
+    const bucketPrefix = bucket ? `/${encodeURIComponent(bucket)}/` : undefined;
+    if (endpointUrl && bucketPrefix && mediaUrl.origin === endpointUrl.origin && mediaUrl.pathname.startsWith(bucketPrefix)) {
+      const encodedKey = mediaUrl.pathname.slice(bucketPrefix.length);
+      const key = encodedKey
+        .split("/")
+        .map((segment) => decodeURIComponent(segment))
+        .join("/");
+      return key ? storageMediaUrl(key) : trimmed;
+    }
+
+    // Older uploads may contain a direct B2 URL even when Vercel has not
+    // exposed S3_ENDPOINT/S3_BUCKET to this function. B2 S3 URLs use the
+    // stable /bucket/key path form, so the bucket segment can be removed safely.
+    if (/\.backblazeb2\.com$/i.test(mediaUrl.hostname)) {
+      const segments = mediaUrl.pathname.replace(/^\/+/, "").split("/");
+      const encodedKey = segments.slice(1).join("/");
+      const key = encodedKey
+        .split("/")
+        .filter(Boolean)
+        .map((segment) => decodeURIComponent(segment))
+        .join("/");
+      return key ? storageMediaUrl(key) : trimmed;
+    }
+
+    return trimmed;
   } catch {
     return trimmed;
   }

@@ -1,90 +1,164 @@
-import { storageGetSignedUrl } from "../server/storage";
+import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
-type VercelRequest = {
-  query?: Record<string, string | string[] | undefined>;
+type MediaRequest = {
+  url?: string;
+  headers?: Headers | Record<string, string | string[] | undefined>;
 };
 
-type VercelResponse = {
-  status: (code: number) => VercelResponse;
-  setHeader: (name: string, value: string) => void;
-  end: (body?: string) => void;
-};
+function getHeader(request: MediaRequest, name: string) {
+  const headers = request.headers;
+  if (!headers) return undefined;
 
-function getPath(req: VercelRequest) {
-  const value = req.query?.path;
-  if (Array.isArray(value)) return value.join("/").replace(/^\/+/, "");
-  return typeof value === "string" ? value.replace(/^\/+/, "") : "";
+  if (typeof (headers as Headers).get === "function") {
+    return (headers as Headers).get(name) ?? undefined;
+  }
+
+  const record = headers as Record<string, string | string[] | undefined>;
+  const value = record[name] ?? record[name.toLowerCase()] ?? record[name.toUpperCase()];
+  if (Array.isArray(value)) return value[0];
+  return typeof value === "string" ? value : undefined;
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const key = getPath(req);
+function getRequestUrl(request: MediaRequest) {
+  const rawUrl = typeof request.url === "string" ? request.url : "/";
+  const protocol = getHeader(request, "x-forwarded-proto")?.split(",")[0]?.trim() || "https";
+  const host =
+    getHeader(request, "x-forwarded-host")?.split(",")[0]?.trim() ||
+    getHeader(request, "host") ||
+    "primedeal-property.vercel.app";
+  const baseUrl = `${protocol}://${host}`;
+
+  try {
+    return new URL(rawUrl, baseUrl);
+  } catch {
+    return new URL("/", baseUrl);
+  }
+}
+
+function getStorageKey(request: MediaRequest) {
+  const url = getRequestUrl(request);
+  const queryValues = url.searchParams.getAll("path");
+  const queryPath = queryValues.filter(Boolean).join("/");
+  if (queryPath) return queryPath.replace(/^\/+/, "");
+
+  const marker = "/manus-storage/";
+  const markerIndex = url.pathname.indexOf(marker);
+  if (markerIndex < 0) return "";
+
+  const rawPath = url.pathname.slice(markerIndex + marker.length);
+  try {
+    return decodeURIComponent(rawPath).replace(/^\/+/, "");
+  } catch {
+    return rawPath.replace(/^\/+/, "");
+  }
+}
+
+function redirectTo(url: string, maxAge: number) {
+  return new Response(null, {
+    status: 307,
+    headers: {
+      Location: url,
+      "Cache-Control": `public, max-age=${maxAge}`,
+    },
+  });
+}
+
+function textResponse(status: number, message: string) {
+  return new Response(message, {
+    status,
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}
+
+function normalizeStorageEndpoint(value?: string) {
+  const rawEndpoint = value?.trim();
+  if (!rawEndpoint) return undefined;
+  return `${/^https?:\/\//i.test(rawEndpoint) ? "" : "https://"}${rawEndpoint}`.replace(/\/+$/, "");
+}
+
+async function redirectToBackblaze(key: string) {
+  const endpoint = normalizeStorageEndpoint(process.env.S3_ENDPOINT);
+  const bucket = process.env.S3_BUCKET?.trim();
+  const accessKeyId = process.env.S3_KEY?.trim();
+  const secretAccessKey = process.env.S3_SECRET?.trim();
+
+  if (!endpoint || !bucket || !accessKeyId || !secretAccessKey) {
+    throw new Error("S3_ENDPOINT, S3_BUCKET, S3_KEY, dan S3_SECRET wajib diisi.");
+  }
+
+  const client = new S3Client({
+    region: process.env.S3_REGION || "us-east-005",
+    endpoint,
+    forcePathStyle: true,
+    credentials: { accessKeyId, secretAccessKey },
+  });
+
+  return getSignedUrl(
+    client,
+    new GetObjectCommand({ Bucket: bucket, Key: key }),
+    { expiresIn: 900 },
+  );
+}
+
+async function redirectToForge(key: string, forgeApiUrl: string, forgeApiKey: string) {
+  const presignUrl = new URL(
+    "v1/storage/presign/get",
+    forgeApiUrl.replace(/\/+$/, "") + "/",
+  );
+  presignUrl.searchParams.set("path", key);
+  const response = await fetch(presignUrl, {
+    headers: { Authorization: `Bearer ${forgeApiKey}` },
+  });
+  if (!response.ok) {
+    const body = await response.text().catch(() => "");
+    throw new Error(`presign failed: ${response.status} ${body.slice(0, 300)}`);
+  }
+
+  const payload = (await response.json()) as { url?: string };
+  if (!payload.url) throw new Error("storage returned no signed URL");
+  return payload.url;
+}
+
+export default async function handler(request: MediaRequest): Promise<Response> {
+  const key = getStorageKey(request);
+  if (!key) return textResponse(400, "Missing media path");
+
   const forgeApiUrl = process.env.BUILT_IN_FORGE_API_URL ?? "";
   const forgeApiKey = process.env.BUILT_IN_FORGE_API_KEY ?? "";
   const hasBackblazeConfig = Boolean(
-    process.env.S3_ENDPOINT && process.env.S3_BUCKET && process.env.S3_KEY && process.env.S3_SECRET,
+    process.env.S3_ENDPOINT &&
+      process.env.S3_BUCKET &&
+      process.env.S3_KEY &&
+      process.env.S3_SECRET,
   );
 
-  if (!key) {
-    res.status(400).end("Missing media path");
-    return;
-  }
   if (hasBackblazeConfig) {
     try {
-      const signedUrl = await storageGetSignedUrl(key);
-      res.status(307);
-      res.setHeader("Location", signedUrl);
-      res.setHeader("Cache-Control", "public, max-age=3600");
-      res.end();
+      const signedUrl = await redirectToBackblaze(key);
+      return redirectTo(signedUrl, 3600);
     } catch (error) {
       console.error("[MediaProxy] Backblaze signed URL failed:", error);
-      res.status(502).end("Media storage backend error");
+      return textResponse(502, "Media storage backend error");
     }
-    return;
   }
 
-  if (!forgeApiUrl || !forgeApiKey) {
-    // Existing listings may still reference the former Manus storage path.
-    // The legacy public endpoint redirects to its CDN-signed object URL.
-    const legacyPath = key
-      .split("/")
-      .map(segment => encodeURIComponent(segment))
-      .join("/");
-    const legacyUrl = `https://primedeal-jl8furcm.manus.space/manus-storage/${legacyPath}`;
-    res.status(307);
-    res.setHeader("Location", legacyUrl);
-    res.setHeader("Cache-Control", "public, max-age=300");
-    res.end();
-    return;
+  if (forgeApiUrl && forgeApiKey) {
+    try {
+      const signedUrl = await redirectToForge(key, forgeApiUrl, forgeApiKey);
+      return redirectTo(signedUrl, 3600);
+    } catch (error) {
+      console.error("[MediaProxy] Forge signed URL failed:", error);
+      return textResponse(502, "Media storage backend error");
+    }
   }
 
-  try {
-    const presignUrl = new URL(
-      "v1/storage/presign/get",
-      forgeApiUrl.replace(/\/+$/, "") + "/",
-    );
-    presignUrl.searchParams.set("path", key);
-    const response = await fetch(presignUrl, {
-      headers: { Authorization: `Bearer ${forgeApiKey}` },
-    });
-    if (!response.ok) {
-      const body = await response.text().catch(() => "");
-      console.error(`[MediaProxy] presign failed: ${response.status} ${body.slice(0, 300)}`);
-      res.status(502).end("Media storage backend error");
-      return;
-    }
-
-    const payload = (await response.json()) as { url?: string };
-    if (!payload.url) {
-      res.status(502).end("Media storage returned no URL");
-      return;
-    }
-
-    res.status(307);
-    res.setHeader("Location", payload.url);
-    res.setHeader("Cache-Control", "public, max-age=3600");
-    res.end();
-  } catch (error) {
-    console.error("[MediaProxy] failed:", error);
-    res.status(502).end("Media proxy error");
-  }
+  const legacyPath = key
+    .split("/")
+    .map(segment => encodeURIComponent(segment))
+    .join("/");
+  return redirectTo(
+    `https://primedeal-jl8furcm.manus.space/manus-storage/${legacyPath}`,
+    300,
+  );
 }

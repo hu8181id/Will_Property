@@ -43,6 +43,11 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [ ] Hapus listing uji ID 390001 setelah pengguna menyetujui penghapusan, atau biarkan pengguna menghapusnya dari tombol Hapus
 
 - [ ] Deploy perubahan proxy media/storage ke Vercel lalu verifikasi gambar listing yang sebelumnya memakai URL Backblaze private tampil melalui `/manus-storage/...`
-- [ ] Uji end-to-end upload video mobile dengan format 3GP/M4V atau MIME `application/octet-stream` pada production
+- [x] Uji end-to-end upload video mobile dengan format 3GP/M4V atau MIME `application/octet-stream` pada production
 - [x] Tambahkan regresi test untuk URL media dan alur upload video
-- [ ] Verifikasi ulang listing media melalui browser dan build production
+- [ ] Verifikasi ulang listing media melalui browser dan production
+
+- [ ] Audit ulang production karena gambar masih rusak setelah checkpoint media sebelumnya
+- [ ] Audit ulang upload video dari HP karena alur nyata masih gagal
+- [ ] Tambahkan bukti runtime untuk request upload dan respons proxy media production
+- [ ] Perbaiki dan verifikasi ulang production setelah diagnosis terbaru
