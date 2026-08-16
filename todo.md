@@ -7125,3 +7125,9 @@
 - [x] Uji gesture tiga ketukan cepat lalu tekan lama pada logo di desktop dan ponsel.
 - [x] Verifikasi pengunjung non-admin tidak melihat atau dapat menjalankan tambah, edit, hapus, dan upload listing.
 - [x] Verifikasi endpoint produksi dan simpan checkpoint hasil pengujian terbaru.
+
+## Penyederhanaan gesture admin tersembunyi
+
+- [x] Ubah akses admin tersembunyi agar terbuka setelah tiga ketukan cepat tanpa tekan lama.
+- [x] Perbarui unit test gesture dan dokumentasi penggunaan admin.
+- [x] Validasi build serta tampilan desktop/mobile, lalu simpan checkpoint.

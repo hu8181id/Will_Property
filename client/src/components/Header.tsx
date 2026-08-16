@@ -6,10 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import type { MouseEvent as ReactMouseEvent } from "react";
 import { useLocation } from "wouter";
 import {
-  HIDDEN_ADMIN_HOLD_MS,
   HIDDEN_ADMIN_TAP_COUNT,
-  canStartHiddenAdminHold,
   initialHiddenAdminGestureState,
+  isHiddenAdminGestureComplete,
   registerHiddenAdminTap,
 } from "@/lib/hiddenAdminGesture";
 
@@ -19,7 +18,6 @@ export default function Header() {
   const [favoriteCount, setFavoriteCount] = useState(0);
   const [hiddenAdminGesture, setHiddenAdminGesture] = useState(initialHiddenAdminGestureState);
   const hiddenAdminGestureRef = useRef(initialHiddenAdminGestureState);
-  const hiddenAdminHoldTimerRef = useRef<number | null>(null);
   const [logoFailed, setLogoFailed] = useState(false);
   const { user, isAuthenticated, logout } = useAuth();
 
@@ -44,36 +42,17 @@ export default function Header() {
 
   const isActive = (path: string) => location === path;
 
-  const clearHiddenAdminHold = () => {
-    if (hiddenAdminHoldTimerRef.current !== null) {
-      window.clearTimeout(hiddenAdminHoldTimerRef.current);
-      hiddenAdminHoldTimerRef.current = null;
-    }
-  };
-
   const handleLogoTap = (event: ReactMouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
     const next = registerHiddenAdminTap(hiddenAdminGestureRef.current, Date.now());
     hiddenAdminGestureRef.current = next;
     setHiddenAdminGesture(next);
-    if (next.taps >= HIDDEN_ADMIN_TAP_COUNT) event.preventDefault();
-  };
-
-  const handleLogoPointerDown = () => {
-    if (!canStartHiddenAdminHold(hiddenAdminGestureRef.current, Date.now())) return;
-    clearHiddenAdminHold();
-    hiddenAdminHoldTimerRef.current = window.setTimeout(() => {
-      if (!canStartHiddenAdminHold(hiddenAdminGestureRef.current, Date.now())) return;
+    if (isHiddenAdminGestureComplete(next)) {
       hiddenAdminGestureRef.current = initialHiddenAdminGestureState;
       setHiddenAdminGesture(initialHiddenAdminGestureState);
       setLocation("/admin");
-    }, HIDDEN_ADMIN_HOLD_MS);
+    }
   };
-
-  const handleLogoPointerUp = () => {
-    clearHiddenAdminHold();
-  };
-
-  useEffect(() => () => clearHiddenAdminHold(), []);
 
   const navItems = [
     { label: "Beranda", href: "/" },
@@ -92,11 +71,8 @@ export default function Header() {
             className="flex items-center gap-2"
             aria-label="Primedeal Beranda"
             onClick={handleLogoTap}
-            onPointerDown={handleLogoPointerDown}
-            onPointerUp={handleLogoPointerUp}
-            onPointerCancel={handleLogoPointerUp}
-            onPointerLeave={handleLogoPointerUp}
             data-hidden-admin-taps={hiddenAdminGesture.taps}
+            data-hidden-admin-tap-count={HIDDEN_ADMIN_TAP_COUNT}
           >
           {logoFailed ? (
             <span

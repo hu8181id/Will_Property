@@ -2,21 +2,20 @@ import { describe, expect, it } from "vitest";
 import {
   HIDDEN_ADMIN_TAP_COUNT,
   HIDDEN_ADMIN_TAP_WINDOW_MS,
-  HIDDEN_ADMIN_ARM_WINDOW_MS,
-  canStartHiddenAdminHold,
   initialHiddenAdminGestureState,
+  isHiddenAdminGestureComplete,
   registerHiddenAdminTap,
 } from "./hiddenAdminGesture";
 
 describe("hidden admin gesture", () => {
-  it("arms after three taps inside the tap window", () => {
+  it("completes after three taps inside the tap window", () => {
     let state = initialHiddenAdminGestureState;
     state = registerHiddenAdminTap(state, 1_000);
     state = registerHiddenAdminTap(state, 1_000 + HIDDEN_ADMIN_TAP_WINDOW_MS - 1);
     state = registerHiddenAdminTap(state, 1_000 + (HIDDEN_ADMIN_TAP_WINDOW_MS - 1) * 2);
 
     expect(state.taps).toBe(HIDDEN_ADMIN_TAP_COUNT);
-    expect(canStartHiddenAdminHold(state, state.armedAt + 100)).toBe(true);
+    expect(isHiddenAdminGestureComplete(state)).toBe(true);
   });
 
   it("resets the sequence when taps are too far apart", () => {
@@ -24,15 +23,14 @@ describe("hidden admin gesture", () => {
     state = registerHiddenAdminTap(state, 1_000 + HIDDEN_ADMIN_TAP_WINDOW_MS + 1);
 
     expect(state.taps).toBe(1);
-    expect(canStartHiddenAdminHold(state, state.lastTapAt)).toBe(false);
+    expect(isHiddenAdminGestureComplete(state)).toBe(false);
   });
 
-  it("expires an armed hold after the arm window", () => {
-    let state = initialHiddenAdminGestureState;
-    state = registerHiddenAdminTap(state, 1_000);
-    state = registerHiddenAdminTap(state, 1_100);
-    state = registerHiddenAdminTap(state, 1_200);
+  it("does not complete after one or two taps", () => {
+    let state = registerHiddenAdminTap(initialHiddenAdminGestureState, 1_000);
+    expect(isHiddenAdminGestureComplete(state)).toBe(false);
 
-    expect(canStartHiddenAdminHold(state, state.armedAt + HIDDEN_ADMIN_ARM_WINDOW_MS + 1)).toBe(false);
+    state = registerHiddenAdminTap(state, 1_100);
+    expect(isHiddenAdminGestureComplete(state)).toBe(false);
   });
 });
