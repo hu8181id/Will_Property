@@ -147,6 +147,7 @@
 - [x] Verifikasi skrip `render.yaml` dan pastikan environment variables produksi terdokumentasi lengkap.
 - [x] Buat panduan eksekusi `drizzle-kit push` ke TiDB Cloud secara aman tanpa memengaruhi data situs aktif Manus.
 
-- [ ] Lakukan audit langkah demi langkah untuk poin 1-3 migrasi mandiri (storage gratis, deploy Render, migrasi TiDB).
-- [ ] Verifikasi bahwa seluruh dokumen setup (`EXTERNAL_SERVICES_SETUP.md` & `MIGRATION_GUIDE.md`) sudah selaras.
-- [ ] Pastikan situs Manus tetap berjalan normal dan memberikan panduan eksekusi yang aman.
+- [x] Lakukan audit langkah demi langkah untuk poin 1-3 migrasi mandiri (storage gratis, deploy Render, migrasi TiDB).
+- [x] Verifikasi bahwa seluruh dokumen setup (`EXTERNAL_SERVICES_SETUP.md` & `MIGRATION_GUIDE.md`) sudah selaras.
+- [x] Pastikan situs Manus tetap berjalan normal dan memberikan panduan eksekusi yang aman.
+- [x] Buat dokumen ringkasan audit (`MIGRATION_AUDIT_SUMMARY.md`) untuk memastikan transparansi langkah migrasi.
