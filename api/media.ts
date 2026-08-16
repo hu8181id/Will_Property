@@ -1,7 +1,21 @@
 type MediaRequest = Request;
 
+function getRequestUrl(request: MediaRequest) {
+  try {
+    return new URL(request.url);
+  } catch {
+    const protocol =
+      request.headers.get("x-forwarded-proto")?.split(",")[0]?.trim() || "https";
+    const host =
+      request.headers.get("x-forwarded-host")?.split(",")[0]?.trim() ||
+      request.headers.get("host") ||
+      "primedeal-property.vercel.app";
+    return new URL(request.url, `${protocol}://${host}`);
+  }
+}
+
 function getStorageKey(request: MediaRequest) {
-  const url = new URL(request.url);
+  const url = getRequestUrl(request);
   const queryValues = url.searchParams.getAll("path");
   const queryPath = queryValues.filter(Boolean).join("/");
   if (queryPath) return queryPath.replace(/^\/+/, "");
