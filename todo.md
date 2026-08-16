@@ -47,7 +47,12 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Tambahkan regresi test untuk URL media dan alur upload video
 - [ ] Verifikasi ulang listing media melalui browser dan production
 
-- [ ] Audit ulang production karena gambar masih rusak setelah checkpoint media sebelumnya
-- [ ] Audit ulang upload video dari HP karena alur nyata masih gagal
-- [ ] Tambahkan bukti runtime untuk request upload dan respons proxy media production
-- [ ] Perbaiki dan verifikasi ulang production setelah diagnosis terbaru
+- [x] Audit ulang production karena gambar masih rusak setelah checkpoint media sebelumnya
+- [x] Audit ulang upload video dari HP karena alur nyata masih gagal
+- [x] Tambahkan bukti runtime untuk request upload dan respons proxy media production
+- [x] Perbaiki dan verifikasi ulang production tengah diagnosis terbaru
+
+- [x] Audit error “Gagal menyiapkan unggah video” pada Android sebelum request upload dimulai
+- [x] Perbaiki persiapan upload video agar file HP dengan MIME kosong/berbeda tetap dapat diproses
+- [x] Tambahkan regresi test untuk kegagalan persiapan upload dan pesan error yang informatif
+- [x] Verifikasi ulang gambar listing dan upload video pada production setelah patch terbaru

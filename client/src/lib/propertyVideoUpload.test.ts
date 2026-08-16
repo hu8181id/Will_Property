@@ -124,4 +124,11 @@ describe("uploadPropertyVideo", () => {
 
     await expect(uploadPropertyVideo(file)).rejects.toThrow("Ukuran video maksimal 50 MB.");
   });
+
+  it("menangani network error atau respons non-JSON pada persiapan sesi upload dengan pesan informatif", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new TypeError("Failed to fetch")));
+    const file = new File(["video-biner"], "tur-properti.mp4", { type: "video/mp4" });
+
+    await expect(uploadPropertyVideo(file)).rejects.toThrow();
+  });
 });
