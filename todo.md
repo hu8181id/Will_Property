@@ -132,3 +132,9 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Tambahkan unit test regresi pada `api/media.test.ts` untuk memastikan fallback URL publik aktif dan lulus `pnpm test`
 
 - [x] Pastikan seluruh test Vitest (termasuk server/media.test.ts) dijalankan penuh dengan `pnpm test` dan seluruh suite lulus
+
+- [x] Integrasikan Vercel Blob SDK (`@vercel/blob`) untuk client upload langsung foto dan video listing
+- [x] Sediakan endpoint token upload Vercel Blob agar aman dari batasan payload body 4,5 MB
+
+- [x] Hubungkan upload foto listing ke `uploadToVercelBlob` dan amankan endpoint token dengan `ADMIN_SECRET_KEY`
+- [x] Jalankan pengujian penuh `pnpm test` untuk memastikan 108 test Vitest lulus setelah integrasi Vercel Blob

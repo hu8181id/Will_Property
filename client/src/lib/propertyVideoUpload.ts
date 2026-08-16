@@ -96,6 +96,19 @@ export async function uploadPropertyVideo(file: File, onProgress?: PropertyVideo
   if (file.size <= 0) throw new Error("File video kosong atau tidak dapat dibaca.");
   if (file.size > MAX_PROPERTY_VIDEO_BYTES) throw new Error("Ukuran video maksimal 50 MB.");
 
+  // Coba Vercel Blob client upload langsung terlebih dahulu untuk Vercel V2
+  try {
+    const { uploadToVercelBlob } = await import("./vercelBlobClient");
+    const blobUrl = await uploadToVercelBlob(file, (p) => {
+      onProgress?.(Math.max(10, p));
+    });
+    onProgress?.(100);
+    if (blobUrl) return blobUrl;
+  } catch (blobErr) {
+    console.warn("[Vercel Blob] Direct upload failed, falling back to chunked upload session:", blobErr);
+  }
+
+  // Fallback ke server chunked upload session jika Vercel Blob belum dikonfigurasi tokennya
   const sessionResponse = await fetch("/api/property-video-upload-sessions", {
     method: "POST",
     credentials: "include",

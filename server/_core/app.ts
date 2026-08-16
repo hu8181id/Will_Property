@@ -31,6 +31,11 @@ export function createApp(options: AppOptions = {}): Express {
   registerOAuthRoutes(app);
   registerPropertyVideoUploadRoute(app);
 
+  app.post("/api/blob-upload-auth", async (req, res) => {
+    const { handleVercelBlobUploadAuth } = await import("../vercelBlobUpload");
+    return handleVercelBlobUploadAuth(req, res);
+  });
+
   app.get("/robots.txt", (req, res) => {
     const origin = publicOrigin(req);
     res.type("text/plain").send(`User-agent: *

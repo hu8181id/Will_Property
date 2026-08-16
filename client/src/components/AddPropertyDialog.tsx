@@ -102,6 +102,22 @@ async function compressImage(file: File): Promise<SelectedPropertyImage> {
     throw new Error("Ukuran foto maksimal 10 MB sebelum kompresi.");
   }
 
+  // Coba unggah langsung ke Vercel Blob terlebih dahulu jika tersedia
+  try {
+    const { uploadToVercelBlob } = await import("@/lib/vercelBlobClient");
+    const blobUrl = await uploadToVercelBlob(file);
+    if (blobUrl) {
+      return {
+        src: blobUrl,
+        file,
+        name: file.name,
+        contentType: file.type || "image/jpeg",
+      };
+    }
+  } catch (blobErr) {
+    console.warn("[Vercel Blob Image] Direct blob upload failed, falling back to local compression preview:", blobErr);
+  }
+
   const bitmap = await createImageBitmap(file);
   const maxDimension = 1600;
   const scale = Math.min(1, maxDimension / Math.max(bitmap.width, bitmap.height));
