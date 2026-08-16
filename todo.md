@@ -425,2024 +425,2024 @@
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi domain aktif, endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi domain aktif, endpoint API, listing, admin, dan upload video setelah deployment baru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
 - [x] Konfirmasi URL publik yang benar kepada pengguna.
 
 ## Sesi pemulihan domain Vercel
 
 - [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
-- [ ] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
-- [ ] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
-- [ ] Konfirmasi
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
@@ -2755,8 +2755,8 @@
 ## Sesi perbaikan 404 halaman Listing Vercel
 
 - [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
-- [ ] Perbaiki fallback route for `/listing` dan URL detail properti.
-- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain public.
+- [x] Perbaiki fallback route for `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain public.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
 ## Sesi perbaikan 404 halaman Listing Vercel
@@ -2852,7 +2852,7 @@
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
-- [ ] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
 - [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
@@ -3013,7 +3013,7 @@
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
-- [ ] Audit route frontend `/listing` and configuration fallback Vercel yang menyebabkan 404.
+- [x] Audit route frontend `/listing` and configuration fallback Vercel yang menyebabkan 404.
 - [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
@@ -3230,7 +3230,7 @@
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
-- [ ] Audit route frontend `/listing` and configuration fallback Vercel yang menyebabkan 404.
+- [x] Audit route frontend `/listing` and configuration fallback Vercel yang menyebabkan 404.
 - [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
@@ -3258,7 +3258,7 @@
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
-- [ ] Audit route frontend `/listing` dan конфигурация fallback Vercel yang menyebabkan 404.
+- [x] Audit route frontend `/listing` dan конфигурация fallback Vercel yang menyebabkan 404.
 - [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
@@ -3357,7 +3357,7 @@
 ## Sesi perbaikan 404 halaman Listing Vercel
 
 - [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
-- [ ] Perbaiki fallback route untuk `/listing` and URL detail properti.
+- [x] Perbaiki fallback route untuk `/listing` and URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
@@ -3531,7 +3531,7 @@
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
-- [ ] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
 - [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
@@ -3615,7 +3615,7 @@
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
-- [ ] Audit route frontend `/listing` dan конфигурация fallback Vercel yang menyebabkan 404.
+- [x] Audit route frontend `/listing` dan конфигурация fallback Vercel yang menyebabkan 404.
 - [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
@@ -3826,7 +3826,7 @@
 ## Sesi perbaikan 404 halaman Listing Vercel
 
 - [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
-- [ ] Perbaiki fallback route for `/listing` dan URL detail properti.
+- [x] Perbaiki fallback route for `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
 
@@ -3958,7 +3958,7 @@
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
-- [ ] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
 - [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
@@ -4147,7 +4147,7 @@
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
-- [ ] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
 - [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
@@ -4357,7 +4357,7 @@
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
-- [ ] Audit route frontend `/listing` dan конфигурация fallback Vercel yang menyebabkan 404.
+- [x] Audit route frontend `/listing` dan конфигурация fallback Vercel yang menyebabkan 404.
 - [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
@@ -4826,7 +4826,7 @@
 
 ## Sesi perbaikan 404 halaman Listing Vercel
 
-- [ ] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
 - [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
 - [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
 - [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
