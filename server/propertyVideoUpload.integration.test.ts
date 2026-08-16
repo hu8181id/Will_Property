@@ -90,6 +90,41 @@ describe("property video chunk upload routes", () => {
     expect(mocks.setCompletedUrl).toHaveBeenCalledWith(sessionId, "/manus-storage/properties/videos/final.mp4");
   });
 
+  it("menerima admin_key pada sesi dan chunk upload tanpa sesi admin, tetapi menolak request tanpa bypass", async () => {
+    const previousSecret = process.env.ADMIN_SECRET_KEY;
+    const emergencyKey = "emergency-key-123";
+    process.env.ADMIN_SECRET_KEY = emergencyKey;
+    mocks.authenticateRequest.mockRejectedValue(new Error("Sesi tidak valid"));
+    mocks.storagePut.mockResolvedValue({ key: "parts/0", url: "/manus-storage/parts/0" });
+
+    try {
+      const create = await fetch(`${baseUrl}/api/property-video-upload-sessions?admin_key=${encodeURIComponent(emergencyKey)}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ contentType: "video/mp4", fileName: "tur-darurat.mp4", size: 4 }),
+      });
+      expect(create.status).toBe(201);
+      const { sessionId } = await create.json();
+
+      const chunk = await fetch(`${baseUrl}/api/property-video-upload-sessions/${sessionId}/chunks/0`, {
+        method: "POST",
+        headers: { "Content-Type": "video/mp4", "x-admin-key": emergencyKey },
+        body: new Uint8Array([1, 2]),
+      });
+      expect(chunk.status).toBe(201);
+
+      const rejected = await fetch(`${baseUrl}/api/property-video-upload-sessions`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ contentType: "video/mp4", fileName: "tur-tanpa-key.mp4", size: 4 }),
+      });
+      expect(rejected.status).toBe(403);
+    } finally {
+      if (previousSecret === undefined) delete process.env.ADMIN_SECRET_KEY;
+      else process.env.ADMIN_SECRET_KEY = previousSecret;
+    }
+  });
+
   it("menolak pengguna tanpa sesi admin sebelum membuat sesi upload", async () => {
     mocks.authenticateRequest.mockRejectedValue(new Error("Sesi tidak valid"));
     const response = await fetch(`${baseUrl}/api/property-video-upload-sessions`, {

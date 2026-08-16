@@ -24,6 +24,49 @@ describe("AddPropertyDialog Virtual Tour & Video", () => {
     expect((tourInput as HTMLInputElement).value).toBe("https://my.matterport.com/show/?m=123");
   });
 
+  it("menyediakan pemilih foto yang bisa memilih hingga 5 file", () => {
+    const onSubmit = vi.fn().mockResolvedValue(undefined);
+    render(<AddPropertyDialog open={true} onOpenChange={() => {}} onSubmit={onSubmit} />);
+
+    const imageInput = document.querySelector('input[type="file"][multiple]') as HTMLInputElement | null;
+    expect(imageInput).toBeTruthy();
+    expect(imageInput?.multiple).toBe(true);
+    expect(screen.getByText(/foto properti \(maksimal 5\)/i)).toBeTruthy();
+    expect(screen.getByText(/klik untuk memilih foto/i)).toBeTruthy();
+  });
+
+  it("memproses 5 foto, mengubah foto utama, dan menghapus foto", async () => {
+    const onSubmit = vi.fn().mockResolvedValue(undefined);
+    let imageNumber = 0;
+    vi.stubGlobal("createImageBitmap", vi.fn().mockResolvedValue({ width: 800, height: 600, close: vi.fn() }));
+    vi.stubGlobal("fetch", vi.fn().mockImplementation(() => Promise.resolve(new Response("jpeg", { headers: { "Content-Type": "image/jpeg" } }))));
+    vi.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue({ drawImage: vi.fn() } as unknown as CanvasRenderingContext2D);
+    vi.spyOn(HTMLCanvasElement.prototype, "toDataURL").mockImplementation(() => {
+      imageNumber += 1;
+      return `data:image/jpeg;base64,${String(imageNumber).padStart(4, "0")}`;
+    });
+
+    render(<AddPropertyDialog open={true} onOpenChange={() => {}} onSubmit={onSubmit} />);
+    const imageInput = document.querySelector('input[type="file"][multiple]') as HTMLInputElement;
+    const files = Array.from({ length: 5 }, (_, index) => new File([`image-${index}`], `rumah-${index + 1}.jpg`, { type: "image/jpeg" }));
+    fireEvent.change(imageInput, { target: { files } });
+
+    await waitFor(() => expect(screen.getAllByAltText(/Foto properti \d/)).toHaveLength(5));
+    const previews = screen.getAllByAltText(/Foto properti \d/) as HTMLImageElement[];
+    const secondPreviewSrc = previews[1].src;
+    expect(screen.queryByText(/klik untuk memilih foto/i)).toBeNull();
+
+    fireEvent.click(screen.getAllByRole("button", { name: /jadikan utama/i })[0]);
+    await waitFor(() => expect((screen.getAllByAltText(/Foto properti \d/)[0] as HTMLImageElement).src).toBe(secondPreviewSrc));
+
+    fireEvent.click(screen.getByRole("button", { name: /hapus foto 1/i }));
+    await waitFor(() => expect(screen.getAllByAltText(/Foto properti \d/)).toHaveLength(4));
+    expect(screen.getByText(/tersisa 1 slot/i)).toBeTruthy();
+
+    fireEvent.change(imageInput, { target: { files: [new File(["extra-1"], "extra-1.jpg", { type: "image/jpeg" }), new File(["extra-2"], "extra-2.jpg", { type: "image/jpeg" })] } });
+    await waitFor(() => expect(screen.getAllByAltText(/Foto properti \d/)).toHaveLength(4));
+  });
+
   it("handles video file selection and removal state", () => {
     const onSubmit = vi.fn().mockResolvedValue(undefined);
     render(<AddPropertyDialog open={true} onOpenChange={() => {}} onSubmit={onSubmit} />);
