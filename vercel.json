@@ -2,15 +2,53 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "buildCommand": "pnpm build",
+  "outputDirectory": "dist/public",
   "functions": {
     "server.ts": {
-      "runtime": "nodejs22.x"
+      "runtime": "nodejs22.x",
+      "includeFiles": "dist/public/**"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/server"
+      "src": "/api/trpc/(.*)",
+      "dest": "server.ts"
+    },
+    {
+      "src": "/trpc/(.*)",
+      "dest": "server.ts"
+    },
+    {
+      "src": "/manus-storage/(.*)",
+      "dest": "server.ts"
+    },
+    {
+      "src": "/api/upload-property-video",
+      "dest": "server.ts"
+    },
+    {
+      "src": "/api/oauth/(.*)",
+      "dest": "server.ts"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "server.ts"
+    },
+    {
+      "src": "/sitemap.xml",
+      "dest": "server.ts"
+    },
+    {
+      "src": "/apk/(.*)",
+      "dest": "server.ts"
+    },
+    {
+      "src": "/assets/(.*)",
+      "destination": "/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server.ts"
     }
   ]
 }
