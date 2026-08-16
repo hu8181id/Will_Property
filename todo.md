@@ -144,4 +144,14 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Konfigurasikan `BLOB_READ_WRITE_TOKEN` pada environment Vercel dan pastikan endpoint `/api/blob-upload-auth` siap melayani token upload.
 - [x] Pastikan alur upload foto dan video pada form admin Vercel secara ketat menghasilkan URL persisten yang valid tanpa mengandalkan data URL/preview lokal.
 
-- [ ] Audit dan pastikan BLOB_READ_WRITE_TOKEN diinjeksi atau disetel dengan benar, serta tolak penyimpanan URL data/blob lokal yang tidak persisten
+- [x] Audit dan pastikan BLOB_READ_WRITE_TOKEN diinjeksi atau disetel dengan benar, serta tolak penyimpanan URL data/blob lokal yang tidak persisten
+
+- [x] Pastikan alur upload foto menolak data URL/preview lokal jika gagal mengunggah ke Vercel Blob dan berikan error UI yang jelas kepada admin.
+
+- [x] Tampilkan pesan error UI yang jelas kepada admin jika upload media gagal atau token Vercel Blob belum dikonfigurasi.
+
+- [x] Tambahkan toast/pesan error UI di form admin jika upload media gagal atau token Vercel Blob belum dikonfigurasi.
+
+- [x] Perluas error UI (alert/toast) ke semua jalur upload media (foto, thumbnail, video utama) di form admin.
+
+- [x] Tangani error dan tampilkan alert UI untuk kegagalan upload thumbnail dan video utama di form admin.

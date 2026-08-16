@@ -174,14 +174,12 @@ export default function EmergencyListingManager() {
         uploaded.push(result.url);
       }
     }
-    if (uploaded.length === 0) {
-      // Jika semua upload gagal, ambil src yang valid agar listing tidak gagal total
-      for (const img of images) {
-        if (img.src) uploaded.push(img.src);
-      }
+    // Saring hanya URL persisten yang valid (http://, https://, /manus-storage/) dan tolak data: URL lokal yang tidak tampil di Vercel
+    const validUploaded = uploaded.filter(url => url && !url.startsWith("data:"));
+    if (validUploaded.length === 0) {
+      throw new Error("Gagal mengunggah foto ke penyimpanan persisten Vercel Blob. Pastikan BLOB_READ_WRITE_TOKEN sudah dikonfigurasi di Vercel Settings.");
     }
-    if (uploaded.length === 0) throw new Error("Minimal 1 foto diperlukan untuk listing.");
-    return uploaded.slice(0, 5);
+    return validUploaded.slice(0, 5);
   };
 
   const handleSaveProperty = async ({ data, images, videoFile, videoThumbnail, onVideoUploadProgress }: PropertyFormSubmit) => {
@@ -190,17 +188,18 @@ export default function EmergencyListingManager() {
     let imageUrls: string[] = [];
     try {
       imageUrls = await uploadSelectedImages(images);
-    } catch (e) {
-      // Fallback jika upload gambar via serverless timeout: gunakan preview base64 langsung agar listing tetap tersimpan
-      imageUrls = images.map(img => img.src).filter(Boolean).slice(0, 5);
+    } catch (e: any) {
+      alert(e?.message || "Gagal mengunggah foto. Pastikan BLOB_READ_WRITE_TOKEN sudah dikonfigurasi di Vercel Dashboard.");
+      throw e;
     }
 
     let thumbnailUrls: string[] = [];
     if (videoThumbnail) {
       try {
         thumbnailUrls = await uploadSelectedImages([videoThumbnail]);
-      } catch (e) {
-        thumbnailUrls = [videoThumbnail.src];
+      } catch (e: any) {
+        alert(e?.message || "Gagal mengunggah thumbnail video.");
+        throw e;
       }
     }
 
@@ -209,8 +208,9 @@ export default function EmergencyListingManager() {
       try {
         const uploadedVideo = await uploadPropertyVideo(videoFile.file, onVideoUploadProgress);
         if (uploadedVideo) videoUrl = uploadedVideo;
-      } catch (err) {
-        console.warn("Video upload failed or timed out on Vercel, proceeding with listing save without video:", err);
+      } catch (err: any) {
+        alert(err?.message || "Gagal mengunggah video. Pastikan token Vercel Blob sudah dikonfigurasi.");
+        throw err;
       }
     }
 
