@@ -78,3 +78,11 @@ Log deployment `c030ad0` menunjukkan warning penting pada request 10:16:31: `def
 ## 2026-08-16 — Perbaikan database Vercel
 
 Log production menunjukkan query mencari tabel pada database `sys`, sedangkan tabel Primedeal berada pada database TiDB `JL8fURcMYJD322Xe42KmzM`. Environment variable `DATABASE_URL` pada Vercel Production dan Preview telah diperbarui untuk menunjuk ke database tersebut, dengan endpoint, kredensial, dan SSL tetap sama. Vercel mengonfirmasi pembaruan berhasil dan deployment redeploy telah dibuat. Deployment detail: https://vercel.com/willproperty/primedeal-property/FB8qbfbuEm3MTC28bZQ9DBBPG5wP. Alias produksi perlu diuji setelah deployment berstatus Ready.
+
+## 2026-08-16 — Perbaikan 404 Listing pada deployment 5aeb7e7
+
+Deployment `https://primedeal-property-99oz442cq-willproperty.vercel.app/listing` berhasil memuat halaman Listing Primedeal, bukan 404. Setelah data selesai dimuat, 11 listing dari TiDB tampil. Detail listing pertama berhasil dibuka pada route slug `https://primedeal-property-99oz442cq-willproperty.vercel.app/properti/gunawangsa-manyar-2br-furnished-dekat-unair-its-merr-360001`, lengkap dengan deskripsi, harga, spesifikasi, media virtual tour/video, dan tombol berbagi. Alias produksi `https://primedeal-property.vercel.app` masih perlu diuji setelah propagasi deployment.
+
+## Verifikasi alias produksi — route Listing pulih
+
+Alias produksi `https://primedeal-property.vercel.app/listing` sekarang menampilkan 11 listing dari database TiDB. Tombol detail listing pertama berhasil membuka `https://primedeal-property.vercel.app/properti/gunawangsa-manyar-2br-furnished-dekat-unair-its-merr-360001` tanpa 404; modal detail menampilkan judul, lokasi, harga, spesifikasi, deskripsi, dan media video/virtual tour. Root domain dan route Listing publik sudah terverifikasi.
