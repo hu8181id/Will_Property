@@ -160,3 +160,7 @@
 - [x] Menganalisis tangkapan layar Render Web Service dan mengarahkan pengguna kembali ke Static Site untuk repositori statis Will_Property.
 - [x] Menyelesaikan panduan staging Render untuk repository statis Will_Property dan mendokumentasikan pemisahan jalur full-stack TiDB/Backblaze B2.
 - [x] Deteksi hambatan permintaan kartu kredit saat membuat Static Site di Render dan arahkan pembatalan untuk menghindari tagihan/verifikasi kartu.
+- [x] Mengalihkan platform deployment dari Render ke Vercel untuk hosting statis gratis tanpa kartu kredit repositori Will_Property.
+- [ ] Membuat APK Android baru yang mengarah ke website Vercel `https://primedealproperty.vercel.app`.
+- [x] Memilih Jalur A untuk mengaktifkan tambah/hapus properti dan video bersuara pada website Vercel yang sudah online menggunakan backend/database yang sesuai.
+- [x] Menyelesaikan konfigurasi Vercel statis dengan integrasi database/storage eksternal untuk pengelolaan properti tanpa memerlukan Render berbayar.
