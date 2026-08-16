@@ -1,0 +1,90 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1786492167403,
+      "tag": "0000_warm_magik",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1786492225129,
+      "tag": "0001_furry_prowler",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1786497863905,
+      "tag": "0002_condemned_shen",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1786527367418,
+      "tag": "0003_minor_santa_claus",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1786528546027,
+      "tag": "0004_clammy_trauma",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1786628492000,
+      "tag": "0005_jazzy_dakota_north",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1786630463440,
+      "tag": "0006_cultured_jubilee",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1786636760270,
+      "tag": "0007_gifted_bruce_banner",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1786638217205,
+      "tag": "0008_breezy_catseye",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1786787958055,
+      "tag": "0009_lowly_the_hunter",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1786789461352,
+      "tag": "0010_last_rawhide_kid",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1786805059498,
+      "tag": "0011_normal_mister_sinister",
+      "breakpoints": true
+    }
+  ]
+}

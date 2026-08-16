@@ -1,0 +1,1 @@
+ALTER TABLE `property_listings` ADD `videoThumbnailUrl` varchar(1000);

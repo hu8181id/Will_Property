@@ -1,0 +1,252 @@
+import { eq } from "drizzle-orm";
+import { propertyListings } from "../drizzle/schema";
+import { getDb } from "./db";
+import { buildPropertySlug } from "../shared/propertySlug";
+
+const SITE_NAME = "Primedeal Properti";
+const DEFAULT_TITLE = "Primedeal - Agensi Properti Modern & Jual Beli Rumah Terbaik di Surabaya";
+const DEFAULT_DESCRIPTION = "Temukan properti impian Anda di Surabaya bersama Primedeal Properti. Jual beli rumah, apartemen, ruko, dan tanah dengan mudah, aman, serta konsultasi WhatsApp langsung.";
+const DEFAULT_ORIGIN = "https://primedeal-jl8furcm.manus.space";
+
+function resolveCanonicalOrigin(requestOrigin?: string) {
+  const candidates = [process.env.CANONICAL_ORIGIN, requestOrigin, DEFAULT_ORIGIN];
+
+  for (const candidate of candidates) {
+    if (!candidate?.trim()) continue;
+
+    try {
+      const parsed = new URL(candidate.trim());
+      if (parsed.protocol === "https:" || parsed.protocol === "http:") return parsed.origin;
+    } catch {
+      // Skip malformed configured or request origins and use the next safe candidate.
+    }
+  }
+
+  return DEFAULT_ORIGIN;
+}
+
+export const seoMetadataUtils = {
+  resolveCanonicalOrigin,
+  buildListingTitle,
+  buildListingDescription,
+  buildListingCanonical,
+  buildListingStructuredData,
+};
+
+function escapeHtml(value: string) {
+  return value.replace(/[&<>\"']/g, character => {
+    const entities: Record<string, string> = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '\"': "&quot;",
+      "'": "&#39;",
+    };
+    return entities[character] ?? character;
+  });
+}
+
+function absoluteAssetUrl(value: string | undefined, origin: string) {
+  if (!value) return `${origin}/favicon.ico`;
+  if (/^https?:\/\//i.test(value)) return value;
+  return `${origin}${value.startsWith("/") ? value : `/${value}`}`;
+}
+
+function formatPrice(price: number) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    maximumFractionDigits: 0,
+  }).format(price);
+}
+
+type ListingSeoFields = {
+  title: string;
+  description: string;
+  propertyType: string;
+  transactionType: string;
+  price: number;
+  location: string;
+  area: number | null;
+  bedrooms: number | null;
+  bathrooms: number | null;
+  condition: string | null;
+};
+
+function normaliseText(value: string) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function propertyTypeLabel(value: string) {
+  const labels: Record<string, string> = {
+    rumah: "Rumah",
+    apartemen: "Apartemen",
+    ruko: "Ruko",
+    tanah: "Tanah",
+  };
+  return labels[value.trim().toLowerCase()] ?? normaliseText(value);
+}
+
+function transactionLabel(value: string) {
+  return value.trim().toLowerCase() === "disewa" ? "Disewa" : "Dijual";
+}
+
+function truncateText(value: string, limit: number) {
+  if (value.length <= limit) return value;
+  const clipped = value.slice(0, limit - 1).replace(/\s+\S*$/, "").trim();
+  return `${clipped}…`;
+}
+
+function buildListingTitle(property: ListingSeoFields) {
+  const propertyType = propertyTypeLabel(property.propertyType);
+  const rawTitle = normaliseText(property.title);
+  const titleHasType = rawTitle.toLocaleLowerCase("id-ID").includes(propertyType.toLocaleLowerCase("id-ID"));
+  const listingName = titleHasType ? rawTitle : `${propertyType} ${rawTitle}`;
+  return `${transactionLabel(property.transactionType)} ${listingName} di ${normaliseText(property.location)} | ${SITE_NAME}`;
+}
+
+function buildListingDescription(property: ListingSeoFields) {
+  const propertyType = propertyTypeLabel(property.propertyType).toLocaleLowerCase("id-ID");
+  const core = `${transactionLabel(property.transactionType)} ${propertyType} ${normaliseText(property.title)} di ${normaliseText(property.location)}.`;
+  const specifications = [
+    property.bedrooms ? `${property.bedrooms} kamar tidur` : "",
+    property.bathrooms ? `${property.bathrooms} kamar mandi` : "",
+    property.area ? `luas ${property.area} m²` : "",
+    property.condition ? `kondisi ${normaliseText(property.condition)}` : "",
+  ].filter(Boolean);
+  const specificationSentence = specifications.length ? ` ${specifications.join(", ")}.` : "";
+  const originalDescription = normaliseText(property.description);
+  const details = originalDescription ? ` ${originalDescription}` : "";
+  return truncateText(`${core}${specificationSentence} Harga ${formatPrice(property.price)}.${details} Konsultasi unit melalui WhatsApp ${SITE_NAME}.`, 320);
+}
+
+type ListingSlugSeoFields = ListingSeoFields & {
+  id: number;
+  slug?: string | null;
+  images?: string[] | null;
+};
+
+function buildListingCanonical(origin: string, property: Pick<ListingSlugSeoFields, "id" | "slug" | "title">) {
+  const canonicalSlug = property.slug || buildPropertySlug(property.title, property.id);
+  return `${resolveCanonicalOrigin(origin)}/properti/${encodeURIComponent(canonicalSlug)}`;
+}
+
+function buildListingStructuredData(property: ListingSlugSeoFields, canonical: string, origin: string) {
+  const image = absoluteAssetUrl(property.images?.[0], origin);
+  return {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": property.title,
+    "description": property.description,
+    "url": canonical,
+    "image": property.images?.map(item => absoluteAssetUrl(item, origin)) || [image],
+    "price": property.price,
+    "priceCurrency": "IDR",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": property.location,
+      "addressCountry": "ID",
+    },
+  };
+}
+
+function replaceOrInsert(html: string, pattern: RegExp, tag: string) {
+  if (pattern.test(html)) return html.replace(pattern, tag);
+  return html.replace("</head>", `  ${tag}\n</head>`);
+}
+
+function replaceMeta(html: string, attribute: "name" | "property", key: string, value: string) {
+  const safeKey = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pattern = new RegExp(`<meta\\s+[^>]*${attribute}=[\\\"']${safeKey}[\\\"'][^>]*>`, "i");
+  const tag = `<meta ${attribute}="${key}" content="${escapeHtml(value)}" />`;
+  return replaceOrInsert(html, pattern, tag);
+}
+
+function applyHead(html: string, meta: {
+  title: string;
+  description: string;
+  canonical: string;
+  image: string;
+  imageAlt: string;
+  jsonLd?: object;
+}) {
+  let output = html.replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(meta.title)}</title>`);
+  output = replaceOrInsert(output, /<title>[^<]*<\/title>/i, `<title>${escapeHtml(meta.title)}</title>`);
+
+  output = replaceMeta(output, "name", "description", meta.description);
+  output = replaceMeta(output, "property", "og:type", "website");
+  output = replaceMeta(output, "property", "og:url", meta.canonical);
+  output = replaceMeta(output, "property", "og:title", meta.title);
+  output = replaceMeta(output, "property", "og:description", meta.description);
+  output = replaceMeta(output, "property", "og:image", meta.image);
+  output = replaceMeta(output, "property", "og:image:alt", meta.imageAlt);
+  output = replaceMeta(output, "name", "twitter:card", "summary_large_image");
+  output = replaceMeta(output, "name", "twitter:title", meta.title);
+  output = replaceMeta(output, "name", "twitter:description", meta.description);
+  output = replaceMeta(output, "name", "twitter:image", meta.image);
+
+  const canonicalPattern = /<link\s+[^>]*rel=['"]canonical['"][^>]*>/i;
+  output = replaceOrInsert(output, canonicalPattern, `<link rel="canonical" href="${escapeHtml(meta.canonical)}" />`);
+
+  if (meta.jsonLd) {
+    const jsonScript = `<script type="application/ld+json">${JSON.stringify(meta.jsonLd)}</script>`;
+    output = output.replace("</head>", `  ${jsonScript}\n</head>`);
+  }
+
+  return output;
+}
+
+export async function injectSeoMetadata(html: string, requestUrl: string, requestOrigin?: string) {
+  const canonicalOrigin = resolveCanonicalOrigin(requestOrigin);
+  const fallback = {
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    canonical: `${canonicalOrigin}/`,
+    image: `${canonicalOrigin}/favicon.ico`,
+    imageAlt: `${SITE_NAME} - agensi properti Surabaya`,
+  };
+
+  let parsedUrl: URL;
+  try {
+    parsedUrl = new URL(requestUrl, canonicalOrigin);
+  } catch {
+    return applyHead(html, fallback);
+  }
+
+  const slugMatch = parsedUrl.pathname.match(/^\/properti\/([^/]+)\/?$/);
+  const requestedSlug = slugMatch ? decodeURIComponent(slugMatch[1]) : null;
+  const isLegacyListingUrl = parsedUrl.pathname === "/listing";
+  if (!isLegacyListingUrl && !requestedSlug) {
+    return applyHead(html, fallback);
+  }
+
+  const rawId = isLegacyListingUrl ? parsedUrl.searchParams.get("property") : null;
+  const propertyId = rawId ? Number(rawId) : NaN;
+  if (!requestedSlug && (!Number.isInteger(propertyId) || propertyId <= 0)) {
+    return applyHead(html, fallback);
+  }
+
+  try {
+    const db = await getDb();
+    if (!db) return applyHead(html, fallback);
+    const rows = await db
+      .select()
+      .from(propertyListings)
+      .where(requestedSlug ? eq(propertyListings.slug, requestedSlug) : eq(propertyListings.id, propertyId))
+      .limit(1);
+    const property = rows[0];
+    if (!property) return applyHead(html, fallback);
+
+    const title = buildListingTitle(property);
+    const description = buildListingDescription(property);
+    const canonical = buildListingCanonical(canonicalOrigin, property);
+    const image = absoluteAssetUrl(property.images?.[0], canonicalOrigin);
+
+    const jsonLd = buildListingStructuredData(property, canonical, canonicalOrigin);
+
+    return applyHead(html, { title, description, canonical, image, imageAlt: property.title, jsonLd });
+  } catch (error) {
+    console.warn("[SEO] Falling back to default metadata:", error);
+    return applyHead(html, fallback);
+  }
+}

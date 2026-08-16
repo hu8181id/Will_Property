@@ -1,0 +1,126 @@
+import { useAuth } from "@/_core/hooks/useAuth";
+import { startLogin } from "@/const";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Lock, ShieldCheck, ArrowLeft, LogOut, Home, BarChart3 } from "lucide-react";
+import { useLocation } from "wouter";
+
+export default function AdminLogin() {
+  const { user, isAuthenticated, logout } = useAuth();
+  const [, setLocation] = useLocation();
+
+  return (
+    <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="flex justify-center mb-4">
+          <img
+            src="/manus-storage/primedeal-logo-new_719501eb.webp"
+            alt="Primedeal Logo"
+            className="h-16 w-16"
+          />
+        </div>
+        <h2 className="text-center text-3xl font-extrabold text-slate-900">
+          Portal Kelola Admin
+        </h2>
+        <p className="mt-2 text-center text-sm text-slate-600">
+          Primedeal Property Management System
+        </p>
+      </div>
+
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <Card className="py-8 px-4 shadow sm:rounded-lg sm:px-10 border border-border">
+          {isAuthenticated && user ? (
+            <div className="space-y-6">
+              <div className="rounded-md bg-green-50 p-4 border border-green-200">
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="h-6 w-6 text-green-600" />
+                  <div>
+                    <h3 className="text-sm font-medium text-green-800">
+                      Berhasil Masuk sebagai {user.name || "Admin"}
+                    </h3>
+                    <p className="text-xs text-green-700 mt-0.5">
+                      Role: {user.role === "admin" ? "Admin (Akses Penuh)" : "User Biasa"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <Button
+                  onClick={() => setLocation("/listing")}
+                  className="w-full bg-primary hover:bg-primary/90 text-white"
+                >
+                  Buka Halaman Listing & Kelola Properti
+                </Button>
+                {user.role === "admin" && (
+                  <Button
+                    variant="outline"
+                    onClick={() => setLocation("/admin/dashboard")}
+                    className="w-full gap-2"
+                  >
+                    <BarChart3 size={16} />
+                    Lihat Dashboard Pengunjung
+                  </Button>
+                )}
+                {user.role === "admin" && (
+                  <Button
+                    variant="outline"
+                    onClick={() => setLocation("/admin/reviews")}
+                    className="w-full gap-2"
+                  >
+                    Kelola Rating & Ulasan
+                  </Button>
+                )}
+                <Button
+                  variant="outline"
+                  onClick={() => setLocation("/")}
+                  className="w-full gap-2"
+                >
+                  <Home size={16} />
+                  Kembali ke Beranda
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => logout()}
+                  className="w-full text-red-600 hover:text-red-700 hover:bg-red-50 gap-2"
+                >
+                  <LogOut size={16} />
+                  Keluar (Logout)
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              <div className="rounded-md bg-blue-50 p-4 border border-blue-200">
+                <div className="flex items-start gap-3">
+                  <Lock className="h-5 w-5 text-blue-600 mt-0.5" />
+                  <div className="text-xs text-blue-800">
+                    <span className="font-semibold block mb-1">Akses Terbatas Pemilik</span>
+                    Halaman ini khusus untuk pemilik agensi Primedeal. Tombol login publik telah disembunyikan dari pengunjung website.
+                  </div>
+                </div>
+              </div>
+
+              <Button
+                onClick={() => startLogin()}
+                className="w-full bg-primary hover:bg-primary/90 text-white gap-2 py-6 text-base"
+              >
+                <Lock size={18} />
+                Login ke Akun Admin
+              </Button>
+
+              <div className="text-center">
+                <a
+                  href="/"
+                  className="text-sm font-medium text-slate-600 hover:text-primary inline-flex items-center gap-1"
+                >
+                  <ArrowLeft size={14} /> Kembali ke Website Utama
+                </a>
+              </div>
+            </div>
+          )}
+        </Card>
+      </div>
+    </div>
+  );
+}

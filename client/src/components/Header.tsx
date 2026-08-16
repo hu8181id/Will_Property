@@ -1,0 +1,186 @@
+import { Button } from "@/components/ui/button";
+import { Menu, X, Heart, Lock, LogOut } from "lucide-react";
+import { startLogin } from "@/const";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [location] = useLocation();
+  const [favoriteCount, setFavoriteCount] = useState(0);
+  const [logoFailed, setLogoFailed] = useState(false);
+  const { user, isAuthenticated, logout } = useAuth();
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const saved = localStorage.getItem("primedeal_favorites_ids");
+      if (saved) {
+        try {
+          setFavoriteCount(JSON.parse(saved).length);
+        } catch (error) {
+          console.error("Error loading favorite count:", error);
+        }
+      } else {
+        setFavoriteCount(0);
+      }
+    };
+
+    handleStorageChange();
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
+  const isActive = (path: string) => location === path;
+
+  const navItems = [
+    { label: "Beranda", href: "/" },
+    { label: "Listing", href: "/listing" },
+    { label: "Favorit", href: "/favorit" },
+    { label: "Kalkulator KPR", href: "/kalkulator" },
+    { label: "Tentang Kami", href: "/tentang" },
+  ];
+
+  return (
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-border shadow-sm">
+      <div className="container flex h-16 items-center justify-between">
+        {/* Logo: use the legacy storage asset when available, with a Vercel-safe fallback. */}
+        <a href="/" className="flex items-center gap-2" aria-label="Primedeal Beranda">
+          {logoFailed ? (
+            <span
+              aria-hidden="true"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-700 to-blue-500 text-lg font-black text-white shadow-sm"
+            >
+              P
+            </span>
+          ) : (
+            <img
+              src="/manus-storage/primedeal-logo-new_719501eb.webp"
+              alt="Primedeal Logo"
+              className="h-10 w-10 rounded-xl object-cover"
+              onError={() => setLogoFailed(true)}
+            />
+          )}
+          <span className="text-base font-bold tracking-tight text-slate-900">Primedeal</span>
+        </a>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`text-sm font-medium transition-colors ${
+                isActive(item.href)
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Auth status & Favorite & WhatsApp CTA */}
+        <div className="flex items-center gap-3">
+          {isAuthenticated && user && user.role === "admin" && (
+            <div className="hidden md:flex items-center gap-2 text-xs bg-secondary px-3 py-1.5 rounded-lg">
+              <span className="font-semibold text-slate-800">Admin Active</span>
+              <button
+                onClick={() => logout()}
+                className="text-muted-foreground hover:text-red-600 ml-1"
+                title="Keluar"
+              >
+                <LogOut size={14} />
+              </button>
+            </div>
+          )}
+          <a
+            href="/favorit"
+            className="relative hidden sm:flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            title="Favorit"
+          >
+            <Heart size={20} className={favoriteCount > 0 ? "fill-red-500 text-red-500" : ""} />
+            {favoriteCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                {favoriteCount > 9 ? "9+" : favoriteCount}
+              </span>
+            )}
+          </a>
+          <Button
+            className="hidden sm:inline-flex bg-primary hover:bg-primary/90 text-white"
+            onClick={() => {
+              const phone = "6282230357009";
+              const message = "Halo Primedeal, saya tertarik dengan properti Anda.";
+              window.open(
+                `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+                "_blank"
+              );
+            }}
+          >
+            Hubungi Kami
+          </Button>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <nav className="md:hidden border-t border-border bg-white">
+          <div className="container py-4 flex flex-col gap-4">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`text-sm font-medium transition-colors ${
+                  isActive(item.href)
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="pt-2 border-t border-border flex flex-col gap-2">
+              {isAuthenticated && user && user.role === "admin" && (
+                <div className="flex items-center justify-between bg-secondary p-3 rounded-lg text-xs">
+                  <div>
+                    <span className="font-semibold text-slate-800 block">{user.name || "Admin"}</span>
+                    <span className="text-primary font-bold">Status: Admin</span>
+                  </div>
+                  <Button variant="outline" size="sm" onClick={() => logout()} className="text-red-600 border-red-200">
+                    Keluar
+                  </Button>
+                </div>
+              )}
+            </div>
+            <Button
+              className="w-full bg-primary hover:bg-primary/90 text-white"
+              onClick={() => {
+                const phone = "6282230357009";
+                const message =
+                  "Halo Primedeal, saya tertarik dengan properti Anda.";
+                window.open(
+                  `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+                  "_blank"
+                );
+                setIsOpen(false);
+              }}
+            >
+              Hubungi Kami
+            </Button>
+          </div>
+        </nav>
+      )}
+    </header>
+  );
+}
