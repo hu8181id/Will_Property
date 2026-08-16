@@ -138,3 +138,13 @@ export function getAdminLoginSecuritySummary() {
     lastAttempts: loginAuditLog.slice(0, 10),
   };
 }
+
+export function checkAdminConfigStatus() {
+  const hasUsername = Boolean(process.env.ADMIN_USERNAME && process.env.ADMIN_USERNAME.trim().length > 0);
+  const hasPassword = Boolean(process.env.ADMIN_PASSWORD && process.env.ADMIN_PASSWORD.trim().length > 0);
+  return {
+    configured: hasUsername && hasPassword,
+    hasUsername,
+    hasPassword,
+  };
+}

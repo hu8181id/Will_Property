@@ -108,3 +108,39 @@ describe("Admin Credentials Case Insensitivity", () => {
     expect(verifyAdminCredentials("adminuser", "WrongPassword")).toBe(false);
   });
 });
+
+import { checkAdminConfigStatus } from "./adminAuth";
+
+describe("checkAdminConfigStatus", () => {
+  it("returns configured false when env vars are missing", () => {
+    const originalUser = process.env.ADMIN_USERNAME;
+    const originalPass = process.env.ADMIN_PASSWORD;
+    delete process.env.ADMIN_USERNAME;
+    delete process.env.ADMIN_PASSWORD;
+
+    const status = checkAdminConfigStatus();
+    expect(status.configured).toBe(false);
+    expect(status.hasUsername).toBe(false);
+    expect(status.hasPassword).toBe(false);
+    expect(status).not.toHaveProperty("maskedUsername");
+
+    process.env.ADMIN_USERNAME = originalUser;
+    process.env.ADMIN_PASSWORD = originalPass;
+  });
+
+  it("returns configured true when both env vars are present", () => {
+    const originalUser = process.env.ADMIN_USERNAME;
+    const originalPass = process.env.ADMIN_PASSWORD;
+    process.env.ADMIN_USERNAME = "owner";
+    process.env.ADMIN_PASSWORD = "secretpassword";
+
+    const status = checkAdminConfigStatus();
+    expect(status.configured).toBe(true);
+    expect(status.hasUsername).toBe(true);
+    expect(status.hasPassword).toBe(true);
+    expect(status).not.toHaveProperty("maskedUsername");
+
+    process.env.ADMIN_USERNAME = originalUser;
+    process.env.ADMIN_PASSWORD = originalPass;
+  });
+});

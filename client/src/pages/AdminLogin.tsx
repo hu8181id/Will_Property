@@ -29,6 +29,9 @@ export default function AdminLogin() {
     },
   });
 
+  const configQuery = trpc.adminAuth.checkConfig.useQuery();
+  const configStatus = configQuery.data;
+
   const handleAdminLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoginError(null);
@@ -127,6 +130,13 @@ export default function AdminLogin() {
                   </div>
                 </div>
               </div>
+
+              {configStatus && !configStatus.configured && (
+                <div className="rounded-md bg-amber-50 p-4 border border-amber-300 text-xs text-amber-900">
+                  <span className="font-semibold block mb-1">Peringatan Konfigurasi Vercel:</span>
+                  Variabel <code className="bg-amber-100 px-1 py-0.5 rounded">ADMIN_USERNAME</code> atau <code className="bg-amber-100 px-1 py-0.5 rounded">ADMIN_PASSWORD</code> belum terpasang di Vercel Environment Variables (Production). Silakan tambahkan dan lakukan redeploy.
+                </div>
+              )}
 
               <div className="space-y-2">
                 <Label htmlFor="admin-username">Username Admin</Label>

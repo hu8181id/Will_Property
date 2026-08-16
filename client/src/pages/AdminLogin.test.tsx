@@ -21,6 +21,9 @@ vi.mock("@/lib/trpc", () => ({
   trpc: {
     useUtils: () => ({ auth: { me: { invalidate: mocks.invalidate } } }),
     adminAuth: {
+      checkConfig: {
+        useQuery: () => ({ data: { configured: true, hasUsername: true, hasPassword: true } }),
+      },
       login: {
         useMutation: (opts: { onSuccess?: () => void; onError?: (err: Error) => void }) => ({
           mutate: (input: { username: string; password: string }) => {

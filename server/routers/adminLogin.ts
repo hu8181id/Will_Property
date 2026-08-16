@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { publicProcedure, router } from "../_core/trpc";
-import { ADMIN_SESSION_COOKIE, createAdminSession, getAdminCookieOptions, verifyAdminCredentials, recordLoginAttempt } from "../adminAuth";
+import { ADMIN_SESSION_COOKIE, createAdminSession, getAdminCookieOptions, verifyAdminCredentials, recordLoginAttempt, checkAdminConfigStatus } from "../adminAuth";
 import { TRPCError } from "@trpc/server";
 
 export const adminLoginRouter = router({
@@ -22,4 +22,7 @@ export const adminLoginRouter = router({
       );
       return { success: true } as const;
     }),
+  checkConfig: publicProcedure.query(() => {
+    return checkAdminConfigStatus();
+  }),
 });
