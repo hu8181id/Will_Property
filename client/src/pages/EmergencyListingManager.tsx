@@ -71,6 +71,9 @@ export default function EmergencyListingManager() {
     },
   });
 
+  const uploadImageMutation = trpc.property.uploadImage.useMutation();
+  const uploadVideoMutation = trpc.property.uploadVideo.useMutation();
+
   const resetForm = () => {
     setTitle("");
     setLocation("");
@@ -100,35 +103,45 @@ export default function EmergencyListingManager() {
     setShowAddModal(true);
   };
 
+  const fileToBase64 = (file: File) =>
+    new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result));
+      reader.onerror = () => reject(new Error("File tidak dapat dibaca."));
+    });
+
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, isVideo: boolean = false) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
     setUploading(true);
-    const formData = new FormData();
-    formData.append("file", file);
-
     try {
-      const res = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-      });
-      const data = await res.json();
-      if (data.url) {
-        if (isVideo) {
-          setVideoUrl(data.url);
-          toast({ title: "Upload Video Berhasil", description: "File video siap disimpan." });
-        } else {
-          setImageUrl(data.url);
-          toast({ title: "Upload Foto Berhasil", description: "URL foto utama diperbarui." });
-        }
+      const base64Data = await fileToBase64(file);
+      const result = isVideo
+        ? await uploadVideoMutation.mutateAsync({
+            fileName: file.name,
+            base64Data,
+            contentType: file.type as "video/mp4" | "video/webm" | "video/quicktime",
+          })
+        : await uploadImageMutation.mutateAsync({
+            fileName: file.name,
+            base64Data,
+            contentType: file.type,
+          });
+
+      if (!result.url) throw new Error("Server tidak mengembalikan URL media.");
+      if (isVideo) {
+        setVideoUrl(result.url);
+        toast({ title: "Upload Video Berhasil", description: "File video siap disimpan." });
       } else {
-        throw new Error(data.error || "Gagal mengunggah file");
+        setImageUrl(result.url);
+        toast({ title: "Upload Foto Berhasil", description: "URL foto utama diperbarui." });
       }
     } catch (err: any) {
       toast({ title: "Upload Gagal", description: err.message || "Terjadi kesalahan upload", variant: "destructive" });
     } finally {
       setUploading(false);
+      e.target.value = "";
     }
   };
 
