@@ -1,7 +1,28 @@
+import type { ServerResponse } from "node:http";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import handler from "./login";
 
-describe("direct Vercel admin login (Web Request contract)", () => {
+type MockResponse = ServerResponse & {
+  headers: Record<string, string>;
+  body: string;
+};
+
+function createResponse() {
+  const response = {
+    statusCode: 200,
+    headers: {} as Record<string, string>,
+    body: "",
+    setHeader(name: string, value: string) {
+      this.headers[name.toLowerCase()] = value;
+    },
+    end(body?: string) {
+      this.body = body ?? "";
+    },
+  } as unknown as MockResponse;
+  return response;
+}
+
+describe("direct Vercel admin login (Node contract)", () => {
   const originalUsername = process.env.ADMIN_USERNAME;
   const originalPassword = process.env.ADMIN_PASSWORD;
   const originalJwtSecret = process.env.JWT_SECRET;
@@ -19,51 +40,48 @@ describe("direct Vercel admin login (Web Request contract)", () => {
   });
 
   it("returns a signed session cookie for valid credentials", async () => {
-    const request = new Request("https://primedeal-property.vercel.app/api/admin/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-forwarded-proto": "https",
-      },
-      body: JSON.stringify({ username: "admin-test", password: "password-test-123" }),
-    });
+    const response = createResponse();
 
-    const response = await handler(request);
-    const bodyText = await response.text();
+    await handler(
+      {
+        method: "POST",
+        headers: { "x-forwarded-proto": "https" },
+        body: { username: "admin-test", password: "password-test-123" },
+      } as never,
+      response,
+    );
 
-    expect(response.status).toBe(200);
-    expect(bodyText).toBe('{"ok":true}');
-    const setCookie = response.headers.get("set-cookie") || "";
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toBe('{"ok":true}');
+    const setCookie = response.headers["set-cookie"] || "";
     expect(setCookie).toContain("primedeal_admin_session=");
     expect(setCookie).toContain("HttpOnly");
     expect(setCookie).toContain("Secure");
   });
 
   it("rejects invalid credentials without issuing a cookie", async () => {
-    const request = new Request("https://primedeal-property.vercel.app/api/admin/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ username: "admin-test", password: "wrong-password" }),
-    });
+    const response = createResponse();
 
-    const response = await handler(request);
-    const bodyText = await response.text();
+    await handler(
+      {
+        method: "POST",
+        headers: {},
+        body: { username: "admin-test", password: "wrong-password" },
+      } as never,
+      response,
+    );
 
-    expect(response.status).toBe(401);
-    expect(bodyText).toContain("Username atau password admin salah");
-    expect(response.headers.get("set-cookie")).toBeNull();
+    expect(response.statusCode).toBe(401);
+    expect(response.body).toContain("Username atau password admin salah");
+    expect(response.headers["set-cookie"]).toBeUndefined();
   });
 
   it("rejects non-POST requests", async () => {
-    const request = new Request("https://primedeal-property.vercel.app/api/admin/login", {
-      method: "GET",
-    });
+    const response = createResponse();
 
-    const response = await handler(request);
+    await handler({ method: "GET", headers: {}, body: {} } as never, response);
 
-    expect(response.status).toBe(405);
-    expect(response.headers.get("allow")).toBe("POST");
+    expect(response.statusCode).toBe(405);
+    expect(response.headers["allow"]).toBe("POST");
   });
 });

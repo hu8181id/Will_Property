@@ -1,3 +1,4 @@
+import type { IncomingMessage, ServerResponse } from "node:http";
 import {
   ADMIN_SESSION_COOKIE,
   createAdminSession,
@@ -5,63 +6,80 @@ import {
   verifyAdminCredentials,
 } from "../../server/adminAuth";
 
+type VercelRequest = IncomingMessage & {
+  body?: unknown;
+};
+
+type JsonRecord = Record<string, unknown>;
+
 export const config = {
   runtime: "nodejs",
 };
 
-export default async function handler(request: Request): Promise<Response> {
+function sendJson(
+  response: ServerResponse,
+  body: unknown,
+  status: number,
+  headers: Record<string, string> = {},
+) {
+  response.statusCode = status;
+  response.setHeader("content-type", "application/json; charset=utf-8");
+  response.setHeader("cache-control", "no-store");
+  for (const [name, value] of Object.entries(headers)) {
+    response.setHeader(name, value);
+  }
+  response.end(JSON.stringify(body));
+}
+
+async function readRequestBody(request: VercelRequest): Promise<JsonRecord> {
+  if (request.body && typeof request.body === "object") {
+    return request.body as JsonRecord;
+  }
+
+  const chunks: Buffer[] = [];
+  for await (const chunk of request) {
+    chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(String(chunk)));
+  }
+
+  const raw = Buffer.concat(chunks).toString("utf8").trim();
+  if (!raw) return {};
+
+  const parsed: unknown = JSON.parse(raw);
+  return parsed && typeof parsed === "object" ? (parsed as JsonRecord) : {};
+}
+
+export default async function handler(request: VercelRequest, response: ServerResponse) {
   if (request.method !== "POST") {
-    return new Response(JSON.stringify({ error: "Method Not Allowed" }), {
-      status: 405,
-      headers: {
-        "content-type": "application/json; charset=utf-8",
-        "cache-control": "no-store",
-        "Allow": "POST",
-      },
-    });
+    sendJson(response, { error: "Method Not Allowed" }, 405, { Allow: "POST" });
+    return;
   }
 
-  let body: Record<string, unknown> = {};
+  let input: JsonRecord;
   try {
-    const raw = await request.text();
-    if (raw) {
-      body = JSON.parse(raw);
-    }
+    input = await readRequestBody(request);
   } catch {
-    return new Response(JSON.stringify({ error: "Format permintaan tidak valid." }), {
-      status: 400,
-      headers: {
-        "content-type": "application/json; charset=utf-8",
-        "cache-control": "no-store",
-      },
-    });
+    sendJson(response, { error: "Format permintaan tidak valid." }, 400);
+    return;
   }
 
-  const username = typeof body.username === "string" ? body.username : "";
-  const password = typeof body.password === "string" ? body.password : "";
+  const username = typeof input.username === "string" ? input.username : "";
+  const password = typeof input.password === "string" ? input.password : "";
 
   if (!verifyAdminCredentials(username, password)) {
-    return new Response(JSON.stringify({ error: "Username atau password admin salah." }), {
-      status: 401,
-      headers: {
-        "content-type": "application/json; charset=utf-8",
-        "cache-control": "no-store",
-      },
-    });
+    sendJson(response, { error: "Username atau password admin salah." }, 401);
+    return;
   }
 
   const session = createAdminSession(username.trim());
-  const headersObj: Record<string, string> = {};
-  request.headers.forEach((value, key) => {
-    headersObj[key.toLowerCase()] = value;
-  });
-
-  const forwardedProto = headersObj["x-forwarded-proto"];
-  const protocol = forwardedProto ? forwardedProto.split(",")[0].trim() : "https";
+  const headers = request.headers ?? {};
+  const forwardedProto = headers["x-forwarded-proto"];
+  const protocol = Array.isArray(forwardedProto)
+    ? forwardedProto[0]
+    : forwardedProto || "https";
 
   const cookieOptions = getAdminCookieOptions({
-    protocol,
-    headers: headersObj,
+    protocol: String(protocol),
+    headers,
   });
 
   const cookieParts = [
@@ -76,12 +94,5 @@ export default async function handler(request: Request): Promise<Response> {
   }
   const cookieValue = cookieParts.join("; ");
 
-  return new Response(JSON.stringify({ ok: true }), {
-    status: 200,
-    headers: {
-      "content-type": "application/json; charset=utf-8",
-      "cache-control": "no-store",
-      "set-cookie": cookieValue,
-    },
-  });
+  sendJson(response, { ok: true }, 200, { "set-cookie": cookieValue });
 }
