@@ -35,11 +35,9 @@ app.use("*", async (req, res, next) => {
 const server = createServer(app);
 const port = Number.parseInt(process.env.PORT ?? "3000", 10);
 
-if (!process.env.VERCEL) {
-  server.listen(port, () => {
-    console.log(`[Primedeal server] Listening on port ${port}`);
-  });
-}
+server.listen(port, () => {
+  console.log(`[Primedeal server] Listening on port ${port}`);
+});
 
 export { app };
 export default app;

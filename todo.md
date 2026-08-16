@@ -190,3 +190,5 @@
 - [x] Perbaiki runner produksi yang gagal karena mencari `dist/index.js` dengan mengubah output esbuild ke `dist/index.js`.
 - [ ] Verifikasi environment Vercel, endpoint API, listing, admin, dan upload video setelah deployment baru.
 - [ ] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [ ] Hapus pola `functions.server.ts` yang tidak cocok dengan fungsi Vercel dan gunakan deteksi otomatis server entrypoint.
+- [ ] Pastikan server.ts memanggil `listen` sesuai kontrak Node.js server Vercel dan deployment publik berhasil.
