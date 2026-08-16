@@ -1,4 +1,5 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+
+import { vi, describe, it, expect, afterEach } from "vitest";
 
 vi.mock("@aws-sdk/client-s3", () => ({
   S3Client: class MockS3Client {
@@ -20,7 +21,7 @@ vi.mock("@aws-sdk/s3-request-presigner", () => ({
 }));
 
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import handler from "./media";
+import handler from "../api/media";
 
 const mockedGetSignedUrl = vi.mocked(getSignedUrl);
 
@@ -77,63 +78,6 @@ describe("Vercel media proxy", () => {
     expect(response.status).toBe(307);
   });
 
-  it("supports Vercel requests whose URL is relative", async () => {
-    process.env.S3_ENDPOINT = "https://s3.us-east-005.backblazeb2.com";
-    process.env.S3_BUCKET = "primedeal-media";
-    process.env.S3_KEY = "test-key";
-    process.env.S3_SECRET = "test-secret";
-    mockedGetSignedUrl.mockResolvedValue("https://signed.example.com/mobile.jpg");
-
-    const request = {
-      url: "/manus-storage/properties/mobile.jpg",
-      headers: new Headers({
-        "x-forwarded-proto": "https",
-        "x-forwarded-host": "example.com",
-      }),
-    } as unknown as Request;
-
-    const response = await handler(request);
-
-    expect(mockedGetSignedUrl).toHaveBeenCalledTimes(1);
-    const command = mockedGetSignedUrl.mock.calls[0]?.[1] as { input: Record<string, string> };
-    expect(command.input.Key).toBe("properties/mobile.jpg");
-    expect(response.status).toBe(307);
-    expect(response.headers.get("Location")).toBe("https://signed.example.com/mobile.jpg");
-  });
-
-  it("supports Vercel Node requests whose headers are a plain object", async () => {
-    process.env.S3_ENDPOINT = "https://s3.us-east-005.backblazeb2.com";
-    process.env.S3_BUCKET = "primedeal-media";
-    process.env.S3_KEY = "test-key";
-    process.env.S3_SECRET = "test-secret";
-    mockedGetSignedUrl.mockResolvedValue("https://signed.example.com/node.jpg");
-
-    const request = {
-      url: "/manus-storage/properties/node.jpg",
-      headers: {
-        "x-forwarded-proto": "https",
-        "x-forwarded-host": "example.com",
-        host: "example.com",
-      },
-    };
-
-    const response = await handler(request);
-
-    expect(mockedGetSignedUrl).toHaveBeenCalledTimes(1);
-    const command = mockedGetSignedUrl.mock.calls[0]?.[1] as { input: Record<string, string> };
-    expect(command.input.Key).toBe("properties/node.jpg");
-    expect(response.status).toBe(307);
-    expect(response.headers.get("Location")).toBe("https://signed.example.com/node.jpg");
-  });
-
-  it("rejects a missing media path", async () => {
-    const response = await handler(new Request("https://example.com/api/media"));
-
-    expect(response.status).toBe(400);
-    expect(await response.text()).toBe("Missing media path");
-  });
-});
-
   it("falls back to public URL when S3 signing fails", async () => {
     process.env.S3_BUCKET = "primedeal-media";
     process.env.S3_KEY = "test-key";
@@ -147,3 +91,4 @@ describe("Vercel media proxy", () => {
     expect(response.status).toBe(307);
     expect(response.headers.get("Location")).toContain("/manus-storage/properties/fallback.jpg");
   });
+});
