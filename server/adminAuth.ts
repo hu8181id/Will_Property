@@ -41,11 +41,13 @@ function safeEqual(left: string, right: string) {
 
 export function verifyAdminCredentials(username: string, password: string) {
   const configuredUsername = process.env.ADMIN_USERNAME?.trim();
-  const configuredPassword = process.env.ADMIN_PASSWORD;
+  const configuredPassword = process.env.ADMIN_PASSWORD?.trim();
   if (!configuredUsername || !configuredPassword) return false;
   const inputUser = username.trim().toLowerCase();
   const targetUser = configuredUsername.toLowerCase();
-  return safeEqual(inputUser, targetUser) && safeEqual(password, configuredPassword);
+  const inputPass = password.trim();
+  const targetPass = configuredPassword;
+  return safeEqual(inputUser, targetUser) && safeEqual(inputPass, targetPass);
 }
 
 export function createAdminSession(username: string) {

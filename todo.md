@@ -7,3 +7,5 @@
 - [x] Memastikan prinsip keamanan fail-closed pada verifikasi kredensial admin saat environment variables belum terbaca
 - [x] Investigasi sinkronisasi commit Vercel dan memastikan route tRPC adminAuth.login terakses benar di produksi
 - [x] Menjalankan test Vitest lengkap (89 test lulus) dan build produksi sukses
+
+- [ ] Investigasi duplikasi environment variables di Vercel dan pastikan kontrak login menerima kredensial dengan benar tanpa spasi tersembunyi
