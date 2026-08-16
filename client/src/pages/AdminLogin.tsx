@@ -15,22 +15,32 @@ export default function AdminLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState<string | null>(null);
-
-  const adminLogin = trpc.auth.adminLogin.useMutation({
-    onSuccess: async () => {
-      await utils.auth.me.invalidate();
-      setPassword("");
-      setLocation("/admin");
-    },
-    onError: error => {
-      setLoginError(error.message || "Username atau password admin salah.");
-    },
-  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleAdminLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoginError(null);
-    await adminLogin.mutateAsync({ username, password }).catch(() => undefined);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ username, password }),
+      });
+      const result = (await response.json().catch(() => null)) as { error?: string } | null;
+      if (!response.ok) {
+        throw new Error(result?.error || "Username atau password admin salah.");
+      }
+      await utils.auth.me.invalidate();
+      setPassword("");
+      setLocation("/admin");
+    } catch (error) {
+      setLoginError(error instanceof Error ? error.message : "Login admin gagal. Silakan coba lagi.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -135,7 +145,7 @@ export default function AdminLogin() {
                   autoCapitalize="none"
                   spellCheck={false}
                   required
-                  disabled={adminLogin.isPending}
+                  disabled={isSubmitting}
                 />
               </div>
 
@@ -148,18 +158,18 @@ export default function AdminLogin() {
                   onChange={event => setPassword(event.target.value)}
                   autoComplete="current-password"
                   required
-                  disabled={adminLogin.isPending}
+                  disabled={isSubmitting}
                 />
               </div>
 
               <Button
                 type="submit"
-                disabled={adminLogin.isPending}
+                disabled={isSubmitting}
                 className="w-full bg-primary hover:bg-primary/90 text-white gap-2 py-6 text-base touch-manipulation"
                 aria-label="Login ke Akun Admin"
               >
-                {adminLogin.isPending ? <Loader2 size={18} className="animate-spin" /> : <Lock size={18} />}
-                {adminLogin.isPending ? "Memeriksa..." : "Login ke Akun Admin"}
+                {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : <Lock size={18} />}
+                {isSubmitting ? "Memeriksa..." : "Login ke Akun Admin"}
               </Button>
               {loginError && (
                 <p role="alert" className="text-center text-sm text-red-600" aria-live="polite">
@@ -182,4 +192,3 @@ export default function AdminLogin() {
     </div>
   );
 }
-
