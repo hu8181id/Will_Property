@@ -57,7 +57,18 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Tambahkan regresi test untuk kegagalan persiapan upload dan pesan error yang informatif
 - [x] Verifikasi ulang gambar listing dan upload video pada production setelah patch terbaru
 
-- [ ] Investigasi root cause kegagalan upload video pada perangkat Android di environment production
-- [ ] Investigasi root cause gambar listing yang tidak tampil (kosong atau gagal muat) pada production
-- [ ] Perbaiki handler serverless Vercel dan proxy media untuk memastikan URL gambar dan upload video stabil
-- [ ] Lakukan verifikasi end-to-end pada production
+- [x] Investigasi root cause kegagalan upload video pada perangkat Android di environment production
+- [x] Investigasi root cause gambar listing yang tidak tampil (kosong atau gagal muat) pada production
+- [x] Perbaiki handler serverless Vercel dan proxy media untuk memastikan URL gambar dan upload video stabil
+- [x] Lakukan verifikasi end-to-end pada production
+
+- [x] Deploy patch ke Vercel dan uji respons sesi upload video pada environment production
+- [x] Verifikasi proxy media `/manus-storage/...` pada production agar gambar listing tampil tanpa error 404/502
+
+- [x] Jalankan uji riil production untuk endpoint sesi upload video di Vercel
+- [x] Validasi URL gambar `/manus-storage/...` di production browser
+
+- [x] Verifikasi production riil: uji endpoint sesi upload video di Vercel live
+- [x] Verifikasi production riil: pastikan gambar listing termuat melalui proxy `/manus-storage/...` di live site
+
+- [x] Lakukan audit akhir live site Vercel untuk memastikan endpoint video dan gambar proxy aktif tanpa kendala
