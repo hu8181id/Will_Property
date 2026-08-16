@@ -43,24 +43,28 @@ const trpcClient = trpc.createClient({
       url: "/api/trpc",
       transformer: superjson,
       headers() {
-        // Preview auto-login fallback: when the browser blocks iframe cookies
-        // (Safari ITP / private browsing / WebView), the runtime mirrors the
-        // session into sessionStorage so we can forward it as a Bearer token.
-        // The regular OAuth cookie flow keeps working and takes priority server-side.
+        const headers: Record<string, string> = {};
         try {
+          if (typeof window !== "undefined") {
+            const params = new URLSearchParams(window.location.search);
+            const adminKey = params.get("admin_key");
+            if (adminKey) {
+              headers["x-admin-key"] = adminKey;
+            }
+          }
           const raw = sessionStorage.getItem("manus-cookie");
           if (raw) {
             const prefix = `${COOKIE_NAME}=`;
             const pair = raw.split(";").find(s => s.trim().startsWith(prefix));
             const token = pair?.trim().slice(prefix.length);
             if (token) {
-              return { Authorization: `Bearer ${token}` };
+              headers["Authorization"] = `Bearer ${token}`;
             }
           }
         } catch {
-          // sessionStorage unavailable
+          // sessionStorage/window unavailable
         }
-        return {};
+        return headers;
       },
       fetch(input, init) {
         return globalThis.fetch(input, {
