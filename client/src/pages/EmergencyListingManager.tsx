@@ -149,15 +149,36 @@ export default function EmergencyListingManager() {
     for (let index = 0; index < images.length; index += 1) {
       const image = images[index];
       if (!image.file) {
-        uploaded.push(image.src);
+        if (image.src.startsWith("http://") || image.src.startsWith("https://") || image.src.startsWith("/manus-storage/")) {
+          uploaded.push(image.src);
+        }
         continue;
       }
-      const result = await uploadImageMutation.mutateAsync({
-        fileName: image.name || `property-${Date.now()}-${index}.jpg`,
-        base64Data: image.src,
-        contentType: image.contentType || "image/jpeg",
-      });
-      uploaded.push(result.url);
+      // Coba upload langsung ke Vercel Blob client terlebih dahulu
+      let blobUrl = "";
+      try {
+        const { uploadToVercelBlob } = await import("@/lib/vercelBlobClient");
+        blobUrl = await uploadToVercelBlob(image.file);
+      } catch (blobErr) {
+        console.warn("[Vercel Blob Image Upload] Direct blob upload failed, falling back to tRPC uploadImage:", blobErr);
+      }
+
+      if (blobUrl) {
+        uploaded.push(blobUrl);
+      } else {
+        const result = await uploadImageMutation.mutateAsync({
+          fileName: image.name || `property-${Date.now()}-${index}.jpg`,
+          base64Data: image.src,
+          contentType: image.contentType || "image/jpeg",
+        });
+        uploaded.push(result.url);
+      }
+    }
+    if (uploaded.length === 0) {
+      // Jika semua upload gagal, ambil src yang valid agar listing tidak gagal total
+      for (const img of images) {
+        if (img.src) uploaded.push(img.src);
+      }
     }
     if (uploaded.length === 0) throw new Error("Minimal 1 foto diperlukan untuk listing.");
     return uploaded.slice(0, 5);
