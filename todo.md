@@ -166,3 +166,4 @@
 - [x] Menyelesaikan konfigurasi Vercel statis dengan integrasi database/storage eksternal untuk pengelolaan properti tanpa memerlukan Render berbayar.
 - [x] Mengklarifikasi perbedaan alamat publik antara domain Vercel mandiri (`primedealproperty.vercel.app`) dan domain preview Manus (`*.manus.space`).
 - [x] Menyelesaikan panduan sinkronisasi repository full-stack ke Vercel agar fitur tambah/hapus listing dan video bersuara aktif di `primedealproperty.vercel.app`.
+- [x] Menjelaskan secara transparan perbedaan domain Manus (`*.manus.space`) dan domain publik Vercel (`primedealproperty.vercel.app`) kepada pengguna.
