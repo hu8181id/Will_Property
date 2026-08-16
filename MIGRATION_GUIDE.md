@@ -12,7 +12,7 @@ Untuk memindahkan **Primedeal Properti** agar tetap hidup dan independen secara 
 |---|---|---|---|
 | **Aplikasi (Node.js + Express + Frontend)** | **Render (Web Service)** atau **Oracle Cloud (Always Free VPS)** | Render mudah di-deploy dari Git; Oracle VPS memberikan RAM hingga 24GB dan uptime penuh. | Render mengalami *spin-down* setelah 15 menit tidak aktif (kunjungan pertama agak lambat). VPS membutuhkan pengaturan Nginx & SSL manual. |
 | **Database (MySQL / TiDB)** | **TiDB Cloud (Serverless Tier)** | Menyediakan 5 GiB storage gratis dan 50 juta row reads/writes per bulan, kompatibel penuh dengan MySQL/Drizzle. | Mendukung SSL dan koneksi Drizzle ORM secara langsung melalui `DATABASE_URL`. |
-| **Storage Media (Foto & Video S3)** | **Cloudflare R2** | Gratis biaya *egress* (bandwidth keluar) dan kapasitas penyimpanan awal 10 GB yang sangat besar untuk foto/video properti. | Kompatibel dengan AWS S3 SDK yang sudah digunakan pada backend Primedeal (`storagePut`/`storageGet`). |
+| **Storage Media (Foto & Video S3)** | **Backblaze B2** (10 GB gratis) atau **Supabase Storage** (1 GB gratis) | Tanpa kartu kredit di awal dan kompatibel dengan S3 API. | Kompatibel dengan AWS S3 SDK yang sudah digunakan pada backend Primedeal (`storagePut`/`storageGet`). |
 
 ---
 
