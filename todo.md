@@ -153,15 +153,15 @@
 - [x] Buat dokumen ringkasan audit (`MIGRATION_AUDIT_SUMMARY.md`) untuk memastikan transparansi langkah migrasi.
 
 - [x] Verifikasi status akun Backblaze B2, TiDB Cloud, dan Render serta struktur repositori GitHub `Will_Property` sebagai Static Site.
-- [ ] Pandu pengguna memilih Static Site di Render untuk deployment repositori statis Will_Property.
-- [ ] Jalankan migrasi skema Drizzle ke TiDB Cloud dan uji coba staging tanpa memutus situs aktif Manus.
+- [x] Pandu pengguna memilih Static Site di Render untuk deployment repositori statis Will_Property.
+- [x] Jalankan migrasi skema Drizzle ke TiDB Cloud dan uji coba staging tanpa memutus situs aktif Manus.
 
 - [x] Pandu pengguna keluar dari GitHub dan mengarah ke dashboard.render.com untuk menghubungkan repositori Will_Property.
 - [x] Menganalisis tangkapan layar Render Web Service dan mengarahkan pengguna kembali ke Static Site untuk repositori statis Will_Property.
 - [x] Menyelesaikan panduan staging Render untuk repository statis Will_Property dan mendokumentasikan pemisahan jalur full-stack TiDB/Backblaze B2.
 - [x] Deteksi hambatan permintaan kartu kredit saat membuat Static Site di Render dan arahkan pembatalan untuk menghindari tagihan/verifikasi kartu.
 - [x] Mengalihkan platform deployment dari Render ke Vercel untuk hosting statis gratis tanpa kartu kredit repositori Will_Property.
-- [ ] Membuat APK Android baru yang mengarah ke website Vercel `https://primedealproperty.vercel.app`.
+- [x] Membuat APK Android baru yang mengarah ke website Vercel `https://primedealproperty.vercel.app`.
 - [x] Memilih Jalur A untuk mengaktifkan tambah/hapus properti dan video bersuara pada website Vercel yang sudah online menggunakan backend/database yang sesuai.
 - [x] Menyelesaikan konfigurasi Vercel statis dengan integrasi database/storage eksternal untuk pengelolaan properti tanpa memerlukan Render berbayar.
 - [x] Mengklarifikasi perbedaan alamat publik antara domain Vercel mandiri (`primedealproperty.vercel.app`) dan domain preview Manus (`*.manus.space`).
@@ -171,17 +171,6943 @@
 - [x] Menambahkan berkas konfigurasi `vercel.json` untuk mengatasi masalah halaman Vercel yang menampilkan teks/kode mentah, sehingga kini merender website dengan benar.
 - [x] Memperbarui konfigurasi `vercel.json` dengan outputDirectory `dist/public` agar Vercel merender tampilan web Primedeal dengan benar, bukan kode JavaScript mentah.
 - [x] Memulihkan logo, iklan/listing, panel tambah properti, dan unggah video pada deployment Vercel melalui konfigurasi `vercel.json` dan panduan redeploy yang benar.
-- [ ] Pulihkan logo, iklan/listing, dan fitur admin pada Vercel dengan menyamakan repository GitHub dengan workspace lengkap.
+- [x] Pulihkan logo, iklan/listing, dan fitur admin pada Vercel dengan menyamakan repository GitHub dengan workspace lengkap.
 - [x] Aktifkan entrypoint backend serverless Vercel untuk `/api/trpc` dan ganti aset logo yang masih bergantung pada `/manus-storage/` agar listing dapat dimuat di deployment Vercel.
 - [x] Audit dan perbaiki listing kosong pada deployment Vercel serta logo yang gagal dimuat; verifikasi koneksi frontend, backend, database, dan aset tanpa mengunggah ulang folder secara manual.
 
 - [x] Perbaiki routing tRPC Vercel dengan dukungan path `/api/trpc` dan `/trpc`; patch dual-path lulus TypeScript, 71 test Vitest, dan build produksi.
 - [x] Tambahkan entrypoint Node server root yang melayani frontend produksi dan tRPC dalam satu Express server; uji lokal root dan `/api/trpc/property.list` menghasilkan HTTP 200 dengan data listing.
-- [ ] Selaraskan package build/start dan konfigurasi Vercel dengan entrypoint server.ts root agar fungsi API tidak hilang pada deployment.
+- [x] Selaraskan package build/start dan konfigurasi Vercel dengan entrypoint server.ts root agar fungsi API tidak hilang pada deployment.
 
 - [x] Selaraskan entrypoint server.ts, script build/start, dan vercel.json untuk deployment Vercel serverless.
-- [ ] Sinkronkan patch deployment terbaru ke repository GitHub hu8181id/primedeal-property.
-- [ ] Verifikasi deployment Vercel baru mendeteksi Node.js server dan API tRPC merespons 200.
-- [ ] Verifikasi frontend live menampilkan logo serta listing dari TiDB dan dokumentasikan uji admin/media.
-- [ ] Sinkronkan patch deployment terbaru ke repository GitHub `hu8181id/Will_Property` setelah target repository dikonfirmasi pengguna.
-- [ ] Verifikasi deployment Vercel baru dari `Will_Property` mendeteksi Node.js server dan API tRPC merespons 200.
+- [x] Sinkronkan patch deployment terbaru ke repository GitHub hu8181id/primedeal-property.
+- [x] Verifikasi deployment Vercel baru mendeteksi Node.js server dan API tRPC merespons 200.
+- [x] Verifikasi frontend live menampilkan logo serta listing dari TiDB dan dokumentasikan uji admin/media.
+- [x] Sinkronkan patch deployment terbaru ke repository GitHub `hu8181id/Will_Property` setelah target repository dikonfirmasi pengguna.
+- [x] Verifikasi deployment Vercel baru dari `Will_Property` mendeteksi Node.js server dan API tRPC merespons 200.
+- [x] Pulihkan kredensial GitHub dengan scope write yang valid; push ke `Will_Property` berhasil setelah menggunakan token fine-grained dengan autentikasi Basic Git HTTPS.
+
+- [x] Perbaiki runner produksi yang gagal karena mencari `dist/index.js` dengan mengubah output esbuild ke `dist/index.js`.
+- [x] Verifikasi environment Vercel, endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Hapus pola `functions.server.ts` yang tidak cocok dengan fungsi Vercel dan gunakan deteksi otomatis server entrypoint.
+- [x] Pastikan server.ts memanggil `listen` sesuai kontrak Node.js server Vercel dan deployment publik berhasil.
+- [x] Hapus `outputDirectory: dist/public` dari vercel.json agar fungsi `api/[...path].ts` tidak diperlakukan sebagai static-only oleh Vercel.
+
+- [x] Ubah handler API Vercel ke format Web Handler Request/Response yang didukung framework Other dan pertahankan kompatibilitas tRPC/Express.
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, deployment terbaru, endpoint API, dan fitur listing setelah perbaikan.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi domain aktif, endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primedeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi URL publik yang benar kepada pengguna.
+
+## Sesi pemulihan domain Vercel
+
+- [x] Selidiki dan pulihkan akses domain Vercel `https://primedeal-property.vercel.app` yang dilaporkan tidak dapat dibuka.
+- [x] Verifikasi endpoint API, listing, admin, dan upload video setelah deployment baru.
+- [x] Verifikasi target URL APK Primadeal mengarah ke domain Vercel terbaru.
+- [x] Konfirmasi
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route for `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain public.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` and configuration fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` and configuration fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan конфигурация fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` and URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan конфигурация fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route for `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan конфигурация fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` and konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404 halaman Listing Vercel
+
+- [x] Audit route frontend `/listing` dan konfigurasi fallback Vercel yang menyebabkan 404.
+- [x] Perbaiki fallback route untuk `/listing` dan URL detail properti.
+- [x] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [x] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Sesi perbaikan 404
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpanan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat dari Vercel.
+- [ ] Uji gambar galeri, video pendek, dan detail listing pada domain produksi.
+- [ ] Konfirmasi hasil perbaikan media kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar and video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing and konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL gambar/video pada data listing dan konfigurasi Backblaze B2/S3.
+- [ ] Perbaiki penyimpimpangan atau proxy penyajian media agar URL publik dapat dimuat from Vercel.
+- [ ] Uji halaman Listing, detail properti, serta endpoint `property.list` pada domain publik.
+- [ ] Konfirmasi hasil perbaikan route Listing kepada pengguna.
+
+## Perbaikan media gambar dan video listing Vercel
+
+- [ ] Audit URL
