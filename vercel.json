@@ -2,16 +2,15 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "buildCommand": "pnpm build",
-  "outputDirectory": "dist/public",
   "functions": {
-    "api/**/*.ts": {
-      "maxDuration": 60
+    "server.ts": {
+      "runtime": "nodejs22.x"
     }
   },
   "rewrites": [
     {
-      "source": "/:path((?!api/).*)",
-      "destination": "/index.html"
+      "source": "/(.*)",
+      "destination": "/server"
     }
   ]
 }

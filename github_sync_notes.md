@@ -54,3 +54,16 @@ Audit Vercel Environment Variables: `DATABASE_URL`, `JWT_SECRET`, `S3_ENDPOINT`,
 
 - Deployment terbaru berbasis commit `c88f303` berstatus Ready dan memuat frontend dengan fallback logo `P`; halaman tetap menunggu data listing.
 - Uji langsung `https://primedeal-property-29hf7qwtj-willproperty.vercel.app/api/trpc/property.list?input=...` masih menghasilkan `404: NOT_FOUND`, sehingga fungsi catch-all belum dipetakan ke path API publik dengan benar meskipun deployment mendeteksi fungsi.
+
+## Verifikasi deployment f0c08a4
+- URL deployment: https://primedeal-property-q83rgysp1-willproperty.vercel.app/
+- Status Vercel: Ready / Production, commit f0c08a4 (Fix Vercel tRPC path routing).
+- Logo/header sudah tampil sebagai ikon P dan teks Primedeal; masalah ikon gambar rusak terselesaikan.
+- Halaman publik masih menampilkan "Memuat properti..." pada bagian Properti Unggulan; listing belum terkonfirmasi berhasil dimuat.
+- Endpoint/backend perlu diuji lebih lanjut untuk membedakan query pending, database TiDB kosong, atau runtime API yang belum mengembalikan respons.
+
+## Referensi routing Vercel
+Dokumentasi resmi Vercel (diakses 2026-08-16): https://vercel.com/docs/functions/runtimes/node-js menjelaskan bahwa Vercel mendeteksi server entrypoint di root bernama `server.{js,cjs,mjs,ts,cts,mts}` atau `src/server.*`, dan juga mendukung fungsi individual di folder `/api`. Dokumentasi rewrite: https://vercel.com/docs/routing/rewrites menunjukkan pola `/api/:path*` dapat diarahkan ke fungsi `/api/...`. Uji deployment f0c08a4 masih mengembalikan `404: NOT_FOUND` untuk `/api/trpc/property.list`, sehingga pola root `server.ts` atau fungsi `/api/index.ts` perlu dipakai sebagai fallback yang lebih kompatibel daripada catch-all saat ini.
+
+- Commit terbaru: `844c075` — `Use root Express server for Vercel API and frontend`, menambahkan `server.ts` dan memperbarui `vercel.json` pada branch `main`.
+- Deployment Vercel baru perlu diverifikasi untuk memastikan route tRPC dan listing publik sudah merespons.

@@ -176,4 +176,13 @@
 - [x] Audit dan perbaiki listing kosong pada deployment Vercel serta logo yang gagal dimuat; verifikasi koneksi frontend, backend, database, dan aset tanpa mengunggah ulang folder secara manual.
 
 - [x] Perbaiki routing tRPC Vercel dengan dukungan path `/api/trpc` dan `/trpc`; patch dual-path lulus TypeScript, 71 test Vitest, dan build produksi.
-- [ ] Tambahkan entrypoint Node server root yang melayani frontend produksi dan tRPC dalam satu Express server agar routing Vercel tidak bergantung pada catch-all `api/[...path].ts`.
+- [x] Tambahkan entrypoint Node server root yang melayani frontend produksi dan tRPC dalam satu Express server; uji lokal root dan `/api/trpc/property.list` menghasilkan HTTP 200 dengan data listing.
+- [ ] Selaraskan package build/start dan konfigurasi Vercel dengan entrypoint server.ts root agar fungsi API tidak hilang pada deployment.
+
+- [x] Selaraskan entrypoint server.ts, script build/start, dan vercel.json untuk deployment Vercel serverless.
+- [ ] Sinkronkan patch deployment terbaru ke repository GitHub hu8181id/primedeal-property.
+- [ ] Verifikasi deployment Vercel baru mendeteksi Node.js server dan API tRPC merespons 200.
+- [ ] Verifikasi frontend live menampilkan logo serta listing dari TiDB dan dokumentasikan uji admin/media.
+- [x] Sinkronkan patch deployment terbaru ke repository GitHub `hu8181id/Will_Property` setelah target repository dikonfirmasi pengguna.
+- [ ] Verifikasi deployment Vercel baru dari `Will_Property` mendeteksi Node.js server dan API tRPC merespons 200.
+- [x] Pulihkan kredensial GitHub dengan scope write yang valid; push ke `Will_Property` berhasil setelah menggunakan token fine-grained dengan autentikasi Basic Git HTTPS.
