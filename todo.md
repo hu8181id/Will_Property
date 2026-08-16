@@ -72,3 +72,6 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Verifikasi production riil: pastikan gambar listing termuat melalui proxy `/manus-storage/...` di live site
 
 - [x] Lakukan audit akhir live site Vercel untuk memastikan endpoint video dan gambar proxy aktif tanpa kendala
+
+- [ ] Periksa ulang konfigurasi Vercel (vercel.json dan api/media.ts) untuk memastikan domain Vercel menampilkan gambar dan video dengan stabil
+- [ ] Sinkronkan pembaruan ke repository GitHub Vercel agar otomatis ter-deploy
