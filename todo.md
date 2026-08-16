@@ -159,3 +159,4 @@
 - [x] Pandu pengguna keluar dari GitHub dan mengarah ke dashboard.render.com untuk menghubungkan repositori Will_Property.
 - [x] Menganalisis tangkapan layar Render Web Service dan mengarahkan pengguna kembali ke Static Site untuk repositori statis Will_Property.
 - [x] Menyelesaikan panduan staging Render untuk repository statis Will_Property dan mendokumentasikan pemisahan jalur full-stack TiDB/Backblaze B2.
+- [x] Deteksi hambatan permintaan kartu kredit saat membuat Static Site di Render dan arahkan pembatalan untuk menghindari tagihan/verifikasi kartu.
