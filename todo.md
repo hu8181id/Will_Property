@@ -174,3 +174,6 @@
 - [ ] Pulihkan logo, iklan/listing, dan fitur admin pada Vercel dengan menyamakan repository GitHub dengan workspace lengkap.
 - [x] Aktifkan entrypoint backend serverless Vercel untuk `/api/trpc` dan ganti aset logo yang masih bergantung pada `/manus-storage/` agar listing dapat dimuat di deployment Vercel.
 - [x] Audit dan perbaiki listing kosong pada deployment Vercel serta logo yang gagal dimuat; verifikasi koneksi frontend, backend, database, dan aset tanpa mengunggah ulang folder secara manual.
+
+- [x] Perbaiki routing tRPC Vercel dengan dukungan path `/api/trpc` dan `/trpc`; patch dual-path lulus TypeScript, 71 test Vitest, dan build produksi.
+- [ ] Tambahkan entrypoint Node server root yang melayani frontend produksi dan tRPC dalam satu Express server agar routing Vercel tidak bergantung pada catch-all `api/[...path].ts`.

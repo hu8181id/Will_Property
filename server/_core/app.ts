@@ -85,13 +85,16 @@ Sitemap: ${origin}/sitemap.xml
       });
   });
 
-  app.use(
-    "/api/trpc",
-    createExpressMiddleware({
-      router: appRouter,
-      createContext,
-    }),
-  );
+  const trpcMiddleware = createExpressMiddleware({
+    router: appRouter,
+    createContext,
+  });
+
+  // Vercel catch-all functions may forward the path with `/api` stripped,
+  // while the local Express server receives the full `/api/trpc` path.
+  // Support both forms so the same factory works in both environments.
+  app.use("/api/trpc", trpcMiddleware);
+  app.use("/trpc", trpcMiddleware);
 
   if (options.includeStaticRoutes) {
     // Imported lazily so the serverless function does not need Vite's dev runtime.
