@@ -142,3 +142,7 @@
 
 - [x] Ganti referensi Cloudflare R2 dengan alternatif storage S3-compatible tanpa kartu (seperti Supabase Storage / Backblaze B2 Free / ImgBB atau penyimpanan server mandiri) di EXTERNAL_SERVICES_SETUP.md.
 - [x] Perbarui dokumentasi migrasi dan pastikan pengujian lokal tetap lulus.
+
+- [x] Tentukan instruksi setup Backblaze B2 S3-compatible tanpa kartu kredit untuk penyimpanan media.
+- [x] Verifikasi skrip `render.yaml` dan pastikan environment variables produksi terdokumentasi lengkap.
+- [x] Buat panduan eksekusi `drizzle-kit push` ke TiDB Cloud secara aman tanpa memengaruhi data situs aktif Manus.
