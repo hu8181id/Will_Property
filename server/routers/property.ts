@@ -2,7 +2,7 @@ import { z } from "zod";
 import { and, desc, eq, gte, like, lte, or } from "drizzle-orm";
 import { propertyListings, propertyReviews } from "../../drizzle/schema";
 import { getDb } from "../db";
-import { storagePut } from "../storage";
+import { normalizeStoredMediaUrl, storagePut } from "../storage";
 import { adminProcedure, protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { notifyOwner } from "../_core/notification";
@@ -86,6 +86,17 @@ function isBase64Image(value: string) {
   return value.startsWith("data:image/");
 }
 
+function normalizePropertyMedia(property: any) {
+  return {
+    ...property,
+    images: Array.isArray(property.images)
+      ? property.images.map((image: unknown) => typeof image === "string" ? normalizeStoredMediaUrl(image) ?? image : image)
+      : property.images,
+    videoUrl: normalizeStoredMediaUrl(property.videoUrl),
+    videoThumbnailUrl: normalizeStoredMediaUrl(property.videoThumbnailUrl),
+  };
+}
+
 async function uploadLegacyImage(value: string, index: number) {
   if (!isBase64Image(value)) return value;
   const match = value.match(/^data:(image\/[a-zA-Z0-9.+-]+);base64,/);
@@ -155,42 +166,12 @@ export const propertyRouter = router({
           ? desc(propertyListings.price)
           : desc(propertyListings.createdAt);
 
-      try {
-        return await db
-          .select()
-          .from(propertyListings)
-          .where(and(...conditions))
-          .orderBy(orderBy);
-      } catch (error) {
-        const dbError = error as {
-          code?: string | number;
-          errno?: number;
-          sqlState?: string;
-          sqlMessage?: string;
-          message?: string;
-          cause?: unknown;
-        };
-        const cause = dbError.cause as {
-          code?: string | number;
-          errno?: number;
-          sqlState?: string;
-          sqlMessage?: string;
-          message?: string;
-        } | undefined;
-        console.error("[Property List] TiDB query failed", {
-          code: dbError.code,
-          errno: dbError.errno,
-          sqlState: dbError.sqlState,
-          sqlMessage: dbError.sqlMessage,
-          message: dbError.message,
-          causeCode: cause?.code,
-          causeErrno: cause?.errno,
-          causeSqlState: cause?.sqlState,
-          causeSqlMessage: cause?.sqlMessage,
-          causeMessage: cause?.message,
-        });
-        throw error;
-      }
+      const rows = await db
+        .select()
+        .from(propertyListings)
+        .where(and(...conditions))
+        .orderBy(orderBy);
+      return rows.map(normalizePropertyMedia);
     }),
 
   getById: publicProcedure
@@ -199,7 +180,7 @@ export const propertyRouter = router({
       const db = await getDb();
       if (!db) return null;
       const rows = await db.select().from(propertyListings).where(eq(propertyListings.id, input.id)).limit(1);
-      return rows[0] ?? null;
+      return rows[0] ? normalizePropertyMedia(rows[0]) : null;
     }),
 
   getBySlug: publicProcedure
@@ -208,7 +189,7 @@ export const propertyRouter = router({
       const db = await getDb();
       if (!db) return null;
       const rows = await db.select().from(propertyListings).where(eq(propertyListings.slug, input.slug)).limit(1);
-      return rows[0] ?? null;
+      return rows[0] ? normalizePropertyMedia(rows[0]) : null;
     }),
 
   create: adminProcedure
