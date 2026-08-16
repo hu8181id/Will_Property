@@ -9,6 +9,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
   const [favoriteCount, setFavoriteCount] = useState(0);
+  const [logoFailed, setLogoFailed] = useState(false);
   const { user, isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
@@ -43,13 +44,24 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-border shadow-sm">
       <div className="container flex h-16 items-center justify-between">
-        {/* Logo */}
-        <a href="/" className="flex items-center gap-2">
-          <img
-            src="/manus-storage/primedeal-logo-new_719501eb.webp"
-            alt="Primedeal Logo"
-            className="h-10 w-10"
-          />
+        {/* Logo: use the legacy storage asset when available, with a Vercel-safe fallback. */}
+        <a href="/" className="flex items-center gap-2" aria-label="Primedeal Beranda">
+          {logoFailed ? (
+            <span
+              aria-hidden="true"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-700 to-blue-500 text-lg font-black text-white shadow-sm"
+            >
+              P
+            </span>
+          ) : (
+            <img
+              src="/manus-storage/primedeal-logo-new_719501eb.webp"
+              alt="Primedeal Logo"
+              className="h-10 w-10 rounded-xl object-cover"
+              onError={() => setLogoFailed(true)}
+            />
+          )}
+          <span className="text-base font-bold tracking-tight text-slate-900">Primedeal</span>
         </a>
 
         {/* Desktop Navigation */}

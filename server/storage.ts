@@ -1,7 +1,5 @@
-// Preconfigured storage helpers for Manus WebDev templates
-// Uploads via Forge Server presigned URL to S3 (PUT direct).
-// Downloads return /manus-storage/{key} paths served via 307 redirect.
-
+import { GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { ENV } from "./_core/env";
 
 function getForgeConfig() {
@@ -28,13 +26,70 @@ function appendHashSuffix(relKey: string): string {
   return `${relKey.slice(0, lastDot)}_${hash}${relKey.slice(lastDot)}`;
 }
 
+function hasBackblazeConfig() {
+  return Boolean(
+    process.env.S3_ENDPOINT &&
+      process.env.S3_BUCKET &&
+      process.env.S3_KEY &&
+      process.env.S3_SECRET,
+  );
+}
+
+function getBackblazeConfig() {
+  const endpoint = process.env.S3_ENDPOINT?.replace(/\/+$/, "");
+  const bucket = process.env.S3_BUCKET;
+  const accessKeyId = process.env.S3_KEY;
+  const secretAccessKey = process.env.S3_SECRET;
+  if (!endpoint || !bucket || !accessKeyId || !secretAccessKey) {
+    throw new Error("S3_ENDPOINT, S3_BUCKET, S3_KEY, dan S3_SECRET wajib diisi.");
+  }
+  return { endpoint, bucket, accessKeyId, secretAccessKey };
+}
+
+let _s3Client: S3Client | null = null;
+function getS3Client() {
+  if (!_s3Client) {
+    const config = getBackblazeConfig();
+    _s3Client = new S3Client({
+      region: process.env.S3_REGION || "us-east-005",
+      endpoint: config.endpoint,
+      forcePathStyle: true,
+      credentials: {
+        accessKeyId: config.accessKeyId,
+        secretAccessKey: config.secretAccessKey,
+      },
+    });
+  }
+  return _s3Client;
+}
+
+function getPublicB2Url(key: string) {
+  const config = getBackblazeConfig();
+  const encodedKey = key.split("/").map(encodeURIComponent).join("/");
+  return `${config.endpoint}/${encodeURIComponent(config.bucket)}/${encodedKey}`;
+}
+
 export async function storagePut(
   relKey: string,
   data: Buffer | Uint8Array | string,
   contentType = "application/octet-stream",
 ): Promise<{ key: string; url: string }> {
-  const { key, url, uploadUrl } = await storageCreateUploadUrl(relKey);
+  const key = appendHashSuffix(normalizeKey(relKey));
 
+  if (hasBackblazeConfig()) {
+    const config = getBackblazeConfig();
+    await getS3Client().send(
+      new PutObjectCommand({
+        Bucket: config.bucket,
+        Key: key,
+        Body: data,
+        ContentType: contentType,
+      }),
+    );
+    return { key, url: getPublicB2Url(key) };
+  }
+
+  const { url, uploadUrl } = await storageCreateUploadUrl(relKey, key);
   const blob =
     typeof data === "string"
       ? new Blob([data], { type: contentType })
@@ -53,11 +108,19 @@ export async function storagePut(
   return { key, url };
 }
 
-export async function storageCreateUploadUrl(relKey: string): Promise<{ key: string; url: string; uploadUrl: string }> {
-  const { forgeUrl, forgeKey } = getForgeConfig();
-  const key = appendHashSuffix(normalizeKey(relKey));
+export async function storageCreateUploadUrl(
+  relKey: string,
+  providedKey?: string,
+): Promise<{ key: string; url: string; uploadUrl: string }> {
+  const key = providedKey ?? appendHashSuffix(normalizeKey(relKey));
 
-  // 1. Get presigned PUT URL from Forge
+  if (hasBackblazeConfig()) {
+    // The server performs uploads directly for the current API. This branch is
+    // retained as a clear error instead of returning a misleading server URL.
+    throw new Error("Backblaze B2 upload harus dilakukan melalui storagePut().");
+  }
+
+  const { forgeUrl, forgeKey } = getForgeConfig();
   const presignUrl = new URL("v1/storage/presign/put", forgeUrl + "/");
   presignUrl.searchParams.set("path", key);
 
@@ -67,24 +130,33 @@ export async function storageCreateUploadUrl(relKey: string): Promise<{ key: str
 
   if (!presignResp.ok) {
     const msg = await presignResp.text().catch(() => presignResp.statusText);
-    throw new Error(`Storage presign failed (${presignResp.status}): ${msg}`);
+    throw new Error(`Forge storage presign failed (${presignResp.status}): ${msg}`);
   }
 
-  const { url: s3Url } = (await presignResp.json()) as { url: string };
-  if (!s3Url) throw new Error("Forge returned empty presign URL");
+  const { url: uploadUrl } = (await presignResp.json()) as { url: string };
+  if (!uploadUrl) throw new Error("Forge returned empty presign URL");
 
-  return { key, url: `/manus-storage/${key}`, uploadUrl: s3Url };
+  return { key, url: `/manus-storage/${key}`, uploadUrl };
 }
 
 export async function storageGet(relKey: string): Promise<{ key: string; url: string }> {
   const key = normalizeKey(relKey);
-  return { key, url: `/manus-storage/${key}` };
+  return { key, url: hasBackblazeConfig() ? getPublicB2Url(key) : `/manus-storage/${key}` };
 }
 
 export async function storageGetSignedUrl(relKey: string): Promise<string> {
-  const { forgeUrl, forgeKey } = getForgeConfig();
   const key = normalizeKey(relKey);
 
+  if (hasBackblazeConfig()) {
+    const config = getBackblazeConfig();
+    return getSignedUrl(
+      getS3Client(),
+      new GetObjectCommand({ Bucket: config.bucket, Key: key }),
+      { expiresIn: 900 },
+    );
+  }
+
+  const { forgeUrl, forgeKey } = getForgeConfig();
   const getUrl = new URL("v1/storage/presign/get", forgeUrl + "/");
   getUrl.searchParams.set("path", key);
 
