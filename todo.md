@@ -24,3 +24,6 @@
 - [x] Otomatiskan kesiapan indexing Google untuk listing baru melalui URL publik, metadata, canonical Vercel, dan sitemap Search Console yang dinamis
 - [x] Bangun serta verifikasi APK Admin terbaru dengan User-Agent/sumber traffic Admin yang konsisten
 - [x] Uji end-to-end analytics Website/APK, sitemap, listing baru, dan dashboard Admin
+- [x] Perbaiki APK Admin agar langsung menyediakan akses yang jelas ke dashboard jumlah pengunjung Website dan APK
+- [x] Pastikan rute dashboard analytics di APK membawa admin_key dan menampilkan data terpisah secara nyata
+- [x] Bangun serta verifikasi APK Admin perbaikan dengan statistik pengunjung terlihat
