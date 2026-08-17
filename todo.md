@@ -163,3 +163,10 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Perbarui tampilan foto di Manage Listings dan halaman detail listing agar merender URL Blob persisten dengan benar setelah refresh
 - [x] Perbarui pemutaran video di halaman detail listing agar dapat memutar URL MP4/WebM dari Vercel Blob
 - [x] Jalankan test regresi, `pnpm test`, dan `pnpm build` untuk memastikan tidak ada error kompilasi maupun runtime
+
+# Penerapan Instruksi File Pengguna
+- [x] Membaca dan memetakan seluruh instruksi dalam `pasted_content.txt` ke komponen PrimeDeal yang relevan.
+- [x] Menerapkan perubahan yang kompatibel tanpa menghapus listing, rute admin, atau media yang sudah tersimpan.
+- [x] Menambahkan atau memperbarui unit test untuk perubahan yang diterapkan.
+- [x] Memverifikasi build dan alur terkait sebelum checkpoint.
+- [ ] Memvalidasi runtime production: upload foto/video, simpan listing, refresh, buka Edit Listing, dan pastikan media tetap tampil.

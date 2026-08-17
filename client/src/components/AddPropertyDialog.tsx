@@ -15,9 +15,11 @@ import React, { useState, useMemo, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { generatePropertySeoDraft } from "@/lib/propertySeoTemplate";
 import { normalizePropertyVideoContentType } from "@/lib/propertyVideoUpload";
+import { uploadToVercelBlob } from "@/lib/vercelBlobClient";
 
 export const MAX_IMAGES = 5;
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const PROPERTY_IMAGE_CONTENT_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif']);
 
 export interface PropertyFormData {
   id?: number;
@@ -93,54 +95,19 @@ const emptyForm: PropertyFormData = {
   virtualTourUrl: "",
 };
 
-function dataUrlFromCanvas(canvas: HTMLCanvasElement, type = "image/jpeg") {
-  return canvas.toDataURL(type, 0.82);
-}
-
-async function compressImage(file: File): Promise<SelectedPropertyImage> {
+async function uploadPropertyImage(file: File): Promise<SelectedPropertyImage> {
   if (file.size > MAX_FILE_SIZE) {
     throw new Error("Ukuran foto maksimal 10 MB.");
   }
-
-  // 1. Coba upload langsung ke Vercel Blob agar permanen
-  try {
-    const { uploadToVercelBlob } = await import("@/lib/vercelBlobClient");
-    const blobUrl = await uploadToVercelBlob(file);
-    if (blobUrl) {
-      return {
-        src: blobUrl,
-        file: undefined, // Sudah terunggah permanen
-        name: file.name,
-        contentType: file.type || "image/jpeg",
-      };
-    }
-  } catch (blobErr) {
-    console.warn("[Vercel Blob Image] Direct blob upload error during selection:", blobErr);
+  const contentType = file.type.split(';', 1)[0].toLowerCase();
+  if (!PROPERTY_IMAGE_CONTENT_TYPES.has(contentType)) {
+    throw new Error('Foto harus berformat JPG, PNG, WebP, HEIC, atau HEIF.');
   }
-
-  // 2. Kompresi gambar client-side sebagai fallback canvas
-  const bitmap = await createImageBitmap(file);
-  const maxDimension = 1600;
-  const scale = Math.min(1, maxDimension / Math.max(bitmap.width, bitmap.height));
-  const canvas = document.createElement("canvas");
-  canvas.width = Math.max(1, Math.round(bitmap.width * scale));
-  canvas.height = Math.max(1, Math.round(bitmap.height * scale));
-  const context = canvas.getContext("2d");
-  if (!context) throw new Error("Browser tidak mendukung pemrosesan foto.");
-  context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-  bitmap.close();
-
-  const dataUrl = dataUrlFromCanvas(canvas);
-  const response = await fetch(dataUrl);
-  const blob = await response.blob();
-  const compressedFile = new File([blob], `${file.name.replace(/\.[^.]+$/, "")}.jpg`, {
-    type: "image/jpeg",
-  });
+  const blobUrl = await uploadToVercelBlob(file);
   return {
-    src: dataUrl,
-    file: compressedFile,
-    name: compressedFile.name,
-    contentType: compressedFile.type,
+    src: blobUrl,
+    name: file.name,
+    contentType,
   };
 }
 
@@ -216,8 +183,8 @@ export default function AddPropertyDialog({
     }
 
     try {
-      const compressed = await Promise.all(files.map(compressImage));
-      setImages((current) => [...current, ...compressed].slice(0, MAX_IMAGES));
+      const uploadedImages = await Promise.all(files.map(uploadPropertyImage));
+      setImages((current) => [...current, ...uploadedImages].slice(0, MAX_IMAGES));
     } catch (error) {
       console.error("[Property Image Preparation]", error);
       toast.error(error instanceof Error ? error.message : "Gagal memproses foto.");
@@ -251,8 +218,8 @@ export default function AddPropertyDialog({
     if (!file) return;
 
     try {
-      const compressed = await compressImage(file);
-      setVideoThumbnail(compressed);
+      const uploadedThumbnail = await uploadPropertyImage(file);
+      setVideoThumbnail(uploadedThumbnail);
       setFormData((current) => ({ ...current, videoThumbnailUrl: "" }));
     } catch (error) {
       console.error("[Video Thumbnail Preparation]", error);
@@ -399,7 +366,7 @@ export default function AddPropertyDialog({
                 <Upload size={28} className="mx-auto mb-2 text-muted-foreground" />
                 <span className="text-sm font-medium block">Klik untuk memilih foto</span>
                 <span className="text-xs text-muted-foreground">Maksimal 10 MB per foto, tersisa {remainingSlots} slot</span>
-                <input type="file" accept="image/*" multiple className="hidden" onChange={handleImageChange} disabled={submitting} />
+                <input type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple className="hidden" onChange={handleImageChange} disabled={submitting} />
               </label>
             )}
           </div>
@@ -435,7 +402,7 @@ export default function AddPropertyDialog({
               <label className="mt-2 flex cursor-pointer items-center justify-between gap-2 rounded-lg border border-dashed border-border px-3 py-2 text-xs text-muted-foreground hover:border-primary">
                 <span>{videoFile ? videoFile.name : "Atau upload video maksimal 50 MB"}</span>
                 <Upload size={14} />
-                <input type="file" accept="video/*" className="hidden" onChange={handleVideoChange} disabled={submitting} />
+                <input type="file" accept="video/mp4,video/webm,video/quicktime,video/x-m4v,video/3gpp,video/3gpp2" className="hidden" onChange={handleVideoChange} disabled={submitting} />
               </label>
               {videoFile && <button type="button" onClick={handleRemoveVideo} className="mt-1 text-xs font-medium text-red-600 hover:underline">Hapus video terpilih</button>}
             </div>
@@ -451,7 +418,7 @@ export default function AddPropertyDialog({
                 <label className="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-dashed border-border p-4 text-sm text-muted-foreground transition-colors hover:border-primary" htmlFor="video-thumbnail-input">
                   <ImagePlus size={22} className="text-primary" />
                   <span><strong className="block text-slate-800">Pilih foto sebagai thumbnail video</strong>JPG, PNG, atau WebP; otomatis dikompres.</span>
-                  <input id="video-thumbnail-input" type="file" accept="image/*" className="hidden" onChange={handleVideoThumbnailChange} disabled={submitting} />
+                  <input id="video-thumbnail-input" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" className="hidden" onChange={handleVideoThumbnailChange} disabled={submitting} />
                 </label>
               )}
               <p className="mt-2 text-xs text-muted-foreground">Thumbnail akan tampil sebelum video diputar pada detail properti.</p>

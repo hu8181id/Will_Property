@@ -3,7 +3,18 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent, waitFor, cleanup } from "@testing-library/react";
 import AddPropertyDialog from "./AddPropertyDialog";
 
-afterEach(cleanup);
+const { uploadToVercelBlobMock } = vi.hoisted(() => ({
+  uploadToVercelBlobMock: vi.fn(),
+}));
+
+vi.mock("@/lib/vercelBlobClient", () => ({
+  uploadToVercelBlob: uploadToVercelBlobMock,
+}));
+
+afterEach(() => {
+  cleanup();
+  uploadToVercelBlobMock.mockReset();
+});
 
 describe("AddPropertyDialog Virtual Tour & Video", () => {
   it("renders video, thumbnail, and virtual tour input fields", () => {
@@ -37,14 +48,9 @@ describe("AddPropertyDialog Virtual Tour & Video", () => {
 
   it("memproses 5 foto, mengubah foto utama, dan menghapus foto", async () => {
     const onSubmit = vi.fn().mockResolvedValue(undefined);
-    let imageNumber = 0;
-    vi.stubGlobal("createImageBitmap", vi.fn().mockResolvedValue({ width: 800, height: 600, close: vi.fn() }));
-    vi.stubGlobal("fetch", vi.fn().mockImplementation(() => Promise.resolve(new Response("jpeg", { headers: { "Content-Type": "image/jpeg" } }))));
-    vi.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue({ drawImage: vi.fn() } as unknown as CanvasRenderingContext2D);
-    vi.spyOn(HTMLCanvasElement.prototype, "toDataURL").mockImplementation(() => {
-      imageNumber += 1;
-      return `data:image/jpeg;base64,${String(imageNumber).padStart(4, "0")}`;
-    });
+    uploadToVercelBlobMock.mockImplementation(async (file: File) =>
+      `https://test.public.blob.vercel-storage.com/properties/uploads/images/${file.name}`,
+    );
 
     render(<AddPropertyDialog open={true} onOpenChange={() => {}} onSubmit={onSubmit} />);
     const imageInput = document.querySelector('input[type="file"][multiple]') as HTMLInputElement;
@@ -52,6 +58,7 @@ describe("AddPropertyDialog Virtual Tour & Video", () => {
     fireEvent.change(imageInput, { target: { files } });
 
     await waitFor(() => expect(screen.getAllByAltText(/Foto properti \d/)).toHaveLength(5));
+    expect(uploadToVercelBlobMock).toHaveBeenCalledTimes(5);
     const previews = screen.getAllByAltText(/Foto properti \d/) as HTMLImageElement[];
     const secondPreviewSrc = previews[1].src;
     expect(screen.queryByText(/klik untuk memilih foto/i)).toBeNull();

@@ -1,6 +1,13 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
-import { COOKIE_NAME } from "@shared/const";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { normalizePropertyVideoContentType, uploadPropertyVideo } from "./propertyVideoUpload";
+
+const { uploadToVercelBlobMock } = vi.hoisted(() => ({
+  uploadToVercelBlobMock: vi.fn(),
+}));
+
+vi.mock("./vercelBlobClient", () => ({
+  uploadToVercelBlob: uploadToVercelBlobMock,
+}));
 
 describe("normalizePropertyVideoContentType", () => {
   it("menerima MIME Android dan menghapus parameter codec", () => {
@@ -22,113 +29,48 @@ describe("normalizePropertyVideoContentType", () => {
 });
 
 describe("uploadPropertyVideo", () => {
+  beforeEach(() => {
+    uploadToVercelBlobMock.mockReset();
+  });
+
   afterEach(() => {
     vi.unstubAllGlobals();
   });
 
-  it("membagi video menjadi beberapa bagian lalu menyelesaikannya melalui server", async () => {
-    const fetchMock = vi.fn()
-      .mockResolvedValueOnce(new Response(JSON.stringify({ sessionId: "session-1", chunkBytes: 2, totalChunks: 2 }), { status: 201 }))
-      .mockResolvedValueOnce(new Response(JSON.stringify({ success: true }), { status: 201 }))
-      .mockResolvedValueOnce(new Response(JSON.stringify({ success: true }), { status: 201 }))
-      .mockResolvedValueOnce(new Response(JSON.stringify({ url: "/manus-storage/properties/videos/tur.mp4" }), { status: 201 }));
-    vi.stubGlobal("fetch", fetchMock);
+  it("mengunggah video langsung ke Vercel Blob dan meneruskan progres", async () => {
+    uploadToVercelBlobMock.mockImplementation(async (_file: File, onProgress?: (percent: number) => void) => {
+      onProgress?.(45);
+      return "https://media.public.blob.vercel-storage.com/properties/uploads/videos/tur.mp4";
+    });
     const file = new File([new Uint8Array([1, 2, 3])], "tur-properti.mp4", { type: "video/mp4" });
     const onProgress = vi.fn();
 
-    await expect(uploadPropertyVideo(file, onProgress)).resolves.toBe("/manus-storage/properties/videos/tur.mp4");
-    expect(onProgress).toHaveBeenNthCalledWith(1, 0);
-    expect(onProgress).toHaveBeenNthCalledWith(2, 50);
-    expect(onProgress).toHaveBeenNthCalledWith(3, 100);
-    expect(fetchMock).toHaveBeenNthCalledWith(
-      1,
-      "/api/property-video-upload-sessions",
-      expect.objectContaining({
-        method: "POST",
-        credentials: "include",
-        body: JSON.stringify({ contentType: "video/mp4", fileName: "tur-properti.mp4", size: 3 }),
-        headers: expect.objectContaining({ "Content-Type": "application/json" }),
-      }),
-    );
-    expect(fetchMock).toHaveBeenNthCalledWith(
-      2,
-      "/api/property-video-upload-sessions/session-1/chunks/0",
-      expect.objectContaining({ method: "POST", credentials: "include", headers: expect.objectContaining({ "Content-Type": "video/mp4" }) }),
-    );
-    expect(fetchMock).toHaveBeenNthCalledWith(
-      3,
-      "/api/property-video-upload-sessions/session-1/chunks/1",
-      expect.objectContaining({ method: "POST", credentials: "include" }),
-    );
-    expect(fetchMock).toHaveBeenLastCalledWith(
-      "/api/property-video-upload-sessions/session-1/complete",
-      expect.objectContaining({ method: "POST", body: "{}" }),
-    );
+    await expect(uploadPropertyVideo(file, onProgress)).resolves.toBe("https://media.public.blob.vercel-storage.com/properties/uploads/videos/tur.mp4");
+    expect(uploadToVercelBlobMock).toHaveBeenCalledWith(file, expect.any(Function));
+    expect(onProgress).toHaveBeenNthCalledWith(1, 45);
+    expect(onProgress).toHaveBeenLastCalledWith(100);
   });
 
-  it("meneruskan admin_key sebagai header bypass pada semua tahap", async () => {
-    const fetchMock = vi.fn()
-      .mockResolvedValueOnce(new Response(JSON.stringify({ sessionId: "session-1", chunkBytes: 8, totalChunks: 1 }), { status: 201 }))
-      .mockResolvedValueOnce(new Response(JSON.stringify({ success: true }), { status: 201 }))
-      .mockResolvedValueOnce(new Response(JSON.stringify({ url: "/manus-storage/properties/videos/tur.mp4" }), { status: 201 }));
-    vi.stubGlobal("fetch", fetchMock);
-    window.history.replaceState({}, "", "/manage-listings?admin_key=emergency-key-123");
-    const file = new File(["video"], "tur-properti.mp4", { type: "video/mp4" });
-
-    await uploadPropertyVideo(file);
-
-    for (const call of fetchMock.mock.calls) {
-      expect(call[1]?.headers).toEqual(expect.objectContaining({ "x-admin-key": "emergency-key-123" }));
-    }
-  });
-
-  it("meneruskan sesi fallback WebView sebagai Bearer token pada semua tahap", async () => {
-    const fetchMock = vi.fn()
-      .mockResolvedValueOnce(new Response(JSON.stringify({ sessionId: "session-1", chunkBytes: 8, totalChunks: 1 }), { status: 201 }))
-      .mockResolvedValueOnce(new Response(JSON.stringify({ success: true }), { status: 201 }))
-      .mockResolvedValueOnce(new Response(JSON.stringify({ url: "/manus-storage/properties/videos/tur.mp4" }), { status: 201 }));
-    vi.stubGlobal("fetch", fetchMock);
-    vi.stubGlobal("sessionStorage", {
-      getItem: vi.fn().mockReturnValue(`${COOKIE_NAME}=token-webview-admin; Path=/; SameSite=None`),
-    });
-    const file = new File(["video"], "tur-properti.mp4", { type: "video/mp4" });
-
-    await uploadPropertyVideo(file);
-
-    for (const call of fetchMock.mock.calls) {
-      expect(call[1]?.headers).toEqual(expect.objectContaining({ Authorization: "Bearer token-webview-admin" }));
-    }
-  });
-
-  it("mengirim MIME canonical untuk video 3GP dari Android", async () => {
-    const fetchMock = vi.fn()
-      .mockResolvedValueOnce(new Response(JSON.stringify({ sessionId: "session-3gp", chunkBytes: 8, totalChunks: 1 }), { status: 201 }))
-      .mockResolvedValueOnce(new Response(JSON.stringify({ success: true }), { status: 201 }))
-      .mockResolvedValueOnce(new Response(JSON.stringify({ url: "/manus-storage/properties/videos/tur.3gp" }), { status: 201 }));
-    vi.stubGlobal("fetch", fetchMock);
+  it("mengirim MIME canonical untuk video 3GP dari Android ke Blob", async () => {
+    uploadToVercelBlobMock.mockResolvedValue("https://media.public.blob.vercel-storage.com/properties/uploads/videos/tur.3gp");
     const file = new File(["video"], "tur-properti.3gp", { type: "application/octet-stream" });
 
     await uploadPropertyVideo(file);
 
-    expect(fetchMock.mock.calls[0]?.[1]?.body).toBe(
-      JSON.stringify({ contentType: "video/3gpp", fileName: "tur-properti.3gp", size: 5 }),
-    );
-    expect(fetchMock.mock.calls[1]?.[1]?.headers).toEqual(
-      expect.objectContaining({ "Content-Type": "video/3gpp" }),
-    );
+    expect(uploadToVercelBlobMock).toHaveBeenCalledWith(expect.objectContaining({ name: "tur-properti.3gp", type: "video/3gpp" }), expect.any(Function));
   });
 
-  it("menampilkan pesan server saat sesi unggah ditolak", async () => {
-    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify({ error: "Ukuran video maksimal 50 MB." }), { status: 413 })));
+  it("menampilkan pesan upload Blob saat token client ditolak", async () => {
+    uploadToVercelBlobMock.mockRejectedValue(new Error("Vercel Blob: gagal membuat token upload."));
     const file = new File(["video-biner"], "tur-properti.mp4", { type: "video/mp4" });
 
-    await expect(uploadPropertyVideo(file)).rejects.toThrow("Ukuran video maksimal 50 MB.");
+    await expect(uploadPropertyVideo(file)).rejects.toThrow("gagal membuat token upload");
   });
 
-  it("menangani network error atau respons non-JSON pada persiapan sesi upload dengan pesan informatif", async () => {
-    vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new TypeError("Failed to fetch")));
-    const file = new File(["video-biner"], "tur-properti.mp4", { type: "video/mp4" });
+  it("menolak format video yang tidak didukung sebelum mencoba upload Blob", async () => {
+    const file = new File(["video-biner"], "tur-properti.mkv", { type: "video/x-matroska" });
 
-    await expect(uploadPropertyVideo(file)).rejects.toThrow();
+    await expect(uploadPropertyVideo(file)).rejects.toThrow("Video harus berformat");
+    expect(uploadToVercelBlobMock).not.toHaveBeenCalled();
   });
 });

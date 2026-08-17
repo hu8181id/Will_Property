@@ -2,6 +2,24 @@ import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
 import { del } from '@vercel/blob';
 import type { Request, Response } from 'express';
 
+const ALLOWED_CONTENT_TYPES = [
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+  'image/heic',
+  'image/heif',
+  'video/mp4',
+  'video/webm',
+  'video/quicktime',
+  'video/x-m4v',
+  'video/3gpp',
+  'video/3gpp2',
+] as const;
+
+function isAllowedMediaPath(pathname: string) {
+  return /^properties\/uploads\/(images|videos)\/[a-f0-9-]+\.[a-z0-9]+$/i.test(pathname);
+}
+
 export async function handleVercelBlobUploadAuth(req: Request, res: Response) {
   try {
     if (!process.env.BLOB_READ_WRITE_TOKEN) {
@@ -19,9 +37,13 @@ export async function handleVercelBlobUploadAuth(req: Request, res: Response) {
         if (adminKeyHeader !== expectedKey) {
           throw new Error("Unauthorized: Invalid admin key for blob upload token");
         }
+
+        if (!isAllowedMediaPath(pathname)) {
+          throw new Error('Path upload media tidak valid.');
+        }
         
         return {
-          allowedContentTypes: ['image/jpeg', 'image/png', 'image/webp', 'video/mp4', 'video/quicktime', 'video/3gpp', 'video/x-m4v', 'application/octet-stream'],
+          allowedContentTypes: [...ALLOWED_CONTENT_TYPES],
           tokenPayload: JSON.stringify({ uploadedAt: Date.now() }),
         };
       },
