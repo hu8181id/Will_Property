@@ -186,9 +186,10 @@ export default function AdminAnalyticsDashboard() {
             <div>
               <h2 className="font-semibold text-slate-900">Laporan iklan APK</h2>
               <p className="mt-1 text-sm leading-6 text-slate-600">Pendapatan, tayangan, dan klik banner hanya tersedia di laporan resmi AdMob. Dashboard ini tidak menyimpan kredensial atau data pendapatan AdMob.</p>
+              <p className="mt-2 text-xs font-medium text-amber-800">Catatan: Jika browser membuka halaman kosong, pastikan Anda sudah masuk (login) ke akun Google / AdMob yang sama di browser tersebut.</p>
             </div>
             <Button asChild variant="outline" className="gap-2 border-amber-300 bg-white hover:bg-amber-100">
-              <a href="https://admob.google.com/home/#/apps" target="_blank" rel="noreferrer">Buka Laporan AdMob <ExternalLink className="h-4 w-4" /></a>
+              <a href="https://apps.admob.com" target="_blank" rel="noreferrer">Buka Laporan AdMob <ExternalLink className="h-4 w-4" /></a>
             </Button>
           </div>
         </Card>

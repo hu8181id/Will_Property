@@ -65,3 +65,6 @@
 - [x] Tambahkan test runtime WebView/instrumentasi yang membuktikan klik link AdMob dialihkan ke browser eksternal.
 - [x] Dokumentasikan hasil rebuild dan verifikasi runtime APK Admin setelah test klik AdMob lulus.
 - [x] Perkuat handler WebView APK Admin untuk alur target=_blank/new-window AdMob lalu rebuild dan verifikasi ulang APK.
+
+- [x] Perbaiki URL AdMob di dashboard admin agar mengarahkan ke https://apps.admob.com atau konsol langsung yang stabil di browser seluler, serta pastikan pesan instruksi login tersedia jika sesi Google kosong.
+
