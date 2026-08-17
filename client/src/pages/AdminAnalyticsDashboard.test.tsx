@@ -89,6 +89,6 @@ describe("AdminAnalyticsDashboard", () => {
     expect(screen.getByRole("heading", { name: "Listing Terpopuler" })).toBeTruthy();
     expect(screen.getByText("Kalkulator KPR")).toBeTruthy();
     expect(screen.getByText("Rumah Contoh Surabaya")).toBeTruthy();
-    expect(screen.getByRole("link", { name: /buka laporan admob/i })).toHaveProperty("href", "https://apps.admob.com/");
+    expect(screen.getByRole("link", { name: /buka laporan admob/i })).toHaveProperty("href", "https://apps.admob.com/v2/home");
   });
 });

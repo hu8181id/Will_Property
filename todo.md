@@ -68,3 +68,6 @@
 
 - [x] Perbaiki URL AdMob di dashboard admin agar mengarahkan ke https://apps.admob.com atau konsol langsung yang stabil di browser seluler, serta pastikan pesan instruksi login tersedia jika sesi Google kosong.
 
+
+- [x] Ganti URL dashboard AdMob dari https://admob.google.com/home/#/apps ke https://apps.admob.com/v2/home atau https://myaccount.google.com untuk memastikan halaman terbuka sempurna di perangkat seluler.
+
