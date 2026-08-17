@@ -319,12 +319,12 @@ export default function AddPropertyDialog({
               {images.map((image, index) => (
                 <div key={`${image.src}-${index}`} className="relative group aspect-square rounded-xl overflow-hidden bg-slate-100 border">
                   <img src={image.src} alt={`Foto properti ${index + 1}`} className="h-full w-full object-cover" />
+                  <button type="button" onClick={() => handleRemoveImage(index)} className="absolute top-1 right-1 rounded-full bg-red-600 p-1.5 text-white shadow-lg z-20 hover:bg-red-700 transition-colors" aria-label={`Hapus foto ${index + 1}`}>
+                    <X size={14} />
+                  </button>
                   <div className="absolute inset-x-1 bottom-1 flex gap-1">
-                    <button type="button" onClick={() => makeCover(index)} className="flex-1 rounded bg-black/65 px-1 py-1 text-[10px] text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                      {index === 0 ? "Foto Utama" : "Jadikan Utama"}
-                    </button>
-                    <button type="button" onClick={() => handleRemoveImage(index)} className="rounded bg-red-600 p-1 text-white opacity-0 group-hover:opacity-100 transition-opacity" aria-label={`Hapus foto ${index + 1}`}>
-                      <X size={13} />
+                    <button type="button" onClick={() => makeCover(index)} className="w-full rounded bg-black/75 px-1.5 py-1 text-[11px] text-white font-medium">
+                      {index === 0 ? "Utama" : "Jadikan Utama"}
                     </button>
                   </div>
                   {index === 0 && <span className="absolute top-1 left-1 rounded bg-primary px-2 py-0.5 text-[10px] font-semibold text-white flex items-center gap-1"><Star size={10} fill="currentColor" /> Utama</span>}
