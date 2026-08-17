@@ -13,6 +13,10 @@
       "destination": "/api/media?path=:path*"
     },
     {
+      "source": "/google3f40a3ef77242afc.html",
+      "destination": "/google3f40a3ef77242afc.html"
+    },
+    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
