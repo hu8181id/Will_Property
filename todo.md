@@ -59,3 +59,9 @@
 - [x] Buat unit test Vitest untuk jalur sukses dan gagal pengiriman Meta WhatsApp Cloud API
 - [x] Jalankan build dan simpan checkpoint final integrasi WhatsApp Cloud API
 - [x] Perbaiki tombol Hubungi di APK yang membuka whatsapp:// dan menyebabkan ERR_UNKNOWN_URL_SCHEME; gunakan URL HTTPS wa.me yang kompatibel dengan WebView dan rilis ulang APK Publik.
+- [x] Perbaiki tombol Laporan AdMob di APK Admin agar membuka dashboard AdMob melalui browser eksternal, bukan WebView putih.
+- [x] Tambahkan verifikasi teruji untuk klik Buka Laporan AdMob dari dashboard APK Admin.
+- [x] Buat unit test robolectric/mock WebView yang menguji pemanggilan Intent external pada onCreateWindow dan shouldOverrideUrlLoading untuk link AdMob.
+- [x] Tambahkan test runtime WebView/instrumentasi yang membuktikan klik link AdMob dialihkan ke browser eksternal.
+- [x] Dokumentasikan hasil rebuild dan verifikasi runtime APK Admin setelah test klik AdMob lulus.
+- [x] Perkuat handler WebView APK Admin untuk alur target=_blank/new-window AdMob lalu rebuild dan verifikasi ulang APK.
