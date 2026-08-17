@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/lib/trpc";
-import { ArrowLeft, BarChart3, CalendarDays, CircleHelp, ExternalLink, FileText, Globe2, Loader2, RefreshCw, ShieldCheck, Smartphone, Trophy, Users } from "lucide-react";
+import { ArrowLeft, BarChart3, CalendarDays, CircleHelp, ExternalLink, FileText, Globe2, Loader2, ListPlus, RefreshCw, ShieldCheck, Smartphone, Trophy, Users } from "lucide-react";
 import React, { useState } from "react";
 import { useLocation } from "wouter";
 
@@ -40,6 +40,8 @@ export default function AdminAnalyticsDashboard() {
   const { user, loading } = useAuth();
   const [, setLocation] = useLocation();
   const canViewDashboard = user?.role === "admin";
+  const adminKey = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("admin_key") : null;
+  const manageListingsHref = adminKey ? `/manage-listings?admin_key=${encodeURIComponent(adminKey)}` : "/manage-listings";
   const [selectedRange, setSelectedRange] = useState(() => getPresetRange(7));
   const [appliedRange, setAppliedRange] = useState(() => getPresetRange(7));
   const [rangeError, setRangeError] = useState("");
@@ -114,10 +116,15 @@ export default function AdminAnalyticsDashboard() {
               <p className="mt-1 text-sm text-slate-600">Kunjungan unik harian yang dipisahkan antara website dan APK Primedeal.</p>
             </div>
           </div>
-          <Button variant="outline" className="gap-2 self-start" disabled={summary.isFetching || popularContent.isFetching} onClick={() => { void Promise.all([summary.refetch(), popularContent.refetch()]); }}>
-            {summary.isFetching || popularContent.isFetching ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
-            Perbarui
-          </Button>
+          <div className="flex flex-wrap gap-2 self-start">
+            <Button asChild className="w-full justify-center gap-2 bg-primary shadow-sm hover:bg-primary/90 sm:w-auto">
+              <a href={manageListingsHref}><ListPlus className="h-4 w-4" /> Tambah / Kelola Listing</a>
+            </Button>
+            <Button variant="outline" className="gap-2" disabled={summary.isFetching || popularContent.isFetching} onClick={() => { void Promise.all([summary.refetch(), popularContent.refetch()]); }}>
+              {summary.isFetching || popularContent.isFetching ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
+              Perbarui
+            </Button>
+          </div>
         </header>
 
         <Card className="border-slate-200 p-4 shadow-sm sm:p-5">
@@ -178,7 +185,7 @@ export default function AdminAnalyticsDashboard() {
         </Card>
 
         <Card className="mt-6 border-slate-200 p-5 shadow-sm sm:p-6">
-          <div className="flex items-start gap-3"><div className="rounded-lg bg-blue-50 p-2"><BarChart3 className="h-5 w-5 text-primary" /></div><div><h2 className="font-semibold text-slate-900">Tren kunjungan periode terpilih</h2><p className="mt-1 text-sm text-slate-500">{summary.data?.period ? `${formatDashboardDate(summary.data.period.startDate)} – ${formatDashboardDate(summary.data.period.endDate)}` : "Memuat periode..."}. Perangkat atau jaringan yang sama dihitung satu kali dalam satu hari.</p></div></div>
+          <div className="flex items-start gap-3"><div className="rounded-lg bg-blue-50 p-2"><BarChart3 className="h-5 w-5 text-primary" /></div><div><h2 className="font-semibold text-slate-900">Tren kunjungan periode terpilih</h2><p className="mt-1 text-sm text-slate-500">{summary.data?.period ? `${formatDashboardDate(summary.data.period.startDate)} – ${formatDashboardDate(summary.data.period.endDate)}` : "Memuat periode..."}. Perangkat atau browser yang sama dihitung satu kali per hari dengan ID anonim.</p></div></div>
           {summary.isLoading ? (
             <div className="mt-8 grid h-48 grid-cols-7 items-end gap-2"><Skeleton className="h-20" /><Skeleton className="h-32" /><Skeleton className="h-16" /><Skeleton className="h-40" /><Skeleton className="h-24" /><Skeleton className="h-28" /><Skeleton className="h-36" /></div>
           ) : summary.isError ? (
