@@ -117,8 +117,8 @@ export default function AdminAnalyticsDashboard() {
             </div>
           </div>
           <div className="flex flex-wrap gap-2 self-start">
-            <Button asChild className="gap-2 bg-primary shadow-sm hover:bg-primary/90">
-              <a href={manageListingsHref}><ListPlus className="h-4 w-4" /> Kelola Listing</a>
+            <Button asChild className="w-full justify-center gap-2 bg-primary shadow-sm hover:bg-primary/90 sm:w-auto">
+              <a href={manageListingsHref}><ListPlus className="h-4 w-4" /> Tambah / Kelola Listing</a>
             </Button>
             <Button variant="outline" className="gap-2" disabled={summary.isFetching || popularContent.isFetching} onClick={() => { void Promise.all([summary.refetch(), popularContent.refetch()]); }}>
               {summary.isFetching || popularContent.isFetching ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}

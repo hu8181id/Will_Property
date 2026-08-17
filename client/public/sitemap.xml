@@ -1,23 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://primedeal-jl8furcm.manus.space/</loc>
+    <loc>https://primedeal-property.vercel.app</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://primedeal-jl8furcm.manus.space/listing</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://primedeal-property.vercel.app/listing</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://primedeal-jl8furcm.manus.space/kalkulator</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://primedeal-property.vercel.app/kalkulator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://primedeal-jl8furcm.manus.space/tentang</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://primedeal-property.vercel.app/tentang</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/60001-educity-studio-furnished-dekat-its-unair</loc>
+    <lastmod>2026-08-17T04:00:59.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/90001-puncak-kertajaya-studio-furnished-dekat-its-hangtuah-araya-dan-merr</loc>
+    <lastmod>2026-08-17T03:58:49.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/120001-puncak-kertajaya-2br-kosongan-dkt-its-araya-sukolilo-unair-merr</loc>
+    <lastmod>2026-08-17T03:57:33.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/150001-puncak-permai-studio-furnished-dekat-pakuwon-citraland-petra-dan-unesa</loc>
+    <lastmod>2026-08-17T03:56:45.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/180001-diamond-regency-termurah-dekat-its-sukolilo-dian-regency-hangtuah</loc>
+    <lastmod>2026-08-17T03:55:41.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/210001-rumah-lebak-rejo-dekat-kenjeran-merr-kedung-cowek</loc>
+    <lastmod>2026-08-17T03:54:37.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/240001-gunawangsa-manyar-2br-furnished-dekat-its-unair-merr</loc>
+    <lastmod>2026-08-17T03:52:46.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/270001-gunawangsa-manyar-2br-furnished-dekat-unair-its</loc>
+    <lastmod>2026-08-17T03:49:40.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/300001-gunawangsa-manyar-2br-jadi-studio-plus-seperti-kamar-hotel-furnished-dekat-unair-dan-its</loc>
+    <lastmod>2026-08-17T03:45:38.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/330001-puncak-kertajaya-studio-furnished-dkt-its-unair-merr-hangtuah-manyar</loc>
+    <lastmod>2026-08-17T03:40:03.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/360001-gunawangsa-manyar-2br-furnished-dekat-unair-its-merr</loc>
+    <lastmod>2026-08-17T03:38:47.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/450001-apartemen-puncak-dharmahusada-2br-furnished-dekat-unair-dan-its</loc>
+    <lastmod>2026-08-17T03:37:15.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://primedeal-property.vercel.app/listing/570001-bale-hinggil-studio-furnished-dekat-gunawangsa-merr-rungkut-baruk</loc>
+    <lastmod>2026-08-17T03:24:29.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

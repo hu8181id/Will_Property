@@ -29,3 +29,13 @@
 - [x] Bangun serta verifikasi APK Admin perbaikan dengan statistik pengunjung terlihat
 - [x] Tambahkan tombol Kelola Listing pada dashboard APK Admin yang membuka halaman manage-listings dengan admin_key
 - [x] Bangun dan verifikasi APK Admin terbaru setelah tombol Kelola Listing ditambahkan
+- [x] Pastikan deployment Vercel yang dibuka APK memuat dashboard versi terbaru dengan tombol Kelola/Tambah Listing
+- [x] Perbaiki layout mobile agar tombol Kelola/Tambah Listing selalu terlihat dan dapat dibuka
+- [x] Uji APK Admin pada layar mobile dan verifikasi navigasi ke halaman manage-listings dengan admin_key
+- [x] Uji dashboard admin pada viewport mobile dan simpan bukti tombol Tambah / Kelola Listing terlihat tanpa scroll horizontal
+- [x] Buka APK Admin terbaru setelah perbaikan dan verifikasi WebView memuat dashboard Vercel serta navigasi manage-listings dengan admin_key
+- [x] Perbaiki endpoint live /sitemap.xml yang saat ini terbaca sebagai HTML oleh Google Search Console
+- [x] Pastikan deployment Vercel mengirim Content-Type XML dan URL listing publik yang valid
+- [x] Uji ulang sitemap live lalu kirim ulang di Google Search Console
+- [ ] Buka APK Admin terbaru di perangkat Android, ambil screenshot yang memperlihatkan dashboard Vercel dan tombol Tambah / Kelola Listing di dalam WebView
+- [ ] Verifikasi dari APK bahwa tombol membuka /manage-listings dengan admin_key yang benar, lalu simpan bukti hasilnya di catatan verifikasi atau screenshot
