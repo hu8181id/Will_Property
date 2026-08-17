@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, Edit, ShieldCheck, Trash2, Video } from "lucide-react";
+import { ArrowLeft, BarChart3, Edit, ShieldCheck, Trash2, Video } from "lucide-react";
 import { toast as sonnerToast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -114,6 +114,8 @@ export default function EmergencyListingManager() {
   const urlHasAdminKey = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("admin_key");
   const isAdmin = me?.role === "admin";
   const isAuthorized = isAdmin || urlHasAdminKey;
+  const adminKey = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("admin_key") : null;
+  const analyticsHref = adminKey ? `/admin/dashboard?admin_key=${encodeURIComponent(adminKey)}` : "/admin/dashboard";
   const typedListings = (listings ?? []) as EmergencyProperty[];
 
   const initialProperty = useMemo(() => {
@@ -236,6 +238,14 @@ export default function EmergencyListingManager() {
             <ShieldCheck className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" /> Panel Manajemen Listing
           </h1>
         </div>
+        {isAuthorized && (
+          <Link href={analyticsHref}>
+            <Button variant="secondary" size="sm" className="shrink-0 gap-1.5 bg-white text-blue-700 hover:bg-blue-50">
+              <BarChart3 className="h-4 w-4" />
+              <span className="hidden sm:inline">Statistik</span>
+            </Button>
+          </Link>
+        )}
         <div className="shrink-0 rounded-full bg-blue-700 px-2 py-1 text-right text-[11px] sm:px-3 sm:text-sm">
           {authLoading ? (
             <span>Memeriksa akses...</span>

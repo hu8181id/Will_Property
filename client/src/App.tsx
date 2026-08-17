@@ -3,7 +3,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { trackGoogleAnalyticsPageView } from "@/lib/googleAnalytics";
 import { trpc } from "@/lib/trpc";
 import NotFound from "@/pages/NotFound";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getOrCreateVisitorDeviceId } from "@/lib/visitorIdentity";
 import { Route, Switch, useLocation } from "wouter";
 import ApkUpdateNotice from "./components/ApkUpdateNotice";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -32,6 +33,7 @@ function GoogleAnalyticsRouteTracker() {
 
 function VisitorTracker() {
   const [location] = useLocation();
+  const [deviceId] = useState(() => getOrCreateVisitorDeviceId());
   const { mutate } = trpc.analytics.recordVisit.useMutation();
 
   useEffect(() => {
@@ -42,8 +44,11 @@ function VisitorTracker() {
       "/kalkulator": "Kalkulator KPR",
       "/tentang": "Tentang Primedeal",
     }[location];
-    mutate({ page: contentTitle ? { contentType: "page", path: location, contentTitle } : undefined });
-  }, [location, mutate]);
+    mutate({
+      deviceId,
+      page: contentTitle ? { contentType: "page", path: location, contentTitle } : undefined,
+    });
+  }, [deviceId, location, mutate]);
 
   return null;
 }

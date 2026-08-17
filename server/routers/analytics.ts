@@ -142,8 +142,13 @@ const contentViewSchema = z
     }
   });
 
-export const visitorRecordSchema = z.object({ page: contentViewSchema.optional() }).strict();
-export const pageViewRecordSchema = contentViewSchema;
+const visitorDeviceIdSchema = z.string().regex(/^[a-f0-9-]{36}$/i, "ID perangkat tidak valid.");
+export const visitorRecordSchema = z
+  .object({ deviceId: visitorDeviceIdSchema.optional(), page: contentViewSchema.optional() })
+  .strict();
+export const pageViewRecordSchema = contentViewSchema.and(
+  z.object({ deviceId: visitorDeviceIdSchema.optional() }),
+);
 
 export const dailySummaryInputSchema = z
   .object({
@@ -165,6 +170,7 @@ export const analyticsRouter = router({
   recordVisit: publicProcedure.input(visitorRecordSchema).mutation(async ({ ctx, input }) => {
     const existingVisitorId = readCookie(ctx.req.headers.cookie, ANONYMOUS_VISITOR_COOKIE);
     const visitorId = isAnonymousVisitorId(existingVisitorId) ? existingVisitorId : randomUUID();
+    const deviceId = isAnonymousVisitorId(input.deviceId) ? input.deviceId : visitorId;
 
     if (visitorId !== existingVisitorId) {
       ctx.res.cookie(ANONYMOUS_VISITOR_COOKIE, visitorId, {
@@ -178,11 +184,10 @@ export const analyticsRouter = router({
       const trafficSource = getTrafficSourceFromUserAgent(ctx.req.headers["user-agent"]);
       const dailyFingerprint = createDailyVisitFingerprint({
         visitDate,
-        visitorId,
-        networkAddress: getClientNetworkAddress(ctx.req),
+        visitorId: deviceId,
       });
-      await recordAnonymousDailyVisit({ visitDate, visitorId, trafficSource, dailyFingerprint });
-      if (input.page) await recordAnonymousPageView({ visitDate, visitorId, trafficSource, ...input.page });
+      await recordAnonymousDailyVisit({ visitDate, visitorId: deviceId, trafficSource, dailyFingerprint });
+      if (input.page) await recordAnonymousPageView({ visitDate, visitorId: deviceId, trafficSource, ...input.page });
       return { recorded: true };
     } catch (error) {
       console.warn("[Analytics] Kunjungan tidak dapat dicatat:", error);
@@ -193,6 +198,7 @@ export const analyticsRouter = router({
   recordPageView: publicProcedure.input(pageViewRecordSchema).mutation(async ({ ctx, input }) => {
     const existingVisitorId = readCookie(ctx.req.headers.cookie, ANONYMOUS_VISITOR_COOKIE);
     const visitorId = isAnonymousVisitorId(existingVisitorId) ? existingVisitorId : randomUUID();
+    const deviceId = isAnonymousVisitorId(input.deviceId) ? input.deviceId : visitorId;
 
     if (visitorId !== existingVisitorId) {
       ctx.res.cookie(ANONYMOUS_VISITOR_COOKIE, visitorId, {
@@ -204,9 +210,12 @@ export const analyticsRouter = router({
     try {
       await recordAnonymousPageView({
         visitDate: getIndonesiaDateKey(new Date()),
-        visitorId,
+        visitorId: deviceId,
         trafficSource: getTrafficSourceFromUserAgent(ctx.req.headers["user-agent"]),
-        ...input,
+        contentType: input.contentType,
+        path: input.path,
+        contentTitle: input.contentTitle,
+        propertyId: input.propertyId,
       });
       return { recorded: true };
     } catch (error) {

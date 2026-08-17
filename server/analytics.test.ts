@@ -22,7 +22,10 @@ describe("analytics dashboard contracts", () => {
   it("hanya menerima ID pengunjung anonim berbentuk UUID", () => {
     expect(analyticsDateUtils.isAnonymousVisitorId("20b60b15-d2a0-4246-901f-eb004eb03046")).toBe(true);
     expect(analyticsDateUtils.isAnonymousVisitorId("alamat-email@example.com")).toBe(false);
+    const deviceId = "20b60b15-d2a0-4246-901f-eb004eb03046";
     expect(visitorRecordSchema.parse({})).toEqual({});
+    expect(visitorRecordSchema.parse({ deviceId })).toEqual({ deviceId });
+    expect(pageViewRecordSchema.parse({ contentType: "page", path: "/", contentTitle: "Beranda", deviceId })).toMatchObject({ deviceId });
     expect(() => visitorRecordSchema.parse({ visitorId: "tidak-boleh" })).toThrow();
   });
 
@@ -32,7 +35,7 @@ describe("analytics dashboard contracts", () => {
     expect(analyticsDateUtils.getTrafficSourceFromUserAgent(undefined)).toBe("unknown");
   });
 
-  it("membuat kunci harian yang sama untuk jaringan sama lintas sumber tanpa menyimpan IP mentah", () => {
+  it("mempertahankan utilitas fingerprint jaringan lama tanpa menyimpan IP mentah", () => {
     const sharedNetwork = { visitDate: "2026-08-15", networkAddress: "203.0.113.17", secret: "test-secret" };
     const webFingerprint = analyticsDateUtils.createDailyVisitFingerprint({ ...sharedNetwork, visitorId: "20b60b15-d2a0-4246-901f-eb004eb03046" });
     const apkFingerprint = analyticsDateUtils.createDailyVisitFingerprint({ ...sharedNetwork, visitorId: "bfc364af-6eb1-4b31-96e3-5a492a76af49" });

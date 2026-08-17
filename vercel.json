@@ -5,6 +5,18 @@
   "outputDirectory": "dist/public",
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/api/robots"
+    },
+    {
+      "source": "/apk/latest.json",
+      "destination": "/api/apk-latest"
+    },
+    {
       "source": "/trpc/:path*",
       "destination": "/api/trpc/:path*"
     },

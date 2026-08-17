@@ -11,6 +11,7 @@ import AddPropertyDialog, { PropertyFormData, PropertyFormSubmit } from "@/compo
 import ComparisonModal from "@/components/ComparisonModal";
 import RatingReview from "@/components/RatingReview";
 import { trpc } from "@/lib/trpc";
+import { getOrCreateVisitorDeviceId } from "@/lib/visitorIdentity";
 import { uploadPropertyVideo } from "@/lib/propertyVideoUpload";
 import { formatPriceShort } from "@/lib/propertyPrice";
 import { startLogin } from "@/const";
@@ -129,6 +130,7 @@ export default function Listing() {
   const [comparison, setComparison] = useState<number[]>([]);
   const [showComparison, setShowComparison] = useState(false);
   const [editingProperty, setEditingProperty] = useState<Property | null>(null);
+  const [visitorDeviceId] = useState(() => getOrCreateVisitorDeviceId());
   const [deletingId, setDeletingId] = useState<number | null>(null);
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [reviewProperty, setReviewProperty] = useState<Property | null>(null);
@@ -170,12 +172,13 @@ export default function Listing() {
   useEffect(() => {
     if (!selectedProperty) return;
     recordPageView({
+      deviceId: visitorDeviceId,
       contentType: "listing",
       path: propertyDetailPath(selectedProperty),
       contentTitle: selectedProperty.title,
       propertyId: selectedProperty.id,
     });
-  }, [recordPageView, selectedProperty]);
+  }, [recordPageView, selectedProperty, visitorDeviceId]);
 
   useEffect(() => {
     if (isAdmin && shouldOpenNewListing) setAddDialogOpen(true);
@@ -203,11 +206,13 @@ export default function Listing() {
     const shareDescription = `${sharedProperty.title} di ${sharedProperty.location}. Harga ${formatPrice(sharedProperty.price)}. Lihat detail listing Primedeal Properti.`;
     const originalTitle = document.title;
     const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute("content") ?? "";
+    const firstImage = sharedProperty.images.find((image) => /^https?:\/\//i.test(image));
     const metaValues = [
       ["name", "description", shareDescription],
       ["property", "og:title", sharedProperty.title],
       ["property", "og:description", shareDescription],
       ["property", "og:url", shareUrl],
+      ...(firstImage ? [["property", "og:image", firstImage] as const] : []),
       ["name", "twitter:title", sharedProperty.title],
       ["name", "twitter:description", shareDescription],
     ] as const;
@@ -216,9 +221,52 @@ export default function Listing() {
       const element = document.querySelector(`meta[${attribute}="${key}"]`);
       element?.setAttribute("content", value);
     });
+
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]') ?? document.createElement("link");
+    const canonicalWasCreated = !canonical.parentElement;
+    if (canonicalWasCreated) {
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    const originalCanonical = canonical.getAttribute("href");
+    canonical.href = shareUrl;
+
+    const structuredData = document.createElement("script");
+    structuredData.id = "primedeal-listing-jsonld";
+    structuredData.type = "application/ld+json";
+    structuredData.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "RealEstateListing",
+      name: sharedProperty.title,
+      description: sharedProperty.description,
+      url: shareUrl,
+      image: sharedProperty.images.filter((image) => /^https?:\/\//i.test(image)).slice(0, 10),
+      about: {
+        "@type": "Residence",
+        name: sharedProperty.title,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: sharedProperty.location,
+          streetAddress: sharedProperty.address ?? undefined,
+          addressCountry: "ID",
+        },
+      },
+      offers: {
+        "@type": "Offer",
+        price: String(sharedProperty.price),
+        priceCurrency: "IDR",
+        availability: "https://schema.org/InStock",
+        url: shareUrl,
+      },
+    });
+    document.head.appendChild(structuredData);
+
     return () => {
       document.title = originalTitle;
       document.querySelector('meta[name="description"]')?.setAttribute("content", originalDescription);
+      structuredData.remove();
+      if (originalCanonical) canonical.href = originalCanonical;
+      else if (canonicalWasCreated) canonical.remove();
     };
   }, [sharedProperty]);
 

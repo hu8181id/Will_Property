@@ -8,3 +8,9 @@
 - [x] Mengunggah APK terverifikasi dan menyerahkan tautan unduhan
 - [x] Ganti ikon APK Publik dan Admin dengan logo PrimeDeal
 - [x] Bangun ulang, verifikasi, dan unggah APK berikon PrimeDeal
+- [x] Tambahkan sistem pencatatan unik pengunjung per perangkat per hari di database & tRPC
+- [x] Tambahkan widget statistik pengunjung di dashboard admin dan portal admin
+- [x] Perkuat sitemap.xml dinamis, robots.txt, dan meta tags SEO Google untuk setiap listing
+- [x] Tambahkan endpoint ping/index otomatis untuk Google Search Indexing
+- [x] Tulis test unit vitest dan verifikasi deploy produksi
+- [x] Perbaiki routing Vercel untuk sitemap.xml, robots.txt, dan endpoint SEO agar tidak dikembalikan sebagai index.html
