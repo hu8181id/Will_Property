@@ -39,3 +39,11 @@
 - [x] Uji ulang sitemap live lalu kirim ulang di Google Search Console
 - [x] Buka APK Admin terbaru di perangkat Android, ambil screenshot yang memperlihatkan dashboard Vercel dan tombol Tambah / Kelola Listing di dalam WebView
 - [x] Verifikasi dari APK bahwa tombol membuka /manage-listings dengan admin_key yang benar, lalu simpan bukti hasilnya di catatan verifikasi atau screenshot
+- [x] Otomatiskan kesiapan indexing setiap listing baru masuk ke sitemap dan antrean notifikasi Google
+- [x] Tambahkan tabel antrean indexing per listing tanpa mengubah data listing yang ada
+- [x] Buat enqueue otomatis saat listing baru dibuat atau diperbarui
+- [x] Pastikan sitemap Vercel dan Express selalu mencantumkan semua listing aktif dengan URL kanonis dan lastmod akurat
+- [x] Tambahkan endpoint/prosedur Admin untuk melihat status kesiapan sitemap dan antrean indexing
+- [x] Tampilkan status indexing di panel Admin tanpa menyatakan Google sudah mengindeks
+- [x] Tambahkan pengujian Vitest untuk enqueue, sitemap, dan status indexing
+- [x] Jalankan build dan test sebelum checkpoint

@@ -8,6 +8,7 @@ import * as dbModule from "./db";
 import * as notificationModule from "./_core/notification";
 import { appRouter } from "./routers";
 import { propertyDraftSchema, propertyFilterSchema, reviewDraftSchema, reviewModerationSchema } from "./routers/property";
+import { propertyListings } from "../drizzle/schema";
 import { createContext, type TrpcContext } from "./_core/context";
 import { sdk } from "./_core/sdk";
 
@@ -93,12 +94,67 @@ describe("property listing contracts", () => {
     await expect(caller.property.moderateReview({ reviewId: 1, status: "approved" })).rejects.toMatchObject({ code: "FORBIDDEN" });
   });
 
+  it("allows querying property indexing status through admin authorization", async () => {
+    const emergencyKey = "emergency-regression-key";
+    process.env.ADMIN_SECRET_KEY = emergencyKey;
+    const innerJoin = vi.fn().mockResolvedValue([
+      {
+        propertyId: 450001,
+        url: "https://primedeal-property.vercel.app/properti/rumah-surabaya-450001",
+        status: "sitemap_ready",
+        attempts: 0,
+        lastError: null,
+        lastProcessedAt: new Date(),
+        updatedAt: new Date(),
+        title: "Rumah Surabaya",
+        listingStatus: "active",
+      },
+    ]);
+    const orderBy = vi.fn(() => innerJoin());
+    const fromMock = vi.fn((table: any) => {
+      if (table === propertyListings || String(table).includes("property_listings")) {
+        return { where: vi.fn().mockResolvedValue([]) };
+      }
+      return { innerJoin: vi.fn(() => ({ orderBy })) };
+    });
+    const fakeDb = {
+      select: vi.fn(() => ({ from: fromMock })),
+    };
+    const getDbSpy = vi.spyOn(dbModule, "getDb").mockResolvedValue(fakeDb as any);
+    const authenticateRequestSpy = vi.spyOn(sdk, "authenticateRequest").mockRejectedValue(new Error("No session"));
+
+    const request = {
+      protocol: "https",
+      query: { admin_key: emergencyKey },
+      headers: {},
+    } as TrpcContext["req"];
+
+    try {
+      const ctx = await createContext({ req: request, res: {} as TrpcContext["res"] });
+      const caller = appRouter.createCaller(ctx);
+      const statuses = await caller.property.indexingStatus();
+      expect(statuses).toHaveLength(1);
+      expect(statuses[0]).toMatchObject({ propertyId: 450001, status: "sitemap_ready" });
+    } finally {
+      getDbSpy.mockRestore();
+      authenticateRequestSpy.mockRestore();
+    }
+  });
+
   it("allows property create, update, and delete through admin_key/x-admin-key without an OAuth session", async () => {
     const previousSecret = process.env.ADMIN_SECRET_KEY;
     const emergencyKey = "emergency-regression-key";
     process.env.ADMIN_SECRET_KEY = emergencyKey;
 
-    const insertValues = vi.fn().mockResolvedValue([{ insertId: 420001 }]);
+    const insertValues = vi.fn();
+    const insertOnDuplicateKeyUpdate = vi.fn().mockResolvedValue([]);
+    const insertBuilder: any = {
+      values: insertValues,
+      onDuplicateKeyUpdate: insertOnDuplicateKeyUpdate,
+      then: (resolve: (value: unknown) => unknown, reject: (reason: unknown) => unknown) =>
+        Promise.resolve([{ insertId: 420001 }]).then(resolve, reject),
+    };
+    insertValues.mockReturnValue(insertBuilder);
     const updateWhere = vi.fn().mockResolvedValue([]);
     const updateSet = vi.fn(() => ({ where: updateWhere }));
     const deleteWhere = vi.fn().mockResolvedValue([]);
@@ -106,7 +162,7 @@ describe("property listing contracts", () => {
     const selectWhere = vi.fn(() => ({ limit: selectLimit }));
     const selectFrom = vi.fn(() => ({ where: selectWhere }));
     const fakeDb = {
-      insert: vi.fn(() => ({ values: insertValues })),
+      insert: vi.fn(() => insertBuilder),
       update: vi.fn(() => ({ set: updateSet })),
       delete: vi.fn(() => ({ where: deleteWhere })),
       select: vi.fn(() => ({ from: selectFrom })),
@@ -141,9 +197,9 @@ describe("property listing contracts", () => {
 
       const deleteResult = await appRouter.createCaller(updateContextResult).property.delete({ id: 420001 });
       expect(deleteResult).toEqual({ success: true });
-      expect(fakeDb.insert).toHaveBeenCalledTimes(1);
+      expect(fakeDb.insert).toHaveBeenCalledTimes(3);
       expect(fakeDb.update).toHaveBeenCalledTimes(2);
-      expect(fakeDb.delete).toHaveBeenCalledTimes(1);
+      expect(fakeDb.delete).toHaveBeenCalledTimes(2);
       expect(notifyOwnerSpy).toHaveBeenCalledTimes(1);
     } finally {
       getDbSpy.mockRestore();

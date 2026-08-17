@@ -1,12 +1,13 @@
 import { z } from "zod";
 import { and, desc, eq, gte, like, lte, or } from "drizzle-orm";
-import { propertyListings, propertyReviews } from "../../drizzle/schema";
+import { propertyIndexingQueue, propertyListings, propertyReviews } from "../../drizzle/schema";
 import { getDb } from "../db";
 import { normalizeStoredMediaUrl, storagePut } from "../storage";
 import { adminProcedure, protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { notifyOwner } from "../_core/notification";
 import { buildPropertySlug } from "../../shared/propertySlug";
+import { enqueuePropertyIndexing, listPropertyIndexingStatuses } from "../propertyIndexing";
 
 const optionalMediaUrl = z.preprocess(
   (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
@@ -174,6 +175,8 @@ export const propertyRouter = router({
       return rows.map(normalizePropertyMedia);
     }),
 
+  indexingStatus: adminProcedure.query(async () => listPropertyIndexingStatuses()),
+
   getById: publicProcedure
     .input(z.object({ id: z.number().int().positive() }))
     .query(async ({ input }) => {
@@ -218,6 +221,7 @@ export const propertyRouter = router({
         const id = Number(result.insertId);
         const slug = buildPropertySlug(input.title, id);
         await db.update(propertyListings).set({ slug }).where(eq(propertyListings.id, id));
+        await enqueuePropertyIndexing({ id, title: input.title, slug });
 
         try {
           await notifyOwner({
@@ -243,10 +247,12 @@ export const propertyRouter = router({
 
       try {
         const { id, ...values } = input;
+        const slug = buildPropertySlug(values.title, id);
         await db
           .update(propertyListings)
           .set({
             ...values,
+            slug,
             address: values.address || null,
             area: values.area ?? null,
             bedrooms: values.bedrooms ?? null,
@@ -261,6 +267,7 @@ export const propertyRouter = router({
             virtualTourUrl: values.virtualTourUrl || null,
           })
           .where(eq(propertyListings.id, id));
+        await enqueuePropertyIndexing({ id, title: values.title, slug });
         return { success: true };
       } catch (error) {
         return databaseError(error, "Update");
@@ -298,6 +305,7 @@ export const propertyRouter = router({
             }
           }
         }
+        await db.delete(propertyIndexingQueue).where(eq(propertyIndexingQueue.propertyId, input.id));
         await db.delete(propertyListings).where(eq(propertyListings.id, input.id));
         return { success: true };
       } catch (error) {

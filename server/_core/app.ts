@@ -94,7 +94,7 @@ Sitemap: ${origin}/sitemap.xml
         xml += "  </url>\n";
       }
       xml += `</urlset>`;
-      res.set("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
+      res.set("Cache-Control", "public, max-age=0, s-maxage=60, stale-while-revalidate=300");
     res.type("application/xml").send(xml);
     } catch (error) {
       console.error("[Sitemap Error]", error);

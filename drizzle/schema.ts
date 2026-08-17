@@ -65,6 +65,34 @@ export const propertyListings = mysqlTable(
 export type PropertyListing = typeof propertyListings.$inferSelect;
 export type InsertPropertyListing = typeof propertyListings.$inferInsert;
 
+/**
+ * Internal crawl-discovery queue. This records that a public property URL has
+ * been made available through the sitemap; it is not a claim that Google has
+ * already indexed the page.
+ */
+export const propertyIndexingQueue = mysqlTable(
+  "property_indexing_queue",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    propertyId: int("propertyId").notNull(),
+    url: varchar("url", { length: 1000 }).notNull(),
+    status: varchar("status", { length: 32 }).notNull().default("queued"),
+    attempts: int("attempts").notNull().default(0),
+    lastError: text("lastError"),
+    lastProcessedAt: timestamp("lastProcessedAt"),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => ({
+    propertyIdUnique: uniqueIndex("property_indexing_queue_property_id_unique").on(table.propertyId),
+    statusIdx: index("property_indexing_queue_status_idx").on(table.status),
+    updatedAtIdx: index("property_indexing_queue_updated_at_idx").on(table.updatedAt),
+  }),
+);
+
+export type PropertyIndexingQueue = typeof propertyIndexingQueue.$inferSelect;
+export type InsertPropertyIndexingQueue = typeof propertyIndexingQueue.$inferInsert;
+
 export const propertyVideoUploadSessions = mysqlTable(
   "property_video_upload_sessions",
   {

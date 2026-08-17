@@ -77,6 +77,8 @@ export default function EmergencyListingManager() {
     }
   };
 
+  const urlHasAdminKey = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("admin_key");
+  const adminKey = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("admin_key") : null;
   const utils = trpc.useUtils();
   const { data: listings, isLoading, error } = trpc.property.list.useQuery();
   const { data: me, isLoading: authLoading } = trpc.auth.me.useQuery();
@@ -85,7 +87,8 @@ export default function EmergencyListingManager() {
 
   const createMutation = trpc.property.create.useMutation({
     onSuccess: () => {
-      toast({ title: "Berhasil", description: "Listing baru berhasil ditambahkan." });
+      toast({ title: "Berhasil", description: "Listing baru berhasil ditambahkan. URL otomatis masuk sitemap Google." });
+      void utils.property.indexingStatus.invalidate();
     },
     onError: (err) => {
       toast({ title: "Gagal menambah listing", description: err.message, variant: "destructive" });
@@ -94,7 +97,8 @@ export default function EmergencyListingManager() {
 
   const updateMutation = trpc.property.update.useMutation({
     onSuccess: () => {
-      toast({ title: "Berhasil", description: "Listing berhasil diperbarui." });
+      toast({ title: "Berhasil", description: "Listing berhasil diperbarui. URL sitemap diperbarui otomatis." });
+      void utils.property.indexingStatus.invalidate();
     },
     onError: (err) => {
       toast({ title: "Gagal memperbarui listing", description: err.message, variant: "destructive" });
@@ -105,18 +109,22 @@ export default function EmergencyListingManager() {
     onSuccess: () => {
       toast({ title: "Terhapus", description: "Listing berhasil dihapus." });
       void utils.property.list.invalidate();
+      void utils.property.indexingStatus.invalidate();
     },
     onError: (err) => {
       toast({ title: "Gagal menghapus listing", description: err.message, variant: "destructive" });
     },
   });
 
-  const urlHasAdminKey = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("admin_key");
   const isAdmin = me?.role === "admin";
   const isAuthorized = isAdmin || urlHasAdminKey;
-  const adminKey = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("admin_key") : null;
   const analyticsHref = adminKey ? `/admin/dashboard?admin_key=${encodeURIComponent(adminKey)}` : "/admin/dashboard";
+  const { data: indexingStatuses } = trpc.property.indexingStatus.useQuery(undefined, { enabled: isAuthorized });
   const typedListings = (listings ?? []) as EmergencyProperty[];
+  const indexingStatusByPropertyId = useMemo(
+    () => new Map((indexingStatuses ?? []).map((item) => [item.propertyId, item])),
+    [indexingStatuses],
+  );
 
   const initialProperty = useMemo(() => {
     if (!editingProperty) return undefined;
@@ -302,6 +310,7 @@ export default function EmergencyListingManager() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {typedListings.map((property) => {
               const image = property.images?.[0];
+              const indexing = indexingStatusByPropertyId.get(property.id);
               return (
                 <Card key={property.id} className="flex flex-col justify-between overflow-hidden bg-white shadow-md transition hover:shadow-lg">
                   <div>
@@ -314,6 +323,12 @@ export default function EmergencyListingManager() {
                       <h3 className="line-clamp-2 text-lg font-bold text-slate-800">{textValue(property.title)}</h3>
                       <p className="mb-2 text-sm text-slate-500">{textValue(property.location)}</p>
                       <p className="mb-3 text-lg font-extrabold text-blue-600">Rp {Number(property.price ?? 0).toLocaleString("id-ID")}</p>
+                      {isAuthorized && (
+                        <div className="mb-3 rounded-md border border-emerald-200 bg-emerald-50 px-2.5 py-2 text-xs text-emerald-800">
+                          <span className="font-semibold">SEO Google:</span>{" "}
+                          {indexing?.status === "sitemap_ready" ? "Siap ditemukan melalui sitemap" : indexing?.status === "error" ? "Perlu diperiksa" : "Menyiapkan URL publik"}
+                        </div>
+                      )}
                       <div className="flex gap-3 border-t pt-2 text-xs text-slate-600">
                         <span>{property.bedrooms ?? 0} KT</span>
                         <span>{property.bathrooms ?? 0} KM</span>

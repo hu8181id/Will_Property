@@ -61,7 +61,7 @@ describe("public SEO endpoints", () => {
 
     expect(response.statusCode).toBe(200);
     expect(response.headers["content-type"]).toContain("application/xml");
-    expect(response.headers["cache-control"]).toContain("s-maxage=300");
+    expect(response.headers["cache-control"]).toContain("s-maxage=60");
     expect(response.body).toContain("https://primedeal-property.vercel.app/properti/rumah-modern-surabaya-450123");
     expect(response.body).toContain("<lastmod>2026-08-17T00:00:00.000Z</lastmod>");
     expect(response.body).toContain("https://blob.vercel-storage.com/rumah-modern.jpg");
