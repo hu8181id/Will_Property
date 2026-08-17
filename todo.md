@@ -16,4 +16,5 @@
 - [x] Perbaiki routing Vercel untuk sitemap.xml, robots.txt, dan endpoint SEO agar tidak dikembalikan sebagai index.html
 - [x] Sesuaikan token google-site-verification dengan properti Search Console yang sedang diverifikasi pengguna (primedeal-jl8furcm.manus.space atau primedeal-property.vercel.app)
 - [x] Pasang token Search Console FkfI82d30si2TNkZjZab21eMuP4sOCHpuFeK_x9ncP4 khusus untuk properti Vercel
-- [ ] Pastikan verifikasi Google Search Console menggunakan token FkfI82d30si2TNkZjZab21eMuP4sOCHpuFeK_x9ncP4 yang aktif pada URL Vercel tanpa tercampur domain Manus
+- [x] Pastikan verifikasi Google Search Console menggunakan token FkfI82d30si2TNkZjZab21eMuP4sOCHpuFeK_x9ncP4 yang aktif pada URL Vercel tanpa tercampur domain Manus
+- [ ] Pasang file verifikasi google3f40a3ef77242afc.html ke folder public proyek dan verifikasi di Search Console
