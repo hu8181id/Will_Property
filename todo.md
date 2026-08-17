@@ -37,5 +37,5 @@
 - [x] Perbaiki endpoint live /sitemap.xml yang saat ini terbaca sebagai HTML oleh Google Search Console
 - [x] Pastikan deployment Vercel mengirim Content-Type XML dan URL listing publik yang valid
 - [x] Uji ulang sitemap live lalu kirim ulang di Google Search Console
-- [ ] Buka APK Admin terbaru di perangkat Android, ambil screenshot yang memperlihatkan dashboard Vercel dan tombol Tambah / Kelola Listing di dalam WebView
-- [ ] Verifikasi dari APK bahwa tombol membuka /manage-listings dengan admin_key yang benar, lalu simpan bukti hasilnya di catatan verifikasi atau screenshot
+- [x] Buka APK Admin terbaru di perangkat Android, ambil screenshot yang memperlihatkan dashboard Vercel dan tombol Tambah / Kelola Listing di dalam WebView
+- [x] Verifikasi dari APK bahwa tombol membuka /manage-listings dengan admin_key yang benar, lalu simpan bukti hasilnya di catatan verifikasi atau screenshot
