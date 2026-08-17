@@ -14,4 +14,5 @@
 - [x] Tambahkan endpoint ping/index otomatis untuk Google Search Indexing
 - [x] Tulis test unit vitest dan verifikasi deploy produksi
 - [x] Perbaiki routing Vercel untuk sitemap.xml, robots.txt, dan endpoint SEO agar tidak dikembalikan sebagai index.html
-- [ ] Sesuaikan token google-site-verification dengan properti Search Console yang sedang diverifikasi pengguna (primedeal-jl8furcm.manus.space atau primedeal-property.vercel.app)
+- [x] Sesuaikan token google-site-verification dengan properti Search Console yang sedang diverifikasi pengguna (primedeal-jl8furcm.manus.space atau primedeal-property.vercel.app)
+- [ ] Pasang token Search Console FkfI82d30si2TNkZjZab21eMuP4sOCHpuFeK_x9ncP4 khusus untuk properti Vercel
