@@ -71,3 +71,8 @@
 
 - [x] Ganti URL dashboard AdMob dari https://admob.google.com/home/#/apps ke https://apps.admob.com/v2/home atau https://myaccount.google.com untuk memastikan halaman terbuka sempurna di perangkat seluler.
 
+
+- [ ] Pastikan klik tombol Laporan AdMob di APK Admin memicu Intent ACTION_VIEW eksternal secara langsung (tanpa melalui WebView sama sekali) agar terbuka penuh di Chrome Android.
+
+- [x] Pastikan MainActivity di APK Admin mencegat url admob/accounts.grade dengan forceExternalIntent sehingga sama sekali tidak pernah membuka WebView kosong.
+
