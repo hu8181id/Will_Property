@@ -3,6 +3,7 @@ import { and, desc, eq, gte, like, lte, or } from "drizzle-orm";
 import { propertyListings, propertyReviews } from "../../drizzle/schema";
 import { getDb } from "../db";
 import { normalizeStoredMediaUrl, storagePut } from "../storage";
+import { del } from "@vercel/blob";
 import { adminProcedure, protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { notifyOwner } from "../_core/notification";
@@ -273,7 +274,26 @@ export const propertyRouter = router({
       if (!db) return databaseError(new Error("Database unavailable"), "Delete");
 
       try {
+        const existing = await db
+          .select({ images: propertyListings.images, videoUrl: propertyListings.videoUrl, videoThumbnailUrl: propertyListings.videoThumbnailUrl })
+          .from(propertyListings)
+          .where(eq(propertyListings.id, input.id))
+          .limit(1);
         await db.delete(propertyListings).where(eq(propertyListings.id, input.id));
+        if (process.env.BLOB_READ_WRITE_TOKEN && existing[0]) {
+          const mediaUrls = [
+            ...(Array.isArray(existing[0].images) ? existing[0].images : []),
+            existing[0].videoUrl,
+            existing[0].videoThumbnailUrl,
+          ].filter((url): url is string => typeof url === "string" && /^https:\/\/[^/]+\.blob\.vercel-storage\.com\//i.test(url));
+          await Promise.all(mediaUrls.map(async (url) => {
+            try {
+              await del(url, { token: process.env.BLOB_READ_WRITE_TOKEN });
+            } catch (error) {
+              console.warn("[Property Delete] Gagal menghapus media Blob:", url, error);
+            }
+          }));
+        }
         return { success: true };
       } catch (error) {
         return databaseError(error, "Delete");

@@ -15,9 +15,11 @@ import React, { useState, useMemo, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { generatePropertySeoDraft } from "@/lib/propertySeoTemplate";
 import { normalizePropertyVideoContentType } from "@/lib/propertyVideoUpload";
+import { uploadToVercelBlob } from "@/lib/vercelBlobClient";
 
 export const MAX_IMAGES = 5;
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const PROPERTY_IMAGE_CONTENT_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/heic", "image/heif"]);
 
 export interface PropertyFormData {
   id?: number;
@@ -93,37 +95,19 @@ const emptyForm: PropertyFormData = {
   virtualTourUrl: "",
 };
 
-function dataUrlFromCanvas(canvas: HTMLCanvasElement, type = "image/jpeg") {
-  return canvas.toDataURL(type, 0.82);
-}
-
-async function compressImage(file: File): Promise<SelectedPropertyImage> {
+async function uploadPropertyImage(file: File): Promise<SelectedPropertyImage> {
   if (file.size > MAX_FILE_SIZE) {
-    throw new Error("Ukuran foto maksimal 10 MB sebelum kompresi.");
+    throw new Error("Ukuran foto maksimal 10 MB.");
   }
-
-  const bitmap = await createImageBitmap(file);
-  const maxDimension = 1600;
-  const scale = Math.min(1, maxDimension / Math.max(bitmap.width, bitmap.height));
-  const canvas = document.createElement("canvas");
-  canvas.width = Math.max(1, Math.round(bitmap.width * scale));
-  canvas.height = Math.max(1, Math.round(bitmap.height * scale));
-  const context = canvas.getContext("2d");
-  if (!context) throw new Error("Browser tidak mendukung pemrosesan foto.");
-  context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-  bitmap.close();
-
-  const dataUrl = dataUrlFromCanvas(canvas);
-  const response = await fetch(dataUrl);
-  const blob = await response.blob();
-  const compressedFile = new File([blob], `${file.name.replace(/\.[^.]+$/, "")}.jpg`, {
-    type: "image/jpeg",
-  });
+  const contentType = file.type.split(";", 1)[0].toLowerCase();
+  if (!PROPERTY_IMAGE_CONTENT_TYPES.has(contentType)) {
+    throw new Error("Foto harus berformat JPG, PNG, WebP, HEIC, atau HEIF.");
+  }
+  const blobUrl = await uploadToVercelBlob(file);
   return {
-    src: dataUrl,
-    file: compressedFile,
-    name: compressedFile.name,
-    contentType: compressedFile.type,
+    src: blobUrl,
+    name: file.name,
+    contentType,
   };
 }
 
@@ -199,8 +183,8 @@ export default function AddPropertyDialog({
     }
 
     try {
-      const compressed = await Promise.all(files.map(compressImage));
-      setImages((current) => [...current, ...compressed].slice(0, MAX_IMAGES));
+      const uploadedImages = await Promise.all(files.map(uploadPropertyImage));
+      setImages((current) => [...current, ...uploadedImages].slice(0, MAX_IMAGES));
     } catch (error) {
       console.error("[Property Image Preparation]", error);
       toast.error(error instanceof Error ? error.message : "Gagal memproses foto.");
@@ -234,8 +218,8 @@ export default function AddPropertyDialog({
     if (!file) return;
 
     try {
-      const compressed = await compressImage(file);
-      setVideoThumbnail(compressed);
+      const uploadedThumbnail = await uploadPropertyImage(file);
+      setVideoThumbnail(uploadedThumbnail);
       setFormData((current) => ({ ...current, videoThumbnailUrl: "" }));
     } catch (error) {
       console.error("[Video Thumbnail Preparation]", error);

@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import AddPropertyDialog, { PropertyFormData, PropertyFormSubmit } from "@/components/AddPropertyDialog";
 import { trpc } from "@/lib/trpc";
 import { uploadPropertyVideo } from "@/lib/propertyVideoUpload";
+import { deleteVercelBlob, isVercelBlobUrl } from "@/lib/vercelBlobClient";
 
 interface EmergencyProperty {
   id: number;
@@ -110,8 +111,6 @@ export default function EmergencyListingManager() {
     },
   });
 
-  const uploadImageMutation = trpc.property.uploadImage.useMutation();
-
   const urlHasAdminKey = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("admin_key");
   const isAdmin = me?.role === "admin";
   const isAuthorized = isAdmin || urlHasAdminKey;
@@ -148,19 +147,14 @@ export default function EmergencyListingManager() {
     const uploaded: string[] = [];
     for (let index = 0; index < images.length; index += 1) {
       const image = images[index];
-      if (!image.file) {
-        uploaded.push(image.src);
-        continue;
-      }
-      const result = await uploadImageMutation.mutateAsync({
-        fileName: image.name || `property-${Date.now()}-${index}.jpg`,
-        base64Data: image.src,
-        contentType: image.contentType || "image/jpeg",
-      });
-      uploaded.push(result.url);
+      if (image.file) throw new Error("Foto belum selesai diunggah ke Vercel Blob. Pilih ulang foto dan tunggu upload selesai.");
+      if (image.src.startsWith("http://") || image.src.startsWith("https://") || image.src.startsWith("/manus-storage/")) uploaded.push(image.src);
     }
-    if (uploaded.length === 0) throw new Error("Minimal 1 foto diperlukan untuk listing.");
-    return uploaded.slice(0, 5);
+    const persistentUrls = uploaded.filter((url) => url && !url.startsWith("data:") && !url.startsWith("blob:"));
+    if (persistentUrls.length === 0) {
+      throw new Error("Gagal mengunggah foto ke penyimpanan persisten Vercel Blob. Pastikan BLOB_READ_WRITE_TOKEN sudah dikonfigurasi di Vercel Settings.");
+    }
+    return persistentUrls.slice(0, 5);
   };
 
   const handleSaveProperty = async ({ data, images, videoFile, videoThumbnail, onVideoUploadProgress }: PropertyFormSubmit) => {
@@ -168,13 +162,20 @@ export default function EmergencyListingManager() {
 
     const imageUrls = await uploadSelectedImages(images);
     const thumbnailUrls = videoThumbnail ? await uploadSelectedImages([videoThumbnail]) : [];
-    const videoUrl = videoFile ? await uploadPropertyVideo(videoFile.file, onVideoUploadProgress) : undefined;
+    const videoUrl = videoFile ? await uploadPropertyVideo(videoFile.file, onVideoUploadProgress) : data.videoUrl.trim() || undefined;
     const payload = toPayload(data, imageUrls);
     if (videoUrl) payload.videoUrl = videoUrl;
     if (thumbnailUrls[0]) payload.videoThumbnailUrl = thumbnailUrls[0];
 
     if (editingProperty) {
       await updateMutation.mutateAsync({ id: editingProperty.id, ...payload });
+      const oldBlobUrls = [
+        ...(editingProperty.images ?? []),
+        editingProperty.videoUrl ?? "",
+        editingProperty.videoThumbnailUrl ?? "",
+      ].filter(isVercelBlobUrl);
+      const retainedUrls = new Set([...(imageUrls ?? []), payload.videoUrl ?? "", payload.videoThumbnailUrl ?? ""]);
+      await Promise.all(oldBlobUrls.filter((url) => !retainedUrls.has(url)).map((url) => deleteVercelBlob(url)));
     } else {
       await createMutation.mutateAsync(payload);
     }

@@ -5,6 +5,7 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { registerPropertyVideoUploadRoute } from "../propertyVideoUpload";
+import { handleVercelBlobDelete, handleVercelBlobUploadAuth } from "../vercelBlobUpload";
 import { buildPropertySlug } from "../../shared/propertySlug";
 
 function publicOrigin(req: Request) {
@@ -30,6 +31,8 @@ export function createApp(options: AppOptions = {}): Express {
   registerStorageProxy(app);
   registerOAuthRoutes(app);
   registerPropertyVideoUploadRoute(app);
+  app.post(["/api/blob-upload-auth", "/blob-upload-auth"], handleVercelBlobUploadAuth);
+  app.post(["/api/blob-delete", "/blob-delete"], handleVercelBlobDelete);
 
   app.get("/robots.txt", (req, res) => {
     const origin = publicOrigin(req);
