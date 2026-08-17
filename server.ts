@@ -17,7 +17,6 @@ if (!fs.existsSync(distPath)) {
   console.error(`[Vercel server] Build directory not found: ${distPath}`);
 }
 
-// Explicit handlers for sitemap and robots so they never hit SPA HTML fallback
 app.get("/sitemap.xml", async (req, res) => {
   try {
     const requestOrigin = `https://${req.headers.host || "primedeal-property.vercel.app"}`;
@@ -26,8 +25,15 @@ app.get("/sitemap.xml", async (req, res) => {
       configuredOrigin && !configuredOrigin.includes(".manus.space") ? configuredOrigin : requestOrigin,
     );
 
-    const db = await getDb();
-    const listings = db ? await db.select().from(propertyListings) : [];
+    let listings = [];
+    try {
+      const db = await getDb();
+      if (db) {
+        listings = await db.select().from(propertyListings);
+      }
+    } catch (dbErr) {
+      console.error("[Sitemap DB Warning]", dbErr);
+    }
 
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
