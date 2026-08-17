@@ -27,3 +27,5 @@
 - [x] Perbaiki APK Admin agar langsung menyediakan akses yang jelas ke dashboard jumlah pengunjung Website dan APK
 - [x] Pastikan rute dashboard analytics di APK membawa admin_key dan menampilkan data terpisah secara nyata
 - [x] Bangun serta verifikasi APK Admin perbaikan dengan statistik pengunjung terlihat
+- [x] Tambahkan tombol Kelola Listing pada dashboard APK Admin yang membuka halaman manage-listings dengan admin_key
+- [x] Bangun dan verifikasi APK Admin terbaru setelah tombol Kelola Listing ditambahkan

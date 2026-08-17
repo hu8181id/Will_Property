@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/lib/trpc";
-import { ArrowLeft, BarChart3, CalendarDays, CircleHelp, ExternalLink, FileText, Globe2, Loader2, RefreshCw, ShieldCheck, Smartphone, Trophy, Users } from "lucide-react";
+import { ArrowLeft, BarChart3, CalendarDays, CircleHelp, ExternalLink, FileText, Globe2, Loader2, ListPlus, RefreshCw, ShieldCheck, Smartphone, Trophy, Users } from "lucide-react";
 import React, { useState } from "react";
 import { useLocation } from "wouter";
 
@@ -40,6 +40,8 @@ export default function AdminAnalyticsDashboard() {
   const { user, loading } = useAuth();
   const [, setLocation] = useLocation();
   const canViewDashboard = user?.role === "admin";
+  const adminKey = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("admin_key") : null;
+  const manageListingsHref = adminKey ? `/manage-listings?admin_key=${encodeURIComponent(adminKey)}` : "/manage-listings";
   const [selectedRange, setSelectedRange] = useState(() => getPresetRange(7));
   const [appliedRange, setAppliedRange] = useState(() => getPresetRange(7));
   const [rangeError, setRangeError] = useState("");
@@ -114,10 +116,15 @@ export default function AdminAnalyticsDashboard() {
               <p className="mt-1 text-sm text-slate-600">Kunjungan unik harian yang dipisahkan antara website dan APK Primedeal.</p>
             </div>
           </div>
-          <Button variant="outline" className="gap-2 self-start" disabled={summary.isFetching || popularContent.isFetching} onClick={() => { void Promise.all([summary.refetch(), popularContent.refetch()]); }}>
-            {summary.isFetching || popularContent.isFetching ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
-            Perbarui
-          </Button>
+          <div className="flex flex-wrap gap-2 self-start">
+            <Button asChild className="gap-2 bg-primary shadow-sm hover:bg-primary/90">
+              <a href={manageListingsHref}><ListPlus className="h-4 w-4" /> Kelola Listing</a>
+            </Button>
+            <Button variant="outline" className="gap-2" disabled={summary.isFetching || popularContent.isFetching} onClick={() => { void Promise.all([summary.refetch(), popularContent.refetch()]); }}>
+              {summary.isFetching || popularContent.isFetching ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
+              Perbarui
+            </Button>
+          </div>
         </header>
 
         <Card className="border-slate-200 p-4 shadow-sm sm:p-5">
