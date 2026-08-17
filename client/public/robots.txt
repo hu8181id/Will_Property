@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://primedeal-property.vercel.app/sitemap.xml
