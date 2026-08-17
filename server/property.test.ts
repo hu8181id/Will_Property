@@ -4,7 +4,11 @@ vi.mock("@vercel/blob", () => ({
   del: vi.fn().mockResolvedValue(undefined),
   put: vi.fn().mockResolvedValue({ url: "https://blob.vercel-storage.com/mock.jpg" }),
 }));
+vi.mock("./whatsappMeta", () => ({
+  sendWhatsAppAgentNotification: vi.fn(),
+}));
 import * as dbModule from "./db";
+import * as whatsappMetaModule from "./whatsappMeta";
 import * as notificationModule from "./_core/notification";
 import { appRouter } from "./routers";
 import { propertyDraftSchema, propertyFilterSchema, reviewDraftSchema, reviewModerationSchema } from "./routers/property";
@@ -208,5 +212,117 @@ describe("property listing contracts", () => {
       if (previousSecret === undefined) delete process.env.ADMIN_SECRET_KEY;
       else process.env.ADMIN_SECRET_KEY = previousSecret;
     }
+  });
+
+  describe("WhatsApp lead procedures", () => {
+    it("records a lead and persists the Meta delivery status and message id", async () => {
+      const insertValues = vi.fn().mockResolvedValue([]);
+      const limit = vi.fn().mockResolvedValue([{ id: 450001, title: "Rumah Surabaya" }]);
+      const where = vi.fn(() => ({ limit }));
+      const from = vi.fn(() => ({ where }));
+      const fakeDb = {
+        select: vi.fn(() => ({ from })),
+        insert: vi.fn(() => ({ values: insertValues })),
+      };
+      const getDbSpy = vi.spyOn(dbModule, "getDb").mockResolvedValue(fakeDb as any);
+      const notifySpy = vi.spyOn(whatsappMetaModule, "sendWhatsAppAgentNotification").mockResolvedValue({
+        deliveryStatus: "sent",
+        whatsappMessageId: "wamid.test-123",
+      });
+
+      try {
+        const caller = appRouter.createCaller(createPublicContext());
+        const result = await caller.property.recordWhatsAppLead({
+          propertyId: 450001,
+          visitorId: "visitor-test",
+          path: "/properti/rumah-surabaya-450001",
+        });
+
+        expect(result).toEqual({
+          success: true,
+          logged: true,
+          propertyId: 450001,
+          deliveryStatus: "sent",
+        });
+        expect(notifySpy).toHaveBeenCalledWith({
+          propertyId: 450001,
+          propertyTitle: "Rumah Surabaya",
+          visitorId: "visitor-test",
+          path: "/properti/rumah-surabaya-450001",
+        });
+        expect(insertValues).toHaveBeenCalledWith(expect.objectContaining({
+          propertyId: 450001,
+          propertyTitle: "Rumah Surabaya",
+          deliveryStatus: "sent",
+          deliveryError: null,
+          whatsappMessageId: "wamid.test-123",
+        }));
+      } finally {
+        getDbSpy.mockRestore();
+        notifySpy.mockRestore();
+      }
+    });
+
+    it("does not log a lead when the requested property is not active or missing", async () => {
+      const insertValues = vi.fn().mockResolvedValue([]);
+      const limit = vi.fn().mockResolvedValue([]);
+      const where = vi.fn(() => ({ limit }));
+      const from = vi.fn(() => ({ where }));
+      const fakeDb = {
+        select: vi.fn(() => ({ from })),
+        insert: vi.fn(() => ({ values: insertValues })),
+      };
+      const getDbSpy = vi.spyOn(dbModule, "getDb").mockResolvedValue(fakeDb as any);
+      const notifySpy = vi.spyOn(whatsappMetaModule, "sendWhatsAppAgentNotification");
+
+      try {
+        const caller = appRouter.createCaller(createPublicContext());
+        const result = await caller.property.recordWhatsAppLead({ propertyId: 999999 });
+        expect(result).toEqual({ success: false, logged: false });
+        expect(notifySpy).not.toHaveBeenCalled();
+        expect(insertValues).not.toHaveBeenCalled();
+      } finally {
+        getDbSpy.mockRestore();
+        notifySpy.mockRestore();
+      }
+    });
+
+    it("lists recent leads for an authenticated emergency admin", async () => {
+      const previousSecret = process.env.ADMIN_SECRET_KEY;
+      const emergencyKey = "lead-test-admin-key";
+      process.env.ADMIN_SECRET_KEY = emergencyKey;
+      const expectedRows = [{
+        id: 1,
+        propertyId: 450001,
+        propertyTitle: "Rumah Surabaya",
+        deliveryStatus: "sent",
+        whatsappMessageId: "wamid.test-123",
+      }];
+      const limit = vi.fn().mockResolvedValue(expectedRows);
+      const orderBy = vi.fn(() => ({ limit }));
+      const from = vi.fn(() => ({ orderBy }));
+      const fakeDb = { select: vi.fn(() => ({ from })) };
+      const getDbSpy = vi.spyOn(dbModule, "getDb").mockResolvedValue(fakeDb as any);
+      const authenticateRequestSpy = vi.spyOn(sdk, "authenticateRequest").mockRejectedValue(new Error("Tidak ada sesi OAuth"));
+
+      try {
+        const ctx = await createContext({
+          req: {
+            protocol: "https",
+            query: { admin_key: emergencyKey },
+            headers: {},
+          } as TrpcContext["req"],
+          res: {} as TrpcContext["res"],
+        });
+        const result = await appRouter.createCaller(ctx).property.listWhatsAppLeads();
+        expect(result).toEqual(expectedRows);
+        expect(limit).toHaveBeenCalledWith(50);
+      } finally {
+        getDbSpy.mockRestore();
+        authenticateRequestSpy.mockRestore();
+        if (previousSecret === undefined) delete process.env.ADMIN_SECRET_KEY;
+        else process.env.ADMIN_SECRET_KEY = previousSecret;
+      }
+    });
   });
 });

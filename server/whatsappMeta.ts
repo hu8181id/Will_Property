@@ -16,7 +16,7 @@ export async function sendWhatsAppAgentNotification(
 ): Promise<SendWhatsAppNotificationResult> {
   const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
   const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
-  const agentPhone = process.env.AGENT_WHATSAPP_PHONE;
+  const agentPhone = process.env.AGENT_WHATSAPP_PHONE || process.env.AGENT_WHATSAPP_TO;
   const templateName = process.env.WHATSAPP_TEMPLATE_NAME || "hello_world";
 
   if (!phoneNumberId || !accessToken || !agentPhone) {

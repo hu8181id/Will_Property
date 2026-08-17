@@ -47,14 +47,15 @@
 - [x] Tampilkan status indexing di panel Admin tanpa menyatakan Google sudah mengindeks
 - [x] Tambahkan pengujian Vitest untuk enqueue, sitemap, dan status indexing
 - [x] Jalankan build dan test sebelum checkpoint
-- [ ] Tambahkan skema tabel lead kontak dan status pengiriman notifikasi WhatsApp agent
-- [ ] Implementasikan prosedur tRPC untuk mencatat lead dan mengirim notifikasi WhatsApp server-side
-- [ ] Tambahkan konfigurasi provider WhatsApp dengan secret server-side dan fallback link wa.me
-- [ ] Buat pengujian Vitest untuk alur tRPC lead dan jalur sukses/gagal pengiriman notifikasi
+- [x] Tambahkan skema tabel lead kontak dan status pengiriman notifikasi WhatsApp agent
+- [x] Implementasikan prosedur tRPC untuk mencatat lead dan mengirim notifikasi WhatsApp server-side
+- [x] Tambahkan konfigurasi provider WhatsApp dengan secret server-side dan fallback link wa.me
+- [x] Buat pengujian Vitest untuk alur tRPC lead dan jalur sukses/gagal pengiriman notifikasi
 - [x] Jalankan test dan build awal fitur WhatsApp client-side
-- [ ] Simpan checkpoint final setelah provider WhatsApp dan pengujian lengkap selesai
-- [ ] Tambahkan kolom status pengiriman dan error log notifikasi WhatsApp ke tabel property_leads
-- [ ] Implementasikan modul pengiriman server-side Meta WhatsApp Cloud API dengan fallback aman
-- [ ] Tambahkan secret handling untuk WHATSAPP_ACCESS_TOKEN, WHATSAPP_PHONE_NUMBER_ID, dan AGENT_WHATSAPP_TO
-- [ ] Buat unit test Vitest untuk jalur sukses dan gagal pengiriman Meta WhatsApp Cloud API
-- [ ] Jalankan build dan simpan checkpoint final integrasi WhatsApp Cloud API
+- [x] Simpan checkpoint final setelah provider WhatsApp dan pengujian lengkap selesai
+- [x] Tambahkan kolom status pengiriman dan error log notifikasi WhatsApp ke tabel property_leads
+- [x] Implementasikan modul pengiriman server-side Meta WhatsApp Cloud API dengan fallback aman
+- [x] Tambahkan secret handling untuk WHATSAPP_ACCESS_TOKEN, WHATSAPP_PHONE_NUMBER_ID, dan AGENT_WHATSAPP_TO
+- [x] Buat unit test Vitest untuk jalur sukses dan gagal pengiriman Meta WhatsApp Cloud API
+- [x] Jalankan build dan simpan checkpoint final integrasi WhatsApp Cloud API
+- [x] Perbaiki tombol Hubungi di APK yang membuka whatsapp:// dan menyebabkan ERR_UNKNOWN_URL_SCHEME; gunakan URL HTTPS wa.me yang kompatibel dengan WebView dan rilis ulang APK Publik.
