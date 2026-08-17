@@ -93,6 +93,36 @@ export const propertyIndexingQueue = mysqlTable(
 export type PropertyIndexingQueue = typeof propertyIndexingQueue.$inferSelect;
 export type InsertPropertyIndexingQueue = typeof propertyIndexingQueue.$inferInsert;
 
+/**
+ * Anonymous contact intent created when a visitor opens the agent WhatsApp CTA.
+ * It stores no name, email, or phone number; WhatsApp remains the communication channel.
+ */
+export const propertyLeads = mysqlTable(
+  "property_leads",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    propertyId: int("propertyId").notNull(),
+    propertyTitle: varchar("propertyTitle", { length: 255 }).notNull(),
+    source: mysqlEnum("source", ["listing_whatsapp", "general_whatsapp"]).notNull().default("listing_whatsapp"),
+    visitorId: varchar("visitorId", { length: 64 }),
+    path: varchar("path", { length: 512 }),
+    status: mysqlEnum("status", ["new", "contacted", "archived"]).notNull().default("new"),
+    deliveryStatus: varchar("deliveryStatus", { length: 32 }).notNull().default("pending"),
+    deliveryError: text("deliveryError"),
+    whatsappMessageId: varchar("whatsappMessageId", { length: 128 }),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => ({
+    propertyIdIdx: index("property_leads_property_id_idx").on(table.propertyId),
+    createdAtIdx: index("property_leads_created_at_idx").on(table.createdAt),
+    statusIdx: index("property_leads_status_idx").on(table.status),
+  }),
+);
+
+export type PropertyLead = typeof propertyLeads.$inferSelect;
+export type InsertPropertyLead = typeof propertyLeads.$inferInsert;
+
 export const propertyVideoUploadSessions = mysqlTable(
   "property_video_upload_sessions",
   {

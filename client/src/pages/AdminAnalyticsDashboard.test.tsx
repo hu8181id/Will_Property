@@ -50,6 +50,17 @@ vi.mock("@/lib/trpc", () => ({
         }),
       },
     },
+    property: {
+      listWhatsAppLeads: {
+        useQuery: () => ({
+          data: [],
+          isLoading: false,
+          isError: false,
+          isFetching: false,
+          refetch: vi.fn(),
+        }),
+      },
+    },
   },
 }));
 

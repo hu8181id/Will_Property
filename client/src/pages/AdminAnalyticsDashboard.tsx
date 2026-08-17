@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/lib/trpc";
-import { ArrowLeft, BarChart3, CalendarDays, CircleHelp, ExternalLink, FileText, Globe2, Loader2, ListPlus, RefreshCw, ShieldCheck, Smartphone, Trophy, Users } from "lucide-react";
+import { ArrowLeft, BarChart3, CalendarDays, CircleHelp, ExternalLink, FileText, Globe2, Loader2, ListPlus, MessageCircle, RefreshCw, ShieldCheck, Smartphone, Trophy, Users } from "lucide-react";
 import React, { useState } from "react";
 import { useLocation } from "wouter";
 
@@ -50,6 +50,10 @@ export default function AdminAnalyticsDashboard() {
     refetchInterval: 5 * 60 * 1000,
   });
   const popularContent = trpc.analytics.popularContent.useQuery(appliedRange, {
+    enabled: canViewDashboard,
+    refetchInterval: 5 * 60 * 1000,
+  });
+  const whatsappLeads = trpc.property.listWhatsAppLeads.useQuery(undefined, {
     enabled: canViewDashboard,
     refetchInterval: 5 * 60 * 1000,
   });
@@ -120,8 +124,8 @@ export default function AdminAnalyticsDashboard() {
             <Button asChild className="w-full justify-center gap-2 bg-primary shadow-sm hover:bg-primary/90 sm:w-auto">
               <a href={manageListingsHref}><ListPlus className="h-4 w-4" /> Tambah / Kelola Listing</a>
             </Button>
-            <Button variant="outline" className="gap-2" disabled={summary.isFetching || popularContent.isFetching} onClick={() => { void Promise.all([summary.refetch(), popularContent.refetch()]); }}>
-              {summary.isFetching || popularContent.isFetching ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
+            <Button variant="outline" className="gap-2" disabled={summary.isFetching || popularContent.isFetching || whatsappLeads.isFetching} onClick={() => { void Promise.all([summary.refetch(), popularContent.refetch(), whatsappLeads.refetch()]); }}>
+              {summary.isFetching || popularContent.isFetching || whatsappLeads.isFetching ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
               Perbarui
             </Button>
           </div>
@@ -171,6 +175,11 @@ export default function AdminAnalyticsDashboard() {
             <div className="flex items-start justify-between"><div><p className="text-sm font-medium text-slate-600">Belum Teridentifikasi</p><p className="mt-3 text-4xl font-bold text-slate-900">{summary.data?.unknownVisitors ?? "—"}</p><p className="mt-2 text-xs text-slate-500">Riwayat sebelum penanda sumber</p></div><CircleHelp className="h-9 w-9 text-slate-500" /></div>
           </Card>
         </div>
+
+        <Card className="mt-6 border-emerald-100 bg-emerald-50/50 p-5 shadow-sm">
+          <div className="flex items-start gap-3"><div className="rounded-lg bg-emerald-100 p-2"><MessageCircle className="h-5 w-5 text-emerald-700" /></div><div><h2 className="font-semibold text-slate-900">Minat WhatsApp Terbaru</h2><p className="mt-1 text-sm text-slate-600">Setiap klik tombol Hubungi WhatsApp membuka chat agen dengan detail listing dan dicatat secara anonim.</p></div><span className="ml-auto rounded-full bg-white px-3 py-1 text-sm font-bold text-emerald-700">{whatsappLeads.data?.length ?? "—"}</span></div>
+          {whatsappLeads.isLoading ? <div className="mt-5 space-y-3"><Skeleton className="h-10 w-full" /><Skeleton className="h-10 w-full" /></div> : whatsappLeads.isError ? <p className="mt-5 rounded-lg bg-red-50 p-3 text-sm text-red-700">Data minat WhatsApp belum dapat dimuat.</p> : whatsappLeads.data?.length ? <ol className="mt-5 divide-y divide-emerald-100">{whatsappLeads.data.slice(0, 5).map((lead) => <li key={lead.id} className="flex items-center gap-3 py-3 first:pt-0"><MessageCircle className="h-4 w-4 flex-none text-emerald-600" /><div className="min-w-0 flex-1"><p className="truncate text-sm font-semibold text-slate-900">{lead.propertyTitle}</p><p className="text-xs text-slate-500">{new Date(lead.createdAt).toLocaleString("id-ID", { dateStyle: "medium", timeStyle: "short" })}</p></div><span className="text-xs font-medium text-emerald-700">Chat dibuka</span></li>)}</ol> : <p className="mt-5 rounded-lg bg-white/70 p-4 text-sm text-slate-500">Belum ada klik Hubungi WhatsApp dari pengunjung.</p>}
+        </Card>
 
         <Card className="mt-6 border-amber-100 bg-amber-50/50 p-5 shadow-sm">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

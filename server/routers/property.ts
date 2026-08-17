@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { and, desc, eq, gte, like, lte, or } from "drizzle-orm";
-import { propertyIndexingQueue, propertyListings, propertyReviews } from "../../drizzle/schema";
+import { propertyIndexingQueue, propertyLeads, propertyListings, propertyReviews } from "../../drizzle/schema";
+import { sendWhatsAppAgentNotification } from "../whatsappMeta";
 import { getDb } from "../db";
 import { normalizeStoredMediaUrl, storagePut } from "../storage";
 import { adminProcedure, protectedProcedure, publicProcedure, router } from "../_core/trpc";
@@ -62,6 +63,12 @@ export const reviewDraftSchema = z.object({
 export const reviewModerationSchema = z.object({
   reviewId: z.number().int().positive(),
   status: z.enum(["approved", "rejected"]),
+});
+
+export const whatsappLeadSchema = z.object({
+  propertyId: z.number().int().positive(),
+  visitorId: z.string().max(64).optional().nullable(),
+  path: z.string().max(512).optional().nullable(),
 });
 
 const legacyPropertySchema = z.object({
@@ -487,6 +494,70 @@ export const propertyRouter = router({
     await db.insert(propertyListings).values(defaults);
     return { success: true, count: defaults.length };
   }),
+
+  listWhatsAppLeads: adminProcedure.query(async () => {
+    const db = await getDb();
+    if (!db) return [];
+    try {
+      return await db.select().from(propertyLeads).orderBy(desc(propertyLeads.createdAt)).limit(50);
+    } catch (error) {
+      console.error("[WhatsApp Leads List]", error);
+      return [];
+    }
+  }),
+
+  recordWhatsAppLead: publicProcedure
+    .input(whatsappLeadSchema)
+    .mutation(async ({ input }) => {
+      const db = await getDb();
+      if (!db) return { success: false, logged: false };
+
+      const rows = await db
+        .select({ id: propertyListings.id, title: propertyListings.title })
+        .from(propertyListings)
+        .where(and(eq(propertyListings.id, input.propertyId), eq(propertyListings.status, "active")))
+        .limit(1);
+      const property = rows[0];
+      if (!property) return { success: false, logged: false };
+
+      let deliveryResult: { deliveryStatus: "sent" | "failed" | "skipped"; whatsappMessageId?: string; deliveryError?: string } = { deliveryStatus: "skipped" };
+      try {
+        deliveryResult = await sendWhatsAppAgentNotification({
+          propertyId: property.id,
+          propertyTitle: property.title,
+          visitorId: input.visitorId,
+          path: input.path,
+        });
+      } catch (err: any) {
+        deliveryResult = {
+          deliveryStatus: "failed",
+          deliveryError: err?.message || String(err),
+        };
+      }
+
+      try {
+        await db.insert(propertyLeads).values({
+          propertyId: property.id,
+          propertyTitle: property.title,
+          source: "listing_whatsapp",
+          visitorId: input.visitorId || null,
+          path: input.path || null,
+          status: "new",
+          deliveryStatus: deliveryResult.deliveryStatus,
+          deliveryError: deliveryResult.deliveryError || null,
+          whatsappMessageId: deliveryResult.whatsappMessageId || null,
+        });
+        return { 
+          success: true, 
+          logged: true, 
+          propertyId: property.id,
+          deliveryStatus: deliveryResult.deliveryStatus 
+        };
+      } catch (error) {
+        console.warn("[WhatsApp Lead] Gagal mencatat minat calon pembeli:", error);
+        return { success: false, logged: false };
+      }
+    }),
 
   listReviews: publicProcedure
     .input(z.object({ propertyId: z.number().int().positive() }))

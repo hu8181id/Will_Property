@@ -17,6 +17,7 @@ import { formatPriceShort } from "@/lib/propertyPrice";
 import { startLogin } from "@/const";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { propertyDetailPath } from "@shared/propertySlug";
+import { buildWhatsAppPropertyUrl } from "@shared/whatsapp";
 
 interface Property {
   id: number;
@@ -159,6 +160,7 @@ export default function Listing() {
   const createProperty = trpc.property.create.useMutation();
   const updateProperty = trpc.property.update.useMutation();
   const deleteProperty = trpc.property.delete.useMutation();
+  const recordWhatsAppLead = trpc.property.recordWhatsAppLead.useMutation();
   const { mutate: recordPageView } = trpc.analytics.recordPageView.useMutation();
 
   const properties = useMemo(() => (propertiesQuery.data ?? []).map(normalizeProperty), [propertiesQuery.data]);
@@ -419,6 +421,26 @@ export default function Listing() {
   const toggleFilter = (filterType: "type" | "beds", value: string) => setFilters((current) => ({ ...current, [filterType]: current[filterType].includes(value) ? current[filterType].filter((item) => item !== value) : [...current[filterType], value] }));
   const resetFilters = () => setFilters({ priceMin: "", priceMax: "", type: [], beds: [], transactionType: "semua" });
 
+  const handleWhatsAppLead = (property: Property) => {
+    const listingUrl = `${window.location.origin}${propertyDetailPath(property)}`;
+    const whatsappUrl = buildWhatsAppPropertyUrl({
+      title: property.title,
+      location: property.location,
+      price: property.price,
+      transactionType: property.transactionType,
+      propertyType: property.type,
+      listingUrl,
+    });
+
+    // Open synchronously so mobile browsers do not classify the chat as a popup.
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    recordWhatsAppLead.mutate({
+      propertyId: property.id,
+      visitorId: visitorDeviceId,
+      path: propertyDetailPath(property),
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
@@ -566,10 +588,7 @@ export default function Listing() {
                 }}>Salin untuk Instagram</Button>
               </div>
               <div className="flex gap-3">
-                <Button className="flex-1 bg-primary text-white" onClick={() => {
-                  const message = `Halo Primedeal, saya tertarik dengan listing "${selectedProperty.title}" (${formatPrice(selectedProperty.price)}) di ${selectedProperty.location}. Mohon informasi lebih lanjut.`;
-                  window.open(`https://wa.me/6282230357009?text=${encodeURIComponent(message)}`, "_blank");
-                }}>Hubungi WhatsApp Agen</Button>
+                <Button className="flex-1 bg-primary text-white" onClick={() => handleWhatsAppLead(selectedProperty)}>Hubungi WhatsApp Agen</Button>
                 <Button variant="outline" onClick={() => setSelectedProperty(null)}>Tutup</Button>
               </div>
             </div>
