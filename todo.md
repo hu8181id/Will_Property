@@ -19,3 +19,8 @@
 - [x] Pastikan verifikasi Google Search Console menggunakan token FkfI82d30si2TNkZjZab21eMuP4sOCHpuFeK_x9ncP4 yang aktif pada URL Vercel tanpa tercampur domain Manus
 - [x] Pasang file verifikasi google3f40a3ef77242afc.html ke folder public proyek dan verifikasi di Search Console
 - [x] Pastikan file verifikasi Google tersedia pada deployment Vercel aktif dan URL /google3f40a3ef77242afc.html tidak lagi 404
+- [x] Pastikan dashboard Admin menampilkan jumlah pengunjung unik harian terpisah untuk Website dan APK
+- [x] Pastikan deduplikasi menggunakan perangkat yang sama satu kali per hari tanpa menyimpan data pribadi berlebihan
+- [x] Otomatiskan kesiapan indexing Google untuk listing baru melalui URL publik, metadata, canonical Vercel, dan sitemap Search Console yang dinamis
+- [x] Bangun serta verifikasi APK Admin terbaru dengan User-Agent/sumber traffic Admin yang konsisten
+- [x] Uji end-to-end analytics Website/APK, sitemap, listing baru, dan dashboard Admin

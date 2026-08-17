@@ -12,12 +12,12 @@ describe("canonical origin metadata SEO", () => {
     process.env.CANONICAL_ORIGIN = originalCanonicalOrigin;
   });
 
-  it("memakai domain publik dari request saat tidak ada konfigurasi eksplisit", () => {
+  it("mengganti host internal Manus dengan alias Vercel production", () => {
     delete process.env.CANONICAL_ORIGIN;
 
     expect(
       seoMetadataUtils.resolveCanonicalOrigin("https://primedeal-jl8furcm.manus.space"),
-    ).toBe("https://primedeal-jl8furcm.manus.space");
+    ).toBe("https://primedeal-property.vercel.app");
   });
 
   it("memprioritaskan konfigurasi canonical eksplisit dan menormalisasi garis miring", () => {
@@ -33,7 +33,18 @@ describe("canonical origin metadata SEO", () => {
 
     expect(
       seoMetadataUtils.resolveCanonicalOrigin("https://primedeal-jl8furcm.manus.space"),
-    ).toBe("https://primedeal-jl8furcm.manus.space");
+    ).toBe("https://primedeal-property.vercel.app");
+  });
+
+  it("menggunakan alias production Vercel untuk host production dan preview", () => {
+    delete process.env.CANONICAL_ORIGIN;
+
+    expect(seoMetadataUtils.resolveCanonicalOrigin("https://primedeal-property.vercel.app")).toBe(
+      "https://primedeal-property.vercel.app",
+    );
+    expect(seoMetadataUtils.resolveCanonicalOrigin("https://primedeal-property-preview.vercel.app")).toBe(
+      "https://primedeal-property.vercel.app",
+    );
   });
 });
 
@@ -72,7 +83,7 @@ describe("metadata listing untuk pencarian non-merek", () => {
       slug: "gunawangsa-manyar-2br-furnished-dekat-unair-its-merr-360001",
       images: ["/manus-storage/gunawangsa.jpg"],
     };
-    const origin = "https://primedeal-jl8furcm.manus.space";
+    const origin = "https://primedeal-property.vercel.app";
     const canonical = seoMetadataUtils.buildListingCanonical(origin, listing);
     const structuredData = seoMetadataUtils.buildListingStructuredData(listing, canonical, origin);
 

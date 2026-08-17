@@ -31,6 +31,7 @@ describe("analytics dashboard contracts", () => {
 
   it("mendeteksi sumber APK hanya dari penanda user-agent Primedeal yang resmi", () => {
     expect(analyticsDateUtils.getTrafficSourceFromUserAgent("Mozilla/5.0 PrimedealApp/5")).toBe("apk");
+    expect(analyticsDateUtils.getTrafficSourceFromUserAgent("Mozilla/5.0 PrimedealApp/1.4.1 (Admin)")).toBe("apk");
     expect(analyticsDateUtils.getTrafficSourceFromUserAgent("Mozilla/5.0 (Android 15; Chrome)")).toBe("website");
     expect(analyticsDateUtils.getTrafficSourceFromUserAgent(undefined)).toBe("unknown");
   });

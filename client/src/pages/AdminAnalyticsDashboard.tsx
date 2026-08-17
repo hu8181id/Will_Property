@@ -178,7 +178,7 @@ export default function AdminAnalyticsDashboard() {
         </Card>
 
         <Card className="mt-6 border-slate-200 p-5 shadow-sm sm:p-6">
-          <div className="flex items-start gap-3"><div className="rounded-lg bg-blue-50 p-2"><BarChart3 className="h-5 w-5 text-primary" /></div><div><h2 className="font-semibold text-slate-900">Tren kunjungan periode terpilih</h2><p className="mt-1 text-sm text-slate-500">{summary.data?.period ? `${formatDashboardDate(summary.data.period.startDate)} – ${formatDashboardDate(summary.data.period.endDate)}` : "Memuat periode..."}. Perangkat atau jaringan yang sama dihitung satu kali dalam satu hari.</p></div></div>
+          <div className="flex items-start gap-3"><div className="rounded-lg bg-blue-50 p-2"><BarChart3 className="h-5 w-5 text-primary" /></div><div><h2 className="font-semibold text-slate-900">Tren kunjungan periode terpilih</h2><p className="mt-1 text-sm text-slate-500">{summary.data?.period ? `${formatDashboardDate(summary.data.period.startDate)} – ${formatDashboardDate(summary.data.period.endDate)}` : "Memuat periode..."}. Perangkat atau browser yang sama dihitung satu kali per hari dengan ID anonim.</p></div></div>
           {summary.isLoading ? (
             <div className="mt-8 grid h-48 grid-cols-7 items-end gap-2"><Skeleton className="h-20" /><Skeleton className="h-32" /><Skeleton className="h-16" /><Skeleton className="h-40" /><Skeleton className="h-24" /><Skeleton className="h-28" /><Skeleton className="h-36" /></div>
           ) : summary.isError ? (

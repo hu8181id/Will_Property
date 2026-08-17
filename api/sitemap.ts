@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { getDb } from "../server/db";
 import { propertyListings } from "../drizzle/schema";
+import { seoMetadataUtils } from "../server/seo";
 import { buildPropertySlug } from "../shared/propertySlug";
 
 function escapeXml(value: string) {
@@ -14,7 +15,11 @@ function escapeXml(value: string) {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const origin = process.env.PUBLIC_SITE_URL || `https://${req.headers.host || "primedeal-property.vercel.app"}`;
+  const requestOrigin = `https://${req.headers.host || "primedeal-property.vercel.app"}`;
+  const configuredOrigin = process.env.PUBLIC_SITE_URL?.trim();
+  const origin = seoMetadataUtils.resolveCanonicalOrigin(
+    configuredOrigin && !configuredOrigin.includes(".manus.space") ? configuredOrigin : requestOrigin,
+  );
   try {
     const db = await getDb();
     const listings = db ? await db.select().from(propertyListings) : [];
@@ -40,7 +45,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
     xml += `</urlset>`;
     res.setHeader("Content-Type", "application/xml; charset=utf-8");
-    res.setHeader("Cache-Control", "public, max-age=3600");
+    res.setHeader("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
     return res.status(200).send(xml);
   } catch (error) {
     console.error("[Vercel Sitemap Error]", error);

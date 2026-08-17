@@ -6,11 +6,14 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { registerPropertyVideoUploadRoute } from "../propertyVideoUpload";
 import { buildPropertySlug } from "../../shared/propertySlug";
+import { seoMetadataUtils } from "../seo";
 
 function publicOrigin(req: Request) {
-  const configured = process.env.PUBLIC_SITE_URL?.trim().replace(/\/+$/, "");
-  if (configured) return configured;
-  return `${req.protocol}://${req.get("host")}`;
+  const configured = process.env.PUBLIC_SITE_URL?.trim();
+  const requestOrigin = `${req.protocol}://${req.get("host")}`;
+  return seoMetadataUtils.resolveCanonicalOrigin(
+    configured && !configured.includes(".manus.space") ? configured : requestOrigin,
+  );
 }
 
 function escapeXml(value: string) {
@@ -91,7 +94,8 @@ Sitemap: ${origin}/sitemap.xml
         xml += "  </url>\n";
       }
       xml += `</urlset>`;
-      res.type("application/xml").send(xml);
+      res.set("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
+    res.type("application/xml").send(xml);
     } catch (error) {
       console.error("[Sitemap Error]", error);
       res.status(500).send("Error generating sitemap");

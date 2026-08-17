@@ -228,12 +228,6 @@ export const propertyRouter = router({
           console.warn("[NotifyOwner] Gagal mengirim notifikasi pemilik:", e);
         }
 
-        try {
-          const sitemapUrl = "https://primedeal-property.vercel.app/sitemap.xml";
-          await fetch(`https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`, { method: "GET" });
-        } catch (pingErr) {
-          console.warn("[Google Sitemap Ping] Gagal mengirim ping sitemap otomatis ke Google:", pingErr);
-        }
 
         return { success: true, id, slug };
       } catch (error) {

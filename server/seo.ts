@@ -6,20 +6,36 @@ import { buildPropertySlug } from "../shared/propertySlug";
 const SITE_NAME = "Primedeal Properti";
 const DEFAULT_TITLE = "Primedeal - Agensi Properti Modern & Jual Beli Rumah Terbaik di Surabaya";
 const DEFAULT_DESCRIPTION = "Temukan properti impian Anda di Surabaya bersama Primedeal Properti. Jual beli rumah, apartemen, ruko, dan tanah dengan mudah, aman, serta konsultasi WhatsApp langsung.";
-const DEFAULT_ORIGIN = "https://primedeal-jl8furcm.manus.space";
+const DEFAULT_ORIGIN = "https://primedeal-property.vercel.app";
+const VERCEL_PRODUCTION_ORIGIN = "https://primedeal-property.vercel.app";
+
+function parseOrigin(candidate: string | undefined) {
+  if (!candidate?.trim()) return null;
+
+  try {
+    const parsed = new URL(candidate.trim());
+    if (parsed.protocol !== "https:" && parsed.protocol !== "http:") return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
 
 function resolveCanonicalOrigin(requestOrigin?: string) {
-  const candidates = [process.env.CANONICAL_ORIGIN, requestOrigin, DEFAULT_ORIGIN];
+  const configured = parseOrigin(process.env.CANONICAL_ORIGIN);
+  if (configured) return configured.origin;
 
-  for (const candidate of candidates) {
-    if (!candidate?.trim()) continue;
-
-    try {
-      const parsed = new URL(candidate.trim());
-      if (parsed.protocol === "https:" || parsed.protocol === "http:") return parsed.origin;
-    } catch {
-      // Skip malformed configured or request origins and use the next safe candidate.
+  const requested = parseOrigin(requestOrigin);
+  if (requested) {
+    // Preview and production Vercel hosts must canonicalize to the stable production alias.
+    if (requested.hostname === "primedeal-property.vercel.app" || requested.hostname.endsWith(".vercel.app")) {
+      return VERCEL_PRODUCTION_ORIGIN;
     }
+    // Internal Manus preview/deployment hosts must never leak into public SEO URLs.
+    if (requested.hostname.endsWith(".manus.space") || requested.hostname.endsWith(".manus.computer") || requested.hostname === "manus.space") {
+      return DEFAULT_ORIGIN;
+    }
+    return requested.origin;
   }
 
   return DEFAULT_ORIGIN;
