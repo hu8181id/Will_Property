@@ -18,3 +18,4 @@
 - [x] Pasang token Search Console FkfI82d30si2TNkZjZab21eMuP4sOCHpuFeK_x9ncP4 khusus untuk properti Vercel
 - [x] Pastikan verifikasi Google Search Console menggunakan token FkfI82d30si2TNkZjZab21eMuP4sOCHpuFeK_x9ncP4 yang aktif pada URL Vercel tanpa tercampur domain Manus
 - [x] Pasang file verifikasi google3f40a3ef77242afc.html ke folder public proyek dan verifikasi di Search Console
+- [x] Pastikan file verifikasi Google tersedia pada deployment Vercel aktif dan URL /google3f40a3ef77242afc.html tidak lagi 404
