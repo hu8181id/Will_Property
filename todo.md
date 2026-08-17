@@ -170,3 +170,19 @@ Dengan item yang ditambahkan pada sesi ini, verifikasi route produksi belum dian
 - [x] Menambahkan atau memperbarui unit test untuk perubahan yang diterapkan.
 - [x] Memverifikasi build dan alur terkait sebelum checkpoint.
 - [ ] Memvalidasi runtime production: upload foto/video, simpan listing, refresh, buka Edit Listing, dan pastikan media tetap tampil.
+
+# Deployment Vercel Produksi
+- [x] Verifikasi repository GitHub yang terhubung ke project Vercel PrimeDeal.
+- [x] Konfirmasi target produksi: `primedeal-property.vercel.app` dari project Vercel `primedeal-property` dan repository `hu8181id/Will_Property`.
+- [ ] Memulihkan akses pengiriman perubahan kode ke repository deployment.
+- [ ] Mengirim perbaikan upload media ke branch production dan memantau deployment Vercel.
+- [ ] Memvalidasi upload foto baru hingga tampil setelah simpan dan refresh pada aplikasi Vercel.
+- [ ] Menyelaraskan riwayat branch `main` lokal dan GitHub tanpa menimpa perubahan repository yang lebih baru.
+- [x] Mengambil basis kode `main` GitHub sebagai sumber production dan mem-porting perbaikan Vercel Blob secara selektif.
+- [x] Memastikan tidak ada file atau konfigurasi production yang ditimpa saat porting perbaikan media.
+- [x] Porting upload foto dan video langsung ke Vercel Blob pada basis kode GitHub production tanpa mengganti riwayat branch.
+- [x] Menambahkan endpoint token dan penghapusan Vercel Blob ke entrypoint Express/Vercel production.
+- [x] Memperbaiki kesalahan sintaks storage production yang akan menghambat build sebelum perubahan dipush.
+- [x] Menjalankan test dan build pada basis kode production setelah porting media selesai.
+- [ ] Menambahkan fungsi Vercel eksplisit untuk token upload dan penghapusan Blob karena endpoint Express catch-all belum menghasilkan client token di production.
+- [ ] Menjalankan ulang uji foto dan video pada deployment Vercel, melakukan refresh, lalu membersihkan listing uji beserta Blob-nya.
