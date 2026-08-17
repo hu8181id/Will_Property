@@ -1,4 +1,4 @@
-import { GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+huuhimport { GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { put } from "@vercel/blob";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { ENV } from "./_core/env";
@@ -125,7 +125,20 @@ export async function storagePut(
 ): Promise<{ key: string; url: string }> {
   const key = appendHashSuffix(normalizeKey(relKey));
 
-  if (hasBackblazeConfig()) {
+if (process.env.BLOB_READ_WRITE_TOKEN) {
+  const blob = await put(key, data, {
+    access: "public",
+    contentType,
+    addRandomSuffix: false,
+  });
+
+  return {
+    key,
+    url: blob.url,
+  };
+}
+
+if (hasBackblazeConfig()) { {
     const config = getBackblazeConfig();
     await getS3Client().send(
       new PutObjectCommand({
