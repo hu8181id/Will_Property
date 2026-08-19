@@ -150,3 +150,6 @@
 
 - [x] Buat feature image PrimeDeal JPG berukuran 1024 × 500 piksel untuk Google Play Store
 - [x] Verifikasi ukuran dan format feature image Play Store sebelum pengiriman
+
+- [x] Buat ulang feature image PrimeDeal dengan tulisan besar dan jelas untuk tampilan kecil
+- [x] Kirimkan feature image PrimeDeal versi tulisan besar kepada pengguna
