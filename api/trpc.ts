@@ -1,5 +1,5 @@
-import { handleTrpcRequest } from "../server/vercel-trpc.js";
+import { handleTrpcNodeRequest, type NodeStyleResponse } from "../server/vercel-trpc.js";
 
-export default function handler(request: Request): Promise<Response> {
-  return handleTrpcRequest(request);
+export default async function handler(request: Request, response: NodeStyleResponse): Promise<void> {
+  await handleTrpcNodeRequest(request, response);
 }

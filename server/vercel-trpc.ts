@@ -14,6 +14,12 @@ type NodeStyleRequest = {
   rawBody?: unknown;
 };
 
+export type NodeStyleResponse = {
+  statusCode?: number;
+  setHeader?: (name: string, value: string | string[]) => void;
+  end?: (body?: string) => void;
+};
+
 function readHeader(
   headers: NodeStyleRequest["headers"],
   name: string,
@@ -84,4 +90,26 @@ export function handleTrpcRequest(request: Request): Promise<Response> {
     router: appRouter,
     createContext: createFetchContext,
   });
+}
+
+/** Write the Fetch-adapter response through Vercel's Node response object. */
+export async function handleTrpcNodeRequest(
+  request: NodeStyleRequest,
+  response: NodeStyleResponse,
+): Promise<void> {
+  const trpcResponse = await handleTrpcRequest(request as Request);
+  response.statusCode = trpcResponse.status;
+
+  trpcResponse.headers.forEach((value, key) => {
+    if (key.toLowerCase() !== "set-cookie") {
+      response.setHeader?.(key, value);
+    }
+  });
+
+  const cookieHeaders = trpcResponse.headers.getSetCookie?.() ?? [];
+  if (cookieHeaders.length > 0) {
+    response.setHeader?.("set-cookie", cookieHeaders);
+  }
+
+  response.end?.(await trpcResponse.text());
 }
