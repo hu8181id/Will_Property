@@ -108,11 +108,12 @@ Sitemap: ${origin}/sitemap.xml
     res
       .set("Cache-Control", "no-store, max-age=0")
       .json({
-        versionCode: 11,
-        versionName: "1.4.0",
+        versionCode: 10,
+        versionName: "1.0.10",
+        updateAvailable: false,
         downloadUrl: `${siteOrigin}${downloadPath}`,
         sha256: "c0409359671ecf64526c64b9d4790734980da502db1a5be42cae998703bcbe3b",
-        releaseNotes: "Pembaruan resmi PrimeDeal v1.4.0 (WhatsAppFix) dengan integrasi WhatsApp eksternal dan stabilisasi Vercel.",
+        releaseNotes: "Aplikasi sudah menggunakan versi stabil terkini.",
         publishedAt: "2026-08-17T00:00:00.000Z",
       });
   });
