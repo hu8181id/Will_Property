@@ -153,3 +153,12 @@
 
 - [x] Buat ulang feature image PrimeDeal dengan tulisan besar dan jelas untuk tampilan kecil
 - [x] Kirimkan feature image PrimeDeal versi tulisan besar kepada pengguna
+
+- [x] Periksa status indeks Google, robots.txt, sitemap, dan akses crawler pada domain Vercel PrimeDeal
+- [x] Sampaikan penyebab halaman belum tampil pada hasil pencarian awal beserta langkah aman berikutnya
+
+- [x] Susun prioritas SEO PrimeDeal untuk meningkatkan peluang peringkat Google
+- [x] Sampaikan rencana tindakan SEO bertahap yang dapat dijalankan pengguna
+
+- [x] Ubah ikon PrimeDeal yang diberikan pengguna menjadi PNG 512 × 512 piksel
+- [ ] Kirimkan file ikon PrimeDeal 512 × 512 piksel kepada pengguna
