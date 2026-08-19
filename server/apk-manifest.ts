@@ -34,11 +34,7 @@ export function selectLatestAdminApk(blobs: PublicBlob[]): ApkUpdateManifest {
     .map(blob => {
       const match = APK_PATH_PATTERN.exec(blob.pathname);
       if (!match || !/^https:\/\/.+\.apk(?:$|\?)/i.test(blob.url)) return null;
-      return {
-        versionName: match[1],
-        versionCode: Number.parseInt(match[2], 10),
-        downloadUrl: blob.url,
-      };
+      return { versionName: match[1], versionCode: Number.parseInt(match[2], 10), downloadUrl: blob.url };
     })
     .filter((candidate): candidate is NonNullable<typeof candidate> => candidate !== null)
     .filter(candidate => Number.isSafeInteger(candidate.versionCode) && candidate.versionCode > 0)

@@ -1,6 +1,6 @@
 import { list } from "@vercel/blob";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { disabledAdminApkManifest, selectLatestAdminApk } from "./apk-manifest.js";
+import { disabledAdminApkManifest, selectLatestAdminApk } from "../server/apk-manifest.js";
 
 const ADMIN_APK_PREFIX = "apps/primedeal/admin/";
 

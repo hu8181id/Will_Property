@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { disabledAdminApkManifest, selectLatestAdminApk } from "../api/apk-manifest";
+import { disabledAdminApkManifest, selectLatestAdminApk } from "./apk-manifest";
 
 describe("manifest pembaruan APK Admin", () => {
   it("memilih APK Admin dengan versionCode tertinggi dari Vercel Blob", () => {

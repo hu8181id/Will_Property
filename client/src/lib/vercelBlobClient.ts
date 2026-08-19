@@ -31,7 +31,7 @@ export async function uploadToVercelBlob(file: File, onProgress?: (percentage: n
 
     const blob = await upload(`properties/uploads/${folder}/${safeFileName(file)}`, file, {
       access: 'public',
-      handleUploadUrl: `/api/blob-upload-auth?admin_key=${encodeURIComponent(adminKey)}`,
+      handleUploadUrl: `/api/blob/upload-auth?admin_key=${encodeURIComponent(adminKey)}`,
       clientPayload: JSON.stringify({ size: file.size, type: contentType }),
       onUploadProgress: (progress) => {
         if (onProgress && typeof progress.percentage === 'number') {
@@ -54,7 +54,7 @@ export async function deleteVercelBlob(url: string): Promise<void> {
   try {
     if (!isVercelBlobUrl(url)) return;
     const adminKey = localStorage.getItem("admin_key") || sessionStorage.getItem("admin_key") || "PDmanage!2026#SafeKey84";
-    const res = await fetch(`/api/blob-delete?admin_key=${encodeURIComponent(adminKey)}`, {
+    const res = await fetch(`/api/blob/delete?admin_key=${encodeURIComponent(adminKey)}`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-admin-key": adminKey },
       body: JSON.stringify({ url }),

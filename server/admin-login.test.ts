@@ -1,6 +1,6 @@
 import type { ServerResponse } from "node:http";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import handler from "./login";
+import handler from "../api/admin/login";
 
 type MockResponse = ServerResponse & {
   headers: Record<string, string>;

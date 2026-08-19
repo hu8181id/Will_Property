@@ -20,7 +20,7 @@ vi.mock("@aws-sdk/s3-request-presigner", () => ({
 }));
 
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import handler from "./media";
+import handler from "../api/media";
 
 const mockedGetSignedUrl = vi.mocked(getSignedUrl);
 
