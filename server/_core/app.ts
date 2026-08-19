@@ -103,17 +103,17 @@ Sitemap: ${origin}/sitemap.xml
   });
 
   app.get("/apk/latest.json", (req, res) => {
-    const downloadPath = "/manus-storage/primedeal-properti-v1.3.0_2c9e3fb1.apk";
+    const downloadPath = "/downloads/primedeal-properti.apk";
     const siteOrigin = publicOrigin(req);
     res
       .set("Cache-Control", "no-store, max-age=0")
       .json({
-        versionCode: 5,
-        versionName: "1.3.0",
+        versionCode: 6,
+        versionName: "1.4.0",
         downloadUrl: `${siteOrigin}${downloadPath}`,
-        sha256: "f6126cc5dd5cd026cdc7d7978db48c08e714b61d402b11319638104b5c763e25",
-        releaseNotes: "Pemeriksaan pembaruan gratis dan notifikasi versi baru yang lebih aman.",
-        publishedAt: "2026-08-15T00:00:00.000Z",
+        sha256: "31ed6af368e66fa52e02407dc4535d4809be6920363348490629f26d826d3658",
+        releaseNotes: "Pembaruan APK PrimeDeal v1.4.0 dengan unduhan langsung dari Vercel.",
+        publishedAt: "2026-08-17T00:00:00.000Z",
       });
   });
 
