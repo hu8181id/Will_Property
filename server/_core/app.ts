@@ -103,13 +103,13 @@ Sitemap: ${origin}/sitemap.xml
   });
 
   app.get("/apk/latest.json", (req, res) => {
-    const downloadPath = "/api/download-apk";
+    const downloadPath = "/downloads/primedeal-admin.apk";
     const siteOrigin = publicOrigin(req);
     res
       .set("Cache-Control", "no-store, max-age=0")
       .json({
-        versionCode: 10,
-        versionName: "1.0.10",
+        versionCode: 11,
+        versionName: "1.4.0",
         downloadUrl: `${siteOrigin}${downloadPath}`,
         sha256: "c0409359671ecf64526c64b9d4790734980da502db1a5be42cae998703bcbe3b",
         releaseNotes: "Pembaruan resmi PrimeDeal v1.4.0 (WhatsAppFix) dengan integrasi WhatsApp eksternal dan stabilisasi Vercel.",
