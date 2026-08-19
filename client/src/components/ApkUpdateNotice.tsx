@@ -20,7 +20,7 @@ export default function ApkUpdateNotice() {
     fetch(UPDATE_ENDPOINT, { cache: "no-store" })
       .then(response => (response.ok ? response.json() : null))
       .then((manifest: ApkUpdateManifest | null) => {
-        if (!active || !manifest || !isSafeApkDownloadUrl(manifest.downloadUrl)) return;
+        if (!active || !manifest?.updateAvailable || !isSafeApkDownloadUrl(manifest.downloadUrl)) return;
         if (shouldOfferApkUpdate(userAgent, manifest)) setUpdate(manifest);
       })
       .catch(() => {

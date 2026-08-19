@@ -192,11 +192,14 @@ describe("property listing contracts", () => {
       const updateResult = await appRouter.createCaller(updateContextResult).property.update({ id: 420001, ...validDraft });
       expect(updateResult).toEqual({ success: true });
 
+      const statusResult = await appRouter.createCaller(updateContextResult).property.updateStatus({ id: 420001, status: "sold" });
+      expect(statusResult).toEqual({ success: true });
+
       const deleteResult = await appRouter.createCaller(updateContextResult).property.delete({ id: 420001 });
       expect(deleteResult).toEqual({ success: true });
       expect(fakeDb.insert).toHaveBeenCalledTimes(3);
-      expect(fakeDb.update).toHaveBeenCalledTimes(2);
-      expect(fakeDb.delete).toHaveBeenCalledTimes(1);
+      expect(fakeDb.update).toHaveBeenCalledTimes(3);
+      expect(fakeDb.delete).toHaveBeenCalledTimes(2);
       expect(notifyOwnerSpy).toHaveBeenCalledTimes(1);
     } finally {
       getDbSpy.mockRestore();

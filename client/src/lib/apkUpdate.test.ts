@@ -7,6 +7,8 @@ import {
 } from "./apkUpdate";
 
 const manifest = {
+  app: "admin" as const,
+  updateAvailable: true,
   versionCode: 5,
   versionName: "1.3.0",
   downloadUrl: "https://downloads.example.test/primedeal-properti-v1.3.0.apk",
@@ -34,6 +36,13 @@ describe("pembaruan APK Primedeal", () => {
     expect(isAndroidWebView(browser)).toBe(false);
     expect(shouldOfferApkUpdate(browser, manifest)).toBe(false);
     expect(shouldOfferApkUpdate(latestApp, manifest)).toBe(false);
+  });
+
+  it("tidak menawarkan tautan saat rilis dinonaktifkan oleh manifest", () => {
+    expect(shouldOfferApkUpdate("Mozilla/5.0 (Linux; Android 14; wv) PrimedealApp/4 (Admin)", {
+      ...manifest,
+      updateAvailable: false,
+    })).toBe(false);
   });
 
   it("menerima hanya tautan unduhan APK HTTPS", () => {
