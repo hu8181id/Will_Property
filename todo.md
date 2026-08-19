@@ -133,3 +133,7 @@
 - [ ] Rekonsiliasi source manifest legacy pada proyek Manus dengan repository GitHub yang menjadi sumber deployment Vercel
 - [x] Inventarisasi APK Publik bertanda tangan kompatibel lalu unggah ke Vercel Blob
 - [x] Verifikasi URL APK Publik Vercel mengirim MIME Android package dan dapat diunduh
+
+- [x] Buat ikon aplikasi PrimeDeal ringkas dari simbol gedung emas tanpa teks dan nomor WhatsApp
+- [x] Integrasikan ikon PrimeDeal ke APK Admin v1.4.15 dengan sertifikat pembaruan yang kompatibel
+- [ ] Integrasikan ikon PrimeDeal ke paket APK Publik pada rilis yang sertifikat pembaruannya kompatibel
