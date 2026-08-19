@@ -1,6 +1,6 @@
-import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { appRouter } from "./routers.js";
 import { createFetchContext } from "./_core/context.js";
+import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 
 const endpoint = "/api/trpc";
 

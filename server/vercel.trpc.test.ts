@@ -27,4 +27,15 @@ describe("Vercel tRPC Web Handler", () => {
     const json = await response.json();
     expect(json).toBeDefined();
   });
+
+  it("normalizes a Vercel Node request with a relative URL before serving JSON", async () => {
+    const response = await handler({
+      url: "/api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%7D%7D%7D",
+      method: "GET",
+      headers: { host: "primedeal-property.vercel.app", "x-forwarded-proto": "https" },
+    } as unknown as Request);
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toContain("application/json");
+  });
 });
