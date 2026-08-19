@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
-import { propertyListings } from "../drizzle/schema";
-import { getDb } from "./db";
-import { buildPropertySlug } from "../shared/propertySlug";
+import { propertyListings } from "../drizzle/schema.js";
+import { getDb } from "./db.js";
+import { buildPropertySlug } from "../shared/propertySlug.js";
 
 const SITE_NAME = "Primedeal Properti";
 const DEFAULT_TITLE = "Primedeal - Agensi Properti Modern & Jual Beli Rumah Terbaik di Surabaya";

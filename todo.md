@@ -95,6 +95,10 @@
 - [ ] Kurangi jumlah file Serverless Functions Vercel menjadi maksimal 12 tanpa menghapus pengujian.
 - [ ] Perbaiki error strict TypeScript pada helper upload Blob/video yang memblokir deployment Vercel.
 - [ ] Ganti impor direktori server/routers pada handler Vercel menjadi impor file eksplisit agar /api/trpc tidak crash.
+- [ ] Ulangi otorisasi GitHub dengan kode perangkat baru setelah kode sebelumnya ditolak.
+- [ ] Lanjutkan otorisasi dan commit patch handler tRPC setelah pengguna mengonfirmasi perubahan.
+- [ ] Buat dan gunakan kode device GitHub baru yang valid setelah kode sebelumnya gagal.
+- [ ] Hentikan device flow yang tidak valid dan gunakan jalur autentikasi repository alternatif tanpa kode berulang.
 - [ ] Tambahkan akses TERJUAL dan Statistik Pengunjung yang tetap terlihat pada layar HP tanpa bergantung pada posisi scroll atau dialog.
 - [x] Pastikan tombol/status TERJUAL terlihat dan dapat digunakan pada halaman Kelola Listing di APK Admin.
 - [x] Tampilkan kontrol TERJUAL secara jelas pada kartu listing dan/atau formulir edit tanpa mengganggu tombol Simpan.
@@ -102,3 +106,7 @@
 - [x] Bersihkan pemanggil tRPC stale pada Listing.tsx agar pemeriksaan TypeScript proyek kembali bersih.
 - [x] Selaraskan atau nonaktifkan prosedur review lama di AdminReviews.tsx agar pemeriksaan TypeScript proyek kembali bersih.
 
+
+- [ ] Verifikasi deployment Vercel terbaru dan endpoint /api/trpc/property.list mengembalikan JSON valid
+- [ ] Verifikasi produksi menampilkan kontrol TERJUAL dan Statistik Pengunjung pada admin serta badge TERJUAL pada halaman publik
+- [ ] Jalankan test/build final dan dokumentasikan hasil uji APK Admin v1.4.13 terhadap deployment Vercel

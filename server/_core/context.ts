@@ -7,8 +7,8 @@ import type { User } from "../../drizzle/schema";
 const serializeCookie = (cookieModule as unknown as {
   serialize: (name: string, value: string, options?: CookieOptions) => string;
 }).serialize;
-import { sdk } from "./sdk";
-import { adminUserFromSession, readAdminSessionFromRequest } from "../adminAuth";
+import { sdk } from "./sdk.js";
+import { adminUserFromSession, readAdminSessionFromRequest } from "../adminAuth.js";
 
 export type TrpcContext = {
   req: CreateExpressContextOptions["req"];

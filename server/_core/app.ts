@@ -1,12 +1,12 @@
 import express, { type Express, type Request } from "express";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
-import { registerOAuthRoutes } from "./oauth";
-import { registerStorageProxy } from "./storageProxy";
-import { appRouter } from "../routers";
-import { createContext } from "./context";
-import { registerPropertyVideoUploadRoute } from "../propertyVideoUpload";
-import { buildPropertySlug } from "../../shared/propertySlug";
-import { seoMetadataUtils } from "../seo";
+import { registerOAuthRoutes } from "./oauth.js";
+import { registerStorageProxy } from "./storageProxy.js";
+import { appRouter } from "../routers.js";
+import { createContext } from "./context.js";
+import { registerPropertyVideoUploadRoute } from "../propertyVideoUpload.js";
+import { buildPropertySlug } from "../../shared/propertySlug.js";
+import { seoMetadataUtils } from "../seo.js";
 
 function publicOrigin(req: Request) {
   const configured = process.env.PUBLIC_SITE_URL?.trim();
@@ -45,12 +45,12 @@ export function createApp(options: AppOptions = {}): Express {
   registerPropertyVideoUploadRoute(app);
 
   app.post("/api/blob-upload-auth", async (req, res) => {
-    const { handleVercelBlobUploadAuth } = await import("../vercelBlobUpload");
+    const { handleVercelBlobUploadAuth } = await import("../vercelBlobUpload.js");
     return handleVercelBlobUploadAuth(req, res);
   });
 
   app.post("/api/blob-delete", async (req, res) => {
-    const { handleVercelBlobDelete } = await import("../vercelBlobUpload");
+    const { handleVercelBlobDelete } = await import("../vercelBlobUpload.js");
     return handleVercelBlobDelete(req, res);
   });
 
@@ -69,8 +69,8 @@ Sitemap: ${origin}/sitemap.xml
   app.get("/sitemap.xml", async (req, res) => {
     const origin = publicOrigin(req);
     try {
-      const { getDb } = await import("../db");
-      const { propertyListings } = await import("../../drizzle/schema");
+      const { getDb } = await import("../db.js");
+      const { propertyListings } = await import("../../drizzle/schema.js");
       const db = await getDb();
       const listings = db ? await db.select().from(propertyListings) : [];
 
