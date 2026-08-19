@@ -85,3 +85,6 @@
 - [x] Perbarui tRPC router properti agar mendukung pembaruan status terjual oleh admin.
 - [x] Tambahkan tombol 'Tandai Terjual' / 'Tersedia' di halaman Kelola Listing admin serta tampilkan badge 'TERJUAL' di halaman publik.
 - [x] Rilis APK Admin versi terbaru yang mendukung tombol status Terjual.
+
+- [x] Bangun, tandatangani, dan rilis APK Admin versi terbaru dengan dukungan tombol status Terjual pada listing properti.
+
