@@ -1,0 +1,6 @@
+api/**/*.test.ts
+api/**/*.test.tsx
+*.test.ts
+*.test.tsx
+server/**/*.test.ts
+client/**/*.test.tsx
