@@ -9,7 +9,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     versionCode: 11,
     versionName: "1.4.0",
     downloadUrl: `${origin}${downloadPath}`,
-    sha256: "68e5c4be76986cc689f1847ccbc0f0700d004b4206e35a03198133c8cc15d788",
+    sha256: "e24a5f57a7f9f6933a1c5bcbd47f1ebeabff124f1726321cd68b322971602a5f",
     releaseNotes: "Pembaruan resmi PrimeDeal v1.4.0 (WhatsAppFix) dengan integrasi WhatsApp eksternal dan stabilisasi Vercel.",
     publishedAt: "2026-08-17T00:00:00.000Z",
   });
