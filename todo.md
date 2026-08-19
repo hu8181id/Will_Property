@@ -128,3 +128,8 @@
 - [x] Perbaiki endpoint listing/API produksi lalu verifikasi WebView APK menerima JSON valid
 - [ ] Uji ulang APK Admin setelah deploy fix tRPC dan simpan bukti bahwa halaman listing di WebView berhasil dimuat tanpa error non-JSON
 - [ ] Verifikasi pada perangkat Android bahwa APK Admin menampilkan daftar properti, Statistik Pengunjung, dan kontrol TERJUAL setelah perbaikan endpoint produksi
+- [x] Selaraskan manifest pembaruan APK Admin antara rute /apk/latest.json dan endpoint Vercel yang dipakai aplikasi
+- [x] Uji /apk/latest.json dengan User-Agent APK Admin dan verifikasi manifest Blob v1.4.14 aktif
+- [ ] Rekonsiliasi source manifest legacy pada proyek Manus dengan repository GitHub yang menjadi sumber deployment Vercel
+- [x] Inventarisasi APK Publik bertanda tangan kompatibel lalu unggah ke Vercel Blob
+- [x] Verifikasi URL APK Publik Vercel mengirim MIME Android package dan dapat diunduh
