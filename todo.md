@@ -109,7 +109,7 @@
 - [x] Selaraskan atau nonaktifkan prosedur review lama di AdminReviews.tsx agar pemeriksaan TypeScript proyek kembali bersih.
 
 
-- [ ] Verifikasi deployment Vercel terbaru dan endpoint /api/trpc/property.list mengembalikan JSON valid
+- [x] Verifikasi deployment Vercel terbaru dan endpoint /api/trpc/property.list mengembalikan JSON valid
 - [ ] Verifikasi produksi menampilkan kontrol TERJUAL dan Statistik Pengunjung pada admin serta badge TERJUAL pada halaman publik
 - [ ] Jalankan test/build final dan dokumentasikan hasil uji APK Admin v1.4.13 terhadap deployment Vercel
 - [ ] Implementasikan tombol status TERJUAL pada APK Admin / manajemen listing
@@ -124,3 +124,7 @@
 - [x] Konsolidasikan endpoint serverless Vercel hingga maksimal 12 fungsi dan deploy ulang rilis APK
 - [x] Validasi APK Admin 1.4.14 dari Vercel Blob: checksum, MIME, package, versionCode 23, dan sertifikat sama dengan APK Admin 1.4.0
 - [ ] Konfirmasi pemasangan APK Admin 1.4.14 pada perangkat Android pengguna dan uji dashboard, Statistik Pengunjung, serta TERJUAL
+- [x] Diagnosa respons Vercel non-JSON pada pemuatan daftar properti di APK Admin
+- [x] Perbaiki endpoint listing/API produksi lalu verifikasi WebView APK menerima JSON valid
+- [ ] Uji ulang APK Admin setelah deploy fix tRPC dan simpan bukti bahwa halaman listing di WebView berhasil dimuat tanpa error non-JSON
+- [ ] Verifikasi pada perangkat Android bahwa APK Admin menampilkan daftar properti, Statistik Pengunjung, dan kontrol TERJUAL setelah perbaikan endpoint produksi
