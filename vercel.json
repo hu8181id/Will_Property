@@ -29,7 +29,11 @@
       "destination": "/google3f40a3ef77242afc.html"
     },
     {
-      "source": "/((?!api/).*)",
+      "source": "/downloads/(.*)",
+      "destination": "/downloads/$1"
+    },
+    {
+      "source": "/((?!api/|downloads/).*)",
       "destination": "/index.html"
     }
   ]
