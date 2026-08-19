@@ -110,3 +110,6 @@
 - [ ] Verifikasi deployment Vercel terbaru dan endpoint /api/trpc/property.list mengembalikan JSON valid
 - [ ] Verifikasi produksi menampilkan kontrol TERJUAL dan Statistik Pengunjung pada admin serta badge TERJUAL pada halaman publik
 - [ ] Jalankan test/build final dan dokumentasikan hasil uji APK Admin v1.4.13 terhadap deployment Vercel
+- [ ] Implementasikan tombol status TERJUAL pada APK Admin / manajemen listing
+- [ ] Tampilkan statistik pengunjung Website dan APK di dashboard APK Admin
+- [ ] Perbaiki alur instalasi APK agar tidak mengalami error "Aplikasi tidak terinstal"
