@@ -80,3 +80,8 @@
 
 - [x] Tambahkan normalisasi URL di MainActivity APK Admin sehingga jika URL mengandung admob.google.com atau apps.admob.com, otomatis diganti ke https://apps.admob.com/v2/home sebelum dilempar via Intent ACTION_VIEW.
 
+
+- [x] Tambahkan kolom status 'status' ('available' / 'sold') pada tabel properties di database.
+- [x] Perbarui tRPC router properti agar mendukung pembaruan status terjual oleh admin.
+- [x] Tambahkan tombol 'Tandai Terjual' / 'Tersedia' di halaman Kelola Listing admin serta tampilkan badge 'TERJUAL' di halaman publik.
+- [x] Rilis APK Admin versi terbaru yang mendukung tombol status Terjual.

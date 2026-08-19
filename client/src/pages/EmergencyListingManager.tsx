@@ -31,6 +31,7 @@ interface EmergencyProperty {
   videoUrl?: string | null;
   videoThumbnailUrl?: string | null;
   virtualTourUrl?: string | null;
+  status?: string | null;
 }
 
 function numericValue(value: string | number | null | undefined) {
@@ -102,6 +103,16 @@ export default function EmergencyListingManager() {
     },
     onError: (err) => {
       toast({ title: "Gagal memperbarui listing", description: err.message, variant: "destructive" });
+    },
+  });
+
+  const updateStatusMutation = trpc.property.updateStatus.useMutation({
+    onSuccess: () => {
+      toast({ title: "Status Diperbarui", description: "Status listing berhasil diubah." });
+      void utils.property.list.invalidate();
+    },
+    onError: (err: any) => {
+      toast({ title: "Gagal ubah status", description: err.message, variant: "destructive" });
     },
   });
 
@@ -329,31 +340,66 @@ export default function EmergencyListingManager() {
                           {indexing?.status === "sitemap_ready" ? "Siap ditemukan melalui sitemap" : indexing?.status === "error" ? "Perlu diperiksa" : "Menyiapkan URL publik"}
                         </div>
                       )}
-                      <div className="flex gap-3 border-t pt-2 text-xs text-slate-600">
-                        <span>{property.bedrooms ?? 0} KT</span>
-                        <span>{property.bathrooms ?? 0} KM</span>
-                        <span>{property.area ?? 0} m²</span>
-                        {(property.images?.length ?? 0) > 1 && <span>{property.images?.length}/5 foto</span>}
+                      <div className="flex items-center justify-between border-t pt-2 text-xs text-slate-600">
+                        <div className="flex gap-3">
+                          <span>{property.bedrooms ?? 0} KT</span>
+                          <span>{property.bathrooms ?? 0} KM</span>
+                          <span>{property.area ?? 0} m²</span>
+                        </div>
+                        <div>
+                          {property.status === "sold" ? (
+                            <span className="rounded bg-amber-100 px-2 py-0.5 font-bold text-amber-800">TERJUAL</span>
+                          ) : (
+                            <span className="rounded bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-800">AKTIF</span>
+                          )}
+                        </div>
                       </div>
                     </CardContent>
                   </div>
                   {isAuthorized && (
-                    <div className="flex justify-end gap-2 border-t bg-slate-50 p-3">
-                      <Button type="button" variant="outline" size="sm" onClick={() => openEdit(property)} className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-700">
-                        <Edit className="h-4 w-4" /> Edit
-                      </Button>
-                      <Button
-                        type="button"
-                        variant="destructive"
-                        size="sm"
-                        onClick={() => {
-                          if (window.confirm(`Hapus listing \"${property.title ?? "ini"}\"?`)) deleteMutation.mutate({ id: property.id });
-                        }}
-                        disabled={deleteMutation.isPending}
-                        className="flex items-center gap-1 text-xs"
-                      >
-                        <Trash2 className="h-4 w-4" /> Hapus
-                      </Button>
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-t bg-slate-50 p-3">
+                      <div>
+                        {property.status === "sold" ? (
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => updateStatusMutation.mutate({ id: property.id, status: "active" })}
+                            disabled={updateStatusMutation.isPending}
+                            className="text-xs font-semibold text-emerald-700 border-emerald-300 hover:bg-emerald-50"
+                          >
+                            Tandai Aktif
+                          </Button>
+                        ) : (
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => updateStatusMutation.mutate({ id: property.id, status: "sold" })}
+                            disabled={updateStatusMutation.isPending}
+                            className="text-xs font-bold text-amber-700 border-amber-300 hover:bg-amber-50"
+                          >
+                            🏷️ Tandai Terjual
+                          </Button>
+                        )}
+                      </div>
+                      <div className="flex gap-2">
+                        <Button type="button" variant="outline" size="sm" onClick={() => openEdit(property)} className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-700">
+                          <Edit className="h-4 w-4" /> Edit
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="destructive"
+                          size="sm"
+                          onClick={() => {
+                            if (window.confirm(`Hapus listing \"${property.title ?? "ini"}\"?`)) deleteMutation.mutate({ id: property.id });
+                          }}
+                          disabled={deleteMutation.isPending}
+                          className="flex items-center gap-1 text-xs"
+                        >
+                          <Trash2 className="h-4 w-4" /> Hapus
+                        </Button>
+                      </div>
                     </div>
                   )}
                 </Card>

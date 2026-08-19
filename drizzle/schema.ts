@@ -50,7 +50,7 @@ export const propertyListings = mysqlTable(
     videoUrl: varchar("videoUrl", { length: 1000 }),
     videoThumbnailUrl: varchar("videoThumbnailUrl", { length: 1000 }),
     virtualTourUrl: varchar("virtualTourUrl", { length: 1000 }),
-    status: varchar("status", { length: 32 }).notNull().default("active"),
+    status: varchar("status", { length: 32 }).notNull().default("active"), // active, sold, inactive
     createdAt: timestamp("createdAt").defaultNow().notNull(),
     updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   },

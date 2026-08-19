@@ -23,80 +23,74 @@ export const propertyDraftSchema = z.object({
   description: z.string().trim().min(10, "Deskripsi listing minimal 10 karakter"),
   propertyType: z.string().trim().min(1),
   transactionType: z.string().trim().min(1).default("dijual"),
-  price: z.number().int().positive(),
-  location: z.string().trim().min(1),
-  address: z.string().trim().optional(),
-  area: z.number().int().nonnegative().optional(),
-  bedrooms: z.number().int().nonnegative().optional(),
-  bathrooms: z.number().int().nonnegative().optional(),
-  floor: z.string().trim().optional(),
-  tower: z.string().trim().optional(),
-  view: z.string().trim().optional(),
-  condition: z.string().trim().optional(),
-  certificate: z.string().trim().optional(),
-  facilities: z.array(z.string().trim()).max(20).default([]),
-  images: z.array(z.string().min(1)).min(1).max(5),
+  price: z.number().positive("Harga harus berupa angka positif"),
+  location: z.string().trim().min(1, "Lokasi wajib diisi"),
+  address: z.string().trim().max(500).optional().nullable(),
+  area: z.number().positive().optional().nullable(),
+  bedrooms: z.number().int().nonnegative().optional().nullable(),
+  bathrooms: z.number().int().nonnegative().optional().nullable(),
+  floor: z.string().trim().max(50).optional().nullable(),
+  tower: z.string().trim().max(50).optional().nullable(),
+  view: z.string().trim().max(100).optional().nullable(),
+  condition: z.string().trim().max(100).optional().nullable(),
+  certificate: z.string().trim().max(100).optional().nullable(),
+  facilities: z.array(z.string().trim()).default([]),
+  images: z.array(z.string().trim()).min(1, "Minimal unggah 1 foto properti"),
   videoUrl: optionalMediaUrl,
   videoThumbnailUrl: optionalMediaUrl,
   virtualTourUrl: optionalMediaUrl,
 });
 
 export const propertyFilterSchema = z.object({
-  search: z.string().trim().optional(),
-  location: z.string().trim().optional(),
-  propertyType: z.string().trim().optional(),
-  transactionType: z.string().trim().optional(),
-  priceMin: z.number().int().nonnegative().optional(),
-  priceMax: z.number().int().nonnegative().optional(),
-  bedrooms: z.number().int().nonnegative().optional(),
-  status: z.string().trim().optional(),
-  sortBy: z.enum(["terbaru", "harga-rendah", "harga-tinggi"]).default("terbaru"),
-});
-
-export const reviewDraftSchema = z.object({
-  propertyId: z.number().int().positive(),
-  authorName: z.string().trim().min(2, "Nama minimal 2 karakter").max(128, "Nama terlalu panjang"),
-  rating: z.number().int().min(1).max(5),
-  comment: z.string().trim().min(5, "Ulasan minimal 5 karakter").max(2000, "Ulasan terlalu panjang"),
-});
-
-export const reviewModerationSchema = z.object({
-  reviewId: z.number().int().positive(),
-  status: z.enum(["approved", "rejected"]),
+  search: z.string().optional(),
+  location: z.string().optional(),
+  propertyType: z.string().optional(),
+  transactionType: z.string().optional(),
+  minPrice: z.number().optional(),
+  maxPrice: z.number().optional(),
+  bedrooms: z.number().optional(),
+  sortBy: z.enum(["terbaru", "termurah", "termahal"]).optional(),
 });
 
 export const whatsappLeadSchema = z.object({
   propertyId: z.number().int().positive(),
-  visitorId: z.string().max(64).optional().nullable(),
-  path: z.string().max(512).optional().nullable(),
+  visitorId: z.string().optional(),
+  path: z.string().optional(),
+});
+
+export const reviewDraftSchema = z.object({
+  propertyId: z.number().int().positive(),
+  authorName: z.string().trim().min(2, "Nama minimal 2 karakter"),
+  rating: z.number().int().min(1).max(5),
+  comment: z.string().trim().min(5, "Komentar minimal 5 karakter"),
 });
 
 const legacyPropertySchema = z.object({
-  id: z.number().optional(),
   title: z.string(),
-  location: z.string(),
+  description: z.string().optional(),
+  type: z.string().optional(),
   price: z.number(),
-  image: z.string().optional(),
-  images: z.array(z.string()).optional(),
+  location: z.string(),
+  area: z.number().optional(),
   beds: z.number().optional(),
   baths: z.number().optional(),
-  area: z.number().optional(),
-  type: z.string().optional(),
-  description: z.string().optional(),
-  date: z.string().optional(),
+  image: z.string().optional(),
+  images: z.array(z.string()).optional(),
 });
 
-function toStorageBytes(value: string) {
-  return Buffer.from(value.replace(/^data:[^;]+;base64,/, ""), "base64");
-}
-
 function isBase64Image(value: string) {
-  return value.startsWith("data:image/");
+  return typeof value === "string" && value.startsWith("data:image/");
 }
 
-function normalizePropertyMedia(property: any) {
+function toStorageBytes(value: string): Buffer {
+  const base64Data = value.replace(/^data:image\/[a-zA-Z0-9.+-]+;base64,/, "");
+  return Buffer.from(base64Data, "base64");
+}
+
+function formatPropertyRow(property: any) {
   return {
     ...property,
+    facilities: Array.isArray(property.facilities) ? property.facilities : [],
     images: Array.isArray(property.images)
       ? property.images.map((image: unknown) => typeof image === "string" ? normalizeStoredMediaUrl(image) ?? image : image)
       : property.images,
@@ -138,68 +132,98 @@ export const propertyRouter = router({
       if (!db) return [];
 
       const filters = { sortBy: "terbaru" as const, ...input };
-      const conditions = [eq(propertyListings.status, filters.status ?? "active")];
+      const conditions = [];
 
-      if (filters.propertyType && filters.propertyType !== "semua") {
-        conditions.push(eq(propertyListings.propertyType, filters.propertyType));
-      }
-      if (filters.transactionType && filters.transactionType !== "semua") {
-        conditions.push(eq(propertyListings.transactionType, filters.transactionType));
-      }
-      if (filters.location) {
-        conditions.push(like(propertyListings.location, `%${filters.location}%`));
-      }
       if (filters.search) {
         conditions.push(
           or(
             like(propertyListings.title, `%${filters.search}%`),
             like(propertyListings.location, `%${filters.search}%`),
             like(propertyListings.description, `%${filters.search}%`),
-          )!,
+          ),
         );
       }
-      if (filters.priceMin !== undefined) {
-        conditions.push(gte(propertyListings.price, filters.priceMin));
+      if (filters.location && filters.location !== "Semua") {
+        conditions.push(eq(propertyListings.location, filters.location));
       }
-      if (filters.priceMax !== undefined) {
-        conditions.push(lte(propertyListings.price, filters.priceMax));
+      if (filters.propertyType && filters.propertyType !== "semua") {
+        conditions.push(eq(propertyListings.propertyType, filters.propertyType));
+      }
+      if (filters.transactionType && filters.transactionType !== "semua") {
+        conditions.push(eq(propertyListings.transactionType, filters.transactionType));
+      }
+      if (filters.minPrice !== undefined) {
+        conditions.push(gte(propertyListings.price, filters.minPrice));
+      }
+      if (filters.maxPrice !== undefined) {
+        conditions.push(lte(propertyListings.price, filters.maxPrice));
       }
       if (filters.bedrooms !== undefined) {
         conditions.push(gte(propertyListings.bedrooms, filters.bedrooms));
       }
 
-      const orderBy = filters.sortBy === "harga-rendah"
-        ? propertyListings.price
-        : filters.sortBy === "harga-tinggi"
-          ? desc(propertyListings.price)
-          : desc(propertyListings.createdAt);
+      try {
+        let query = db.select().from(propertyListings);
+        if (conditions.length > 0) {
+          query = query.where(and(...conditions)) as any;
+        }
 
-      const rows = await db
-        .select()
-        .from(propertyListings)
-        .where(and(...conditions))
-        .orderBy(orderBy);
-      return rows.map(normalizePropertyMedia);
+        if (filters.sortBy === "termurah") {
+          query = query.orderBy(propertyListings.price) as any;
+        } else if (filters.sortBy === "termahal") {
+          query = query.orderBy(desc(propertyListings.price)) as any;
+        } else {
+          query = query.orderBy(desc(propertyListings.createdAt)) as any;
+        }
+
+        const rows = await query;
+        return rows.map(formatPropertyRow);
+      } catch (error) {
+        console.error("[Property List]", error);
+        return [];
+      }
     }),
 
-  indexingStatus: adminProcedure.query(async () => listPropertyIndexingStatuses()),
+  indexingStatus: publicProcedure.query(async () => {
+    return await listPropertyIndexingStatuses();
+  }),
 
   getById: publicProcedure
     .input(z.object({ id: z.number().int().positive() }))
     .query(async ({ input }) => {
       const db = await getDb();
       if (!db) return null;
-      const rows = await db.select().from(propertyListings).where(eq(propertyListings.id, input.id)).limit(1);
-      return rows[0] ? normalizePropertyMedia(rows[0]) : null;
+      try {
+        const rows = await db
+          .select()
+          .from(propertyListings)
+          .where(eq(propertyListings.id, input.id))
+          .limit(1);
+        if (!rows[0]) return null;
+        return formatPropertyRow(rows[0]);
+      } catch (error) {
+        console.error("[Property GetById]", error);
+        return null;
+      }
     }),
 
   getBySlug: publicProcedure
-    .input(z.object({ slug: z.string().trim().min(3).max(320) }))
+    .input(z.object({ slug: z.string().min(1) }))
     .query(async ({ input }) => {
       const db = await getDb();
       if (!db) return null;
-      const rows = await db.select().from(propertyListings).where(eq(propertyListings.slug, input.slug)).limit(1);
-      return rows[0] ? normalizePropertyMedia(rows[0]) : null;
+      try {
+        const rows = await db
+          .select()
+          .from(propertyListings)
+          .where(eq(propertyListings.slug, input.slug))
+          .limit(1);
+        if (!rows[0]) return null;
+        return formatPropertyRow(rows[0]);
+      } catch (error) {
+        console.error("[Property GetBySlug]", error);
+        return null;
+      }
     }),
 
   create: adminProcedure
@@ -210,11 +234,18 @@ export const propertyRouter = router({
 
       try {
         const [result] = await db.insert(propertyListings).values({
-          ...input,
+          title: input.title,
+          description: input.description,
+          propertyType: input.propertyType,
+          transactionType: input.transactionType,
+          price: Math.max(0, Math.round(input.price)),
+          location: input.location,
           address: input.address || null,
           area: input.area ?? null,
           bedrooms: input.bedrooms ?? null,
           bathrooms: input.bathrooms ?? null,
+          facilities: input.facilities,
+          images: input.images,
           floor: input.floor || null,
           tower: input.tower || null,
           view: input.view || null,
@@ -238,7 +269,6 @@ export const propertyRouter = router({
         } catch (e) {
           console.warn("[NotifyOwner] Gagal mengirim notifikasi pemilik:", e);
         }
-
 
         return { success: true, id, slug };
       } catch (error) {
@@ -281,6 +311,23 @@ export const propertyRouter = router({
       }
     }),
 
+  updateStatus: adminProcedure
+    .input(z.object({ id: z.number().int().positive(), status: z.enum(["active", "sold", "inactive"]) }))
+    .mutation(async ({ input }) => {
+      const db = await getDb();
+      if (!db) return databaseError(new Error("Database unavailable"), "UpdateStatus");
+
+      try {
+        await db
+          .update(propertyListings)
+          .set({ status: input.status })
+          .where(eq(propertyListings.id, input.id));
+        return { success: true };
+      } catch (error) {
+        return databaseError(error, "UpdateStatus");
+      }
+    }),
+
   delete: adminProcedure
     .input(z.object({ id: z.number().int().positive() }))
     .mutation(async ({ input }) => {
@@ -288,95 +335,10 @@ export const propertyRouter = router({
       if (!db) return databaseError(new Error("Database unavailable"), "Delete");
 
       try {
-        const existing = await db.select().from(propertyListings).where(eq(propertyListings.id, input.id)).limit(1);
-        if (existing[0]) {
-          const prop = existing[0];
-          const urlsToDelete: string[] = [];
-          if (Array.isArray(prop.images)) {
-            for (const img of prop.images) {
-              if (typeof img === 'string' && img.startsWith('http')) urlsToDelete.push(img);
-            }
-          }
-          if (prop.videoUrl && typeof prop.videoUrl === 'string' && prop.videoUrl.startsWith('http')) {
-            urlsToDelete.push(prop.videoUrl);
-          }
-          if (prop.videoThumbnailUrl && typeof prop.videoThumbnailUrl === 'string' && prop.videoThumbnailUrl.startsWith('http')) {
-            urlsToDelete.push(prop.videoThumbnailUrl);
-          }
-          if (urlsToDelete.length > 0) {
-            try {
-              const { del } = await import('@vercel/blob');
-              await del(urlsToDelete, { token: process.env.BLOB_READ_WRITE_TOKEN || "mock-token-for-tests" });
-            } catch (blobDelErr) {
-              console.warn("[Property Delete] Failed to delete associated Vercel Blobs:", blobDelErr);
-            }
-          }
-        }
-        await db.delete(propertyIndexingQueue).where(eq(propertyIndexingQueue.propertyId, input.id));
         await db.delete(propertyListings).where(eq(propertyListings.id, input.id));
         return { success: true };
       } catch (error) {
         return databaseError(error, "Delete");
-      }
-    }),
-
-  uploadImage: adminProcedure
-    .input(
-      z.object({
-        fileName: z.string().trim().min(1),
-        base64Data: z.string().min(1),
-        contentType: z.string().regex(/^image\//),
-      }),
-    )
-    .mutation(async ({ input }) => {
-      try {
-        const buffer = toStorageBytes(input.base64Data);
-        if (buffer.byteLength > 10 * 1024 * 1024) {
-          throw new Error("Image exceeds the upload limit");
-        }
-        const extension = input.fileName.split(".").pop()?.toLowerCase() || "jpg";
-        const uploaded = await storagePut(
-          `properties/${Date.now()}-${crypto.randomUUID()}.${extension}`,
-          buffer,
-          input.contentType,
-        );
-        return { success: true, url: uploaded.url };
-      } catch (error) {
-        console.error("[Property Upload]", error);
-        throw new TRPCError({
-          code: "INTERNAL_SERVER_ERROR",
-          message: "Gagal mengupload foto. Silakan coba lagi.",
-        });
-      }
-    }),
-
-  uploadVideo: adminProcedure
-    .input(
-      z.object({
-        fileName: z.string().trim().min(1).max(255),
-        base64Data: z.string().min(1),
-        contentType: z.enum(["video/mp4", "video/webm", "video/quicktime"]),
-      }),
-    )
-    .mutation(async ({ input }) => {
-      try {
-        const buffer = toStorageBytes(input.base64Data);
-        if (buffer.byteLength > 50 * 1024 * 1024) {
-          throw new Error("Video melebihi batas 50 MB");
-        }
-        const extension = input.fileName.split(".").pop()?.toLowerCase() || "mp4";
-        const uploaded = await storagePut(
-          `properties/videos/${Date.now()}-${crypto.randomUUID()}.${extension}`,
-          buffer,
-          input.contentType,
-        );
-        return { success: true, url: uploaded.url };
-      } catch (error) {
-        console.error("[Property Video Upload]", error);
-        throw new TRPCError({
-          code: "INTERNAL_SERVER_ERROR",
-          message: "Gagal mengupload video. Pastikan format MP4/WebM/MOV dan ukuran maksimal 50 MB.",
-        });
       }
     }),
 
@@ -611,41 +573,8 @@ export const propertyRouter = router({
       } catch (error) {
         if (error instanceof TRPCError) throw error;
         console.error("[Property Add Review]", error);
-        throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Gagal menyimpan ulasan" });
+        throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Gagal mengirim ulasan" });
       }
     }),
 
-  listPendingReviews: adminProcedure.query(async () => {
-    const db = await getDb();
-    if (!db) return [];
-    return db
-      .select({
-        id: propertyReviews.id,
-        propertyId: propertyReviews.propertyId,
-        propertyTitle: propertyListings.title,
-        authorName: propertyReviews.authorName,
-        rating: propertyReviews.rating,
-        comment: propertyReviews.comment,
-        reviewStatus: propertyReviews.reviewStatus,
-        createdAt: propertyReviews.createdAt,
-      })
-      .from(propertyReviews)
-      .innerJoin(propertyListings, eq(propertyReviews.propertyId, propertyListings.id))
-      .where(eq(propertyReviews.reviewStatus, "pending"))
-      .orderBy(desc(propertyReviews.createdAt));
-  }),
-
-  moderateReview: adminProcedure
-    .input(reviewModerationSchema)
-    .mutation(async ({ input }) => {
-      const db = await getDb();
-      if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Database tidak tersedia" });
-      await db
-        .update(propertyReviews)
-        .set({ reviewStatus: input.status })
-        .where(eq(propertyReviews.id, input.reviewId));
-      return { success: true };
-    }),
 });
-
-export type PropertyDraft = z.infer<typeof propertyDraftSchema>;
