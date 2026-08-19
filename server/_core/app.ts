@@ -103,7 +103,7 @@ Sitemap: ${origin}/sitemap.xml
   });
 
   app.get("/apk/latest.json", (req, res) => {
-    const downloadPath = "/downloads/primedeal-admin.apk";
+    const downloadPath = "/api/download-apk";
     const siteOrigin = publicOrigin(req);
     res
       .set("Cache-Control", "no-store, max-age=0")
