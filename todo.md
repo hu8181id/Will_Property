@@ -86,5 +86,9 @@
 - [x] Tambahkan tombol 'Tandai Terjual' / 'Tersedia' di halaman Kelola Listing admin serta tampilkan badge 'TERJUAL' di halaman publik.
 - [x] Rilis APK Admin versi terbaru yang mendukung tombol status Terjual.
 
-- [x] Bangun, tandatangani, dan rilis APK Admin versi terbaru dengan dukungan tombol status Terjual pada listing properti.
+- [x] Bangun, tandatangani, dan rilis APK Admin versi terbaru dengan dukungan tombol status Terjual.
+- [x] Perbaiki APK Admin PrimeDeal yang gagal dipasang di perangkat Android; hasilkan APK rilis yang tervalidasi dan dapat diunduh.
+- [ ] Uji instal APK Admin v1.4.11 hasil rebuild pada perangkat Android atau emulator.
+- [ ] Simpan bukti verifikasi akhir bahwa APK dapat dipasang dan membuka dashboard admin.
+- [ ] Pastikan tombol/status TERJUAL terlihat dan dapat digunakan pada halaman Kelola Listing di APK Admin.
 
