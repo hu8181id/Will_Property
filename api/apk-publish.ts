@@ -9,12 +9,17 @@ type VercelRequest = IncomingMessage & {
 };
 
 type ApkPublishPayload = {
+  app?: unknown;
   versionCode?: unknown;
   versionName?: unknown;
   apkBase64?: unknown;
 };
 
 const MAX_APK_BYTES = 4_000_000;
+const APK_TARGETS = {
+  admin: { prefix: "apps/primedeal/admin/", filename: "primedeal-admin" },
+  public: { prefix: "apps/primedeal/public/", filename: "primedeal-public" },
+} as const;
 
 function getUrl(req: VercelRequest) {
   const host = typeof req.headers.host === "string" ? req.headers.host : "primedeal-property.vercel.app";
@@ -81,6 +86,10 @@ export default async function handler(req: VercelRequest, res: ServerResponse): 
 
   try {
     const body = await readJsonBody(req);
+    const app = body.app === undefined ? "admin" : body.app;
+    if (app !== "admin" && app !== "public") {
+      throw new Error("Target APK tidak valid.");
+    }
     const versionCode = Number(body.versionCode);
     const versionName = typeof body.versionName === "string" ? body.versionName.trim() : "";
     if (!Number.isSafeInteger(versionCode) || versionCode < 1 || versionCode > 1_000_000 || !/^\d+(?:\.\d+){1,2}$/.test(versionName)) {
@@ -88,7 +97,8 @@ export default async function handler(req: VercelRequest, res: ServerResponse): 
     }
 
     const apkBytes = decodeApk(body.apkBase64);
-    const pathname = `apps/primedeal/admin/primedeal-admin-v${versionName}-vc${versionCode}.apk`;
+    const target = APK_TARGETS[app];
+    const pathname = `${target.prefix}${target.filename}-v${versionName}-vc${versionCode}.apk`;
     const blob = await put(pathname, apkBytes, {
       access: "public",
       addRandomSuffix: false,
@@ -96,7 +106,7 @@ export default async function handler(req: VercelRequest, res: ServerResponse): 
       contentType: "application/vnd.android.package-archive",
     });
 
-    sendJson(res, 201, { pathname: blob.pathname, url: blob.url, size: apkBytes.length });
+    sendJson(res, 201, { app, pathname: blob.pathname, url: blob.url, size: apkBytes.length });
   } catch (error) {
     sendJson(res, 400, { error: error instanceof Error ? error.message : "Gagal mempublikasikan APK." });
   }

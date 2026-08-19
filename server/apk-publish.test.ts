@@ -60,4 +60,28 @@ describe("publikasi APK Admin", () => {
       expect.objectContaining({ access: "public", contentType: "application/vnd.android.package-archive" }),
     );
   });
+
+  it("mempublikasikan APK Publik ke jalur Blob terpisah tetapi tetap memerlukan kunci Admin", async () => {
+    process.env.BLOB_READ_WRITE_TOKEN = "blob-test-token";
+    mockedPut.mockResolvedValue({
+      pathname: "apps/primedeal/public/primedeal-public-v1.0.10-vc10.apk",
+      url: "https://store.public.blob.vercel-storage.com/apps/primedeal/public/primedeal-public-v1.0.10-vc10.apk",
+    } as never);
+    const response = createResponse();
+    const apkBase64 = Buffer.from([0x50, 0x4b, 0x03, 0x04, 0x00]).toString("base64");
+
+    await handler({
+      method: "POST",
+      headers: { "x-admin-key": "PDmanage!2026#SafeKey84" },
+      body: { app: "public", versionCode: 10, versionName: "1.0.10", apkBase64 },
+    } as never, response);
+
+    expect(response.statusCode).toBe(201);
+    expect(response.body).toContain('"app":"public"');
+    expect(mockedPut).toHaveBeenCalledWith(
+      "apps/primedeal/public/primedeal-public-v1.0.10-vc10.apk",
+      expect.any(Buffer),
+      expect.objectContaining({ access: "public", contentType: "application/vnd.android.package-archive" }),
+    );
+  });
 });
