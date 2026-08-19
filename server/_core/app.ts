@@ -108,7 +108,7 @@ Sitemap: ${origin}/sitemap.xml
     res
       .set("Cache-Control", "no-store, max-age=0")
       .json({
-        versionCode: 6,
+        versionCode: 11,
         versionName: "1.4.0",
         downloadUrl: `${siteOrigin}${downloadPath}`,
         sha256: "c0409359671ecf64526c64b9d4790734980da502db1a5be42cae998703bcbe3b",

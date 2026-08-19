@@ -6,7 +6,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Cache-Control", "no-store, max-age=0");
   return res.status(200).json({
-    versionCode: 6,
+    versionCode: 11,
     versionName: "1.4.0",
     downloadUrl: `${origin}${downloadPath}`,
     sha256: "c0409359671ecf64526c64b9d4790734980da502db1a5be42cae998703bcbe3b",
