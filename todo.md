@@ -137,3 +137,10 @@
 - [x] Buat ikon aplikasi PrimeDeal ringkas dari simbol gedung emas tanpa teks dan nomor WhatsApp
 - [x] Integrasikan ikon PrimeDeal ke APK Admin v1.4.15 dengan sertifikat pembaruan yang kompatibel
 - [ ] Integrasikan ikon PrimeDeal ke paket APK Publik pada rilis yang sertifikat pembaruannya kompatibel
+
+- [x] Buat tiga screenshot promosi Android yang menunjukkan ikon PrimeDeal ringkas
+- [ ] Kirim tiga screenshot PrimeDeal kepada pengguna untuk dipilih atau digunakan
+- [x] Verifikasi tiga screenshot PrimeDeal selesai tergenerate tanpa gagal dan tinjau tampilan ikon kecilnya
+- [x] Evaluasi kebutuhan pembuatan ulang screenshot setelah dokumentasi visual lengkap
+- [x] Dokumentasikan inspeksi visual tiga screenshot dan keterbacaan ikon PrimeDeal kecil pada setiap variasi
+- [x] Regenerasi screenshot bila ikon PrimeDeal kecil tidak terlihat jelas pada salah satu variasi
