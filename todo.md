@@ -92,6 +92,9 @@
 - [ ] Simpan bukti verifikasi akhir bahwa APK dapat dipasang dan membuka dashboard admin.
 - [ ] Uji instal APK Admin v1.4.13 pada perangkat Android pengguna dan konfirmasi tombol TERJUAL dapat ditekan.
 - [ ] Pastikan deployment Vercel yang dipakai APK memuat kontrol TERJUAL dan tombol Statistik Pengunjung, bukan UI lama.
+- [ ] Kurangi jumlah file Serverless Functions Vercel menjadi maksimal 12 tanpa menghapus pengujian.
+- [ ] Perbaiki error strict TypeScript pada helper upload Blob/video yang memblokir deployment Vercel.
+- [ ] Ganti impor direktori server/routers pada handler Vercel menjadi impor file eksplisit agar /api/trpc tidak crash.
 - [ ] Tambahkan akses TERJUAL dan Statistik Pengunjung yang tetap terlihat pada layar HP tanpa bergantung pada posisi scroll atau dialog.
 - [x] Pastikan tombol/status TERJUAL terlihat dan dapat digunakan pada halaman Kelola Listing di APK Admin.
 - [x] Tampilkan kontrol TERJUAL secara jelas pada kartu listing dan/atau formulir edit tanpa mengganggu tombol Simpan.
