@@ -113,3 +113,4 @@
 - [ ] Implementasikan tombol status TERJUAL pada APK Admin / manajemen listing
 - [ ] Tampilkan statistik pengunjung Website dan APK di dashboard APK Admin
 - [ ] Perbaiki alur instalasi APK agar tidak mengalami error "Aplikasi tidak terinstal"
+- [ ] Sinkronkan source GitHub dengan Vercel dan matikan pop-up update yang memicu 404
