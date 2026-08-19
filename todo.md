@@ -144,3 +144,9 @@
 - [x] Evaluasi kebutuhan pembuatan ulang screenshot setelah dokumentasi visual lengkap
 - [x] Dokumentasikan inspeksi visual tiga screenshot dan keterbacaan ikon PrimeDeal kecil pada setiap variasi
 - [x] Regenerasi screenshot bila ikon PrimeDeal kecil tidak terlihat jelas pada salah satu variasi
+
+- [ ] Buat feature image landscape PrimeDeal untuk banner promosi aplikasi
+- [ ] Kirimkan feature image PrimeDeal kepada pengguna
+
+- [x] Buat feature image PrimeDeal JPG berukuran 1024 × 500 piksel untuk Google Play Store
+- [x] Verifikasi ukuran dan format feature image Play Store sebelum pengiriman
