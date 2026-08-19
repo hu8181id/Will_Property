@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-import { seoMetadataUtils } from "../server/seo";
+import { seoMetadataUtils } from "../server/seo.js";
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
   const requestOrigin = `https://${req.headers.host || "primedeal-property.vercel.app"}`;

@@ -1,5 +1,5 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
-import type { User } from "../drizzle/schema";
+import type { User } from "../drizzle/schema.js";
 
 export const ADMIN_LOGIN_ENDPOINT = "/api/trpc/auth.adminLogin";
 export const ADMIN_SESSION_COOKIE = "primedeal_admin_session";

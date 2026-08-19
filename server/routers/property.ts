@@ -1,14 +1,14 @@
 import { z } from "zod";
 import { and, desc, eq, gte, like, lte, or } from "drizzle-orm";
-import { propertyIndexingQueue, propertyLeads, propertyListings, propertyReviews } from "../../drizzle/schema";
-import { sendWhatsAppAgentNotification } from "../whatsappMeta";
-import { getDb } from "../db";
-import { normalizeStoredMediaUrl, storagePut } from "../storage";
-import { adminProcedure, protectedProcedure, publicProcedure, router } from "../_core/trpc";
+import { propertyIndexingQueue, propertyLeads, propertyListings, propertyReviews } from "../../drizzle/schema.js";
+import { sendWhatsAppAgentNotification } from "../whatsappMeta.js";
+import { getDb } from "../db.js";
+import { normalizeStoredMediaUrl, storagePut } from "../storage.js";
+import { adminProcedure, protectedProcedure, publicProcedure, router } from "../_core/trpc.js";
 import { TRPCError } from "@trpc/server";
-import { notifyOwner } from "../_core/notification";
-import { buildPropertySlug } from "../../shared/propertySlug";
-import { enqueuePropertyIndexing, listPropertyIndexingStatuses } from "../propertyIndexing";
+import { notifyOwner } from "../_core/notification.js";
+import { buildPropertySlug } from "../../shared/propertySlug.js";
+import { enqueuePropertyIndexing, listPropertyIndexingStatuses } from "../propertyIndexing.js";
 
 const optionalMediaUrl = z.preprocess(
   (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),

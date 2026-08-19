@@ -4,9 +4,9 @@ import {
   getPropertyVideoUploadSession,
   savePropertyVideoChunkKey,
   setPropertyVideoUploadCompletedUrl,
-} from "./db";
-import { sdk } from "./_core/sdk";
-import { storageGetSignedUrl, storagePut } from "./storage";
+} from "./db.js";
+import { sdk } from "./_core/sdk.js";
+import { storageGetSignedUrl, storagePut } from "./storage.js";
 
 export const PROPERTY_VIDEO_CONTENT_TYPES = [
   "video/mp4",

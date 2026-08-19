@@ -5,7 +5,7 @@ import {
   getAdminCookieOptions,
   recordLoginAttempt,
   verifyAdminCredentials,
-} from "../../server/adminAuth";
+} from "../../server/adminAuth.js";
 
 type VercelRequest = IncomingMessage & {
   body?: unknown;

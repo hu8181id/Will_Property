@@ -1,8 +1,8 @@
 import { asc, eq } from "drizzle-orm";
-import { propertyIndexingQueue, propertyListings } from "../drizzle/schema";
-import { buildPropertySlug } from "../shared/propertySlug";
-import { seoMetadataUtils } from "./seo";
-import { getDb } from "./db";
+import { propertyIndexingQueue, propertyListings } from "../drizzle/schema.js";
+import { buildPropertySlug } from "../shared/propertySlug.js";
+import { seoMetadataUtils } from "./seo.js";
+import { getDb } from "./db.js";
 
 export type PropertyIndexingStatus = "sitemap_ready" | "error";
 

@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { ADMIN_SESSION_COOKIE } from "../../server/adminAuth";
+import { ADMIN_SESSION_COOKIE } from "../../server/adminAuth.js";
 
 export const config = {
   runtime: "nodejs",
