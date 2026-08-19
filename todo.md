@@ -91,6 +91,8 @@
 - [ ] Uji instal APK Admin v1.4.11 hasil rebuild pada perangkat Android atau emulator.
 - [ ] Simpan bukti verifikasi akhir bahwa APK dapat dipasang dan membuka dashboard admin.
 - [ ] Uji instal APK Admin v1.4.13 pada perangkat Android pengguna dan konfirmasi tombol TERJUAL dapat ditekan.
+- [ ] Pastikan deployment Vercel yang dipakai APK memuat kontrol TERJUAL dan tombol Statistik Pengunjung, bukan UI lama.
+- [ ] Tambahkan akses TERJUAL dan Statistik Pengunjung yang tetap terlihat pada layar HP tanpa bergantung pada posisi scroll atau dialog.
 - [x] Pastikan tombol/status TERJUAL terlihat dan dapat digunakan pada halaman Kelola Listing di APK Admin.
 - [x] Tampilkan kontrol TERJUAL secara jelas pada kartu listing dan/atau formulir edit tanpa mengganggu tombol Simpan.
 - [x] Pastikan menu statistik pengunjung Website dan APK tetap terlihat serta dapat dibuka dari APK Admin.
