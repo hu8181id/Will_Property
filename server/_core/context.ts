@@ -76,6 +76,7 @@ export async function createFetchContext(
   const req = {
     headers,
     protocol: url.protocol.replace(":", ""),
+    url: opts.req.url,
     originalUrl: `${url.pathname}${url.search}`,
     ip: headers["x-forwarded-for"]?.toString().split(",")[0]?.trim(),
     get(name: string) {

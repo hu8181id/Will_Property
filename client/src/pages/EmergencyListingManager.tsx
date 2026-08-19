@@ -4,7 +4,7 @@ import { ArrowLeft, BarChart3, Edit, ShieldCheck, Trash2, Video } from "lucide-r
 import { toast as sonnerToast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import AddPropertyDialog, { PropertyFormData, PropertyFormSubmit } from "@/components/AddPropertyDialog";
+import AddPropertyDialog, { PropertyFormData, PropertyFormSubmit, type PropertyStatus } from "@/components/AddPropertyDialog";
 import { trpc } from "@/lib/trpc";
 import { uploadPropertyVideo } from "@/lib/propertyVideoUpload";
 import { deleteVercelBlob, isVercelBlobUrl } from "@/lib/vercelBlobClient";
@@ -160,6 +160,7 @@ export default function EmergencyListingManager() {
       videoUrl: textValue(editingProperty.videoUrl),
       videoThumbnailUrl: textValue(editingProperty.videoThumbnailUrl),
       virtualTourUrl: textValue(editingProperty.virtualTourUrl),
+      status: editingProperty.status === "sold" ? ("sold" as PropertyStatus) : ("active" as PropertyStatus),
       images: editingProperty.images ?? [],
     };
   }, [editingProperty]);
@@ -218,6 +219,10 @@ export default function EmergencyListingManager() {
 
     if (editingProperty) {
       await updateMutation.mutateAsync({ id: editingProperty.id, ...payload });
+      const currentStatus = editingProperty.status === "sold" ? "sold" : "active";
+      if (data.status !== currentStatus) {
+        await updateStatusMutation.mutateAsync({ id: editingProperty.id, status: data.status });
+      }
       const oldBlobUrls = [
         ...(editingProperty.images ?? []),
         editingProperty.videoUrl ?? '',
@@ -261,7 +266,7 @@ export default function EmergencyListingManager() {
           <Link href={analyticsHref}>
             <Button variant="secondary" size="sm" className="shrink-0 gap-1.5 bg-white text-blue-700 hover:bg-blue-50">
               <BarChart3 className="h-4 w-4" />
-              <span className="hidden sm:inline">Statistik</span>
+              <span>Statistik Pengunjung</span>
             </Button>
           </Link>
         )}

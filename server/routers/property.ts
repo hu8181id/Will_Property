@@ -65,6 +65,11 @@ export const reviewDraftSchema = z.object({
   comment: z.string().trim().min(5, "Komentar minimal 5 karakter"),
 });
 
+export const reviewModerationSchema = z.object({
+  reviewId: z.number().int().positive(),
+  status: z.enum(["approved", "rejected"]),
+});
+
 const legacyPropertySchema = z.object({
   title: z.string(),
   description: z.string().optional(),
@@ -575,6 +580,38 @@ export const propertyRouter = router({
         console.error("[Property Add Review]", error);
         throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Gagal mengirim ulasan" });
       }
+    }),
+
+  listPendingReviews: adminProcedure.query(async () => {
+    const db = await getDb();
+    if (!db) return [];
+    return db
+      .select({
+        id: propertyReviews.id,
+        propertyId: propertyReviews.propertyId,
+        propertyTitle: propertyListings.title,
+        authorName: propertyReviews.authorName,
+        rating: propertyReviews.rating,
+        comment: propertyReviews.comment,
+        reviewStatus: propertyReviews.reviewStatus,
+        createdAt: propertyReviews.createdAt,
+      })
+      .from(propertyReviews)
+      .innerJoin(propertyListings, eq(propertyReviews.propertyId, propertyListings.id))
+      .where(eq(propertyReviews.reviewStatus, "pending"))
+      .orderBy(desc(propertyReviews.createdAt));
+  }),
+
+  moderateReview: adminProcedure
+    .input(reviewModerationSchema)
+    .mutation(async ({ input }) => {
+      const db = await getDb();
+      if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Database tidak tersedia" });
+      await db
+        .update(propertyReviews)
+        .set({ reviewStatus: input.status })
+        .where(eq(propertyReviews.id, input.reviewId));
+      return { success: true };
     }),
 
 });

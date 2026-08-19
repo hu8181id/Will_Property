@@ -18,6 +18,7 @@ import { normalizePropertyVideoContentType } from "@/lib/propertyVideoUpload";
 import { uploadToVercelBlob } from "@/lib/vercelBlobClient";
 
 export const MAX_IMAGES = 5;
+export type PropertyStatus = "active" | "sold" | "inactive";
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const PROPERTY_IMAGE_CONTENT_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif']);
 
@@ -42,6 +43,7 @@ export interface PropertyFormData {
   videoUrl: string;
   videoThumbnailUrl: string;
   virtualTourUrl: string;
+  status: PropertyStatus;
 }
 
 export interface SelectedPropertyImage {
@@ -93,6 +95,7 @@ const emptyForm: PropertyFormData = {
   videoUrl: "",
   videoThumbnailUrl: "",
   virtualTourUrl: "",
+  status: "active",
 };
 
 async function uploadPropertyImage(file: File): Promise<SelectedPropertyImage> {
@@ -129,6 +132,7 @@ function propertyToForm(initial?: AddPropertyDialogProps["initialProperty"]): Pr
     videoUrl: initial?.videoUrl ?? "",
     videoThumbnailUrl: initial?.videoThumbnailUrl ?? "",
     virtualTourUrl: initial?.virtualTourUrl ?? "",
+    status: initial?.status === "sold" ? "sold" : "active",
   };
 }
 
@@ -401,6 +405,25 @@ export default function AddPropertyDialog({
             )}
             <div className="md:col-span-2"><label className="field-label" htmlFor="property-description-input">Deskripsi *</label><Textarea id="property-description-input" rows={5} value={formData.description} onChange={(event) => setFormData({ ...formData, description: event.target.value })} placeholder="Tuliskan deskripsi profesional properti..." /></div>
           </div>
+
+          {isEditing && (
+            <section className="rounded-xl border-2 border-amber-200 bg-amber-50 p-4" aria-labelledby="listing-status-heading">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h3 id="listing-status-heading" className="flex items-center gap-2 text-base font-bold text-amber-950">🏷️ Status Listing</h3>
+                  <p className="mt-1 text-xs leading-5 text-amber-900">Gunakan tombol ini jika unit sudah terjual. Status akan langsung terlihat pada listing publik.</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Button type="button" variant={formData.status === "sold" ? "default" : "outline"} onClick={() => setFormData((current) => ({ ...current, status: "sold" }))} disabled={submitting} className={formData.status === "sold" ? "bg-amber-600 text-white hover:bg-amber-700" : "border-amber-300 text-amber-800 hover:bg-amber-100"}>
+                    {formData.status === "sold" ? "✓ TERJUAL" : "Tandai Terjual"}
+                  </Button>
+                  <Button type="button" variant={formData.status === "active" ? "default" : "outline"} onClick={() => setFormData((current) => ({ ...current, status: "active" }))} disabled={submitting} className={formData.status === "active" ? "bg-emerald-600 text-white hover:bg-emerald-700" : "border-emerald-300 text-emerald-800 hover:bg-emerald-100"}>
+                    {formData.status === "active" ? "✓ AKTIF" : "Tandai Aktif"}
+                  </Button>
+                </div>
+              </div>
+            </section>
+          )}
 
           <div className="flex justify-end gap-3 pt-2">
             <Button type="button" variant="outline" onClick={() => setDialogOpen(false)} disabled={submitting}>Batal</Button>

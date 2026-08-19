@@ -90,5 +90,10 @@
 - [x] Perbaiki APK Admin PrimeDeal yang gagal dipasang di perangkat Android; hasilkan APK rilis yang tervalidasi dan dapat diunduh.
 - [ ] Uji instal APK Admin v1.4.11 hasil rebuild pada perangkat Android atau emulator.
 - [ ] Simpan bukti verifikasi akhir bahwa APK dapat dipasang dan membuka dashboard admin.
-- [ ] Pastikan tombol/status TERJUAL terlihat dan dapat digunakan pada halaman Kelola Listing di APK Admin.
+- [ ] Uji instal APK Admin v1.4.13 pada perangkat Android pengguna dan konfirmasi tombol TERJUAL dapat ditekan.
+- [x] Pastikan tombol/status TERJUAL terlihat dan dapat digunakan pada halaman Kelola Listing di APK Admin.
+- [x] Tampilkan kontrol TERJUAL secara jelas pada kartu listing dan/atau formulir edit tanpa mengganggu tombol Simpan.
+- [x] Pastikan menu statistik pengunjung Website dan APK tetap terlihat serta dapat dibuka dari APK Admin.
+- [x] Bersihkan pemanggil tRPC stale pada Listing.tsx agar pemeriksaan TypeScript proyek kembali bersih.
+- [x] Selaraskan atau nonaktifkan prosedur review lama di AdminReviews.tsx agar pemeriksaan TypeScript proyek kembali bersih.
 

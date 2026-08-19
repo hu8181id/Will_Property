@@ -39,8 +39,8 @@ function getRangeDays(startDate: string, endDate: string) {
 export default function AdminAnalyticsDashboard() {
   const { user, loading } = useAuth();
   const [, setLocation] = useLocation();
-  const canViewDashboard = user?.role === "admin";
   const adminKey = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("admin_key") : null;
+  const canViewDashboard = user?.role === "admin" || Boolean(adminKey);
   const manageListingsHref = adminKey ? `/manage-listings?admin_key=${encodeURIComponent(adminKey)}` : "/manage-listings";
   const [selectedRange, setSelectedRange] = useState(() => getPresetRange(7));
   const [appliedRange, setAppliedRange] = useState(() => getPresetRange(7));
@@ -76,7 +76,7 @@ export default function AdminAnalyticsDashboard() {
         <Card className="mx-auto max-w-lg p-6 text-center shadow-sm">
           <ShieldCheck className="mx-auto mb-4 h-10 w-10 text-amber-500" />
           <h1 className="text-xl font-bold text-slate-900">Dashboard khusus admin</h1>
-          <p className="mt-2 text-sm leading-6 text-slate-600">Silakan masuk menggunakan akun pemilik Primedeal untuk melihat statistik pengunjung.</p>
+          <p className="mt-2 text-sm leading-6 text-slate-600">Buka dashboard dari tombol Statistik Pengunjung pada APK Admin atau gunakan tautan dengan admin_key yang valid.</p>
           <Button className="mt-6" onClick={() => setLocation("/admin")}>Kembali ke Portal Admin</Button>
         </Card>
       </main>
