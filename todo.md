@@ -77,6 +77,8 @@
 
 - [x] Pastikan MainActivity di APK Admin mencegat url admob/accounts.grade dengan forceExternalIntent sehingga sama sekali tidak pernah membuka WebView kosong.
 
+- [ ] Siapkan jalur pemulihan APK Admin tanpa pop-up update 404 dan verifikasi pemasangan manual
+
 
 - [x] Tambahkan normalisasi URL di MainActivity APK Admin sehingga jika URL mengandung admob.google.com atau apps.admob.com, otomatis diganti ke https://apps.admob.com/v2/home sebelum dilempar via Intent ACTION_VIEW.
 
@@ -115,3 +117,10 @@
 - [ ] Perbaiki alur instalasi APK agar tidak mengalami error "Aplikasi tidak terinstal"
 - [ ] Sinkronkan source GitHub dengan Vercel dan matikan pop-up update yang memicu 404
 - [ ] Nonaktifkan pop-up update yang memicu 404 pada APK terpasang
+
+- [x] Push rilis distribusi APK Admin ke GitHub setelah konektor memiliki izin tulis
+- [x] Unggah APK Admin tervalidasi ke Vercel Blob yang sudah terhubung dan aktifkan manifest khusus Admin
+- [ ] Verifikasi tautan unduhan Vercel, manifest Android Admin, serta pemasangan manual APK
+- [x] Konsolidasikan endpoint serverless Vercel hingga maksimal 12 fungsi dan deploy ulang rilis APK
+- [x] Validasi APK Admin 1.4.14 dari Vercel Blob: checksum, MIME, package, versionCode 23, dan sertifikat sama dengan APK Admin 1.4.0
+- [ ] Konfirmasi pemasangan APK Admin 1.4.14 pada perangkat Android pengguna dan uji dashboard, Statistik Pengunjung, serta TERJUAL
