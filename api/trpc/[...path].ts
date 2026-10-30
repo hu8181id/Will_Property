@@ -1,12 +1,5 @@
-import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
-import { appRouter } from "../../server/routers.js";
-import { createFetchContext } from "../../server/_core/context.js";
+import { handleTrpcNodeRequest, type NodeStyleResponse } from "../../server/vercel-trpc.js";
 
-export default function handler(request: Request): Promise<Response> {
-  return fetchRequestHandler({
-    endpoint: "/api/trpc",
-    req: request,
-    router: appRouter,
-    createContext: createFetchContext,
-  });
+export default async function handler(request: Request, response: NodeStyleResponse): Promise<void> {
+  await handleTrpcNodeRequest(request, response);
 }

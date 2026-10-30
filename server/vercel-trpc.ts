@@ -1,6 +1,6 @@
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { appRouter } from "./routers.js";
-import { createFetchContext } from "./_core/context";
+import { createFetchContext } from "./_core/context.js";
 
 const endpoint = "/api/trpc";
 
@@ -84,4 +84,24 @@ export function handleTrpcRequest(request: Request): Promise<Response> {
     router: appRouter,
     createContext: createFetchContext,
   });
+}
+
+export type NodeStyleResponse = {
+  statusCode?: number;
+  setHeader?: (name: string, value: string | string[]) => void;
+  end?: (body?: string) => void;
+};
+
+export async function handleTrpcNodeRequest(
+  request: Request,
+  response: NodeStyleResponse,
+): Promise<void> {
+  const trpcResponse = await handleTrpcRequest(request);
+  response.statusCode = trpcResponse.status;
+  trpcResponse.headers.forEach((value, key) => {
+    if (key.toLowerCase() !== "set-cookie") response.setHeader?.(key, value);
+  });
+  const cookieHeaders = trpcResponse.headers.getSetCookie?.() ?? [];
+  if (cookieHeaders.length > 0) response.setHeader?.("set-cookie", cookieHeaders);
+  response.end?.(await trpcResponse.text());
 }
