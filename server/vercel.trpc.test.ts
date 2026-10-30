@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import handler from "../api/trpc";
+import handler from "../api/trpc/[...path]";
 import { createFetchContext } from "./_core/context";
 
 describe("Vercel tRPC Web Handler", () => {
@@ -14,7 +14,7 @@ describe("Vercel tRPC Web Handler", () => {
     expect(context.user?.role).toBe("admin");
   });
 
-  it("serves property.list through the explicit /api/trpc function with status 200", async () => {
+  it("serves property.list through the wildcard /api/trpc function with status 200", async () => {
     const response = await handler(
       new Request("https://primedeal.example/api/trpc/property.list", {
         method: "GET",
