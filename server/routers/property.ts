@@ -104,6 +104,14 @@ function formatPropertyRow(property: any) {
   };
 }
 
+function isUnknownColumnError(error: unknown): boolean {
+  if (!error || typeof error !== "object") return false;
+  const candidate = error as { code?: string; errno?: number; message?: string; cause?: unknown };
+  if (candidate.code === "ER_BAD_FIELD_ERROR" || candidate.errno === 1054) return true;
+  if (candidate.message && /unknown column/i.test(candidate.message)) return true;
+  return candidate.cause !== error && isUnknownColumnError(candidate.cause);
+}
+
 async function uploadLegacyImage(value: string, index: number) {
   if (!isBase64Image(value)) return value;
   const match = value.match(/^data:(image\/[a-zA-Z0-9.+-]+);base64,/);
@@ -184,6 +192,59 @@ export const propertyRouter = router({
         const rows = await query;
         return rows.map(formatPropertyRow);
       } catch (error) {
+        if (isUnknownColumnError(error)) {
+          // Older production databases may not yet have run migrations for
+          // slug/video fields. Select only columns from the original table so
+          // existing listings remain visible until the database is upgraded.
+          console.warn("[Property List] Database schema is behind; retrying with core listing columns.");
+          try {
+            const coreFields = {
+              id: propertyListings.id,
+              title: propertyListings.title,
+              description: propertyListings.description,
+              propertyType: propertyListings.propertyType,
+              transactionType: propertyListings.transactionType,
+              price: propertyListings.price,
+              location: propertyListings.location,
+              address: propertyListings.address,
+              area: propertyListings.area,
+              bedrooms: propertyListings.bedrooms,
+              bathrooms: propertyListings.bathrooms,
+              floor: propertyListings.floor,
+              tower: propertyListings.tower,
+              view: propertyListings.view,
+              condition: propertyListings.condition,
+              certificate: propertyListings.certificate,
+              facilities: propertyListings.facilities,
+              images: propertyListings.images,
+              status: propertyListings.status,
+              createdAt: propertyListings.createdAt,
+              updatedAt: propertyListings.updatedAt,
+            };
+            let fallbackQuery = db.select(coreFields).from(propertyListings);
+            if (conditions.length > 0) {
+              fallbackQuery = fallbackQuery.where(and(...conditions)) as any;
+            }
+            if (filters.sortBy === "termurah") {
+              fallbackQuery = fallbackQuery.orderBy(propertyListings.price) as any;
+            } else if (filters.sortBy === "termahal") {
+              fallbackQuery = fallbackQuery.orderBy(desc(propertyListings.price)) as any;
+            } else {
+              fallbackQuery = fallbackQuery.orderBy(desc(propertyListings.createdAt)) as any;
+            }
+            const rows = await fallbackQuery;
+            return rows.map((row) => formatPropertyRow({
+              ...row,
+              slug: buildPropertySlug(row.title, row.id),
+              videoUrl: null,
+              videoThumbnailUrl: null,
+              virtualTourUrl: null,
+            }));
+          } catch (fallbackError) {
+            console.error("[Property List Compatibility Fallback]", fallbackError);
+            return [];
+          }
+        }
         console.error("[Property List]", error);
         return [];
       }
