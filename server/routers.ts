@@ -1,5 +1,5 @@
-import { COOKIE_NAME } from "../shared/const";
-import { getSessionCookieOptions } from "./_core/cookies";
+import { COOKIE_NAME } from "../shared/const.js";
+import { getSessionCookieOptions } from "./_core/cookies.js";
 import { z } from "zod";
 import {
   ADMIN_SESSION_COOKIE,
@@ -7,13 +7,13 @@ import {
   getAdminCookieOptions,
   getAdminLoginSecuritySummary,
   verifyAdminCredentials,
-} from "./adminAuth";
-import { adminLoginRouter } from "./routers/adminLogin";
-import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, router } from "./_core/trpc";
+} from "./adminAuth.js";
+import { adminLoginRouter } from "./routers/adminLogin.js";
+import { systemRouter } from "./_core/systemRouter.js";
+import { publicProcedure, router } from "./_core/trpc.js";
 import { TRPCError } from "@trpc/server";
-import { analyticsRouter } from "./routers/analytics";
-import { propertyRouter } from "./routers/property";
+import { analyticsRouter } from "./routers/analytics.js";
+import { propertyRouter } from "./routers/property.js";
 
 export const appRouter = router({
     // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly

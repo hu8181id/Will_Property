@@ -3,8 +3,8 @@ import { createServer } from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import express from "express";
-import { createApp } from "./server/_core/app";
-import { injectSeoMetadata } from "./server/seo";
+import { createApp } from "./server/_core/app.js";
+import { injectSeoMetadata } from "./server/seo.js";
 
 const app = createApp();
 const distPath = path.resolve(process.cwd(), "dist", "public");
