@@ -1,4 +1,4 @@
-import { createApp } from "../server/_core/app";
+import { createApp } from "../server/_core/app.js";
 import { handleTrpcNodeRequest } from "../server/vercel-trpc.js";
 import type { IncomingMessage, ServerResponse } from "node:http";
 

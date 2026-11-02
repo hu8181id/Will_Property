@@ -5,11 +5,11 @@ import {
   getPopularContent,
   recordAnonymousDailyVisit,
   recordAnonymousPageView,
-} from "../db";
-import { getSessionCookieOptions } from "../_core/cookies";
-import { ENV } from "../_core/env";
-import { adminProcedure, publicProcedure, router } from "../_core/trpc";
-import type { TrafficSource } from "../db";
+} from "../db.js";
+import { getSessionCookieOptions } from "../_core/cookies.js";
+import { ENV } from "../_core/env.js";
+import { adminProcedure, publicProcedure, router } from "../_core/trpc.js";
+import type { TrafficSource } from "../db.js";
 
 export const ANONYMOUS_VISITOR_COOKIE = "primedeal_visitor";
 const ANONYMOUS_VISITOR_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;

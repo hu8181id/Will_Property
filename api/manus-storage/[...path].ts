@@ -1,4 +1,4 @@
-import { ENV } from "../../server/_core/env";
+import { ENV } from "../../server/_core/env.js";
 
 type VercelRequest = {
   url?: string;

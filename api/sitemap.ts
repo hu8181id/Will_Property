@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { getDb } from "../server/db";
-import { propertyListings } from "../drizzle/schema";
-import { seoMetadataUtils } from "../server/seo";
-import { buildPropertySlug } from "../shared/propertySlug";
+import { getDb } from "../server/db.js";
+import { propertyListings } from "../drizzle/schema.js";
+import { seoMetadataUtils } from "../server/seo.js";
+import { buildPropertySlug } from "../shared/propertySlug.js";
 
 function escapeXml(value: string) {
   return value.replace(/[<>&'\"]/g, (character) => ({

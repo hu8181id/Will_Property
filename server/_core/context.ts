@@ -2,7 +2,7 @@ import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import type { CreateExpressContextOptions } from "@trpc/server/adapters/express";
 import * as cookieModule from "cookie";
 import type { CookieOptions } from "express";
-import type { User } from "../../drizzle/schema";
+import type { User } from "../../drizzle/schema.js";
 
 const serializeCookie = (cookieModule as unknown as {
   serialize: (name: string, value: string, options?: CookieOptions) => string;

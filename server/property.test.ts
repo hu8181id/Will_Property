@@ -81,6 +81,70 @@ describe("property listing contracts", () => {
     }
   });
 
+  it("keeps existing listings visible when optional columns are missing from an older database", async () => {
+    const expectedRow = {
+      id: 17,
+      title: "Rumah Lama Surabaya",
+      description: "Rumah dengan halaman luas di lokasi strategis.",
+      propertyType: "rumah",
+      transactionType: "dijual",
+      price: 950000000,
+      location: "Surabaya",
+      address: null,
+      area: 120,
+      bedrooms: 3,
+      bathrooms: 2,
+      floor: null,
+      tower: null,
+      view: null,
+      condition: null,
+      certificate: null,
+      facilities: [],
+      images: ["https://example.com/rumah.jpg"],
+      status: "active",
+      createdAt: new Date("2026-01-01T00:00:00.000Z"),
+      updatedAt: new Date("2026-01-01T00:00:00.000Z"),
+    };
+    const makeBuilder = (result: Promise<unknown>) => {
+      const builder: any = {
+        where: () => builder,
+        orderBy: () => builder,
+        then: (resolve: (value: unknown) => unknown, reject: (reason: unknown) => unknown) =>
+          result.then(resolve, reject),
+      };
+      return builder;
+    };
+    const select = vi.fn((fields?: Record<string, unknown>) => ({
+      from: () => makeBuilder(
+        select.mock.calls.length === 1
+          ? Promise.reject({ code: "ER_BAD_FIELD_ERROR", errno: 1054, message: "Unknown column 'videoUrl' in field list" })
+          : Promise.resolve([expectedRow]),
+      ),
+    }));
+    const getDbSpy = vi.spyOn(dbModule, "getDb").mockResolvedValue({ select } as any);
+
+    try {
+      const result = await appRouter.createCaller(createPublicContext()).property.list();
+      expect(result).toHaveLength(1);
+      expect(result[0]).toMatchObject({
+        id: 17,
+        title: "Rumah Lama Surabaya",
+        slug: expect.any(String),
+        videoUrl: null,
+        videoThumbnailUrl: null,
+        virtualTourUrl: null,
+      });
+      expect(select).toHaveBeenCalledTimes(2);
+      const fallbackFields = select.mock.calls[1]?.[0] ?? {};
+      expect(fallbackFields).not.toHaveProperty("videoUrl");
+      expect(fallbackFields).not.toHaveProperty("videoThumbnailUrl");
+      expect(fallbackFields).not.toHaveProperty("virtualTourUrl");
+      expect(fallbackFields).not.toHaveProperty("slug");
+    } finally {
+      getDbSpy.mockRestore();
+    }
+  });
+
   it("protects listing mutations and uploads behind admin authorization", async () => {
     const caller = appRouter.createCaller(createPublicContext());
     await expect(caller.property.create(validDraft)).rejects.toMatchObject({ code: "FORBIDDEN" });
