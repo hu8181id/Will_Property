@@ -1,4 +1,4 @@
-import { handleTrpcNodeRequest, type NodeStyleResponse } from "../server/vercel-trpc.js";
+import { handleTrpcNodeRequest, type NodeStyleResponse } from "../../server/vercel-trpc.js";
 
 export default async function handler(
   request: Request,
