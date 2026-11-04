@@ -1,6 +1,7 @@
 export type ApkUpdateManifest = {
   versionCode: number;
   versionName: string;
+  updateAvailable?: boolean;
   downloadUrl: string;
   sha256: string;
   releaseNotes: string;
@@ -23,6 +24,7 @@ export function installedApkVersionCode(userAgent: string): number | null {
 
 export function shouldOfferApkUpdate(userAgent: string, manifest: ApkUpdateManifest): boolean {
   if (!isAndroidWebView(userAgent) || !Number.isSafeInteger(manifest.versionCode)) return false;
+  if (manifest.updateAvailable === false) return false;
   const installedVersion = installedApkVersionCode(userAgent) ?? 0;
   return manifest.versionCode > installedVersion;
 }
