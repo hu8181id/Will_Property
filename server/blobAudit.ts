@@ -5,6 +5,10 @@ import { propertyListings } from "../drizzle/schema.js";
 import { hasEmergencyAdminKey } from "./propertyVideoUpload.js";
 
 function addMediaValue(used: Set<string>, value: unknown) {
+  if (Array.isArray(value)) {
+    for (const item of value) addMediaValue(used, item);
+    return;
+  }
   if (typeof value !== "string") return;
   try {
     const parsed = JSON.parse(value);
