@@ -5,6 +5,7 @@ import { registerStorageProxy } from "./storageProxy.js";
 import { appRouter } from "../routers.js";
 import { createContext } from "./context.js";
 import { registerPropertyVideoUploadRoute } from "../propertyVideoUpload.js";
+import { registerBlobAuditRoute } from "../blobAudit.js";
 import { buildPropertySlug } from "../../shared/propertySlug.js";
 import { seoMetadataUtils } from "../seo.js";
 
@@ -43,6 +44,7 @@ export function createApp(options: AppOptions = {}): Express {
   registerStorageProxy(app);
   registerOAuthRoutes(app);
   registerPropertyVideoUploadRoute(app);
+  registerBlobAuditRoute(app);
 
   app.post("/api/blob-upload-auth", async (req, res) => {
     const { handleVercelBlobUploadAuth } = await import("../vercelBlobUpload.js");
