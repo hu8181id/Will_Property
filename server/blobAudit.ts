@@ -51,6 +51,7 @@ export function registerBlobAuditRoute(app: Express) {
       let totalBytes = 0;
       let orphanCount = 0;
       let orphanBytes = 0;
+      const orphanByPrefix = new Map<string, { count: number; bytes: number }>();
       const orphanSamples: Array<{ pathname: string; size: number; url: string }> = [];
       do {
         const page = await list({ token: process.env.BLOB_READ_WRITE_TOKEN, cursor, limit: 1000 });
@@ -60,6 +61,11 @@ export function registerBlobAuditRoute(app: Express) {
           if (!used.has(blob.url)) {
             orphanCount += 1;
             orphanBytes += blob.size;
+            const prefix = blob.pathname.split("/").slice(0, 3).join("/") || "(root)";
+            const current = orphanByPrefix.get(prefix) ?? { count: 0, bytes: 0 };
+            current.count += 1;
+            current.bytes += blob.size;
+            orphanByPrefix.set(prefix, current);
             if (orphanSamples.length < 100) orphanSamples.push({ pathname: blob.pathname, size: blob.size, url: blob.url });
           }
         }
@@ -75,6 +81,7 @@ export function registerBlobAuditRoute(app: Express) {
         orphanCount,
         orphanBytes,
         orphanGiB: Number((orphanBytes / 1024 / 1024 / 1024).toFixed(3)),
+        orphanByPrefix: Object.fromEntries(orphanByPrefix),
         orphanSamples,
         note: "Audit read-only. Tidak ada Blob atau listing yang dihapus.",
       });
