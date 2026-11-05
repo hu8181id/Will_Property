@@ -162,4 +162,4 @@
 
 - [x] Ubah ikon PrimeDeal yang diberikan pengguna menjadi PNG 512 × 512 piksel
 - [ ] Kirimkan file ikon PrimeDeal 512 × 512 piksel kepada pengguna
-- [ ] Perbaiki dialog “Pembaruan PrimeDeal tersedia” agar menghormati manifest `updateAvailable: false`, validasi build, dan deploy ke Vercel
+- [x] Perbaiki dialog “Pembaruan PrimeDeal tersedia” agar menghormati manifest `updateAvailable: false`, validasi build, dan deploy ke Vercel
